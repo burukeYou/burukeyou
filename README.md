@@ -187,7 +187,7 @@ Spring cloud config 和 Nacos
 
 <font size='4' color='red'>6. 流量防卫兵: Sentinel</font>
 
-[中文文档]([https://github.com/alibaba/Sentinel/wiki/%E4%BB%8B%E7%BB%8D](https://github.com/alibaba/Sentinel/wiki/介绍))
+[中文文档](https://github.com/alibaba/Sentinel/wiki/介绍)
 
 
 
