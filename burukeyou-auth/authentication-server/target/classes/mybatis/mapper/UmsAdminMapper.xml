@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="authentication.server.auth.dao.UmsAdminMapper" >
+<mapper namespace="burukeyou.auth.authenticationServer.dao.UmsAdminMapper" >
 
 
     <select id="getByUniqueId" resultMap="roleOfUser" parameterType="string">
@@ -12,7 +12,7 @@
             INNER JOIN ums_roles role  on role.id = are.role_id
             WHERE ad.admin_name = #{uniqueId} or ad.mobile = #{uniqueId} or ad.id = #{uniqueId}
     </select>
-    <resultMap id="roleOfUser" type="authentication.server.auth.entity.vo.UserTokenVo">
+    <resultMap id="roleOfUser" type="burukeyou.auth.authenticationServer.entity.vo.UserTokenVo">
         <id property="id" column="id"/>
         <result property="username" column="admin_name"/>
         <result property="password" column="password"/>

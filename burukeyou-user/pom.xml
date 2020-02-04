@@ -12,6 +12,17 @@
     <artifactId>burukeyou-user</artifactId>
 
     <dependencies>
+        <!--web-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <!--测试-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
         <!--mysql-->
         <dependency>
             <groupId>mysql</groupId>
@@ -38,6 +49,12 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-oauth2</artifactId>
+        </dependency>
+        <!-- auth client -->
+        <dependency>
+            <groupId>com.burukeyou</groupId>
+            <artifactId>auth-client</artifactId>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
 
 

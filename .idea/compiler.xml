@@ -6,22 +6,29 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="burukeyou-search" />
         <module name="burukeyou-common" />
         <module name="authorization-server" />
-        <module name="burukeyou-gateway" />
+        <module name="auth-client" />
+        <module name="zuul-gateway" />
         <module name="burukeyou-user" />
         <module name="authentication-server" />
+        <module name="general-gateway" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="auth-client" options="-parameters" />
       <module name="authentication-server" options="-parameters" />
       <module name="authorization-server" options="-parameters" />
       <module name="burukeyou-auth" options="-parameters" />
       <module name="burukeyou-common" options="-parameters" />
       <module name="burukeyou-gateway" options="-parameters" />
+      <module name="burukeyou-search" options="-parameters" />
       <module name="burukeyou-user" options="-parameters" />
+      <module name="general-gateway" options="-parameters" />
+      <module name="zuul-gateway" options="-parameters" />
     </option>
   </component>
 </project>

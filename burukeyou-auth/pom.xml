@@ -14,21 +14,22 @@
     <modules>
         <module>authentication-server</module>
         <module>authorization-server</module>
+        <module>auth-client</module>
     </modules>
 
 
     <dependencies>
-     <!--   &lt;!&ndash;common&ndash;&gt;
+        <!--web-->
         <dependency>
-            <groupId>com.burukeyou</groupId>
-            <artifactId>burukeyou-common</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
--->
-
-
-
-
+        <!--测试-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
 

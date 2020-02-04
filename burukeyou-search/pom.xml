@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>burukeyou</artifactId>
+        <groupId>com.burukeyou</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>burukeyou-search</artifactId>
+
+    <dependencies>
+        <!-- auth - client-->
+        <dependency>
+            <groupId>com.burukeyou</groupId>
+            <artifactId>auth-client</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <!-- 服务注册发现 nacos-discovery  -->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+        </dependency>
+
+
+
+
+    </dependencies>
+
+
+</project>

@@ -2,7 +2,7 @@ spring:
   application:
     name: user-server
   datasource:
-    url: jdbc:mysql://localhost:3306/burukeYou-auth?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
+    url: jdbc:mysql://localhost:3306/burukeyou-auth?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
     ##url: jdbc:mysql://cdb-dceafysi.cd.tencentcdb.com:10058/sc_admin?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
     username: root
     password: 123456
@@ -18,7 +18,7 @@ spring:
       retry:
         enabled: true
 server:
-  port: 8081
+  port: 8082
 
 # ================================================================================================
 
@@ -29,4 +29,28 @@ mybatis-plus:
       logic-not-delete-value: "N" # 逻辑未删除值(默认为 N)
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl    #打印sql语句
+
+# ================================================================================================
+custom:
+  ouath2:
+    client:
+      ignore-urls:
+        - /user/login
+        - /actuator/**
+      resource-id: burukeyou-user
+      signing-key: 909090
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

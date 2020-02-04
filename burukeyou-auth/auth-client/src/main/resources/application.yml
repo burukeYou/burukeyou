@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: auth-client
+
+
+
+
+custom:
+  ouath2:
+    client:
+      signing-key: 909090
+      resource-id: ${spring.application.name}
+      ignore-urls:
+        -  /oauth/**
+        - /actuator/**

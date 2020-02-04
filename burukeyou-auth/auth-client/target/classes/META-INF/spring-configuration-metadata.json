@@ -1,0 +1,27 @@
+{
+  "groups": [
+    {
+      "name": "custom.ouath2.client",
+      "type": "burukeyou.auth.authClient.config.AuthClientProperties",
+      "sourceType": "burukeyou.auth.authClient.config.AuthClientProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "custom.ouath2.client.ignore-urls",
+      "type": "java.util.List<java.lang.String>",
+      "sourceType": "burukeyou.auth.authClient.config.AuthClientProperties"
+    },
+    {
+      "name": "custom.ouath2.client.resource-id",
+      "type": "java.lang.String",
+      "sourceType": "burukeyou.auth.authClient.config.AuthClientProperties"
+    },
+    {
+      "name": "custom.ouath2.client.signing-key",
+      "type": "java.lang.String",
+      "sourceType": "burukeyou.auth.authClient.config.AuthClientProperties"
+    }
+  ],
+  "hints": []
+}

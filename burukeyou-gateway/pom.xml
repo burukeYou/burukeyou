@@ -9,7 +9,23 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>burukeyou.gateway</artifactId>
+    <artifactId>burukeyou-gateway</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>general-gateway</module>
+        <module>zuul-gateway</module>
+    </modules>
+
+
+    <dependencies>
+        <!--服务注册与服务发现-->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+        </dependency>
+
+
+    </dependencies>
 
 
 </project>

@@ -20,9 +20,10 @@
     <!-- 模块 -->
     <modules>
         <module>burukeyou-auth</module>
-        <module>burukeyou-gateway</module>
         <module>burukeyou-user</module>
         <module>burukeyou-common</module>
+        <module>burukeyou-gateway</module>
+        <module>burukeyou-search</module>
     </modules>
 
     <!-- 版本约束  -->
@@ -56,17 +57,6 @@
 
     <!-- 依赖 -->
     <dependencies>
-        <!--web-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        <!--测试-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
         <!--简化对象-->
         <dependency>
             <groupId>org.projectlombok</groupId>

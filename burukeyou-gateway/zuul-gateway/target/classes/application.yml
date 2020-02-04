@@ -1,0 +1,40 @@
+server:
+  port: 9010
+
+spring:
+  application:
+    name: zuul-gateway-server
+
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+
+# ===================================配置zuul网关============================================================
+zuul:
+  routes:
+    token:
+      url: authenticationServer-server
+    search:
+      url: search-server
+
+
+  #  默认敏感请求头比如Authorthtion是不会下发的，这里设置为空，就是所有请求头都向下转发
+  sensitive-headers:
+
+
+
+
+
+# ===================================配置鉴权客户端============================================================
+custom:
+  ouath2:
+    client:
+      signing-key: 909090
+      resource-id: ${spring.application.name}
+      ignore-urls:
+        - /token/**
+
+
+
+
