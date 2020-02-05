@@ -10,7 +10,7 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 @SpringBootApplication
 @EnableDiscoveryClient
 @ComponentScan({"burukeyou.gateway.zuul","burukeyou.auth.authClient"})
-@EnableZuulProxy
+@EnableZuulProxy // 开启网关
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class ZuulGatewayApplication {
     public static void main(String[] args) {

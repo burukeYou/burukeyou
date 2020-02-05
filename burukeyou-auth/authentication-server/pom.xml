@@ -37,12 +37,13 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>
-        <!-- burukeyou-common -->
+        <!-- burukeyou - core -->
         <dependency>
             <groupId>com.burukeyou</groupId>
-            <artifactId>burukeyou-common</artifactId>
+            <artifactId>common-core</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+
 
 
     </dependencies>

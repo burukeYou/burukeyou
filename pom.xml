@@ -20,10 +20,12 @@
     <!-- 模块 -->
     <modules>
         <module>burukeyou-auth</module>
-        <module>burukeyou-user</module>
+        <module>burukeyou-admin</module>
         <module>burukeyou-common</module>
         <module>burukeyou-gateway</module>
         <module>burukeyou-search</module>
+        <module>burukeyou-user</module>
+        <module>burukeyou-comment</module>
     </modules>
 
     <!-- 版本约束  -->

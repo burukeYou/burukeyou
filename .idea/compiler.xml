@@ -7,12 +7,15 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="burukeyou-search" />
-        <module name="burukeyou-common" />
-        <module name="authorization-server" />
         <module name="auth-client" />
+        <module name="common-core" />
+        <module name="burukeyou-comment" />
+        <module name="authorization-server" />
+        <module name="burukeyou-admin" />
         <module name="zuul-gateway" />
         <module name="burukeyou-user" />
         <module name="authentication-server" />
+        <module name="common-web" />
         <module name="general-gateway" />
       </profile>
     </annotationProcessing>
@@ -22,11 +25,15 @@
       <module name="auth-client" options="-parameters" />
       <module name="authentication-server" options="-parameters" />
       <module name="authorization-server" options="-parameters" />
+      <module name="burukeyou-admin" options="-parameters" />
       <module name="burukeyou-auth" options="-parameters" />
+      <module name="burukeyou-comment" options="-parameters" />
       <module name="burukeyou-common" options="-parameters" />
       <module name="burukeyou-gateway" options="-parameters" />
       <module name="burukeyou-search" options="-parameters" />
       <module name="burukeyou-user" options="-parameters" />
+      <module name="common-core" options="-parameters" />
+      <module name="common-web" options="-parameters" />
       <module name="general-gateway" options="-parameters" />
       <module name="zuul-gateway" options="-parameters" />
     </option>

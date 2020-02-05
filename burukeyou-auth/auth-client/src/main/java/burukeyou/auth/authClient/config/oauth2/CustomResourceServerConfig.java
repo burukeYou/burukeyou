@@ -2,9 +2,9 @@ package burukeyou.auth.authClient.config.oauth2;
 
 import burukeyou.auth.authClient.config.AuthClientProperties;
 import burukeyou.auth.authClient.handler.CustomAuthenticationEntryPoint;
+import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -26,8 +26,7 @@ import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 @Slf4j
 @Configuration
 @EnableResourceServer
-@ComponentScan("burukeyou")
-@ConditionalOnMissingBean(CustomResourceServerConfig.class)
+@ComponentScan("burukeyou.auth.authClient")
 public class CustomResourceServerConfig extends ResourceServerConfigurerAdapter {
 
     @Autowired
@@ -36,10 +35,16 @@ public class CustomResourceServerConfig extends ResourceServerConfigurerAdapter 
     @Autowired
     private AuthClientProperties authClientProperties;
 
+
     @Override
     public void configure(HttpSecurity http) throws Exception {
-
+        // todo 被调用两次 -- 待解决
         http.csrf().disable();
+
+        // 放行 swagger ui
+        http.authorizeRequests().antMatchers("/v2/api-docs", "/swagger-resources/configuration/ui",
+                "/swagger-resources","/swagger-resources/configuration/security",
+                "/swagger-ui.html","/course/coursebase/**","/webjars/**","/api/**/v2/api-docs").permitAll();
 
         if (authClientProperties.getIgnoreUrls() != null){
             for(String url: authClientProperties.getIgnoreUrls()){
@@ -49,6 +54,7 @@ public class CustomResourceServerConfig extends ResourceServerConfigurerAdapter 
 
         http.authorizeRequests().anyRequest().authenticated();
        // http.authorizeRequests().anyRequest().permitAll();
+
     }
 
     @Override

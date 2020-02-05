@@ -1,7 +1,7 @@
 package burukeyou.auth.authenticationServer.entity.pojo;
 
+import burukeyou.common.core.entity.pojo.BasePojo;
 import com.baomidou.mybatisplus.annotation.TableName;
-import burukeyou.common.entity.pojo.BasePojo;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

@@ -30,6 +30,10 @@ public class CustomAuthenticationEntryPoint implements AuthenticationEntryPoint 
     public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException e) throws IOException, ServletException {
         log.info("auth fail....      -- {}",application_anme);
 
+        System.out.println(request.getRequestURL());
+        System.out.println(request.getRequestURI());
+        System.out.println("========================");
+
         Throwable cause = e.getCause();
         if (cause instanceof InvalidTokenException){
             log.info("error mesage:  invalid_token");

@@ -1,5 +1,5 @@
 server:
-  port: 9010
+  port: 9000
 
 spring:
   application:
@@ -22,11 +22,17 @@ spring:
 
 # ===================================配置zuul网关============================================================
 zuul:
+  prefix: /api
   routes:
     token:
       url: authenticationServer-server
     search:
       url: search-server
+    admin:
+      url: admin-server
+    user:
+      url: user-server
+
 
 
   #  默认敏感请求头比如Authorthtion是不会下发的，这里设置为空，就是所有请求头都向下转发

@@ -1,14 +1,19 @@
 package burukeyou.search.controller;
 
 import burukeyou.auth.authClient.entity.CurrentUserInfo;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/search")
+@Api(value = "全局搜索接口",description = "...")
 public class GlobalController {
 
     @GetMapping("/a")
@@ -18,13 +23,16 @@ public class GlobalController {
     }
 
     @GetMapping("/b")
+    @ApiOperation(value = "查找2",notes = "xx")
     public String get02(@AuthenticationPrincipal CurrentUserInfo userInfo){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         return "2";
     }
 
     @GetMapping("/c")
-    @PreAuthorize("hasRole('SBBSBS')")
     public String get03(@AuthenticationPrincipal CurrentUserInfo userInfo){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
         return "3";
     }
 

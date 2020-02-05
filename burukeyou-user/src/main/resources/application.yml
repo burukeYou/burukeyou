@@ -3,7 +3,7 @@ spring:
     name: user-server
   # 数据源
   datasource:
-    url: jdbc:mysql://localhost:3306/burukeyou-auth?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
+    url: jdbc:mysql://localhost:3306/burukeyou-user?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
     ##url: jdbc:mysql://cdb-dceafysi.cd.tencentcdb.com:10058/sc_admin?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
     username: root
     password: 123456
@@ -21,11 +21,8 @@ spring:
         enabled: true
 
 
-
-
-
 server:
-  port: 8082
+  port: 9020
 
 # ================================================================================================
 
@@ -42,10 +39,12 @@ custom:
   ouath2:
     client:
       ignore-urls:
-        - /user/login
-        - /actuator/**
+        - /**
       resource-id: burukeyou-user
       signing-key: 909090
+
+  swagger2:
+    basePackage: burukeyou.user.controller
 
 
 

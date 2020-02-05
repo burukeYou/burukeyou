@@ -1,9 +1,19 @@
 server:
-  port: 9010
+  port: 9000
 
 spring:
   application:
     name: zuul-gateway-server
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/test02?characterEncoding=utf8&characterSetResults=utf8&autoReconnect=true
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    generate-ddl: true
+    show-sql: true
 
   cloud:
     nacos:
@@ -12,11 +22,17 @@ spring:
 
 # ===================================配置zuul网关============================================================
 zuul:
+  prefix: /api
   routes:
     token:
       url: authenticationServer-server
     search:
       url: search-server
+    admin:
+      url: admin-server
+    user:
+      url: user-server
+
 
 
   #  默认敏感请求头比如Authorthtion是不会下发的，这里设置为空，就是所有请求头都向下转发
@@ -34,7 +50,6 @@ custom:
       resource-id: ${spring.application.name}
       ignore-urls:
         - /token/**
-
 
 
 

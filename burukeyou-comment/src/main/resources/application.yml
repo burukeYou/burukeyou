@@ -1,0 +1,20 @@
+server:
+  port: 9040
+
+spring:
+  application:
+    name: comment-server
+
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+
+custom:
+  ouath2:
+    client:
+      signingKey: 909090
+      resourceId: ${spring.application.name}
+      ignoreUrls:
+        - /**
+
