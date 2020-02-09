@@ -7,8 +7,8 @@ import org.springframework.util.Assert;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 
-public class ReflectionUtils {
-    private ReflectionUtils() {}
+public class BaseConverterUtils {
+    private BaseConverterUtils() {}
 
     // InputConverter.class    LoginDto.class
     @Nullable

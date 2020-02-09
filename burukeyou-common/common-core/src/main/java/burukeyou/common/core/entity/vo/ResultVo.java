@@ -1,6 +1,7 @@
 package burukeyou.common.core.entity.vo;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
@@ -17,7 +18,6 @@ import java.time.ZonedDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ResultVo<T> {
-
 
     @ApiModelProperty(value = "状态码", required = true)
     private String code;
@@ -45,6 +45,12 @@ public class ResultVo<T> {
         return new ResultVo("400",msg,ZonedDateTime.now().toInstant(),null);
     }
 
+    public static ResultVo error(){
+        return new ResultVo("400","",ZonedDateTime.now().toInstant(),null); }
+
+    public static ResultVo compute(Boolean result){
+        return result == true ?  ResultVo.success() : ResultVo.error();
+    }
 
 
 

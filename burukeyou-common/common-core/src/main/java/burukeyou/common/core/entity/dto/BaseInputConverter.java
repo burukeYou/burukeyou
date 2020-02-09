@@ -1,7 +1,7 @@
 package burukeyou.common.core.entity.dto;
 
 import burukeyou.common.core.utils.CustomBeanUtils;
-import burukeyou.common.core.utils.ReflectionUtils;
+import burukeyou.common.core.utils.BaseConverterUtils;
 import org.springframework.lang.Nullable;
 
 import java.lang.reflect.ParameterizedType;
@@ -15,6 +15,7 @@ import java.util.Objects;
 public interface BaseInputConverter<T> {
 
     default T converTo(){
+        // T
         ParameterizedType currentparamterizedType = getCurrentparamterizedType();
         Objects.requireNonNull(currentparamterizedType,"Cannot fetch actual type because parameterized type is null");
         Type actualTypeArgument = currentparamterizedType.getActualTypeArguments()[0];
@@ -28,7 +29,7 @@ public interface BaseInputConverter<T> {
 
     @Nullable
     default ParameterizedType getCurrentparamterizedType(){
-        return ReflectionUtils.getParameterizedType(BaseInputConverter.class,this.getClass());
+        return BaseConverterUtils.getParameterizedType(BaseInputConverter.class,this.getClass());
     }
 
 }

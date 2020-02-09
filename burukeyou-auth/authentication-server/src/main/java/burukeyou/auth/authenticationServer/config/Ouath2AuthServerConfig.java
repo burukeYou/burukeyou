@@ -29,7 +29,6 @@ import java.util.Arrays;
 @EnableAuthorizationServer
 public class Ouath2AuthServerConfig extends AuthorizationServerConfigurerAdapter {
 
-
     private final AuthenticationManager authenticationManager;
 
     private final DataSource dataSource;

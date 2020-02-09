@@ -13,6 +13,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
+import org.springframework.util.Assert;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -33,6 +34,7 @@ public class Ouath2UserDetailService extends ServiceImpl<UmsUserMapper, UmsUser>
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        Assert.notNull(username,"aut username can not be null");
 
         String type = request.getParameter("type");
         // 普通用户认证
@@ -42,17 +44,17 @@ public class Ouath2UserDetailService extends ServiceImpl<UmsUserMapper, UmsUser>
                     .eq("username", username)
                     .or().eq("mobile", username).or().eq("email", username));
 
-            user = new UserTokenVo();
-            user.setId(umsUser.getId());
-            user.setPassword(umsUser.getPassword());
-            user.setUsername(umsUser.getUsername());
-            user.setNickname(umsUser.getNickname());
-            user.setAvatar(umsUser.getAvatar());
-            user.setAccountNonExpired(umsUser.getAccountNonExpired());
-            user.setAccountNonLocked(umsUser.getAccountNonLocked());
-            user.setCredentialsNonExpired(umsUser.getCredentialsNonExpired());
-            user.setEnabled(umsUser.getEnabled());
-            user.setAuthorities(null);
+            if (umsUser == null)
+                return null;
+
+            user = UserTokenVo.builder().id(umsUser.getId()).password(umsUser.getPassword())
+                       .username(umsUser.getUsername()).nickname(umsUser.getNickname())
+                       .avatar(umsUser.getAvatar()).description(umsUser.getDescription())
+                       .blog_address(umsUser.getBlogAddress())
+                       .accountNonExpired(umsUser.getAccountNonExpired())
+                       .accountNonLocked(umsUser.getAccountNonLocked()).credentialsNonExpired(umsUser.getCredentialsNonExpired())
+                       .enabled(umsUser.getEnabled()).authorities(null).build();
+
         }else if ("admin".equals(type)){
             //后台用户认证
             user = userService.getUserByUserUniqueId(username);

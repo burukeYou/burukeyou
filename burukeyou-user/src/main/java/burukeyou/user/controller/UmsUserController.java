@@ -2,6 +2,8 @@ package burukeyou.user.controller;
 
 import burukeyou.common.core.entity.vo.ResultVo;
 import burukeyou.user.entity.dto.LoginDto;
+import burukeyou.user.entity.dto.UserDto;
+import burukeyou.user.entity.pojo.UmsUsers;
 import burukeyou.user.entity.vo.TokenInfo;
 import burukeyou.user.service.UmsUserService;
 import io.swagger.annotations.*;
@@ -9,10 +11,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.*;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
@@ -78,10 +77,18 @@ public class UmsUserController {
     }
 
 
-  /*  @PostMapping
-    public ResultVo register(){
-
+    @PostMapping("/register")
+    @ApiOperation(value = "用户注册或者修改用户信息")
+    public ResultVo register(@Valid @RequestBody UserDto userDto){
+        return ResultVo.compute(umsUserService.saveOrupdate(userDto.converTo()))  ;
     }
-*/
 
+
+    @GetMapping("/uniqueId")
+    @ApiOperation(value = "根据用户账号或者手机号或者邮箱查找用户")
+    @ApiImplicitParam(paramType = "query",name = "uniqueId",value = "用户账号或者手机号或者邮箱",required = true,dataType = "string")
+    public ResultVo getUserByUserName(@RequestParam String uniqueId){
+        log.debug("query with username or mobile or email:{}", uniqueId);
+        return ResultVo.success(umsUserService.getByUniqueId(uniqueId)) ;
+    }
 }

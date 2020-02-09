@@ -31,29 +31,27 @@ public class ValidationUtils {
      *
      * @param obj 待校验的对象
      * @param groups 待校验的组
+     * @return 成功返回null,否则返回错误信息
      */
-    public static void validate(Object obj, Class<?>... groups) {
+    public static Object validate(Object obj, Class<?>... groups) {
         Validator vd= getValidator();
 
         // 如果校验成功，该集合为空；否则，集合中的每一个元素（ConstraintViolation类型）对应一个违反的约束对象
         Set<ConstraintViolation<Object>> validate = vd.validate(obj, groups);
 
         //
-        if (!CollectionUtils.isEmpty(validate)){
-            throw new ConstraintViolationException(validate);
-        }
+        return !CollectionUtils.isEmpty(validate) ? mapWithValidError(validate) : null;
     }
 
     // 将字段验证错误转换为标准的map型，key:value = field:message
     @NonNull
-    public static Map<String, String> mapWithValidError(Set<ConstraintViolation<?>> cvs) {
+    public static Map<String, String> mapWithValidError(Set<ConstraintViolation<Object>> cvs) {
         if (CollectionUtils.isEmpty(cvs)) {
             return Collections.emptyMap();
         }
 
         Map<String, String> errMap = new HashMap<>(4);
         cvs.forEach(e->errMap.put(e.getPropertyPath().toString(),e.getMessage()));
-
         return errMap;
     }
 
@@ -70,7 +68,6 @@ public class ValidationUtils {
 
         return errMap;
     }
-
 
 
 

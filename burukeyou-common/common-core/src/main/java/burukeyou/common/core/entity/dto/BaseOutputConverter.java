@@ -1,4 +1,4 @@
-package burukeyou.common.core.entity.vo;
+package burukeyou.common.core.entity.dto;
 
 import burukeyou.common.core.utils.CustomBeanUtils;
 import org.springframework.lang.NonNull;

@@ -1,8 +1,7 @@
 package burukeyou.auth.authenticationServer.entity.vo;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.Data;
-import lombok.ToString;
+import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -11,6 +10,9 @@ import java.util.List;
 
 @Data
 @ToString
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class UserTokenVo  implements UserDetails {
 
 	private String id;
@@ -22,6 +24,10 @@ public class UserTokenVo  implements UserDetails {
 	private String nickname;
 
 	private String avatar;
+
+	private String description;
+
+	private String blog_address;
 
 	private Boolean enabled;
 

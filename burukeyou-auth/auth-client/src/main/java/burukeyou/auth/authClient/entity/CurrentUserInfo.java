@@ -28,6 +28,8 @@ public class CurrentUserInfo implements UserDetails {
 
 	private String avatar;
 
+	private String description;
+
 	private Boolean enabled;
 
 	private Boolean accountNonExpired;

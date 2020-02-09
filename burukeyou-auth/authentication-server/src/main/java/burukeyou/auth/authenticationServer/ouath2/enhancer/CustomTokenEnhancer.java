@@ -25,6 +25,8 @@ public class CustomTokenEnhancer implements TokenEnhancer {
         additionalInfo.put("id", user.getId());
         additionalInfo.put("nickname", user.getNickname());
         additionalInfo.put("avatar", user.getAvatar());
+        additionalInfo.put("description", user.getDescription());
+        additionalInfo.put("blog_address", user.getBlog_address());
 
         DefaultOAuth2AccessToken token = (DefaultOAuth2AccessToken) accessToken;
         token.setAdditionalInformation(additionalInfo);

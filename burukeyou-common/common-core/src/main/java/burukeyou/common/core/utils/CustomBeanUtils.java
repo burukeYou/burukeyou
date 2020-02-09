@@ -17,7 +17,7 @@ public class CustomBeanUtils {
         Assert.notNull(targetClass, "Target class must not be null");
         if (source == null) return null;
         try {
-            T targetInstance = targetClass.newInstance();
+            T targetInstance = targetClass.newInstance(); // targetClass must implement AllArgsConstructor
             BeanUtils.copyProperties(source,targetInstance,getNullPropertyNames(source));
             return targetInstance;
         } catch (Exception e) {

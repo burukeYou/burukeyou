@@ -12,6 +12,8 @@ import java.util.Date;
 @Data
 public class BasePojo implements Serializable {
 
+    public final static String DEFAULT_USERNAME = "system";
+
     @TableId(type = IdType.ASSIGN_ID)
     private String id;
 

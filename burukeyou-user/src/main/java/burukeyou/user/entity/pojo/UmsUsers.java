@@ -1,9 +1,17 @@
 package burukeyou.user.entity.pojo;
 
 import burukeyou.common.core.entity.pojo.BasePojo;
+import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@Builder
+@TableName("ums_users")
+@NoArgsConstructor
+@AllArgsConstructor
 public class UmsUsers  extends BasePojo {
 
 	private String username;
@@ -46,5 +54,5 @@ public class UmsUsers  extends BasePojo {
 
 	private String blogAddress;
 
-	private Long exp;
+	private Integer exp;
 }
