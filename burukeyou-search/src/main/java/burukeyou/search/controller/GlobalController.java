@@ -1,6 +1,7 @@
 package burukeyou.search.controller;
 
 import burukeyou.auth.authClient.entity.CurrentUserInfo;
+import burukeyou.auth.authClient.util.AuthUtils;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -31,7 +32,10 @@ public class GlobalController {
 
     @GetMapping("/c")
     public String get03(@AuthenticationPrincipal CurrentUserInfo userInfo){
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        CurrentUserInfo currentUser = AuthUtils.getCurrentUser();
+
+        System.out.println(userInfo);
+        System.out.println(currentUser);
 
         return "3";
     }

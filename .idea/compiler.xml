@@ -6,35 +6,57 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="burukeyou-search" />
-        <module name="auth-client" />
-        <module name="common-core" />
-        <module name="burukeyou-comment" />
-        <module name="authorization-server" />
-        <module name="burukeyou-admin" />
         <module name="zuul-gateway" />
         <module name="burukeyou-user" />
+        <module name="comment-center" />
+        <module name="file-center" />
+        <module name="im-api" />
+        <module name="im-server" />
+        <module name="authorization-server" />
+        <module name="auth-client" />
+        <module name="article-center" />
+        <module name="common-core" />
         <module name="authentication-server" />
-        <module name="common-web" />
+        <module name="video-center" />
+        <module name="system-center" />
+        <module name="burukeyou-search" />
+        <module name="boiling-center" />
+        <module name="user-center" />
         <module name="general-gateway" />
+        <module name="burukeyou-admin" />
+        <module name="common-web" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="burukeyou-comment" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="article-center" options="-parameters" />
       <module name="auth-client" options="-parameters" />
       <module name="authentication-server" options="-parameters" />
       <module name="authorization-server" options="-parameters" />
+      <module name="boiling-center" options="-parameters" />
       <module name="burukeyou-admin" options="-parameters" />
+      <module name="burukeyou-api" options="-parameters" />
       <module name="burukeyou-auth" options="-parameters" />
       <module name="burukeyou-comment" options="-parameters" />
       <module name="burukeyou-common" options="-parameters" />
       <module name="burukeyou-gateway" options="-parameters" />
+      <module name="burukeyou-im" options="-parameters" />
       <module name="burukeyou-search" options="-parameters" />
       <module name="burukeyou-user" options="-parameters" />
+      <module name="comment-center" options="-parameters" />
       <module name="common-core" options="-parameters" />
       <module name="common-web" options="-parameters" />
+      <module name="file-center" options="-parameters" />
       <module name="general-gateway" options="-parameters" />
+      <module name="im-api" options="-parameters" />
+      <module name="im-server" options="-parameters" />
+      <module name="system-center" options="-parameters" />
+      <module name="user-center" options="-parameters" />
+      <module name="video-center" options="-parameters" />
       <module name="zuul-gateway" options="-parameters" />
     </option>
   </component>

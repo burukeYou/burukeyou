@@ -1,9 +1,9 @@
 package burukeyou.user.controller;
 
+import burukeyou.common.core.entity.annotation.EnableParamValid;
 import burukeyou.common.core.entity.vo.ResultVo;
 import burukeyou.user.entity.dto.LoginDto;
 import burukeyou.user.entity.dto.UserDto;
-import burukeyou.user.entity.pojo.UmsUsers;
 import burukeyou.user.entity.vo.TokenInfo;
 import burukeyou.user.service.UmsUserService;
 import io.swagger.annotations.*;
@@ -77,18 +77,20 @@ public class UmsUserController {
     }
 
 
-    @PostMapping("/register")
+    @PostMapping("/save")
+    @EnableParamValid
     @ApiOperation(value = "用户注册或者修改用户信息")
-    public ResultVo register(@Valid @RequestBody UserDto userDto){
+    @ApiImplicitParam(name = "userDto", value = "用户信息", required = true, dataType = "UserDto")
+    public ResultVo registerOrUpdate(@RequestBody UserDto userDto){
         return ResultVo.compute(umsUserService.saveOrupdate(userDto.converTo()))  ;
     }
 
 
-    @GetMapping("/uniqueId")
+    /*@GetMapping("/uniqueId")
     @ApiOperation(value = "根据用户账号或者手机号或者邮箱查找用户")
     @ApiImplicitParam(paramType = "query",name = "uniqueId",value = "用户账号或者手机号或者邮箱",required = true,dataType = "string")
-    public ResultVo getUserByUserName(@RequestParam String uniqueId){
+    public ResultVo getUserByUniqueId(@RequestParam String uniqueId){
         log.debug("query with username or mobile or email:{}", uniqueId);
         return ResultVo.success(umsUserService.getByUniqueId(uniqueId)) ;
-    }
+    }*/
 }

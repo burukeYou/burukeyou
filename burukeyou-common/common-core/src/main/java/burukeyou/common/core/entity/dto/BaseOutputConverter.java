@@ -12,7 +12,7 @@ public interface BaseOutputConverter<Vo extends BaseOutputConverter<Vo,Dto>,Dto>
 
     @NonNull
     default <T extends Vo> T convertFrom(@NonNull Dto dto){
-        CustomBeanUtils.copyProperties(dto,this.getClass());
+        CustomBeanUtils.copyProperties(dto,this);
         return (T)this;
     }
 

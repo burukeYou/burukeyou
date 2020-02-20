@@ -21,7 +21,6 @@ custom:
       ignoreUrls:
         - /oauth/**
         - /actuator/**
-        - /search/**
   swagger2:
     basePackage: burukeyou.search.controller
 

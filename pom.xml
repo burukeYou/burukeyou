@@ -25,7 +25,8 @@
         <module>burukeyou-gateway</module>
         <module>burukeyou-search</module>
         <module>burukeyou-user</module>
-        <module>burukeyou-comment</module>
+        <module>burukeyou-api</module>
+        <module>burukeyou-im</module>
     </modules>
 
     <!-- 版本约束  -->

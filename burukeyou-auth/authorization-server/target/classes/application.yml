@@ -13,7 +13,7 @@ spring:
         server-addr: localhost:8848
 
 server:
-  port: 9090
+  port: 8570
 
 
 

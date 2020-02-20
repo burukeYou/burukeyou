@@ -33,11 +33,11 @@ public class ResultVo<T> {
     private T data;
 
 
-    public static ResultVo success(){
+    public static  ResultVo success(){
         return new ResultVo("200","",ZonedDateTime.now().toInstant(),null);
     }
 
-    public static ResultVo success(Object data){
+    public static   ResultVo success(Object data){
         return new ResultVo("200","",ZonedDateTime.now().toInstant(),data);
     }
 

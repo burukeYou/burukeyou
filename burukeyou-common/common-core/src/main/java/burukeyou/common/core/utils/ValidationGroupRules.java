@@ -2,10 +2,7 @@ package burukeyou.common.core.utils;
 
 public interface ValidationGroupRules {
 
-    interface INSERT{
-    }
+    interface INSERT{}
 
-
-    interface UPDATE {
-    }
+    interface UPDATE{}
 }

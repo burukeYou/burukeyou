@@ -18,21 +18,18 @@ import java.util.Map;
 @Data
 public class CustomTokenServices implements ResourceServerTokenServices {
 
-    @Autowired
     private TokenStore tokenStore;
 
-    @Autowired
     private DefaultAccessTokenConverter defaultAccessTokenConverter;
 
-    @Autowired
     private JwtAccessTokenConverter jwtAccessTokenConverter;
 
     @Override
     public OAuth2Authentication loadAuthentication(String accessToken) throws AuthenticationException, InvalidTokenException {
         OAuth2Authentication oAuth2Authentication = tokenStore.readAuthentication(accessToken);
-
+/*
         UserAuthenticationConverter userTokenConverter = new CustomUserAuthenticationConverter();
-        defaultAccessTokenConverter.setUserTokenConverter(userTokenConverter);
+        defaultAccessTokenConverter.setUserTokenConverter(userTokenConverter);*/
         Map<String, ?> map = jwtAccessTokenConverter.convertAccessToken(readAccessToken(accessToken), oAuth2Authentication);
         return defaultAccessTokenConverter.extractAuthentication(map);
     }

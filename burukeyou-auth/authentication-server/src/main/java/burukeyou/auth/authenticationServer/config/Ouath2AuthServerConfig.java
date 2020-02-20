@@ -38,7 +38,7 @@ public class Ouath2AuthServerConfig extends AuthorizationServerConfigurerAdapter
     private CustomAuthenticationEntryPoint customAuthenticationEntryPoint;
 
     public Ouath2AuthServerConfig(AuthenticationManager authenticationManager, DataSource dataSource,
-                                  Ouath2UserDetailService ouath2UserDetailService,
+                                 Ouath2UserDetailService ouath2UserDetailService,
                                 CustomAuthenticationEntryPoint customAuthenticationEntryPoint) {
         this.authenticationManager = authenticationManager;
         this.dataSource = dataSource;
@@ -80,10 +80,10 @@ public class Ouath2AuthServerConfig extends AuthorizationServerConfigurerAdapter
      */
     @Override
     public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
-        security.checkTokenAccess("isAuthenticated()")
+      /*  security//.checkTokenAccess("isAuthenticated()")
                 // 认证中心往外面暴露的一个用来获取jwt的SigningKey的服务/oauth/token_key，但只有认证过服务才可以
-                .tokenKeyAccess("isAuthenticated()") //
-                .authenticationEntryPoint(customAuthenticationEntryPoint); //自定义认证失败处理器
+                //.tokenKeyAccess("isAuthenticated()") //
+                .authenticationEntryPoint(customAuthenticationEntryPoint); //自定义认证失败处理器*/
     }
 
 
@@ -98,7 +98,7 @@ public class Ouath2AuthServerConfig extends AuthorizationServerConfigurerAdapter
 
         endpoints.tokenStore(tokenStore())
                 .authenticationManager(authenticationManager)
-                .userDetailsService(ouath2UserDetailService)
+                .userDetailsService(ouath2UserDetailService) //刷新token请求会用根据refresh_token解析出username再去加载用户信息校验用户身份
                 .tokenEnhancer(enhancerChain);
     }
 }

@@ -37,7 +37,6 @@ public class CustomUserAuthenticationConverter implements UserAuthenticationConv
             user.setAuthorities(authorities);
             return new UsernamePasswordAuthenticationToken(user, N_A,authorities);
         }else {
-
             return new UsernamePasswordAuthenticationToken(user, N_A,null);
         }
     }

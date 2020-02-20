@@ -38,7 +38,7 @@ public class CustomResourceServerConfig extends ResourceServerConfigurerAdapter 
     @Autowired
     private AuthClientProperties authClientProperties;
 
-    // 注入密码加密
+    // 注入密码加密 （供资源服务器调用）
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
@@ -71,14 +71,14 @@ public class CustomResourceServerConfig extends ResourceServerConfigurerAdapter 
         if (authClientProperties.getResourceId() != null)
             resources.resourceId(authClientProperties.getResourceId());
 
+        // 这里的签名key 保持和认证中心一致
+        if (authClientProperties.getSigningKey() == null)
+            log.info("SigningKey is null cant not decode token.......");
+
         //
         DefaultAccessTokenConverter accessTokenConverter = new DefaultAccessTokenConverter();
         accessTokenConverter.setUserTokenConverter(new CustomUserAuthenticationConverter());
 
-
-        // 这里的签名key 保持和认证中心一致
-        if (authClientProperties.getSigningKey() == null)
-            log.info("SigningKey is null cant not decode token.......");
 
         JwtAccessTokenConverter converter = new JwtAccessTokenConverter();
         converter.setSigningKey(authClientProperties.getSigningKey());
@@ -86,8 +86,9 @@ public class CustomResourceServerConfig extends ResourceServerConfigurerAdapter 
 
         //
         CustomTokenServices tokenServices = new CustomTokenServices();
-        JwtTokenStore jwtTokenStore = new JwtTokenStore(converter);
-        tokenServices.setTokenStore(jwtTokenStore);
+
+        //
+        tokenServices.setTokenStore(new JwtTokenStore(converter));
         tokenServices.setJwtAccessTokenConverter(converter);
         tokenServices.setDefaultAccessTokenConverter(accessTokenConverter);
 

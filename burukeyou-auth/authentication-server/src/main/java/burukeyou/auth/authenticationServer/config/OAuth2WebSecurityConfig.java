@@ -25,8 +25,8 @@ public class OAuth2WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private  Ouath2UserDetailService ouath2UserDetailService;
 
-    @Autowired
-    private  OAuth2LogoutSuccessHandler oAuth2LogoutSuccessHandler;
+  /*  @Autowired
+    private  OAuth2LogoutSuccessHandler oAuth2LogoutSuccessHandler;*/
 
 
     // 重新注入认证管理器
@@ -52,10 +52,12 @@ public class OAuth2WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests().anyRequest().authenticated()
-                .and()
-                .formLogin().and()
-                .httpBasic().and()
-                .logout().logoutSuccessHandler(oAuth2LogoutSuccessHandler);
+        //http.authorizeRequests().anyRequest().authenticated();
+       // http.authorizeRequests().anyRequest().permitAll();
+        //http.httpBasic();
+              /*  .and()
+                .formLogin();//.and()*/
+                //.httpBasic();//.and()
+                //.logout().logoutSuccessHandler(oAuth2LogoutSuccessHandler);
     }
 }
