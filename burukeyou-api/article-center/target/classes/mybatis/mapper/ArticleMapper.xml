@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="burukeyou.article.mapper.ArticleMapper" >
+
+
+
+    <select id="getOneDetailById" parameterType="string" resultMap="labelOfArticle">
+       SELECT a.id,a.title,a.description,a.content,a.html_content,a.user_id,a.user_nickname,a.user_avatar,
+              a.ispublic,a.istop,a.visits_count,a.thumbup_count,a.comment_count,a.state,a.url,a.created_time,
+			  label.id as label_id,label.name as labelName,label.avatar as  labelAvatar
+        from ams_article a LEFT  JOIN  sys_label_article_relation lar on a.id = lar.article_id
+        LEFT JOIN sys_label label on lar.label_id = label.id
+        WHERE a.id = #{id}
+    </select>
+    <resultMap id="labelOfArticle" type="burukeyou.article.entity.vo.ArticleDetailVo">
+        <id property="id" column="id"/>
+        <result property="title" column="title"/>
+        <result property="description" column="description"/>
+        <result property="content" column="content"/>
+        <result property="htmlContent" column="html_content"/>
+        <result property="userId" column="user_id"/>
+        <result property="userNickname" column="user_nickname"/>
+        <result property="userAvatar" column="user_avatar"/>
+        <result property="ispublic" column="ispublic"/>
+        <result property="istop" column="istop"/>
+        <result property="visitsCount" column="visits_count"/>
+        <result property="thumbupCount" column="thumbup_count"/>
+        <result property="commentCount" column="comment_count"/>
+        <result property="state" column="state"/>
+        <result property="url" column="url"/>
+        <result property="createdTime" column="created_time"/>
+
+
+        <collection property="labels" ofType="burukeyou.article.entity.vo.LabelVo">
+            <id property="id" column="label_id"/>
+            <result property="name" column="labelName"/>
+            <result property="avatar" column="article_id"/>
+        </collection>
+    </resultMap>
+
+
+
+</mapper>

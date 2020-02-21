@@ -1,8 +1,10 @@
 package burukeyou.article.controller;
 
+import burukeyou.article.entity.bo.CountIncrementMsg;
 import burukeyou.article.entity.dto.ArticleDto;
 import burukeyou.article.entity.pojo.AmsArticle;
 import burukeyou.article.entity.vo.ArticleListlVo;
+import burukeyou.article.mq.MqSender;
 import burukeyou.article.service.ArticleService;
 import burukeyou.common.core.entity.annotation.EnableParamValid;
 import burukeyou.common.core.entity.vo.PageResultVo;
@@ -11,6 +13,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -21,6 +24,9 @@ import java.util.stream.Collectors;
 public class ArticleController {
 
     private final ArticleService articleService;
+
+    @Autowired
+    private MqSender mqSender;
 
     public ArticleController(ArticleService articleService) {
         this.articleService = articleService;
@@ -50,8 +56,12 @@ public class ArticleController {
     @ApiImplicitParam(name = "id",value = "文章id",required = true,dataType = "String")
     public ResultVo getOne(@PathVariable("id") String id) {
        // ArticleDetailVo articleDetailVo = new ArticleDetailVo().convertFrom(articleService.getById(id));
-        return ResultVo.success(articleService.getById(id));
         // todo  mq异步化 增加文章访问量
+        //mqSender.send(id,"1");
+        mqSender.send(new CountIncrementMsg(id,"1"));
+
+        return ResultVo.success(articleService.getById(id));
+
 
        // return ResultVo.success(articleDetailVo);
     }

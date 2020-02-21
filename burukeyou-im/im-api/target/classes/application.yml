@@ -1,0 +1,56 @@
+spring:
+  application:
+    name: im-api-server
+  # 数据源
+  datasource:
+    url: jdbc:mysql://localhost:3306/burukeyou-user?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
+    ##url: jdbc:mysql://cdb-dceafysi.cd.tencentcdb.com:10058/sc_admin?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  # cloud
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+
+    # 开启负载均衡器的失败重试功能
+    loadbalancer:
+      retry:
+        enabled: true
+
+
+server:
+  port: 9040
+
+# ================================================================================================
+
+
+
+# ================================================================================================
+custom:
+  ouath2:
+    client:
+      ignore-urls:
+        - /**
+      resource-id: ${spring.application.name}
+      signing-key: 909090
+
+  swagger2:
+    basePackage: burukeyou.im.api.controller
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
