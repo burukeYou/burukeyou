@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.Collectors;
@@ -19,9 +21,12 @@ public class ConnectionServer {
     private DiscoveryClient discoveryClient;
 
     @GetMapping
-    public String getServerInstance(){
+    public String getServerInstance() throws UnknownHostException {
+        // todo 集群化配置
+        String addr = InetAddress.getLocalHost().getHostAddress();
+        return addr;
 
-        List<ServiceInstance> instances = discoveryClient.getInstances("im-server");
+       /* List<ServiceInstance> instances = discoveryClient.getInstances("im-server");
 
         List<String> urlList = instances.stream().map(e -> e.getUri().toString()).collect(Collectors.toList());
 
@@ -29,7 +34,11 @@ public class ConnectionServer {
         int i = ThreadLocalRandom.current().nextInt(instances.size());
 
         // 从服务注册中心获取一台实例返回
-        return urlList.get(i);
+        return urlList.get(i);*/
     }
+
+
+
+
 
 }

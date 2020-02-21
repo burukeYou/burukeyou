@@ -2,16 +2,6 @@ spring:
   application:
     name: im-server
 
-  # cloud
-  cloud:
-    nacos:
-      discovery:
-        server-addr: localhost:8848
-
-    # 开启负载均衡器的失败重试功能
-    loadbalancer:
-      retry:
-        enabled: true
 
 
 server:
@@ -20,11 +10,15 @@ server:
 # ================================================================================================
 
 
+custom:
+  im:
+    port: 8088
 
 
 
-
-
+nacos:
+  discovery:
+    server-addr: 127.0.0.1:8848
 
 
 
