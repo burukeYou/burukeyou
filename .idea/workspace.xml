@@ -2,14 +2,196 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e3fd7ab4-4260-46e7-bd82-a8fd77d9f220" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/burukeyou-api/article-center/src/main/java/burukeyou/article/config/mq/RabbitMqConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/burukeyou-api/article-center/src/main/java/burukeyou/article/entity/bo/CountIncrementMsg.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/burukeyou-api/article-center/src/main/java/burukeyou/article/mq/MqConsumer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/burukeyou-api/article-center/src/main/java/burukeyou/article/mq/MqSender.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/controller/ApplicationController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/controller/GroupController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/controller/UmsPermissionController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/entity/bo/Trie.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/entity/bo/menu/BaseMenu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/entity/bo/menu/TreeNode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/entity/dto/QueryUserConditionDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/entity/dto/RoleDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/entity/dto/UmsAdminDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/entity/dto/UmsPermissionDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/entity/enums/PermissionTypeEnum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/entity/enums/RoleTypeEnum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/entity/pojo/UmsAdminRole.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/entity/pojo/UmsPermission.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/entity/pojo/UmsRolePermission.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/entity/vo/MenuBaseVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/entity/vo/UmsAdminVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/entity/vo/UmsRoleVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/mapper/UmsAdminRoleMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/mapper/UmsPermissionMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/mapper/UmsRolePermissionMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/rpc/FileServiceRPC.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/rpc/fallback/FileServiceRPCFallbackFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/service/PermissionService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/service/UmsAdminRoleService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/service/UmsRolePermissionService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/service/impl/PermissionServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/service/impl/UmsAdminRoleServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/service/impl/UmsRolePermissionServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/utils/TreeUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/burukeyou-admin/src/main/resources/mybatis/mapper/UmsAdminMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/burukeyou-admin/src/main/resources/mybatis/mapper/UmsAdminRoleMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/burukeyou-admin/src/main/resources/mybatis/mapper/UmsPermissionMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/burukeyou-admin/src/main/resources/mybatis/mapper/UmsRolePermissionMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/burukeyou-api/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/burukeyou-api/boiling-center/src/main/java/burukeyou/boiling/BoilingApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/burukeyou-api/boiling-center/src/main/java/burukeyou/boiling/config/mybatisPlus/MyMetaObjectHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/burukeyou-api/boiling-center/src/main/java/burukeyou/boiling/controller/BoilingController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/burukeyou-api/boiling-center/src/main/java/burukeyou/boiling/entity/dto/BoilingDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/burukeyou-api/boiling-center/src/main/java/burukeyou/boiling/entity/enums/StateEnum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/burukeyou-api/boiling-center/src/main/java/burukeyou/boiling/entity/pojo/AmsBoiling.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/burukeyou-api/boiling-center/src/main/java/burukeyou/boiling/mapper/BoillingMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/burukeyou-api/boiling-center/src/main/java/burukeyou/boiling/service/BoilingService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/burukeyou-api/boiling-center/src/main/java/burukeyou/boiling/service/impl/BoilingServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/burukeyou-api/boiling-center/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/burukeyou-api/comment-center/src/main/java/burukeyou/comment/entity/dto/ComentDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/burukeyou-api/comment-center/src/main/java/burukeyou/comment/entity/enums/CommentType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/burukeyou-api/comment-center/src/main/java/burukeyou/comment/entity/pojo/AmsComment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/burukeyou-api/comment-center/src/main/java/burukeyou/comment/mapper/CommentRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/burukeyou-api/comment-center/src/main/java/burukeyou/comment/service/CommentService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/burukeyou-api/comment-center/src/main/java/burukeyou/comment/service/impl/CommentServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/burukeyou-api/file-center/src/main/java/burukeyou/file/FileApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/burukeyou-api/file-center/src/main/java/burukeyou/file/config/AliyunOSSAutoConfigure.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/burukeyou-api/file-center/src/main/java/burukeyou/file/config/mybatisPlus/MyMetaObjectHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/burukeyou-api/file-center/src/main/java/burukeyou/file/controller/OssFileCntroller.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/burukeyou-api/file-center/src/main/java/burukeyou/file/entity/enums/FileTypeEnum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/burukeyou-api/file-center/src/main/java/burukeyou/file/entity/properties/FileServerProperties.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/burukeyou-api/file-center/src/main/java/burukeyou/file/entity/properties/OssProperties.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/burukeyou-api/file-center/src/main/java/burukeyou/file/service/AbstractFileService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/burukeyou-api/file-center/src/main/java/burukeyou/file/service/FileService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/burukeyou-api/file-center/src/main/java/burukeyou/file/service/impl/AliyunOssServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/burukeyou-api/file-center/src/main/java/burukeyou/file/utils/AliyunOssClientUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/burukeyou-api/file-center/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/burukeyou-api/system-center/src/main/java/burukeyou/system/controller/ChannelController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/burukeyou-api/system-center/src/main/java/burukeyou/system/controller/TopicController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/burukeyou-api/system-center/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/burukeyou-auth/auth-client/src/main/java/burukeyou/auth/authClient/annotation/EnableAuthClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/burukeyou-auth/auth-client/src/main/java/burukeyou/auth/authClient/handler/CustomAccessDeniedHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/burukeyou-common/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/burukeyou-common/common-core/src/main/java/burukeyou/common/core/entity/annotation/EnableCustomValidation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/burukeyou-common/common-core/src/main/java/burukeyou/common/core/entity/bo/MicroServiceName.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/burukeyou-common/common-core/src/main/java/burukeyou/common/core/utils/DateUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/burukeyou-common/common-dao/common-dao.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/burukeyou-common/common-dao/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/burukeyou-common/common-dao/src/main/java/burukeyou/common/dao/config/mybatisPlus/BsaePojoMetaObjectHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/burukeyou-common/common-dao/src/main/java/burukeyou/common/dao/pojo/BasePojo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/burukeyou-im/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/burukeyou-monitor/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/burukeyou-monitor/burukeyou-monitor.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/burukeyou-monitor/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/cc0d08c1-9910-4c91-a203-9ab55c8b1b46.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/cc0d08c1-9910-4c91-a203-9ab55c8b1b46.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-admin/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/burukeyou-admin/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/UmsAdminApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/UmsAdminApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/controller/UmsAdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/controller/UmsAdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/controller/UmsRoleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/controller/UmsRoleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/entity/pojo/UmsAdmin.java" beforeDir="false" afterPath="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/entity/pojo/UmsAdmin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/entity/pojo/UmsMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/entity/vo/MenuTreeVO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/entity/pojo/UmsResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/entity/pojo/UmsResource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/entity/pojo/UmsRole.java" beforeDir="false" afterPath="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/entity/pojo/UmsRole.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/entity/pojo/UmsUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/entity/pojo/UmsUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/mapper/UmsAdminMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/mapper/UmsAdminMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/mapper/UmsRoleMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/mapper/UmsRoleMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/service/UmsAdminService.java" beforeDir="false" afterPath="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/service/UmsAdminService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/service/UmsRoleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/service/UmsRoleService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/service/impl/UmsAdminServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/service/impl/UmsAdminServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/service/impl/UmsRoleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/service/impl/UmsRoleServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-admin/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/burukeyou-admin/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-admin/src/test/java/burukeyou/UserApplicationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/burukeyou-admin/src/test/java/burukeyou/UserApplicationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-admin/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/burukeyou-admin/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-admin/target/test-classes/burukeyou/UserApplicationTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/burukeyou-admin/target/test-classes/burukeyou/UserApplicationTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/burukeyou-api/article-center/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/burukeyou-api/article-center/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-api/article-center/src/main/java/burukeyou/article/ArticleCenterApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/burukeyou-api/article-center/src/main/java/burukeyou/article/ArticleCenterApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-api/article-center/src/main/java/burukeyou/article/config/mq/RabbitMqConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/burukeyou-api/article-center/src/main/java/burukeyou/article/config/mq/RabbitMqConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-api/article-center/src/main/java/burukeyou/article/config/mybatisPlus/MyMetaObjectHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/burukeyou-api/article-center/src/main/java/burukeyou/article/config/mybatisPlus/MyMetaObjectHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/burukeyou-api/article-center/src/main/java/burukeyou/article/controller/ArticleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/burukeyou-api/article-center/src/main/java/burukeyou/article/controller/ArticleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-api/article-center/src/main/java/burukeyou/article/entity/pojo/AmsArticle.java" beforeDir="false" afterPath="$PROJECT_DIR$/burukeyou-api/article-center/src/main/java/burukeyou/article/entity/pojo/AmsArticle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-api/article-center/src/main/java/burukeyou/article/entity/pojo/SysLabel.java" beforeDir="false" afterPath="$PROJECT_DIR$/burukeyou-api/article-center/src/main/java/burukeyou/article/entity/pojo/SysLabel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/burukeyou-api/article-center/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/burukeyou-api/article-center/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-api/article-center/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/burukeyou-api/article-center/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-api/article-center/target/classes/burukeyou/article/ArticleCenterApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-api/article-center/target/classes/burukeyou/article/config/BeanConfiguration.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-api/article-center/target/classes/burukeyou/article/config/mq/RabbitMqConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-api/article-center/target/classes/burukeyou/article/config/mybatisPlus/MyMetaObjectHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-api/article-center/target/classes/burukeyou/article/config/mybatisPlus/MybatisPlusConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-api/article-center/target/classes/burukeyou/article/controller/ArticleController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-api/article-center/target/classes/burukeyou/article/controller/LabelController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-api/article-center/target/classes/burukeyou/article/entity/bo/CountIncrementMsg.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-api/article-center/target/classes/burukeyou/article/entity/dto/ArticleDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-api/article-center/target/classes/burukeyou/article/entity/dto/LabelDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-api/article-center/target/classes/burukeyou/article/entity/enums/StateEnum.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-api/article-center/target/classes/burukeyou/article/entity/pojo/AmsArticle$AmsArticleBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-api/article-center/target/classes/burukeyou/article/entity/pojo/AmsArticle.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-api/article-center/target/classes/burukeyou/article/entity/pojo/SysLabel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-api/article-center/target/classes/burukeyou/article/entity/vo/ArticleDetailVo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-api/article-center/target/classes/burukeyou/article/entity/vo/ArticleListlVo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-api/article-center/target/classes/burukeyou/article/entity/vo/LabelVo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-api/article-center/target/classes/burukeyou/article/mapper/ArticleMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-api/article-center/target/classes/burukeyou/article/mapper/LabelMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-api/article-center/target/classes/burukeyou/article/mq/MqConsumer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-api/article-center/target/classes/burukeyou/article/mq/MqSender.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-api/article-center/target/classes/burukeyou/article/service/ArticleService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-api/article-center/target/classes/burukeyou/article/service/LabelService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-api/article-center/target/classes/burukeyou/article/service/impl/ArticleServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-api/article-center/target/classes/burukeyou/article/service/impl/LabelServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-api/boiling-center/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/burukeyou-api/boiling-center/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-api/comment-center/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/burukeyou-api/comment-center/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-api/comment-center/src/main/java/burukeyou/comment/CommentApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/burukeyou-api/comment-center/src/main/java/burukeyou/comment/CommentApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-api/comment-center/src/main/java/burukeyou/comment/controller/CommentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/burukeyou-api/comment-center/src/main/java/burukeyou/comment/controller/CommentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-api/comment-center/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/burukeyou-api/comment-center/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-api/comment-center/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/burukeyou-api/comment-center/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-api/file-center/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/burukeyou-api/file-center/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-api/system-center/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/burukeyou-api/system-center/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-api/system-center/src/main/java/burukeyou/system/SystemApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/burukeyou-api/system-center/src/main/java/burukeyou/system/SystemApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-api/system-center/src/main/java/burukeyou/system/entity/pojo/SysBlackReport.java" beforeDir="false" afterPath="$PROJECT_DIR$/burukeyou-api/system-center/src/main/java/burukeyou/system/entity/pojo/SysBlackReport.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-api/system-center/src/main/java/burukeyou/system/entity/pojo/SysBlackReportCategory.java" beforeDir="false" afterPath="$PROJECT_DIR$/burukeyou-api/system-center/src/main/java/burukeyou/system/entity/pojo/SysBlackReportCategory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-api/system-center/src/main/java/burukeyou/system/entity/pojo/SysChannel.java" beforeDir="false" afterPath="$PROJECT_DIR$/burukeyou-api/system-center/src/main/java/burukeyou/system/entity/pojo/SysChannel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-api/system-center/src/main/java/burukeyou/system/entity/pojo/SysHomeSpecialShow.java" beforeDir="false" afterPath="$PROJECT_DIR$/burukeyou-api/system-center/src/main/java/burukeyou/system/entity/pojo/SysHomeSpecialShow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-api/system-center/src/main/java/burukeyou/system/entity/pojo/SysTopic.java" beforeDir="false" afterPath="$PROJECT_DIR$/burukeyou-api/system-center/src/main/java/burukeyou/system/entity/pojo/SysTopic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-api/system-center/src/main/java/burukeyou/system/entity/pojo/SysTopicCategoryShow.java" beforeDir="false" afterPath="$PROJECT_DIR$/burukeyou-api/system-center/src/main/java/burukeyou/system/entity/pojo/SysTopicCategoryShow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-api/user-center/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/burukeyou-api/user-center/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-api/user-center/src/main/java/burukeyou/user/UserCenterApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/burukeyou-api/user-center/src/main/java/burukeyou/user/UserCenterApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-api/user-center/src/main/java/burukeyou/user/config/mybatisPlus/MyMetaObjectHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/burukeyou-api/user-center/src/main/java/burukeyou/user/config/mybatisPlus/MyMetaObjectHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-api/user-center/src/main/java/burukeyou/user/entity/pojo/UmsColumn.java" beforeDir="false" afterPath="$PROJECT_DIR$/burukeyou-api/user-center/src/main/java/burukeyou/user/entity/pojo/UmsColumn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-api/user-center/src/main/java/burukeyou/user/entity/pojo/UmsFavorites.java" beforeDir="false" afterPath="$PROJECT_DIR$/burukeyou-api/user-center/src/main/java/burukeyou/user/entity/pojo/UmsFavorites.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-api/user-center/src/main/java/burukeyou/user/entity/pojo/UmsUsers.java" beforeDir="false" afterPath="$PROJECT_DIR$/burukeyou-api/user-center/src/main/java/burukeyou/user/entity/pojo/UmsUsers.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-api/user-center/src/main/java/burukeyou/user/service/impl/UmsUserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/burukeyou-api/user-center/src/main/java/burukeyou/user/service/impl/UmsUserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-api/user-center/target/classes/burukeyou/user/UserCenterApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/burukeyou-api/user-center/target/classes/burukeyou/user/UserCenterApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-api/user-center/target/classes/burukeyou/user/config/mybatisPlus/MyMetaObjectHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/burukeyou-api/user-center/target/classes/burukeyou/user/config/mybatisPlus/MyMetaObjectHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-api/user-center/target/classes/burukeyou/user/controller/UmsFavoritesController.class" beforeDir="false" afterPath="$PROJECT_DIR$/burukeyou-api/user-center/target/classes/burukeyou/user/controller/UmsFavoritesController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-api/user-center/target/classes/burukeyou/user/controller/UmsUserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/burukeyou-api/user-center/target/classes/burukeyou/user/controller/UmsUserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-api/user-center/target/classes/burukeyou/user/controller/UserColumnController.class" beforeDir="false" afterPath="$PROJECT_DIR$/burukeyou-api/user-center/target/classes/burukeyou/user/controller/UserColumnController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-api/user-center/target/classes/burukeyou/user/entity/pojo/UmsColumn.class" beforeDir="false" afterPath="$PROJECT_DIR$/burukeyou-api/user-center/target/classes/burukeyou/user/entity/pojo/UmsColumn.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-api/user-center/target/classes/burukeyou/user/entity/pojo/UmsFavorites.class" beforeDir="false" afterPath="$PROJECT_DIR$/burukeyou-api/user-center/target/classes/burukeyou/user/entity/pojo/UmsFavorites.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-api/user-center/target/classes/burukeyou/user/entity/pojo/UmsUsers.class" beforeDir="false" afterPath="$PROJECT_DIR$/burukeyou-api/user-center/target/classes/burukeyou/user/entity/pojo/UmsUsers.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-auth/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/burukeyou-auth/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-auth/auth-client/src/main/java/burukeyou/auth/authClient/config/oauth2/CustomResourceServerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/burukeyou-auth/auth-client/src/main/java/burukeyou/auth/authClient/config/oauth2/CustomResourceServerConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-auth/auth-client/src/main/java/burukeyou/auth/authClient/handler/CustomAuthenticationEntryPoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/burukeyou-auth/auth-client/src/main/java/burukeyou/auth/authClient/handler/CustomAuthenticationEntryPoint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-auth/auth-client/target/classes/burukeyou/auth/authClient/config/oauth2/CustomResourceServerConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/burukeyou-auth/auth-client/target/classes/burukeyou/auth/authClient/config/oauth2/CustomResourceServerConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-auth/auth-client/target/classes/burukeyou/auth/authClient/handler/CustomAuthenticationEntryPoint.class" beforeDir="false" afterPath="$PROJECT_DIR$/burukeyou-auth/auth-client/target/classes/burukeyou/auth/authClient/handler/CustomAuthenticationEntryPoint.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-auth/authentication-server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/burukeyou-auth/authentication-server/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-auth/authentication-server/src/main/java/burukeyou/auth/authenticationServer/entity/pojo/UmsUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/burukeyou-auth/authentication-server/src/main/java/burukeyou/auth/authenticationServer/entity/pojo/UmsUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-auth/authentication-server/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/burukeyou-auth/authentication-server/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-auth/authentication-server/target/classes/burukeyou/auth/authenticationServer/entity/pojo/UmsUser.class" beforeDir="false" afterPath="$PROJECT_DIR$/burukeyou-auth/authentication-server/target/classes/burukeyou/auth/authenticationServer/entity/pojo/UmsUser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-common/common-core/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/burukeyou-common/common-core/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-common/common-core/src/main/java/burukeyou/common/core/aspect/ParamValidAOP.java" beforeDir="false" afterPath="$PROJECT_DIR$/burukeyou-common/common-core/src/main/java/burukeyou/common/core/aspect/ParamValidAOP.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-common/common-core/src/main/java/burukeyou/common/core/config/mybatisPlus/BsaePojoMetaObjectHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/burukeyou-common/common-core/src/main/java/burukeyou/common/core/config/mybatisPlus/BsaePojoMetaObjectHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-common/common-core/src/main/java/burukeyou/common/core/entity/pojo/BasePojo.java" beforeDir="false" afterPath="$PROJECT_DIR$/burukeyou-common/common-core/src/main/java/burukeyou/common/core/entity/pojo/BasePojo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-common/common-core/src/main/java/burukeyou/common/core/entity/vo/ResultVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/burukeyou-common/common-core/src/main/java/burukeyou/common/core/entity/vo/ResultVo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-common/common-core/target/classes/burukeyou/common/core/aspect/ParamValidAOP.class" beforeDir="false" afterPath="$PROJECT_DIR$/burukeyou-common/common-core/target/classes/burukeyou/common/core/aspect/ParamValidAOP.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-common/common-core/target/classes/burukeyou/common/core/config/mybatisPlus/BsaePojoMetaObjectHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-common/common-core/target/classes/burukeyou/common/core/entity/pojo/BasePojo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-common/common-core/target/classes/burukeyou/common/core/entity/vo/ResultVo.class" beforeDir="false" afterPath="$PROJECT_DIR$/burukeyou-common/common-core/target/classes/burukeyou/common/core/entity/vo/ResultVo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-common/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/burukeyou-common/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -39,6 +221,8 @@
     <ignored path="$PROJECT_DIR$/burukeyou-api/file-center/target/" />
     <ignored path="$PROJECT_DIR$/burukeyou-im/im-api/target/" />
     <ignored path="$PROJECT_DIR$/burukeyou-im/im-server/target/" />
+    <ignored path="$PROJECT_DIR$/burukeyou-common/common-dao/target/" />
+    <ignored path="$PROJECT_DIR$/burukeyou-monitor/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,18 +243,18 @@
     <expand>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="burukeyou-user@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="burukeYou-auth@localhost" type="feb32156:DbDataSourceImpl" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="burukeyou-user@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="burukeYou-auth@localhost" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="burukeyou-user@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="burukeYou-auth@localhost" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="burukeyou-user: schema" type="76f4a085:MysqlImplModel$Schema" />
+        <item name="burukeYou-auth: schema" type="76f4a085:MysqlImplModel$Schema" />
       </path>
     </expand>
     <select />
@@ -79,61 +263,17 @@
     <option name="isMigrated" value="true" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/burukeyou-api/article-center/src/main/java/burukeyou/article/controller/ArticleController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="227">
-              <caret line="60" selection-start-line="60" selection-end-line="60" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/burukeyou-api/article-center/src/main/java/burukeyou/article/entity/bo/CountIncrementMsg.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="18" lean-forward="true" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/burukeyou-api/article-center/src/main/java/burukeyou/article/mq/MqConsumer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="69">
-              <caret line="47" column="87" selection-start-line="47" selection-start-column="87" selection-end-line="47" selection-end-column="87" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/burukeyou-api/article-center/src/main/java/burukeyou/article/mq/MqSender.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="50">
-              <caret line="29" column="5" lean-forward="true" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Arquillian JUnit Test Class" />
+        <option value="FxmlFile" />
+        <option value="Enum" />
         <option value="AnnotationType" />
         <option value="Interface" />
-        <option value="Enum" />
+        <option value="Mybatis Mapper" />
         <option value="Class" />
       </list>
     </option>
@@ -152,6 +292,15 @@
       <find>passwordEncoder()</find>
       <find>CustomTokenServices</find>
       <find>userServiceRPC</find>
+      <find>getEntityCommentList</find>
+      <find>OSS_</find>
+      <find>getImgUrl</find>
+      <find>OSS_URL_EXPIRATION</find>
+      <find>feign</find>
+      <find>baseAuthenticationEntryPoint</find>
+      <find>System</find>
+      <find>umsAdminRoleRelationMapper</find>
+      <find>put</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -171,57 +320,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/burukeyou-api/article-center/src/main/java/burukeyou/article/mapper/LabelMapper.java" />
-        <option value="$PROJECT_DIR$/burukeyou-api/article-center/src/main/java/burukeyou/article/service/impl/LabelServiceImpl.java" />
-        <option value="$PROJECT_DIR$/burukeyou-api/comment-center/pom.xml" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/burukeyou-im/src/main/java/burukeyou/im/ImApplication.java" />
-        <option value="$PROJECT_DIR$/burukeyou-common/common-core/src/main/java/burukeyou/common/core/entity/pojo/BasePojo.java" />
-        <option value="$PROJECT_DIR$/burukeyou-im/im-api/src/main/java/burukeyou/im/api/enity/enums/SearchFriendsStatusEnum.java" />
-        <option value="$PROJECT_DIR$/burukeyou-im/im-api/src/main/java/burukeyou/im/api/enity/enums/IsCanSendFriendRequestEnum.java" />
-        <option value="$PROJECT_DIR$/burukeyou-im/im-api/pom.xml" />
-        <option value="$PROJECT_DIR$/burukeyou-im/im-api/src/main/java/burukeyou/im/api/ImApiApplication.java" />
-        <option value="$PROJECT_DIR$/burukeyou-im/im-api/src/main/java/burukeyou/im/api/mapper/FriendRelationMapper.java" />
-        <option value="$PROJECT_DIR$/burukeyou-im/im-api/src/main/java/burukeyou/im/api/enity/pojo/ImsFriendRequest.java" />
-        <option value="$PROJECT_DIR$/burukeyou-im/im-api/src/main/java/burukeyou/im/api/mapper/FriendRequestMapper.java" />
-        <option value="$PROJECT_DIR$/burukeyou-im/im-api/src/main/java/burukeyou/im/api/enity/dto/FriendRequestDto.java" />
-        <option value="$PROJECT_DIR$/burukeyou-im/im-api/src/main/java/burukeyou/im/api/enity/enums/FriendRequestStateEnum.java" />
-        <option value="$PROJECT_DIR$/burukeyou-im/im-api/src/main/java/burukeyou/im/api/controller/FriendController.java" />
-        <option value="$PROJECT_DIR$/burukeyou-im/im-api/src/main/java/burukeyou/im/api/service/FriendRequestService.java" />
-        <option value="$PROJECT_DIR$/burukeyou-im/im-api/src/main/java/burukeyou/im/api/enity/bo/UmsUsers.java" />
-        <option value="$PROJECT_DIR$/burukeyou-api/user-center/src/main/java/burukeyou/user/controller/UmsUserController.java" />
-        <option value="$PROJECT_DIR$/burukeyou-common/common-core/src/main/java/burukeyou/common/core/entity/vo/ResultVo.java" />
-        <option value="$PROJECT_DIR$/burukeyou-im/im-api/src/main/java/burukeyou/im/api/enity/pojo/ImsFriendRelation.java" />
-        <option value="$PROJECT_DIR$/burukeyou-im/im-api/src/main/java/burukeyou/im/api/service/impl/FriendRequestServiceImpl.java" />
-        <option value="$PROJECT_DIR$/burukeyou-im/im-api/src/main/java/burukeyou/im/api/controller/FriendRequestController.java" />
-        <option value="$PROJECT_DIR$/burukeyou-im/im-api/src/main/java/burukeyou/im/api/service/impl/FriendRelationServiceImpl.java" />
-        <option value="$PROJECT_DIR$/burukeyou-im/im-api/src/main/java/burukeyou/im/api/service/FriendRelationService.java" />
-        <option value="$PROJECT_DIR$/burukeyou-im/im-api/src/main/java/burukeyou/im/api/controller/FriendRelationController.java" />
-        <option value="$PROJECT_DIR$/burukeyou-im/im-server/src/main/java/burukeyou/im/server/controller/ConnectionServer.java" />
-        <option value="$PROJECT_DIR$/burukeyou-im/im-api/src/main/java/burukeyou/im/api/rpc/UserServiceRPC.java" />
-        <option value="$PROJECT_DIR$/burukeyou-im/im-api/src/main/resources/application.yml" />
-        <option value="$PROJECT_DIR$/burukeyou-im/im-server/src/main/java/burukeyou/im/server/netty/handler/MessageHandler.java" />
-        <option value="$PROJECT_DIR$/burukeyou-im/im-server/src/main/java/burukeyou/im/server/listener/NettyBooter.java" />
-        <option value="$PROJECT_DIR$/burukeyou-im/im-server/src/main/java/burukeyou/im/server/entity/bo/ChatMessage.java" />
-        <option value="$PROJECT_DIR$/burukeyou-im/im-server/src/main/java/burukeyou/im/server/entity/bo/UserChanelMap.java" />
-        <option value="$PROJECT_DIR$/burukeyou-im/im-server/src/main/java/burukeyou/im/server/listener/ImStarterListener.java" />
-        <option value="$PROJECT_DIR$/burukeyou-im/im-server/src/main/java/burukeyou/im/server/ImServerApplication.java" />
-        <option value="$PROJECT_DIR$/burukeyou-im/im-server/src/main/java/burukeyou/im/server/netty/handler/HeartBeatHandler.java" />
-        <option value="$PROJECT_DIR$/burukeyou-im/im-server/src/main/java/burukeyou/im/server/netty/handler/CustomMessageHandler.java" />
-        <option value="$PROJECT_DIR$/burukeyou-im/im-server/src/main/java/burukeyou/im/server/controller/MessageControler.java" />
-        <option value="$PROJECT_DIR$/burukeyou-im/im-server/src/main/java/burukeyou/im/server/netty/IMServerInitialzer.java" />
-        <option value="$PROJECT_DIR$/burukeyou-im/im-server/src/main/java/burukeyou/im/server/IMConnectServer.java" />
-        <option value="$PROJECT_DIR$/burukeyou-im/im-server/src/main/resources/application.yml" />
-        <option value="$PROJECT_DIR$/burukeyou-im/im-server/src/main/java/burukeyou/im/server/listener/NacosServer.java" />
-        <option value="$PROJECT_DIR$/burukeyou-im/im-server/pom.xml" />
-        <option value="$PROJECT_DIR$/burukeyou-im/im-api/src/main/java/burukeyou/im/api/controller/ConnectionServer.java" />
-        <option value="$PROJECT_DIR$/burukeyou-api/article-center/pom.xml" />
-        <option value="$PROJECT_DIR$/burukeyou-api/article-center/src/main/java/burukeyou/article/config/mq/RabbitMqConfig.java" />
-        <option value="$PROJECT_DIR$/burukeyou-api/article-center/src/main/resources/application.yml" />
-        <option value="$PROJECT_DIR$/burukeyou-api/article-center/src/main/java/burukeyou/article/mq/MqSender.java" />
-        <option value="$PROJECT_DIR$/burukeyou-api/article-center/src/main/java/burukeyou/article/entity/bo/CountIncrementMsg.java" />
-        <option value="$PROJECT_DIR$/burukeyou-api/article-center/src/main/java/burukeyou/article/controller/ArticleController.java" />
-        <option value="$PROJECT_DIR$/burukeyou-api/article-center/src/main/java/burukeyou/article/mq/MqConsumer.java" />
+        <option value="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/entity/bo/menu/TreeNode.java" />
+        <option value="$PROJECT_DIR$/burukeyou-admin/src/test/java/burukeyou/UserApplicationTest.java" />
+        <option value="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/entity/vo/MenuTreeVO.java" />
+        <option value="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/entity/bo/Trie.java" />
+        <option value="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/entity/vo/UmsRoleVO.java" />
+        <option value="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/entity/vo/UmsAdminVO.java" />
+        <option value="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/entity/dto/QueryUserConditionDto.java" />
+        <option value="$PROJECT_DIR$/burukeyou-admin/src/main/resources/mybatis/mapper/UmsAdminMapper.xml" />
+        <option value="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/mapper/UmsAdminMapper.java" />
+        <option value="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/entity/dto/RoleRelationDto.java" />
+        <option value="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/entity/pojo/UmsRole.java" />
+        <option value="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/entity/dto/RoleDto.java" />
+        <option value="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/entity/enums/RoleTypeEnum.java" />
+        <option value="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/service/impl/CommonRoleServiceImpl.java" />
+        <option value="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/service/CommonRoleService.java" />
+        <option value="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/service/CommonServiceImpl.java" />
+        <option value="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/service/UmsRoleService.java" />
+        <option value="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/service/RoleResourceRelationService.java" />
+        <option value="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/entity/pojo/UmsRoleResourceRelation.java" />
+        <option value="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/service/impl/RoleResourceRelationServiceImpl.java" />
+        <option value="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/entity/enums/ResourceTypeEnum.java" />
+        <option value="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/controller/MenuController.java" />
+        <option value="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/service/UmsAdminService.java" />
+        <option value="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/service/impl/UmsAdminRoleRelationServiceImpl.java" />
+        <option value="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/service/UmsAdminRoleRelationService.java" />
+        <option value="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/mapper/UmsAdminRoleRelationMapper.java" />
+        <option value="$PROJECT_DIR$/burukeyou-admin/src/main/resources/mybatis/mapper/UmsAdminRoleRelationMapper.xml" />
+        <option value="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/entity/pojo/UmsAdminRoleRelation.java" />
+        <option value="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/controller/UmsAdminController.java" />
+        <option value="$PROJECT_DIR$/burukeyou-admin/src/main/resources/mybatis/mapper/UmsMenuMapper.xml" />
+        <option value="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/service/impl/UmsAdminServiceImpl.java" />
+        <option value="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/mapper/UmsRoleMapper.java" />
+        <option value="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/entity/pojo/UmsPermission.java" />
+        <option value="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/mapper/UmsRoleResourceRelationMapper.java" />
+        <option value="$PROJECT_DIR$/burukeyou-admin/src/main/resources/mybatis/mapper/UmsRoleResourceRelationMapper.xml" />
+        <option value="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/service/impl/RolePermissionServiceImpl.java" />
+        <option value="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/service/RolePermissionService.java" />
+        <option value="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/controller/UmsRoleController.java" />
+        <option value="$PROJECT_DIR$/burukeyou-admin/src/main/resources/mybatis/mapper/UmsPermissionMapper.xml" />
+        <option value="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/mapper/UmsPermissionMapper.java" />
+        <option value="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/service/impl/MenuServiceImpl.java" />
+        <option value="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/entity/vo/MenuBaseVO.java" />
+        <option value="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/service/MenuService.java" />
+        <option value="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/service/impl/UmsRoleServiceImpl.java" />
+        <option value="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/service/PermissionService.java" />
+        <option value="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/entity/pojo/UmsRolePermission.java" />
+        <option value="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/entity/dto/UmsPermissionDto.java" />
+        <option value="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/service/impl/PermissionServiceImpl.java" />
+        <option value="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/controller/UmsPermissionController.java" />
+        <option value="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/utils/TreeUtil.java" />
+        <option value="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/controller/ApplicationController.java" />
       </list>
     </option>
   </component>
@@ -239,20 +388,26 @@
       <expand>
         <path>
           <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="im-server" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="comment-center" type="9519ce18:MavenProjectsStructure$ProjectNode" />
         </path>
         <path>
           <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="im-server" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="comment-center" type="9519ce18:MavenProjectsStructure$ProjectNode" />
           <item name="Dependencies" type="f4be9f2a:MavenProjectsStructure$DependenciesNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="comment-center" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Dependencies" type="f4be9f2a:MavenProjectsStructure$DependenciesNode" />
+          <item name="com.burukeyou:common-core:1.0-SNAPSHOT" type="c0821a7e:MavenProjectsStructure$DependencyNode" />
         </path>
       </expand>
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
     <option name="y" value="23" />
-    <option name="width" value="1265" />
+    <option name="width" value="1266" />
     <option name="height" value="877" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -261,6 +416,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -271,34 +428,25 @@
             <path>
               <item name="burukeyou" type="b2602c69:ProjectViewProjectNode" />
               <item name="burukeyou" type="462c0819:PsiDirectoryNode" />
-              <item name="burukeyou-api" type="462c0819:PsiDirectoryNode" />
+              <item name="burukeyou-search" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="burukeyou" type="b2602c69:ProjectViewProjectNode" />
               <item name="burukeyou" type="462c0819:PsiDirectoryNode" />
-              <item name="burukeyou-api" type="462c0819:PsiDirectoryNode" />
-              <item name="article-center" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="burukeyou" type="b2602c69:ProjectViewProjectNode" />
-              <item name="burukeyou" type="462c0819:PsiDirectoryNode" />
-              <item name="burukeyou-api" type="462c0819:PsiDirectoryNode" />
-              <item name="article-center" type="462c0819:PsiDirectoryNode" />
+              <item name="burukeyou-search" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="burukeyou" type="b2602c69:ProjectViewProjectNode" />
               <item name="burukeyou" type="462c0819:PsiDirectoryNode" />
-              <item name="burukeyou-api" type="462c0819:PsiDirectoryNode" />
-              <item name="article-center" type="462c0819:PsiDirectoryNode" />
+              <item name="burukeyou-search" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="burukeyou" type="b2602c69:ProjectViewProjectNode" />
               <item name="burukeyou" type="462c0819:PsiDirectoryNode" />
-              <item name="burukeyou-api" type="462c0819:PsiDirectoryNode" />
-              <item name="article-center" type="462c0819:PsiDirectoryNode" />
+              <item name="burukeyou-search" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
@@ -306,8 +454,7 @@
             <path>
               <item name="burukeyou" type="b2602c69:ProjectViewProjectNode" />
               <item name="burukeyou" type="462c0819:PsiDirectoryNode" />
-              <item name="burukeyou-api" type="462c0819:PsiDirectoryNode" />
-              <item name="article-center" type="462c0819:PsiDirectoryNode" />
+              <item name="burukeyou-search" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
@@ -316,66 +463,28 @@
             <path>
               <item name="burukeyou" type="b2602c69:ProjectViewProjectNode" />
               <item name="burukeyou" type="462c0819:PsiDirectoryNode" />
-              <item name="burukeyou-api" type="462c0819:PsiDirectoryNode" />
-              <item name="article-center" type="462c0819:PsiDirectoryNode" />
+              <item name="burukeyou-search" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="burukeyou" type="462c0819:PsiDirectoryNode" />
-              <item name="article" type="462c0819:PsiDirectoryNode" />
+              <item name="search" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="burukeyou" type="b2602c69:ProjectViewProjectNode" />
               <item name="burukeyou" type="462c0819:PsiDirectoryNode" />
-              <item name="burukeyou-api" type="462c0819:PsiDirectoryNode" />
-              <item name="article-center" type="462c0819:PsiDirectoryNode" />
+              <item name="burukeyou-search" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="burukeyou" type="462c0819:PsiDirectoryNode" />
-              <item name="article" type="462c0819:PsiDirectoryNode" />
-              <item name="entity" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="burukeyou" type="b2602c69:ProjectViewProjectNode" />
-              <item name="burukeyou" type="462c0819:PsiDirectoryNode" />
-              <item name="burukeyou-api" type="462c0819:PsiDirectoryNode" />
-              <item name="article-center" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="burukeyou" type="462c0819:PsiDirectoryNode" />
-              <item name="article" type="462c0819:PsiDirectoryNode" />
-              <item name="entity" type="462c0819:PsiDirectoryNode" />
-              <item name="bo" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="burukeyou" type="b2602c69:ProjectViewProjectNode" />
-              <item name="burukeyou" type="462c0819:PsiDirectoryNode" />
-              <item name="burukeyou-api" type="462c0819:PsiDirectoryNode" />
-              <item name="article-center" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="burukeyou" type="462c0819:PsiDirectoryNode" />
-              <item name="article" type="462c0819:PsiDirectoryNode" />
-              <item name="mq" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="burukeyou" type="b2602c69:ProjectViewProjectNode" />
-              <item name="burukeyou" type="462c0819:PsiDirectoryNode" />
-              <item name="burukeyou-api" type="462c0819:PsiDirectoryNode" />
-              <item name="article-center" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="search" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -390,13 +499,13 @@
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="Arquillian JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.Arquillian JUnit4" value="" />
     <property name="database.console.LAST_STATE" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/burukeyou-im/im-server/src/main/java/burukeyou/im/server/entity/bo" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/burukeyou-admin/src/main/resources/mybatis/mapper" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.importing" />
+    <property name="settings.editor.selected.configurable" value="settings.gitee" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
@@ -406,32 +515,32 @@
       <recent name="" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="burukeyou.admin.utils" />
       <recent name="burukeyou.common.core.entity.dto" />
       <recent name="burukeyou.gateway.zuul.config.oauth2" />
       <recent name="burukeyou.gateway.zuul.config.swagger" />
       <recent name="burukeYou.entity.bo" />
-      <recent name="burukeYou.config.oauth2" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="burukeyou.im.server.netty.handler" />
-      <recent name="burukeyou.im.server.entity.bo" />
-      <recent name="burukeyou.im.server.listener" />
-      <recent name="burukeyou.im.api.controller" />
-      <recent name="burukeyou.im.api.enity.bo" />
+      <recent name="burukeyou.admin.entity.enums" />
+      <recent name="burukeyou.admin.service.impl" />
+      <recent name="burukeyou.admin.entity.dto" />
+      <recent name="burukeyou.admin.entity.vo" />
+      <recent name="burukeyou.admin.entity.bo.menu" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/burukeyou-im/im-server/src/main/java/burukeyou/im/server/entity/bo" />
-      <recent name="$PROJECT_DIR$/burukeyou-im/im-server/src/main/resources" />
-      <recent name="$PROJECT_DIR$/burukeyou-im/im-api/src/main/resources" />
-      <recent name="$PROJECT_DIR$/burukeyou-api/comment-center/src/main/resources" />
-      <recent name="$PROJECT_DIR$/burukeyou-api/comment-center/src/main/java/burukeyou" />
+      <recent name="$PROJECT_DIR$/burukeyou-admin/src/main/resources/mybatis/mapper" />
+      <recent name="$PROJECT_DIR$/burukeyou-admin/src/main/resources" />
+      <recent name="$PROJECT_DIR$/burukeyou-monitor" />
+      <recent name="$PROJECT_DIR$/burukeyou-api/system-center/src/main/resources" />
+      <recent name="$PROJECT_DIR$/burukeyou-common" />
     </key>
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="burukeyou.admin.controller" />
+      <recent name="burukeyou.boiling.service" />
       <recent name="burukeyou.user.service" />
       <recent name="burukeyou.user.entity.dto" />
       <recent name="burukeyou.auth.authClient.config.handler" />
-      <recent name="burukeyou.gateway.zuul.service.rpc" />
-      <recent name="authentication.server.auth.service.local" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -446,13 +555,13 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.ArticleCenterApplication">
-    <configuration name="ArticleController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="burukeyou.article.controller.ArticleController" />
-      <module name="article-center" />
+  <component name="RunManager" selected="Spring Boot.UmsAdminApplication">
+    <configuration name="MultiForkTree" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="burukeyou.admin.entity.bo.MultiForkTree" />
+      <module name="burukeyou-admin" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="burukeyou.article.controller.*" />
+          <option name="PATTERN" value="burukeyou.admin.entity.bo.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -460,43 +569,44 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ArticleCenterApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <module name="article-center" />
+    <configuration name="UserApplicationTest.contextLoads" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="burukeyou-admin" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="burukeyou.article.*" />
+          <option name="PATTERN" value="burukeyou.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="SPRING_BOOT_MAIN_CLASS" value="burukeyou.article.ArticleCenterApplication" />
+      <option name="PACKAGE_NAME" value="burukeyou" />
+      <option name="MAIN_CLASS_NAME" value="burukeyou.UserApplicationTest" />
+      <option name="METHOD_NAME" value="contextLoads" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ImApiApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <module name="im-api" />
+    <configuration name="AuthenticationServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="authentication-server" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="burukeyou.im.api.*" />
+          <option name="PATTERN" value="burukeyou.auth.authenticationServer.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="SPRING_BOOT_MAIN_CLASS" value="burukeyou.im.api.ImApiApplication" />
-      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="burukeyou.auth.authenticationServer.AuthenticationServerApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ImServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <module name="im-server" />
+    <configuration name="UmsAdminApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="burukeyou-admin" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="burukeyou.im.server.*" />
+          <option name="PATTERN" value="burukeyou.admin.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="SPRING_BOOT_MAIN_CLASS" value="burukeyou.im.server.ImServerApplication" />
-      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="burukeyou.admin.UmsAdminApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -515,18 +625,18 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.ArticleController" />
+      <item itemvalue="Application.MultiForkTree" />
+      <item itemvalue="JUnit.UserApplicationTest.contextLoads" />
       <item itemvalue="Spring Boot.UserCenterApplication" />
-      <item itemvalue="Spring Boot.ArticleCenterApplication" />
-      <item itemvalue="Spring Boot.ImApiApplication" />
-      <item itemvalue="Spring Boot.ImServerApplication" />
+      <item itemvalue="Spring Boot.AuthenticationServerApplication" />
+      <item itemvalue="Spring Boot.UmsAdminApplication" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.ArticleCenterApplication" />
-        <item itemvalue="Spring Boot.ImApiApplication" />
-        <item itemvalue="Spring Boot.ImServerApplication" />
-        <item itemvalue="Application.ArticleController" />
+        <item itemvalue="Spring Boot.UmsAdminApplication" />
+        <item itemvalue="JUnit.UserApplicationTest.contextLoads" />
+        <item itemvalue="Application.MultiForkTree" />
+        <item itemvalue="Spring Boot.AuthenticationServerApplication" />
         <item itemvalue="Spring Boot.UserCenterApplication" />
       </list>
     </recent_temporary>
@@ -582,7 +692,26 @@
       <workItem from="1581838693589" duration="28102000" />
       <workItem from="1582046512715" duration="5903000" />
       <workItem from="1582124515383" duration="3127000" />
-      <workItem from="1582181426997" duration="26321000" />
+      <workItem from="1582181426997" duration="27373000" />
+      <workItem from="1582310319315" duration="66000" />
+      <workItem from="1582443379184" duration="9854000" />
+      <workItem from="1582536295475" duration="966000" />
+      <workItem from="1582566225754" duration="17651000" />
+      <workItem from="1582653178610" duration="5694000" />
+      <workItem from="1582743280549" duration="1836000" />
+      <workItem from="1582787949543" duration="117000" />
+      <workItem from="1582788908683" duration="15000" />
+      <workItem from="1582817557443" duration="169000" />
+      <workItem from="1582949785216" duration="400000" />
+      <workItem from="1583084686846" duration="2705000" />
+      <workItem from="1583120301600" duration="5000" />
+      <workItem from="1583124598346" duration="11450000" />
+      <workItem from="1583172114486" duration="6065000" />
+      <workItem from="1583240462262" duration="20000" />
+      <workItem from="1583240800837" duration="343000" />
+      <workItem from="1583241407585" duration="520000" />
+      <workItem from="1583247753912" duration="70960000" />
+      <workItem from="1583493482713" duration="14822000" />
     </task>
     <task id="LOCAL-00001" summary="1.项目骨架搭建-（统一认证授权SSO-基于jwt认证+oauth2）">
       <created>1580481875354</created>
@@ -626,16 +755,17 @@
       <option name="project" value="LOCAL" />
       <updated>1582273878214</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="#5 article server整合rabbitmq实现访问文章阅读量异步化">
+      <created>1582309089269</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1582309089269</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="UserApplicationTest_contextLoads - 2020.01.30 at 16h 33m 52s.xml">
-      <configuration name="UserApplicationTest.contextLoads" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="UserApplicationTest_contextLoads - 2020.01.30 at 16h 54m 57s.xml">
-      <configuration name="UserApplicationTest.contextLoads" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="UserApplicationTest_contextLoads - 2020.01.30 at 16h 55m 10s.xml">
       <configuration name="UserApplicationTest.contextLoads" configurationId="JUnit" />
     </history-entry>
@@ -660,9 +790,15 @@
     <history-entry file="AuthenticationServerApplicationTest_get_(1) - 2020.01.31 at 19h 58m 46s.xml">
       <configuration name="AuthenticationServerApplicationTest.get (1)" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="UserApplicationTest_contextLoads - 2020.03.04 at 01h 31m 53s.xml">
+      <configuration name="UserApplicationTest.contextLoads" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UserApplicationTest_contextLoads - 2020.03.04 at 01h 33m 24s.xml">
+      <configuration name="UserApplicationTest.contextLoads" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="342027000" />
+    <option name="totallyTimeSpent" value="486737000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -674,9 +810,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1265" height="877" extended-state="0" />
+    <frame x="0" y="23" width="1266" height="877" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.73884517" visible="true" weight="0.2526574" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.73884517" visible="true" weight="0.30718955" />
       <window_info id="Structure" order="1" sideWeight="0.26115486" side_tool="true" weight="0.38373983" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -686,30 +822,30 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32939634" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.34383202" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.6456693" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.2808399" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4995809" weight="0.19422573" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.20734908" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.22440945" />
       <window_info anchor="bottom" id="Spring" order="7" weight="0.32939634" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.167979" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50041914" side_tool="true" weight="0.48818898" />
       <window_info anchor="bottom" id="Java Enterprise" order="11" />
       <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="13" weight="0.36745408" />
+      <window_info anchor="bottom" id="Version Control" order="13" weight="0.3832021" />
       <window_info anchor="bottom" id="Messages" order="14" weight="0.27034122" />
       <window_info anchor="bottom" id="Database Console" order="15" weight="0.32939634" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Maven" order="3" weight="0.508894" />
+      <window_info anchor="right" id="Maven" order="3" weight="0.5077805" />
       <window_info anchor="right" id="Palette" order="4" />
       <window_info anchor="right" id="Capture Analysis" order="5" />
-      <window_info anchor="right" id="Database" order="6" weight="0.32368422" />
+      <window_info anchor="right" id="Database" order="6" weight="0.44037414" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Theme Preview" order="8" />
-      <window_info anchor="right" id="Bean Validation" order="9" weight="0.32962137" />
+      <window_info anchor="right" id="Bean Validation" order="9" weight="0.32862744" />
     </layout>
     <layout-to-restore>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49785408" visible="true" weight="0.18567026" />
@@ -800,20 +936,21 @@
     <MESSAGE value="#3  aop + Validation+ 注解 实现 自动分组校验" />
     <MESSAGE value="业务开发" />
     <MESSAGE value="#4 整合netty + websocket 搭建大致消息推送流程" />
-    <option name="LAST_COMMIT_MESSAGE" value="#4 整合netty + websocket 搭建大致消息推送流程" />
+    <MESSAGE value="#5 article server整合rabbitmq实现访问文章阅读量异步化" />
+    <option name="LAST_COMMIT_MESSAGE" value="#5 article server整合rabbitmq实现访问文章阅读量异步化" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/burukeyou-admin/src/test/java/burukeyou/UserApplicationTest.java</url>
-          <line>16</line>
+          <line>13</line>
           <properties />
           <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/controller/UmsAdminController.java</url>
-          <line>70</line>
+          <line>82</line>
           <properties />
           <option name="timeStamp" value="20" />
         </line-breakpoint>
@@ -831,13 +968,13 @@
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/controller/UmsAdminController.java</url>
-          <line>80</line>
+          <line>92</line>
           <properties />
           <option name="timeStamp" value="67" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/controller/UmsAdminController.java</url>
-          <line>37</line>
+          <line>49</line>
           <properties />
           <option name="timeStamp" value="68" />
         </line-breakpoint>
@@ -889,522 +1026,624 @@
           <properties />
           <option name="timeStamp" value="94" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/burukeyou-gateway/zuul-gateway/src/main/java/burukeyou/gateway/zuul/config/oauth2/ZuulResourceServerConfig.java</url>
           <line>31</line>
           <properties />
           <option name="timeStamp" value="97" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/burukeyou-auth/authentication-server/src/main/java/burukeyou/auth/authenticationServer/ouath2/Ouath2UserDetailService.java</url>
           <line>36</line>
           <properties />
           <option name="timeStamp" value="121" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/burukeyou-auth/authentication-server/src/main/java/burukeyou/auth/authenticationServer/ouath2/Ouath2UserDetailService.java</url>
           <line>63</line>
           <properties />
           <option name="timeStamp" value="122" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/burukeyou-search/src/main/java/burukeyou/search/controller/GlobalController.java</url>
           <line>39</line>
           <properties />
           <option name="timeStamp" value="126" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/burukeyou-user/src/main/java/burukeyou/user/controller/UserColumnController.java</url>
           <line>80</line>
           <properties />
           <option name="timeStamp" value="128" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/burukeyou-user/src/main/java/burukeyou/user/service/impl/UserColumnServiceImpl.java</url>
           <line>52</line>
           <properties />
           <option name="timeStamp" value="140" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/burukeyou-user/src/main/java/burukeyou/user/controller/UmsFavoritesController.java</url>
           <line>45</line>
           <properties />
           <option name="timeStamp" value="149" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/burukeyou-common/common-core/src/main/java/burukeyou/common/core/aspect/ParamValidAOP.java</url>
-          <line>26</line>
-          <properties />
-          <option name="timeStamp" value="150" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/burukeyou-common/common-core/src/main/java/burukeyou/common/core/aspect/ParamValidAOP.java</url>
-          <line>40</line>
+          <line>35</line>
           <properties />
           <option name="timeStamp" value="151" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/burukeyou-im/im-server/src/main/java/burukeyou/im/server/controller/MessageControler.java</url>
           <line>19</line>
           <properties />
           <option name="timeStamp" value="166" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/burukeyou-im/im-server/src/main/java/burukeyou/im/server/netty/handler/CustomMessageHandler.java</url>
           <line>64</line>
           <properties />
           <option name="timeStamp" value="168" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/burukeyou-im/im-server/src/main/java/burukeyou/im/server/IMConnectServer.java</url>
           <line>82</line>
           <properties />
           <option name="timeStamp" value="169" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/burukeyou-im/im-server/src/main/java/burukeyou/im/server/listener/NacosServer.java</url>
           <line>20</line>
           <properties />
           <option name="timeStamp" value="170" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/burukeyou-api/article-center/src/main/java/burukeyou/article/mq/MqConsumer.java</url>
           <line>27</line>
           <properties />
           <option name="timeStamp" value="172" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/burukeyou-api/article-center/src/main/java/burukeyou/article/mq/MqSender.java</url>
           <line>21</line>
           <properties />
           <option name="timeStamp" value="174" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/burukeyou-api/article-center/src/main/java/burukeyou/article/service/impl/ArticleServiceImpl.java</url>
           <line>66</line>
           <properties />
           <option name="timeStamp" value="175" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/burukeyou-api/article-center/src/main/java/burukeyou/article/service/impl/ArticleServiceImpl.java</url>
           <line>70</line>
           <properties />
           <option name="timeStamp" value="176" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/burukeyou-api/article-center/src/main/java/burukeyou/article/controller/ArticleController.java</url>
           <line>60</line>
           <properties />
           <option name="timeStamp" value="177" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/burukeyou-api/article-center/src/main/java/burukeyou/article/mq/MqConsumer.java</url>
           <line>45</line>
           <properties />
           <option name="timeStamp" value="178" />
         </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/burukeyou-api/comment-center/src/main/java/burukeyou/comment/controller/CommentController.java</url>
+          <line>30</line>
+          <properties />
+          <option name="timeStamp" value="179" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/burukeyou-api/comment-center/src/main/java/burukeyou/comment/service/impl/CommentServiceImpl.java</url>
+          <line>36</line>
+          <properties />
+          <option name="timeStamp" value="180" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/burukeyou-api/comment-center/src/main/java/burukeyou/comment/controller/CommentController.java</url>
+          <line>45</line>
+          <properties />
+          <option name="timeStamp" value="181" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/burukeyou-api/comment-center/src/main/java/burukeyou/comment/controller/CommentController.java</url>
+          <line>56</line>
+          <properties />
+          <option name="timeStamp" value="182" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/burukeyou-api/boiling-center/src/main/java/burukeyou/boiling/service/impl/BoilingServiceImpl.java</url>
+          <line>64</line>
+          <properties />
+          <option name="timeStamp" value="188" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/burukeyou-api/boiling-center/src/main/java/burukeyou/boiling/service/impl/BoilingServiceImpl.java</url>
+          <line>57</line>
+          <properties />
+          <option name="timeStamp" value="189" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/burukeyou-auth/auth-client/src/main/java/burukeyou/auth/authClient/handler/CustomAccessDeniedHandler.java</url>
+          <line>21</line>
+          <properties />
+          <option name="timeStamp" value="191" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/burukeyou-api/article-center/src/main/java/burukeyou/article/controller/ArticleController.java</url>
+          <line>39</line>
+          <properties />
+          <option name="timeStamp" value="192" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/burukeyou-api/article-center/src/main/java/burukeyou/article/config/mq/RabbitMqConfig.java</url>
+          <line>24</line>
+          <properties />
+          <option name="timeStamp" value="193" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/burukeyou-api/user-center/src/main/java/burukeyou/user/controller/UserColumnController.java</url>
+          <line>59</line>
+          <properties />
+          <option name="timeStamp" value="195" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/burukeyou-common/common-core/src/main/java/burukeyou/common/core/aspect/ParamValidAOP.java</url>
+          <line>21</line>
+          <properties />
+          <option name="timeStamp" value="196" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/burukeyou-api/user-center/src/main/java/burukeyou/user/controller/UmsUserController.java</url>
+          <line>62</line>
+          <properties />
+          <option name="timeStamp" value="197" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/service/impl/PermissionServiceImpl.java</url>
+          <line>23</line>
+          <properties />
+          <option name="timeStamp" value="218" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/controller/UmsPermissionController.java</url>
+          <line>55</line>
+          <properties />
+          <option name="timeStamp" value="244" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/controller/UmsPermissionController.java</url>
+          <line>70</line>
+          <properties />
+          <option name="timeStamp" value="247" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/burukeyou-im/pom.xml">
+    <entry file="file://$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/service/CommonServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="14" lean-forward="true" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
+        <state relative-caret-position="136">
+          <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
         </state>
       </provider>
-      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/burukeyou-im/im-server/src/main/java/burukeyou/im/server/controller/ConnectionServer.java">
+    <entry file="file://$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/entity/pojo/UmsRole.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="14" lean-forward="true" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
+        <state relative-caret-position="153">
+          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/entity/dto/QueryUserConditionDto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="21" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/burukeyou-common/common-core/src/main/java/burukeyou/common/core/utils/ValidationUtils.java">
+    <entry file="file://$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/entity/enums/PermissionTypeEnum.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="27" column="5" lean-forward="true" selection-start-line="18" selection-start-column="3" selection-end-line="27" selection-end-column="5" />
+        <state relative-caret-position="34">
+          <caret line="2" column="28" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="28" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/io/netty/netty-all/4.1.38.Final/netty-all-4.1.38.Final-sources.jar!/io/netty/channel/SimpleChannelInboundHandler.java">
+    <entry file="file://$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/entity/dto/RoleRelationDto.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="47" column="22" selection-start-line="47" selection-start-column="22" selection-end-line="47" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_221.jdk/Contents/Home/src.zip!/java/net/InetSocketAddress.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="123">
-          <caret line="164" column="11" selection-start-line="164" selection-start-column="11" selection-end-line="164" selection-end-column="11" />
-          <folding>
-            <element signature="e#4750#4751#0" expanded="true" />
-            <element signature="e#4807#4808#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/io/netty/netty-all/4.1.38.Final/netty-all-4.1.38.Final-sources.jar!/io/netty/bootstrap/AbstractBootstrap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="244" column="36" selection-start-line="244" selection-start-column="36" selection-end-line="244" selection-end-column="36" />
-          <folding>
-            <element signature="e#8536#8537#0" expanded="true" />
-            <element signature="e#8596#8597#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/burukeyou-im/im-server/src/main/java/burukeyou/im/server/entity/bo/ChatMessage.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/burukeyou-im/im-server/src/main/java/burukeyou/im/server/entity/bo/UserChanelMap.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/burukeyou-im/im-server/src/main/java/burukeyou/im/server/netty/handler/HeartBeatHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="27">
-          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/burukeyou-im/im-server/src/main/java/burukeyou/im/server/entity/bo/ChatDataContent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="27" column="27" selection-start-line="27" selection-start-column="27" selection-end-line="27" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/burukeyou-im/im-server/src/main/java/burukeyou/im/server/ImServerApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#252#253#0" expanded="true" />
-            <element signature="e#321#322#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/burukeyou-im/im-server/src/main/java/burukeyou/im/server/netty/IMServerInitialzer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="406">
-          <caret line="51" lean-forward="true" selection-start-line="51" selection-end-line="51" />
+        <state relative-caret-position="170">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/burukeyou-im/im-server/src/main/java/burukeyou/im/server/netty/handler/CustomMessageHandler.java">
+    <entry file="file://$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/entity/dto/RoleDto.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="157">
-          <caret line="76" selection-start-line="76" selection-end-line="76" />
+        <state relative-caret-position="289">
+          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/burukeyou-im/im-server/src/main/java/burukeyou/im/server/controller/MessageControler.java">
+    <entry file="file://$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/mapper/UmsAdminMapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
+        <state relative-caret-position="136">
+          <caret line="18" column="21" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/service/impl/UmsAdminServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="531">
+          <caret line="92" column="25" selection-start-line="92" selection-start-column="25" selection-end-line="92" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/service/UmsAdminService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="39" column="12" selection-start-line="39" selection-start-column="12" selection-end-line="39" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/mapper/UmsRoleMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="14" column="84" selection-start-line="14" selection-start-column="84" selection-end-line="14" selection-end-column="84" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/service/UmsAdminRoleService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="8" selection-start-line="13" selection-start-column="8" selection-end-line="13" selection-end-column="8" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$MAVEN_REPOSITORY$/com/alibaba/nacos/nacos-client/0.8.0/nacos-client-0.8.0.pom">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/5.1.9.RELEASE/spring-context-5.1.9.RELEASE.jar!/org/springframework/context/event/ContextStartedEvent.class">
+    <entry file="file://$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/service/impl/UmsAdminRoleServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="9" column="32" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot/2.1.7.RELEASE/spring-boot-2.1.7.RELEASE.jar!/org/springframework/boot/context/event/ApplicationStartedEvent.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="10" column="36" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/5.1.9.RELEASE/spring-context-5.1.9.RELEASE.jar!/org/springframework/context/ApplicationEvent.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/5.1.9.RELEASE/spring-context-5.1.9.RELEASE.jar!/org/springframework/context/event/ApplicationContextEvent.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="10" column="60" selection-start-line="10" selection-start-column="60" selection-end-line="10" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/5.1.9.RELEASE/spring-context-5.1.9.RELEASE.jar!/org/springframework/context/event/ContextRefreshedEvent.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="9" column="55" selection-start-line="9" selection-start-column="55" selection-end-line="9" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/burukeyou-im/im-server/src/main/java/burukeyou/im/server/listener/ImStarterListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="17" column="46" selection-start-line="17" selection-start-column="46" selection-end-line="17" selection-end-column="46" />
+        <state relative-caret-position="221">
+          <caret line="13" column="39" selection-start-line="13" selection-start-column="39" selection-end-line="13" selection-end-column="39" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/burukeyou-im/im-server/src/main/java/burukeyou/im/server/IMConnectServer.java">
+    <entry file="file://$PROJECT_DIR$/burukeyou-admin/src/main/resources/mybatis/mapper/UmsAdminRoleMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="263">
-          <caret line="28" selection-start-line="28" selection-end-line="29" selection-end-column="21" />
+        <state relative-caret-position="85">
+          <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/service/CommonRoleService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/entity/pojo/UmsAdmin.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="397">
+          <caret line="37" column="27" selection-start-line="37" selection-start-column="20" selection-end-line="37" selection-end-column="27" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/alibaba/nacos/nacos-client/1.1.1/nacos-client-1.1.1.jar!/com/alibaba/nacos/client/config/NacosConfigService.class">
+    <entry file="file://$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/entity/pojo/UmsAdminRole.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="146">
-          <caret line="98" column="46" selection-start-line="98" selection-start-column="40" selection-end-line="98" selection-end-column="46" />
+        <state relative-caret-position="170">
+          <caret line="16" column="26" lean-forward="true" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/alibaba/nacos/nacos-api/0.8.0/nacos-api-0.8.0.jar!/com/alibaba/nacos/api/config/ConfigService.class">
+    <entry file="file://$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/entity/pojo/UmsResource.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="15" column="12" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="12" />
+        <state relative-caret-position="170">
+          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/alibaba/nacos/nacos-client/0.8.0/nacos-client-0.8.0.jar!/com/alibaba/nacos/client/config/NacosConfigService.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="146">
-          <caret line="74" selection-start-line="74" selection-end-line="74" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/burukeyou-im/im-api/src/main/resources/application.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="24" column="12" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/burukeyou-im/im-api/src/main/java/burukeyou/im/api/ImApiApplication.java">
+    <entry file="file://$PROJECT_DIR$/burukeyou-admin/src/main/resources/mybatis/mapper/UmsRolePermissionMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+          <caret line="14" column="16" lean-forward="true" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/mapper/UmsRolePermissionMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="12" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#749#750#0" expanded="true" />
-            <element signature="e#815#816#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/burukeyou-im/im-api/pom.xml">
+    <entry file="file://$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/entity/pojo/UmsPermission.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="45" column="21" lean-forward="true" selection-start-line="45" selection-start-column="21" selection-end-line="45" selection-end-column="21" />
+        <state relative-caret-position="391">
+          <caret line="30" column="24" lean-forward="true" selection-start-line="30" selection-start-column="24" selection-end-line="30" selection-end-column="24" />
         </state>
       </provider>
-      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/burukeyou-im/im-server/src/main/resources/application.yml">
+    <entry file="file://$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/service/UmsRoleService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/service/impl/UmsRolePermissionServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="19" selection-start-line="13" selection-start-column="19" selection-end-line="13" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/burukeyou-admin/src/main/resources/mybatis/mapper/UmsAdminMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
+          <folding>
+            <element signature="e#1608#2039#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/mapper/UmsAdminRoleMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/burukeyou-user/src/main/java/burukeyou/user/entity/vo/UserInfoVo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/burukeyou-api/article-center/src/main/java/burukeyou/article/entity/vo/ArticleDetailVo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="31">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/burukeyou-api/article-center/src/main/java/burukeyou/article/entity/vo/ArticleListlVo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/burukeyou-common/common-core/src/main/java/burukeyou/common/core/entity/dto/BaseOutputConverter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="13" column="29" selection-start-line="13" selection-start-column="29" selection-end-line="13" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_221.jdk/Contents/Home/src.zip!/java/util/stream/Collectors.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="245">
+          <caret line="228" column="29" selection-start-line="228" selection-start-column="29" selection-end-line="228" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_221.jdk/Contents/Home/src.zip!/java/util/HashMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="624" column="12" selection-start-line="624" selection-start-column="12" selection-end-line="624" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/entity/vo/MenuBaseVO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="10" column="40" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/entity/bo/menu/BaseMenu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="23" column="10" lean-forward="true" selection-start-line="23" selection-start-column="10" selection-end-line="23" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/service/UmsRolePermissionService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/service/impl/UmsRoleServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="23" column="30" lean-forward="true" selection-start-line="23" selection-start-column="30" selection-end-line="23" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/entity/pojo/UmsRolePermission.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/controller/UmsRoleController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="213">
+          <caret line="41" column="19" lean-forward="true" selection-start-line="41" selection-start-column="19" selection-end-line="41" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/controller/UmsAdminController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="689">
+          <caret line="131" column="56" lean-forward="true" selection-start-line="131" selection-start-column="56" selection-end-line="131" selection-end-column="56" />
+          <folding>
+            <element signature="method#login#0;class#UmsAdminController#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/baomidou/mybatis-plus-extension/3.3.1.tmp/mybatis-plus-extension-3.3.1.tmp.jar!/com/baomidou/mybatisplus/extension/service/IService.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="31" column="20" selection-start-line="31" selection-start-column="20" selection-end-line="31" selection-end-column="20" />
+          <folding>
+            <element signature="e#1318#1319#0" expanded="true" />
+            <element signature="e#1395#1396#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/burukeyou-admin/src/main/resources/mybatis/mapper/UmsPermissionMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/mapper/UmsPermissionMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="24" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/service/impl/PermissionServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="25" column="39" selection-start-line="25" selection-start-column="39" selection-end-line="25" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_221.jdk/Contents/Home/src.zip!/java/lang/StringBuffer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-618">
+          <caret line="114" column="11" selection-start-line="114" selection-start-column="11" selection-end-line="114" selection-end-column="11" />
+          <folding>
+            <element signature="e#4139#4140#0" expanded="true" />
+            <element signature="e#4164#4165#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/entity/dto/UmsPermissionDto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/service/PermissionService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="22" column="24" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/entity/bo/menu/TreeNode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/entity/vo/MenuTreeVO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="8" column="37" selection-start-line="8" selection-start-column="37" selection-end-line="8" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/utils/TreeUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="237">
+          <caret line="44" column="4" selection-start-line="44" selection-start-column="4" selection-end-line="44" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/controller/UmsPermissionController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="599">
+          <caret line="61" column="33" lean-forward="true" selection-start-line="61" selection-start-column="33" selection-end-line="61" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1575#1576#0" expanded="true" />
+            <element signature="e#1633#1634#0" expanded="true" />
+            <element signature="method#test02#0;class#UmsPermissionController#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/controller/GroupController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/controller/ApplicationController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/burukeyou-im/im-api/src/main/java/burukeyou/im/api/controller/ConnectionServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="26" column="20" lean-forward="true" selection-start-line="26" selection-start-column="20" selection-end-line="26" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/burukeyou-im/im-server/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="39" column="46" selection-start-line="39" selection-start-column="46" selection-end-line="39" selection-end-column="46" />
-        </state>
-      </provider>
-      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/burukeyou-im/im-server/src/main/java/burukeyou/im/server/listener/NacosServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/burukeyou-im/im-api/src/main/java/burukeyou/im/api/rpc/UserServiceRPC.java">
+    <entry file="file://$PROJECT_DIR$/burukeyou-search/src/main/java/burukeyou/search/controller/GlobalController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
-          <caret line="7" column="21" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/burukeyou-auth/auth-client/src/main/java/burukeyou/auth/authClient/config/oauth2/CustomResourceServerConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="49" column="11" selection-start-line="49" selection-start-column="11" selection-end-line="49" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/burukeyou-gateway/zuul-gateway/src/main/java/burukeyou/gateway/zuul/service/local/impl/PermissionServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="20" column="11" selection-start-line="20" selection-start-column="11" selection-end-line="20" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/burukeyou-api/user-center/src/main/java/burukeyou/user/controller/UmsFavoritesController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="44" column="11" selection-start-line="44" selection-start-column="11" selection-end-line="44" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/burukeyou-user/src/main/java/burukeyou/user/controller/UmsFavoritesController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="44" column="11" selection-start-line="44" selection-start-column="11" selection-end-line="44" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/burukeyou-api/user-center/src/main/java/burukeyou/user/service/impl/UmsFavoritesServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="36" column="11" selection-start-line="36" selection-start-column="11" selection-end-line="36" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-starter-amqp/2.1.7.RELEASE/spring-boot-starter-amqp-2.1.7.RELEASE.pom">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-493" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/burukeyou-api/article-center/src/main/java/burukeyou/article/config/mq/RabbitMqConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/burukeyou-api/article-center/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="52" column="37" selection-start-line="52" selection-start-column="37" selection-end-line="52" selection-end-column="37" />
-        </state>
-      </provider>
-      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/amqp/spring-rabbit/2.1.8.RELEASE/spring-rabbit-2.1.8.RELEASE.jar!/org/springframework/amqp/rabbit/core/RabbitTemplate.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="542" column="16" selection-start-line="542" selection-start-column="16" selection-end-line="542" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.7.26/slf4j-api-1.7.26.jar!/org/slf4j/Logger.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="66" column="9" selection-start-line="66" selection-start-column="9" selection-end-line="66" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/burukeyou-api/article-center/src/main/java/burukeyou/article/ArticleCenterApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/burukeyou-api/article-center/src/main/resources/application.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="11">
-          <caret line="26" column="14" lean-forward="true" selection-start-line="26" selection-start-column="14" selection-end-line="26" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/burukeyou-api/article-center/src/main/java/burukeyou/article/controller/ArticleController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="60" selection-start-line="60" selection-end-line="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/amqp/spring-amqp/2.1.8.RELEASE/spring-amqp-2.1.8.RELEASE.jar!/org/springframework/amqp/support/AmqpHeaders.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="81">
-          <caret line="17" column="31" selection-start-line="17" selection-start-column="31" selection-end-line="17" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/burukeyou-api/article-center/src/main/java/burukeyou/article/entity/bo/CountIncrementMsg.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="18" lean-forward="true" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/burukeyou-api/article-center/src/main/java/burukeyou/article/service/impl/ArticleServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="71" selection-start-line="71" selection-end-line="71" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/burukeyou-api/article-center/src/main/java/burukeyou/article/mq/MqConsumer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="47" column="87" selection-start-line="47" selection-start-column="87" selection-end-line="47" selection-end-column="87" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/burukeyou-api/article-center/src/main/java/burukeyou/article/mq/MqSender.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="50">
-          <caret line="29" column="5" lean-forward="true" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
         </state>
       </provider>
     </entry>

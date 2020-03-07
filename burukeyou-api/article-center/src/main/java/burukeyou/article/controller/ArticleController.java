@@ -45,7 +45,7 @@ public class ArticleController {
     }
 
     @DeleteMapping("/{id}")
-    @ApiOperation(value = "根据收藏夹id删除专栏,用户只能删除属于自己专收藏夹的id")
+    @ApiOperation(value = "根据id删除,用户只能删除属于自己的")
     @ApiImplicitParam(name = "id",value = "文章id",required = true,dataType = "String")
     public ResultVo delete(@PathVariable("id")  String id){
         return ResultVo.compute(articleService.deleteById(id));

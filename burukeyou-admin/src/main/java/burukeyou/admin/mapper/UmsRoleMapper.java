@@ -12,7 +12,7 @@ import java.util.List;
 public interface UmsRoleMapper extends BaseMapper<UmsRole> {
 
 
-    @Select("select code from ums_roles where id in (select role_id from ums_admin_role_relation where user_id = #{userId})")
-    List<String> findByUserId(@Param("userId") String userId);
+    @Select("select * from ums_roles where id in (select role_id from ums_admin_role where user_id = #{userId})")
+    List<UmsRole> findByUserId(@Param("userId") String userId);
 
 }

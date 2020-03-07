@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="burukeyou.admin.mapper.UmsPermissionMapper" >
+
+
+    <select id="getAllPermissionByUserId" resultType="burukeyou.admin.entity.pojo.UmsPermission" parameterType="string">
+        SELECT DISTINCT permission.*
+        from ums_admin_role ur JOIN ums_roles ro on ur.role_id = ro.id
+        JOIN ums_role_permission role_resoure on ro.id = role_resoure.role_id
+        join ums_permission permission on role_resoure.permission_id = permission.id
+        <if test="type != null || type != ''">
+            and permission.type =  #{type}
+        </if>
+        WHERE ur.user_id = #{userId}
+    </select>
+
+
+
+    <select id="getAllPermissionByRoleId" resultType="burukeyou.admin.entity.pojo.UmsPermission">
+        SELECT *
+        from ums_role_permission urp JOIN ums_permission per on urp.permission_id = per.id
+        <if test="type != null || type != ''">
+            and per.type = #{type}
+        </if>
+        WHERE urp.role_id = #{roleId}
+    </select>
+</mapper>

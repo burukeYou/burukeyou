@@ -5,6 +5,13 @@ spring:
   application:
     name: comment-server
 
+  # spring Data
+  data:
+    mongodb:
+      host: 121.36.47.240
+      database: burukeyou-comment
+
+  # 注册中心
   cloud:
     nacos:
       discovery:

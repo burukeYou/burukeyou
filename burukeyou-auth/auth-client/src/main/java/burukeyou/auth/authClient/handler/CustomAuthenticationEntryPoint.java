@@ -17,6 +17,7 @@ import java.io.IOException;
 /**
  *  认证异常时被调用
  *
+ *
  */
 @Component
 @Slf4j
@@ -28,17 +29,13 @@ public class CustomAuthenticationEntryPoint implements AuthenticationEntryPoint 
 
     @Override
     public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException e) throws IOException, ServletException {
-        log.info("auth fail....      -- {}",application_anme);
-
-        System.out.println(request.getRequestURL());
-        System.out.println(request.getRequestURI());
-        System.out.println("========================");
+        log.error("auth fail....      -- {}",application_anme);
 
         Throwable cause = e.getCause();
         if (cause instanceof InvalidTokenException){
-            log.info("error mesage:  invalid_token");
+            log.error("error mesage:  invalid_token");  // token 无效
         }else if(e instanceof InsufficientAuthenticationException){
-            log.info("error mesage:  access_deined");
+            log.error("error mesage:  access_deined,token does not exist");  // 无 token
         }
     }
 }

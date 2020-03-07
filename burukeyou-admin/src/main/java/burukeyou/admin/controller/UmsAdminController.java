@@ -2,8 +2,14 @@ package burukeyou.admin.controller;
 
 import burukeyou.admin.entity.bo.TokenInfo;
 import burukeyou.admin.entity.dto.LoginDto;
+import burukeyou.admin.entity.dto.QueryUserConditionDto;
+import burukeyou.admin.entity.dto.UmsAdminDto;
+import burukeyou.admin.entity.vo.UmsAdminVO;
+import burukeyou.admin.rpc.FileServiceRPC;
 import burukeyou.admin.service.UmsAdminService;
+import burukeyou.common.core.entity.annotation.EnableParamValid;
 import burukeyou.common.core.entity.vo.ResultVo;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.swagger.annotations.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.*;
@@ -12,22 +18,28 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import java.util.Set;
 
 @Slf4j
 @RestController
-@Api("admin")
+@Api("用户管理")
 @RequestMapping("/admin")
 public class UmsAdminController {
 
     private final RestTemplate restTemplate;
+
     private final UmsAdminService umsAdminService;
 
-    public UmsAdminController(RestTemplate restTemplate, UmsAdminService umsAdminService) {
+    private FileServiceRPC fileServiceRPC;
+
+    public UmsAdminController(RestTemplate restTemplate, UmsAdminService umsAdminService, FileServiceRPC fileServiceRPC) {
         this.restTemplate = restTemplate;
         this.umsAdminService = umsAdminService;
+        this.fileServiceRPC = fileServiceRPC;
     }
 
     @PostMapping("/login")
@@ -74,16 +86,57 @@ public class UmsAdminController {
     }
 
 
-    @GetMapping("/uniqueId")
+  /*  @GetMapping("/uniqueId")
     @ApiOperation(value = "根据用户账号或者手机号查找用户")
     @ApiImplicitParam(paramType = "query",name = "uniqueId",value = "用户账号或者手机号",required = true,dataType = "string")
     public ResultVo getUserByUserName(@RequestParam String uniqueId){
         log.debug("query with username or mobile:{}", uniqueId);
         return ResultVo.success(umsAdminService.getByUniqueId(uniqueId));
+    }*/
+
+    @PostMapping
+    @EnableParamValid
+    @ApiOperation("新增或者修改后台用户信息")
+    @ApiImplicitParam(name = "userDto", value = "用户信息", required = true, dataType = "UserDto")
+    public ResultVo addOrUpdate(@RequestBody UmsAdminDto umsAdminDto){
+
+        // todo 上传文件
+        MultipartFile avatarFile = umsAdminDto.getAvatarFile();
+        if (avatarFile != null){
+            String data = fileServiceRPC.uploadOne(avatarFile).getData();
+            umsAdminDto.setAvatar(data);
+        }
+
+        return ResultVo.compute(umsAdminService.saveOrupdate(umsAdminDto.converTo()))  ;
     }
 
 
+    @DeleteMapping("{id}")
+    @ApiOperation(value = "删除用户")
+    @ApiImplicitParam(name = "id",value = "用户id",dataType = "String")
+    public ResultVo deleteById(@PathVariable("id") String id){
+        return ResultVo.compute(umsAdminService.deleteById(id));
+    }
 
+    @GetMapping
+    @ApiOperation("多条件分页获取用户列表")
+    @ApiImplicitParam(name = "查找用户的筛选条件")
+    public ResultVo list(QueryUserConditionDto queryUserConditionDto){
+        Page<UmsAdminVO> umsAdminPage =  umsAdminService.getListByCondition(queryUserConditionDto);
+        return ResultVo.success(umsAdminPage);
+    }
+
+    @PostMapping("{userId}/roles")
+    @ApiOperation("给用户分配角色")
+    public ResultVo updateUserRole(@PathVariable String userId, @RequestBody Set<String> roleIdList){
+        return ResultVo.compute(umsAdminService.setRoleOfUser(userId,roleIdList));
+    }
+
+
+    //todo 导入用户
+
+
+    //todo 导出用户
 
 
 

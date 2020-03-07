@@ -1,6 +1,6 @@
 package burukeyou.article.entity.pojo;
 
-import burukeyou.common.core.entity.pojo.BasePojo;
+import burukeyou.common.dao.pojo.BasePojo;
 import lombok.Data;
 
 import java.io.Serializable;

@@ -27,6 +27,7 @@
         <module>burukeyou-user</module>
         <module>burukeyou-api</module>
         <module>burukeyou-im</module>
+        <module>burukeyou-monitor</module>
     </modules>
 
     <!-- 版本约束  -->

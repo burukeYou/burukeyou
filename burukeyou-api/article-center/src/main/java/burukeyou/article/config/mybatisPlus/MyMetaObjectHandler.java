@@ -1,7 +1,7 @@
 package burukeyou.article.config.mybatisPlus;
 
 import burukeyou.auth.authClient.util.AuthUtils;
-import burukeyou.common.core.config.mybatisPlus.BsaePojoMetaObjectHandler;
+import burukeyou.common.dao.config.mybatisPlus.BsaePojoMetaObjectHandler;
 import org.springframework.stereotype.Component;
 
 /**

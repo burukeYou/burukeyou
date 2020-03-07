@@ -1,4 +1,4 @@
-package com.test;
+package burukeyou.system.entity.pojo;
 
 import lombok.Data;
 

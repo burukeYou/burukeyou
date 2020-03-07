@@ -51,11 +51,15 @@ custom:
       ignore-urls:
         - /user/login
         - /article/**
-      resource-id: article-center-server
+      resource-id: ${spring.application.name}
       signing-key: 909090
 
   swagger2:
     basePackage: burukeyou.article.controller
+
+
+  start:
+    rabbitmq: false
 
 
 

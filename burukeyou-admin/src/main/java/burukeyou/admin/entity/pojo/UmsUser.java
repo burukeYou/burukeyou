@@ -1,6 +1,6 @@
 package burukeyou.admin.entity.pojo;
 
-import burukeyou.common.core.entity.pojo.BasePojo;
+import burukeyou.common.dao.pojo.BasePojo;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.*;
 

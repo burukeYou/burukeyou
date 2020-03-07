@@ -1,6 +1,7 @@
 package burukeyou.auth.authClient.config.oauth2;
 
 import burukeyou.auth.authClient.config.AuthClientProperties;
+import burukeyou.auth.authClient.handler.CustomAccessDeniedHandler;
 import burukeyou.auth.authClient.handler.CustomAuthenticationEntryPoint;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
@@ -37,6 +38,9 @@ public class CustomResourceServerConfig extends ResourceServerConfigurerAdapter 
 
     @Autowired
     private AuthClientProperties authClientProperties;
+
+    @Autowired
+    private CustomAccessDeniedHandler customAccessDeniedHandler;
 
     // 注入密码加密 （供资源服务器调用）
     @Bean
@@ -92,6 +96,9 @@ public class CustomResourceServerConfig extends ResourceServerConfigurerAdapter 
         tokenServices.setJwtAccessTokenConverter(converter);
         tokenServices.setDefaultAccessTokenConverter(accessTokenConverter);
 
-        resources.tokenServices(tokenServices).authenticationEntryPoint(baseAuthenticationEntryPoint);
+        //
+        resources.tokenServices(tokenServices)
+                 .authenticationEntryPoint(baseAuthenticationEntryPoint)
+                 .accessDeniedHandler(customAccessDeniedHandler);
     }
 }

@@ -1,3 +1,4 @@
+/*
 package burukeyou.common.core.entity.pojo;
 
 import com.baomidou.mybatisplus.annotation.FieldFill;
@@ -29,3 +30,4 @@ public class BasePojo implements Serializable {
     @TableField(fill = FieldFill.INSERT_UPDATE)
     private Date updatedTime;
 }
+*/

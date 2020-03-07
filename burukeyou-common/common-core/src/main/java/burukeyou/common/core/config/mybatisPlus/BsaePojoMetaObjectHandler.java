@@ -1,3 +1,4 @@
+/*
 package burukeyou.common.core.config.mybatisPlus;
 
 import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
@@ -25,3 +26,4 @@ public abstract class BsaePojoMetaObjectHandler implements MetaObjectHandler {
         this.strictUpdateFill(metaObject, "updatedTime",Date.class, Date.from(ZonedDateTime.now().toInstant())); // 起始版本 3.3.0(推荐使用)
     }
 }
+*/

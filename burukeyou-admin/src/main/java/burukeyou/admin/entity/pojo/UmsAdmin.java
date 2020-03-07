@@ -1,7 +1,9 @@
 package burukeyou.admin.entity.pojo;
 
-import burukeyou.common.core.entity.pojo.BasePojo;
+import burukeyou.common.dao.pojo.BasePojo;
+import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -30,15 +32,16 @@ public class UmsAdmin extends BasePojo implements Serializable {
 
 	private String description;
 
-	private Short deleted;
+	@TableLogic
+	private Boolean deleted; //逻辑删除
 
-	private Short enabled;
+	private Boolean enabled;
 
-	private Short accountNonExpired;
+	private Boolean accountNonExpired;
 
-	private Short credentialsNonExpired;
+	private Boolean credentialsNonExpired;
 
-	private Short accountNonLocked;
+	private Boolean accountNonLocked;
 
 	private String createHost;
 

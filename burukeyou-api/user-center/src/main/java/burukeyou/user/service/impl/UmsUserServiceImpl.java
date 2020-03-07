@@ -48,7 +48,7 @@ public class UmsUserServiceImpl extends ServiceImpl<UmsUserMapper, UmsUsers> imp
             //update
             return false;
 
-        return this.saveOrUpdate(umsUsers);
+        return super.saveOrUpdate(umsUsers);
     }
 
     // todo 只有当前用户可查找自己完整信息，否则查找该用户部分信息

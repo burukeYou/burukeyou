@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="burukeyou.admin.mapper.UmsRolePermissionMapper">
+
+    <delete id="deleteByRoleIdResourceId">
+        delete from ums_role_resource_relation
+        <where>
+            <if test="roleId != null || roleId != ''">
+                and role_id = #{roleId}
+            </if>
+
+            <if test="permission_id != null || permission_id != ''">
+                and permission_id = #{permissionId}
+            </if>
+        </where>
+    </delete>
+</mapper>

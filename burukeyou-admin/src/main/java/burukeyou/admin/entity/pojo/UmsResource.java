@@ -1,6 +1,6 @@
 package burukeyou.admin.entity.pojo;
 
-import burukeyou.common.core.entity.pojo.BasePojo;
+import burukeyou.common.dao.pojo.BasePojo;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -26,6 +26,8 @@ public class UmsResource extends BasePojo implements Serializable {
 	private String url;
 
 	private String method;
+
+	private String menuId;
 
 	private String description;
 }

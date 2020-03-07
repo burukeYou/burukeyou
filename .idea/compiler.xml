@@ -10,6 +10,7 @@
         <module name="burukeyou-user" />
         <module name="comment-center" />
         <module name="file-center" />
+        <module name="burukeyou-monitor" />
         <module name="im-api" />
         <module name="im-server" />
         <module name="authorization-server" />
@@ -25,6 +26,7 @@
         <module name="general-gateway" />
         <module name="burukeyou-admin" />
         <module name="common-web" />
+        <module name="common-dao" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -45,10 +47,12 @@
       <module name="burukeyou-common" options="-parameters" />
       <module name="burukeyou-gateway" options="-parameters" />
       <module name="burukeyou-im" options="-parameters" />
+      <module name="burukeyou-monitor" options="-parameters" />
       <module name="burukeyou-search" options="-parameters" />
       <module name="burukeyou-user" options="-parameters" />
       <module name="comment-center" options="-parameters" />
       <module name="common-core" options="-parameters" />
+      <module name="common-dao" options="-parameters" />
       <module name="common-web" options="-parameters" />
       <module name="file-center" options="-parameters" />
       <module name="general-gateway" options="-parameters" />

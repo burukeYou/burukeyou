@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="burukeyou.admin.mapper.UmsAdminRoleMapper">
+
+
+    <delete id="deleteByUserIdRoleId">
+            delete from ums_admin_role_relation
+            <where>
+                <if test="userId != null || userId != ''">
+                        and user_id = #{userId}
+                </if>
+                <if test="roleId != null || roleId != ''">
+                    and role_id = #{roleId}
+                </if>
+            </where>
+    </delete>
+</mapper>

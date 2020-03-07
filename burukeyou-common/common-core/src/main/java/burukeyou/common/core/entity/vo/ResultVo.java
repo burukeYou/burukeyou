@@ -1,5 +1,6 @@
 package burukeyou.common.core.entity.vo;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.sun.org.apache.xpath.internal.operations.Bool;
 import io.swagger.annotations.ApiModel;
@@ -26,29 +27,29 @@ public class ResultVo<T> {
     private String message;
 
     @ApiModelProperty(value = "返回结果生成的时间戳")
+    @JsonFormat(pattern = "yyyy-MM-dd:HH:mm:ss",timezone="GMT+8")
     private Instant time;
 
     @ApiModelProperty(value = "返回结果携带的数据") // 属性值为null的不参与序列化
-    @JsonInclude()
     private T data;
 
 
     public static  ResultVo success(){
-        return new ResultVo("200","",ZonedDateTime.now().toInstant(),null);
+        return new ResultVo<Object>("200","",ZonedDateTime.now().toInstant(),null);
     }
 
     public static   ResultVo success(Object data){
-        return new ResultVo("200","",ZonedDateTime.now().toInstant(),data);
+        return new ResultVo<Object>("200","",ZonedDateTime.now().toInstant(),data);
     }
 
     public static ResultVo error(String msg){
-        return new ResultVo("400",msg,ZonedDateTime.now().toInstant(),null);
+        return new ResultVo<Object>("400",msg,ZonedDateTime.now().toInstant(),null);
     }
 
     public static ResultVo error(){
-        return new ResultVo("400","",ZonedDateTime.now().toInstant(),null); }
+        return new ResultVo<Object>("400","",ZonedDateTime.now().toInstant(),null); }
 
-    public static ResultVo compute(Boolean result){
+    public static ResultVo compute(boolean result){
         return result == true ?  ResultVo.success() : ResultVo.error();
     }
 

@@ -14,11 +14,11 @@
 
     <dependencies>
         <!--mybatis-plus-->
-        <dependency>
+      <!--  <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
             <version>3.3.1.tmp</version>
-        </dependency>
+        </dependency>-->
         <!--  validation -->
         <dependency>
             <groupId>javax.validation</groupId>
