@@ -6,23 +6,25 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="search-admin" />
         <module name="zuul-gateway" />
-        <module name="burukeyou-user" />
+        <module name="user-center" />
+        <module name="common-log" />
         <module name="comment-center" />
         <module name="file-center" />
-        <module name="burukeyou-monitor" />
         <module name="im-api" />
         <module name="im-server" />
         <module name="authorization-server" />
+        <module name="search-adapter" />
         <module name="auth-client" />
         <module name="article-center" />
         <module name="common-core" />
         <module name="authentication-server" />
         <module name="video-center" />
         <module name="system-center" />
-        <module name="burukeyou-search" />
         <module name="boiling-center" />
-        <module name="user-center" />
+        <module name="search-server" />
+        <module name="monitor-log" />
         <module name="general-gateway" />
         <module name="burukeyou-admin" />
         <module name="common-web" />
@@ -31,6 +33,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="burukeyou-comment" target="1.8" />
+      <module name="burukeyou-user" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
@@ -53,11 +56,16 @@
       <module name="comment-center" options="-parameters" />
       <module name="common-core" options="-parameters" />
       <module name="common-dao" options="-parameters" />
+      <module name="common-log" options="-parameters" />
       <module name="common-web" options="-parameters" />
       <module name="file-center" options="-parameters" />
       <module name="general-gateway" options="-parameters" />
       <module name="im-api" options="-parameters" />
       <module name="im-server" options="-parameters" />
+      <module name="monitor-log" options="-parameters" />
+      <module name="search-adapter" options="-parameters" />
+      <module name="search-admin" options="-parameters" />
+      <module name="search-server" options="-parameters" />
       <module name="system-center" options="-parameters" />
       <module name="user-center" options="-parameters" />
       <module name="video-center" options="-parameters" />

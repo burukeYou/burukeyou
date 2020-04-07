@@ -1,0 +1,21 @@
+#logging:
+#file: demo.log
+#在当前磁盘的根路径下创建 spring文件夹和里面的Log文件夹;使用 spring,Log作为默认文件
+#path:  /spring/log
+
+#pattern:
+# console:       #在控制台输出的日志的格式
+# file:          # 日志文件输出格式
+
+
+
+logging:
+  config: classpath:logback-spring.xml
+  path: ./logs
+  level:
+    root: info
+
+
+spring:
+  application:
+    name: log-center

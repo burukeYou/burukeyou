@@ -1,0 +1,46 @@
+spring:
+  application:
+    name: search-center-admin
+
+  # cloud
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+
+    # 开启负载均衡器的失败重试功能
+    loadbalancer:
+      retry:
+        enabled: true
+
+server:
+  port: 9060
+
+# =======================================Mybatis-plus=======================================================
+mybatis-plus:
+  mapper-locations: classpath:/mybatis/mapper/*.xml
+
+
+# =======================================Custom=========================================================
+custom:
+  ouath2:
+    client:
+      ignore-urls:
+        - /**
+      resource-id: ${spring.application.name}
+      signing-key: 909090
+
+  swagger2:
+    basePackage: burukeyou.search.admin.controller
+
+
+
+
+
+
+
+
+
+
+
+

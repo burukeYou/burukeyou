@@ -64,17 +64,18 @@ public class CustomMessageHandler extends SimpleChannelInboundHandler<TextWebSoc
         // 下发消息
         if (chatDataContent.getAction() == 1){
             //2.1当 websocket第一次open的时候,初始化 channe,把用的 channe]和 userid关联起来
-            String senderId = chatDataContent.getChatMessage().getSenderId();
+            String senderId = chatDataContent.getChatMessage().getSendId();
             UserChanelMap.put(senderId,currentChannel); //将消息发送者id和chanel绑定
         }else if(chatDataContent.getAction() == 2){
             ChatMessage chatMessage = chatDataContent.getChatMessage();
-            Channel receiverChannel = UserChanelMap.getChanleById(chatMessage.getReceiverId());  //获得消息接受者的chanel
+            Channel receiverChannel = UserChanelMap.getChanleById(chatMessage.getAcceptId());  //获得消息接受者的chanel
             if (receiverChannel == null){
                 //  channel为空代表用户离线,推送消息(push,个推,小米推送)
             }else {
                 Channel channel = clientGroup.find(receiverChannel.id());
                 if (channel != null){ //表示用户在线
-                    receiverChannel.writeAndFlush(new TextWebSocketFrame(objectMapper.writeValueAsString(new ChatDataContent().setChatMessage(chatMessage))));
+                    receiverChannel.writeAndFlush(new TextWebSocketFrame(objectMapper
+                            .writeValueAsString(ChatDataContent.builder().chatMessage(chatMessage))));
                 }else {
                     //  用户离线,推送消息
                 }
@@ -97,8 +98,11 @@ public class CustomMessageHandler extends SimpleChannelInboundHandler<TextWebSoc
         Channel currentChanle = ctx.channel();
         System.out.println("客户端连接:"+currentChanle.remoteAddress()+"----"
                 +currentChanle.id()+"-----"+currentChanle.localAddress());
-
         clientGroup.add(currentChanle);
+
+        // 将当前用户绑定到该客户端通道
+        UserChanelMap.put("102",currentChanle);
+
     }
 
     //客户端关闭连接时触发

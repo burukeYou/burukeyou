@@ -7,8 +7,8 @@ import burukeyou.admin.entity.dto.UmsAdminDto;
 import burukeyou.admin.entity.vo.UmsAdminVO;
 import burukeyou.admin.rpc.FileServiceRPC;
 import burukeyou.admin.service.UmsAdminService;
-import burukeyou.common.core.entity.annotation.EnableParamValid;
 import burukeyou.common.core.entity.vo.ResultVo;
+import burukeyou.common.log.annotation.AuditLog;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.swagger.annotations.*;
 import lombok.extern.slf4j.Slf4j;
@@ -94,8 +94,9 @@ public class UmsAdminController {
         return ResultVo.success(umsAdminService.getByUniqueId(uniqueId));
     }*/
 
+    @AuditLog(logInfo = "'新增用户:'+ #umsAdminDto.adminName")
     @PostMapping
-    @EnableParamValid
+   // @EnableParamValid
     @ApiOperation("新增或者修改后台用户信息")
     @ApiImplicitParam(name = "userDto", value = "用户信息", required = true, dataType = "UserDto")
     public ResultVo addOrUpdate(@RequestBody UmsAdminDto umsAdminDto){

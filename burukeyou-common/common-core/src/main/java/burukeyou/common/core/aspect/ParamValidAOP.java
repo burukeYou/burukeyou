@@ -11,7 +11,7 @@ import org.aspectj.lang.annotation.Aspect;
 import org.springframework.stereotype.Component;
 
 import java.lang.reflect.Field;
-
+// 校验对象要放在第一个参数
 @Aspect
 @Component
 public class ParamValidAOP {

@@ -10,6 +10,8 @@ public class AmsBoiling extends BasePojo implements Serializable {
 
 	private String content;
 
+	private String contentPic;
+
 	private String userId;
 
 	private String userNickname;
@@ -28,7 +30,7 @@ public class AmsBoiling extends BasePojo implements Serializable {
 
 	private Integer state;
 
-	private Integer ispublic;
+	private Boolean ispublic;
 
 	private String url;
 }

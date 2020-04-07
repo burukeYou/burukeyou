@@ -61,6 +61,13 @@
             <artifactId>auth-client</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+        <!--  log      -->
+        <dependency>
+            <groupId>com.burukeyou</groupId>
+            <artifactId>common-log</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
 
 
 

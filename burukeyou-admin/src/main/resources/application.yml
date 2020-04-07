@@ -49,6 +49,10 @@ custom:
       resource-id: burukeyou-admin
       signing-key: 909090
 
+  audit-log:
+    enabled: true
+    logLocation: db
+
 
 
 

@@ -9,7 +9,6 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 
 @SpringBootApplication
 @EnableDiscoveryClient
-//@ComponentScan({"burukeyou.auth.authClient","burukeyou.boiling","burukeyou.common.core.aspect"})
 @EnableAuthClient
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class BoilingApplication {

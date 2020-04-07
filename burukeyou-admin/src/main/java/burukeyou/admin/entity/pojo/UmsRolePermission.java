@@ -16,8 +16,4 @@ public class UmsRolePermission extends BasePojo implements Serializable {
 
 	private String permission_id;
 
-	public UmsRolePermission(String roleId, String permission_id) {
-		this.roleId = roleId;
-		this.permission_id = permission_id;
-	}
 }

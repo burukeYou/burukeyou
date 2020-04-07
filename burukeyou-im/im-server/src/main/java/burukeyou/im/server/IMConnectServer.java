@@ -90,9 +90,10 @@ public class IMConnectServer {
             if (channel != null){ //表示用户在线
                 ChatMessage chatMessage = new ChatMessage();
                 chatMessage.setMsg(message);
-                chatMessage.setReceiverId(receivedId);
-                chatMessage.setSenderId("system");
-                receiverChannel.writeAndFlush(new TextWebSocketFrame(objectMapper.writeValueAsString(new ChatDataContent().setChatMessage(chatMessage))));
+                chatMessage.setAcceptId(receivedId);
+                chatMessage.setSendId("system");
+                receiverChannel.writeAndFlush(new TextWebSocketFrame(objectMapper.writeValueAsString(
+                        ChatDataContent.builder().chatMessage(chatMessage).build())));
             }else {
                 //  用户离线,推送消息
             }

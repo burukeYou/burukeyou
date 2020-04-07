@@ -32,6 +32,8 @@ public class CommentController {
 
             // todo 所属实体评论量加 1  (redis +  mq)
 
+            // todo 消息通知
+
 
             return ResultVo.success();
         } catch (Exception e) {

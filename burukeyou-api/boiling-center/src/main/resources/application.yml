@@ -30,7 +30,7 @@ custom:
   ouath2:
     client:
       ignore-urls:
-        - /a
+        - /**
       resource-id: ${spring.application.name}
       signing-key: 909090
 

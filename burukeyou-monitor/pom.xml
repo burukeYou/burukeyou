@@ -10,6 +10,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>burukeyou-monitor</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>monitor-log</module>
+    </modules>
 
 
 </project>
