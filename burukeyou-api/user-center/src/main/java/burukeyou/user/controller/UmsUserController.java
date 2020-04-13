@@ -44,7 +44,7 @@ public class UmsUserController {
         log.info("{} is try to login",loginDto.getUsername());
 
         // 去认证中心获取token
-        String oauthServiceUrl = "http://authentication-server/oauth/token"; //
+        String oauthServiceUrl = "http://authentication-center-server/oauth/token"; //
 
         // 设置请求头
         HttpHeaders headers = new HttpHeaders();

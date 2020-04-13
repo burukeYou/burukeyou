@@ -8,7 +8,7 @@
     <select id="getByUniqueId" resultMap="roleOfUser" parameterType="string">
             SELECT ad.id,ad.admin_name,ad.password,ad.nickname,avatar,code,
             enabled,account_non_expired,credentials_non_expired,account_non_locked
-            from ums_admin ad INNER JOIN ums_admin_role_relation are on  ad.id = are.user_id
+            from ums_admin ad INNER JOIN ums_admin_role are on  ad.id = are.user_id
             INNER JOIN ums_roles role  on role.id = are.role_id
             WHERE ad.admin_name = #{uniqueId} or ad.mobile = #{uniqueId} or ad.id = #{uniqueId}
     </select>

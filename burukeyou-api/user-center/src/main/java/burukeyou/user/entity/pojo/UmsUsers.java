@@ -46,8 +46,6 @@ public class UmsUsers  extends BasePojo {
 
 	private java.util.Date lastloginTime;
 
-	private Integer online;
-
 	private Integer fansCount;
 
 	private Integer followCount;

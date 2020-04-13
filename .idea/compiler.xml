@@ -8,22 +8,26 @@
         <outputRelativeToContentRoot value="true" />
         <module name="search-admin" />
         <module name="zuul-gateway" />
-        <module name="user-center" />
+        <module name="burukeyou-user" />
         <module name="common-log" />
         <module name="comment-center" />
-        <module name="file-center" />
+        <module name="search-adapter" />
+        <module name="like-center" />
         <module name="im-api" />
         <module name="im-server" />
+        <module name="focus-center" />
         <module name="authorization-server" />
-        <module name="search-adapter" />
+        <module name="file-center" />
         <module name="auth-client" />
-        <module name="article-center" />
+        <module name="user-center" />
         <module name="common-core" />
+        <module name="article-center" />
         <module name="authentication-server" />
         <module name="video-center" />
         <module name="system-center" />
-        <module name="boiling-center" />
         <module name="search-server" />
+        <module name="boiling-center" />
+        <module name="notification-center" />
         <module name="monitor-log" />
         <module name="general-gateway" />
         <module name="burukeyou-admin" />
@@ -33,7 +37,6 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="burukeyou-comment" target="1.8" />
-      <module name="burukeyou-user" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
@@ -59,10 +62,13 @@
       <module name="common-log" options="-parameters" />
       <module name="common-web" options="-parameters" />
       <module name="file-center" options="-parameters" />
+      <module name="focus-center" options="-parameters" />
       <module name="general-gateway" options="-parameters" />
       <module name="im-api" options="-parameters" />
       <module name="im-server" options="-parameters" />
+      <module name="like-center" options="-parameters" />
       <module name="monitor-log" options="-parameters" />
+      <module name="notification-center" options="-parameters" />
       <module name="search-adapter" options="-parameters" />
       <module name="search-admin" options="-parameters" />
       <module name="search-server" options="-parameters" />

@@ -11,7 +11,7 @@ import java.lang.annotation.Target;
 
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
-@Import({AuditLogAOP.class, AuditLogProperties.class})
+@Import({AuditLogAOP.class})
 public @interface EnableAuditLog {
 
 }

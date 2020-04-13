@@ -9,7 +9,9 @@ import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.reflect.MethodSignature;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.core.DefaultParameterNameDiscoverer;
 import org.springframework.expression.EvaluationContext;
 import org.springframework.expression.spel.standard.SpelExpressionParser;
@@ -26,12 +28,13 @@ import java.time.LocalDateTime;
 @Slf4j
 @Aspect
 @Component
+@ComponentScan("burukeyou.common.log")
 public class AuditLogAOP {
 
     @Value("${spring.application.name}")
     private String applicationName;
 
-    private AuditLogProperties auditLogProperties;
+    private  AuditLogProperties auditLogProperties = new AuditLogProperties();
 
     //private AuditLogService auditLogService;
 

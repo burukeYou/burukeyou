@@ -24,7 +24,6 @@
         <module>burukeyou-common</module>
         <module>burukeyou-gateway</module>
         <module>burukeyou-search</module>
-        <module>burukeyou-user</module>
         <module>burukeyou-api</module>
         <module>burukeyou-im</module>
         <module>burukeyou-monitor</module>

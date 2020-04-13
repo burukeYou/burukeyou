@@ -23,8 +23,7 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, AmsArticle> i
 
         // only the owner of umsColumn can update it
         if (amsArticle.getId() != null){
-            AmsArticle one = this.getOne(new QueryWrapper<AmsArticle>().select("user_id").eq("id", amsArticle.getId()));
-            if (!one.getUserId().equals(AuthUtils.ID()))
+            if (!IsEntityOwner(amsArticle.getId()))
                 return false;
         }else {
             if (StringUtils.isBlank(amsArticle.getImage()))
@@ -89,7 +88,6 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, AmsArticle> i
 
         return amsArticlePage;
     }
-
 
     // todo 待重构
     private boolean IsEntityOwner(String entityId){

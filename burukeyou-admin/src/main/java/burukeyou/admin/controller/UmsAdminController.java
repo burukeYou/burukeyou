@@ -12,7 +12,9 @@ import burukeyou.common.log.annotation.AuditLog;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.swagger.annotations.*;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
@@ -36,6 +38,9 @@ public class UmsAdminController {
 
     private FileServiceRPC fileServiceRPC;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     public UmsAdminController(RestTemplate restTemplate, UmsAdminService umsAdminService, FileServiceRPC fileServiceRPC) {
         this.restTemplate = restTemplate;
         this.umsAdminService = umsAdminService;
@@ -49,9 +54,11 @@ public class UmsAdminController {
     public ResultVo login(@Valid @RequestBody LoginDto loginDto, HttpServletRequest request){
         log.info("{} is try to login",loginDto.getUsername());
 
+        System.out.println(passwordEncoder.encode("123456"));
+
         // 去认证中心获取token
        // String oauthServiceUrl = "http://localhost:9070/token/oauth/token";
-        String oauthServiceUrl = "http://authentication-server/oauth/token"; //
+        String oauthServiceUrl = "http://authentication-center-server/oauth/token"; //
 
         // 设置请求头
         HttpHeaders headers = new HttpHeaders();
@@ -80,6 +87,7 @@ public class UmsAdminController {
             return ResultVo.error("账号或者密码错误");
         }
 
+        response.getBody();
         TokenInfo body = response.getBody();
 
         return ResultVo.success(body);

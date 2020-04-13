@@ -19,6 +19,9 @@
         <module>video-center</module>
         <module>system-center</module>
         <module>file-center</module>
+        <module>focus-center</module>
+        <module>like-center</module>
+        <module>notification-center</module>
     </modules>
 
 

@@ -1,32 +1,52 @@
-2020-03-08 12:27:44.920 common-log [main] INFO  burukeyou.common.log.LogApplication - Starting LogApplication on macdeMacBook-Pro.local with PID 4791 (/Users/mac/Documents/code/java/burukeyou/burukeyou-common/common-log/target/classes started by mac in /Users/mac/Documents/code/java/burukeyou)
-2020-03-08 12:27:44.923 common-log [main] INFO  burukeyou.common.log.LogApplication - The following profiles are active: dev
-2020-03-08 12:27:46.292 common-log [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
-2020-03-08 12:27:46.308 common-log [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
-2020-03-08 12:27:46.318 common-log [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-2020-03-08 12:27:46.319 common-log [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.22]
-2020-03-08 12:27:46.435 common-log [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2020-03-08 12:27:46.436 common-log [main] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1445 ms
-2020-03-08 12:27:46.709 common-log [main] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
-2020-03-08 12:27:46.883 common-log [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
-2020-03-08 12:27:46.927 common-log [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
-2020-03-08 12:27:46.936 common-log [main] INFO  burukeyou.common.log.LogApplication - Started LogApplication in 2.765 seconds (JVM running for 3.535)
-2020-03-08 12:27:53.283 common-log [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-03-08 12:27:53.283 common-log [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-2020-03-08 12:27:53.289 common-log [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 5 ms
-2020-03-08 12:29:07.642 common-log [Thread-8] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
-2020-03-08 12:34:49.488 common-log [main] INFO  burukeyou.common.log.LogApplication - Starting LogApplication on macdeMacBook-Pro.local with PID 4946 (/Users/mac/Documents/code/java/burukeyou/burukeyou-common/common-log/target/classes started by mac in /Users/mac/Documents/code/java/burukeyou)
-2020-03-08 12:34:49.490 common-log [main] INFO  burukeyou.common.log.LogApplication - The following profiles are active: dev
-2020-03-08 12:34:50.442 common-log [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
-2020-03-08 12:34:50.454 common-log [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
-2020-03-08 12:34:50.462 common-log [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-2020-03-08 12:34:50.463 common-log [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.22]
-2020-03-08 12:34:50.535 common-log [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2020-03-08 12:34:50.535 common-log [main] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 991 ms
-2020-03-08 12:34:50.743 common-log [main] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
-2020-03-08 12:34:50.873 common-log [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
-2020-03-08 12:34:50.912 common-log [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
-2020-03-08 12:34:50.916 common-log [main] INFO  burukeyou.common.log.LogApplication - Started LogApplication in 1.941 seconds (JVM running for 2.64)
-2020-03-08 12:34:53.255 common-log [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-03-08 12:34:53.255 common-log [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-2020-03-08 12:34:53.261 common-log [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 6 ms
-2020-03-08 12:35:27.105 common-log [Thread-6] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-03-08 12:35:27.105    user-center 192.168.2.1 8081 info   [main] o.a.catalina.core.StandardEngine  Starting ProtocolHandler ["http-nio-8080"]
+2020-03-08 12:35:27.105    user-center 192.168.2.1 8081 info   [main] o.a.catalina.core.StandardEngine  Starting ProtocolHandler ["http-nio-8080"]
+2020-03-08 12:35:27.105    user-center 192.168.2.1 8081 info   [main] o.a.catalina.core.StandardEngine  Starting ProtocolHandler ["http-nio-8080"]
+2020-03-08 12:35:27.105    user-center 192.168.2.1 8081 info   [main] o.a.catalina.core.StandardEngine  Starting ProtocolHandler ["http-nio-8080"]
+java.lang.IllegalStateException: failed to req API:/nacos/v1/ns/service/list after all servers([localhost:8848]) tried: failed to req API:localhost:8848/nacos/v1/ns/service/list. code:500 msg: java.net.ConnectException: Connection refused (Connection refused)
+	at com.alibaba.nacos.client.naming.net.NamingProxy.reqAPI(NamingProxy.java:464) ~[nacos-client-1.1.1.jar:na]
+	at com.alibaba.nacos.client.naming.net.NamingProxy.reqAPI(NamingProxy.java:430) ~[nacos-client-1.1.1.jar:na]
+	at com.alibaba.nacos.client.naming.net.NamingProxy.reqAPI(NamingProxy.java:376) ~[nacos-client-1.1.1.jar:na]
+	at com.alibaba.nacos.client.naming.net.NamingProxy.getServiceList(NamingProxy.java:358) ~[nacos-client-1.1.1.jar:na]
+	at com.alibaba.nacos.client.naming.net.NamingProxy.getServiceList(NamingProxy.java:334) ~[nacos-client-1.1.1.jar:na]
+	at com.alibaba.nacos.client.naming.NacosNamingService.getServicesOfServer(NacosNamingService.java:440) ~[nacos-client-1.1.1.jar:na]
+	at com.alibaba.cloud.nacos.discovery.NacosDiscoveryClient.getServices(NacosDiscoveryClient.java:108) ~[spring-cloud-alibaba-nacos-discovery-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at org.springframework.cloud.client.discovery.composite.CompositeDiscoveryClient.getServices(CompositeDiscoveryClient.java:67) [spring-cloud-commons-2.1.2.RELEASE.jar:2.1.2.RELEASE]
+	at org.springframework.cloud.client.discovery.health.DiscoveryClientHealthIndicator.health(DiscoveryClientHealthIndicator.java:69) [spring-cloud-commons-2.1.2.RELEASE.jar:2.1.2.RELEASE]
+	at org.springframework.cloud.client.discovery.health.DiscoveryCompositeHealthIndicator$Holder.health(DiscoveryCompositeHealthIndicator.java:67) [spring-cloud-commons-2.1.2.RELEASE.jar:2.1.2.RELEASE]
+	at org.springframework.boot.actuate.health.CompositeHealthIndicator.health(CompositeHealthIndicator.java:95) [spring-boot-actuator-2.1.7.RELEASE.jar:2.1.7.RELEASE]
+	at org.springframework.boot.actuate.health.CompositeHealthIndicator.health(CompositeHealthIndicator.java:95) [spring-boot-actuator-2.1.7.RELEASE.jar:2.1.7.RELEASE]
+	at org.springframework.boot.actuate.health.HealthEndpoint.health(HealthEndpoint.java:50) [spring-boot-actuator-2.1.7.RELEASE.jar:2.1.7.RELEASE]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_221]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_221]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_221]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_221]
+	at org.springframework.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:282) [spring-core-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.boot.actuate.endpoint.invoke.reflect.ReflectiveOperationInvoker.invoke(ReflectiveOperationInvoker.java:76) [spring-boot-actuator-2.1.7.RELEASE.jar:2.1.7.RELEASE]
+	at org.springframework.boot.actuate.endpoint.annotation.AbstractDiscoveredOperation.invoke(AbstractDiscoveredOperation.java:60) [spring-boot-actuator-2.1.7.RELEASE.jar:2.1.7.RELEASE]
+	at org.springframework.boot.actuate.endpoint.jmx.EndpointMBean.invoke(EndpointMBean.java:121) [spring-boot-actuator-2.1.7.RELEASE.jar:2.1.7.RELEASE]
+	at org.springframework.boot.actuate.endpoint.jmx.EndpointMBean.invoke(EndpointMBean.java:96) [spring-boot-actuator-2.1.7.RELEASE.jar:2.1.7.RELEASE]
+	at com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.invoke(DefaultMBeanServerInterceptor.java:819) [na:1.8.0_221]
+	at com.sun.jmx.mbeanserver.JmxMBeanServer.invoke(JmxMBeanServer.java:801) [na:1.8.0_221]
+	at javax.management.remote.rmi.RMIConnectionImpl.doOperation(RMIConnectionImpl.java:1468) [na:1.8.0_221]
+	at javax.management.remote.rmi.RMIConnectionImpl.access$300(RMIConnectionImpl.java:76) [na:1.8.0_221]
+	at javax.management.remote.rmi.RMIConnectionImpl$PrivilegedOperation.run(RMIConnectionImpl.java:1309) [na:1.8.0_221]
+	at javax.management.remote.rmi.RMIConnectionImpl.doPrivilegedOperation(RMIConnectionImpl.java:1401) [na:1.8.0_221]
+	at javax.management.remote.rmi.RMIConnectionImpl.invoke(RMIConnectionImpl.java:829) [na:1.8.0_221]
+	at sun.reflect.GeneratedMethodAccessor59.invoke(Unknown Source) ~[na:na]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_221]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_221]
+	at sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:357) [na:1.8.0_221]
+	at sun.rmi.transport.Transport$1.run(Transport.java:200) [na:1.8.0_221]
+	at sun.rmi.transport.Transport$1.run(Transport.java:197) [na:1.8.0_221]
+	at java.security.AccessController.doPrivileged(Native Method) [na:1.8.0_221]
+	at sun.rmi.transport.Transport.serviceCall(Transport.java:196) [na:1.8.0_221]
+	at sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:573) [na:1.8.0_221]
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:834) [na:1.8.0_221]
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.lambda$run$0(TCPTransport.java:688) [na:1.8.0_221]
+	at java.security.AccessController.doPrivileged(Native Method) [na:1.8.0_221]
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:687) [na:1.8.0_221]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) ~[na:1.8.0_221]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) ~[na:1.8.0_221]
+	at java.lang.Thread.run(Thread.java:748) ~[na:1.8.0_221]
+2020-03-08 12:35:27.105 log-center 192.168.2.1 8081 DBUG   [http-9-0-thread] o.a.catalina.core.StandardEngine  Starting ProtocolHandler ["http-nio-8080"]
+2020-03-08 12:35:27.105 log-center 192.168.2.1 8081 DBUG   [http-9-0-thread] o.a.catalina.core.StandardEngine  Starting ProtocolHandler ["http-nio-8080"]

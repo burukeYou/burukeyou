@@ -45,7 +45,7 @@ public class UmsAdmin extends BasePojo implements Serializable {
 
 	private String createHost;
 
-	private java.util.Date lastloginHost;
+	private String lastloginHost;
 
 	private java.util.Date lastloginTime;
 
