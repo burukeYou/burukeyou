@@ -5,25 +5,38 @@
 
 <mapper namespace="burukeyou.admin.mapper.UmsAdminMapper" >
     <select id="getListByCondition" resultMap="roleOfUser" parameterType="burukeyou.admin.entity.dto.QueryUserConditionDto">
-            SELECT admin.id ,admin.nickname,admin.mobile,admin.email,admin.avatar,admin.description,admin.deleted
-                   admin.enabled,admin.create_host,admin.lastlogin_host,admin.lastlogin_time,admin.created_by,admin.created_time
-                   admin.updated_by,admin.updated_time
-                   role.id as roleId,role.code,role.name,role.description as rDescription
-            from ums_admin admin join ums_admin_role_relation ad_ro on admin.id = ad_ro.user_id and role_type = 'role'
-            JOIN ums_roles role  on ad_ro.role_id = role.id
+            SELECT admin.id ,
+                   admin.nickname,
+                   admin.mobile,
+                   admin.email,
+                   admin.avatar,
+                   admin.description,
+                   admin.deleted,
+                   admin.enabled,
+                   admin.create_host,
+                   admin.lastlogin_host,
+                   admin.lastlogin_time,
+                   admin.created_by,
+                   admin.created_time,
+                   admin.updated_by,
+                   admin.updated_time,
+                   role.id as roleId,
+                   role.code,
+                   role.name,
+                   role.description as rDescription
+            from ums_admin admin left join ums_admin_role ad_ro on admin.id = ad_ro.user_id
+            left JOIN ums_roles role  on ad_ro.role_id = role.id
             <where>
-                <if test="condition != null and condition != ''">
+                <if test="dto.nickname != null and dto.nickname != ''">
                     and (
-                            admin.admin_name like CONCAT('%',#{condition},'%') OR
-                            admin.nickname like CONCAT('%',#{condition},'%') OR
-                            admin.description like CONCAT('%',#{condition},'%')
+                            admin.nickname like CONCAT('%',#{dto.nickname},'%')
                         )
                 </if>
-                <if test="role  != null and role != ''">
-                    and role.name = #{role}
+                <if test="dto.role  != null and dto.role != ''">
+                    and role.code = #{dto.role}
                 </if>
-                <if test="enabled  != null and enabled != ''">
-                    and admin.enabled = #{enabled}
+                <if test="dto.enabled  != null and dto.enabled != ''">
+                    and admin.enabled = #{dto.enabled}
                 </if>
             </where>
          <!--   <choose>
@@ -44,21 +57,21 @@
 
     </select>
     <resultMap id="roleOfUser" type="burukeyou.admin.entity.vo.UmsAdminVO">
-        <id property="id" column="uId"/>
-        <result property="nickname" column="username"/>
-        <result property="mobile" column="nickname"/>
+        <id property="id" column="id"/>
+        <result property="nickname" column="nickname"/>
+        <result property="mobile" column="mobile"/>
         <result property="email" column="email"/>
-        <result property="avatar" column="password"/>
-        <result property="description" column="avatar"/>
-        <result property="deleted" column="enabled"/>
-        <result property="enabled" column="accountNonExpired"/>
-        <result property="createHost" column="accountNonLocked"/>
-        <result property="lastloginHost" column="credentialsNonExpired"/>
-        <result property="lastloginTime" column="credentialsNonExpired"/>
-        <result property="createdBy" column="credentialsNonExpired"/>
-        <result property="createdTime" column="credentialsNonExpired"/>
-        <result property="updatedBy" column="credentialsNonExpired"/>
-        <result property="updatedTime" column="credentialsNonExpired"/>
+        <result property="avatar" column="avatar"/>
+        <result property="description" column="description"/>
+        <result property="deleted" column="deleted"/>
+        <result property="enabled" column="enabled"/>
+        <result property="createHost" column="create_host"/>
+        <result property="lastloginHost" column="lastlogin_host"/>
+        <result property="lastloginTime" column="lastlogin_time"/>
+        <result property="createdBy" column="created_by"/>
+        <result property="createdTime" column="created_time"/>
+        <result property="updatedBy" column="updated_by"/>
+        <result property="updatedTime" column="updated_time"/>
 
 
         <collection property="roleList" ofType="burukeyou.admin.entity.vo.UmsRoleVO">

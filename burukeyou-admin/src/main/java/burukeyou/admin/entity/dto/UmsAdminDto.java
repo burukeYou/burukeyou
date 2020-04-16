@@ -14,6 +14,8 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.List;
+import java.util.Set;
 
 @Data
 @ApiModel(value = "后台用户信息")
@@ -56,4 +58,7 @@ public class UmsAdminDto implements BaseInputConverter<UmsAdmin> {
 
     @ApiModelProperty(value = "用户账号是否可用")
     private Boolean enabled;
+
+    @ApiModelProperty(value = "角色列表")
+    private List<String> roleIdLits;
 }

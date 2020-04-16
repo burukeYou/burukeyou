@@ -67,6 +67,12 @@ public class UmsRoleController {
         return ResultVo.success();
     }
 
+    @GetMapping("/all")
+    @ApiOperation(value = "查找所有角色列表")
+    public ResultVo all(){
+        return ResultVo.success(umsRoleService.list());
+    }
+
 
 
 

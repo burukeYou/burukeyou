@@ -9,7 +9,7 @@ public interface SysTopicService {
      * @param converTo
      * @return
      */
-    boolean publicTopic(SysTopic converTo);
+    boolean saveOrUpdateTopic(SysTopic converTo);
 
     /**
      *  删除话题

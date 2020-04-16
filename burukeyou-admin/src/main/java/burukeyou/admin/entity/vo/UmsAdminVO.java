@@ -1,11 +1,13 @@
 package burukeyou.admin.entity.vo;
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
@@ -33,18 +35,21 @@ public class UmsAdminVO {
 
 	private String createHost;
 
-	private java.util.Date lastloginHost;
+	private String lastloginHost;
 
-	private java.util.Date lastloginTime;
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm",timezone = "GMT+8")
+	private LocalDateTime lastloginTime;
 
 	//
 	private String createdBy;
 
-	private Date createdTime;
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm",timezone = "GMT+8")
+	private LocalDateTime createdTime;
 
 	private String updatedBy;
 
-	private Date updatedTime;
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm",timezone = "GMT+8")
+	private LocalDateTime updatedTime;
 
 
 	//

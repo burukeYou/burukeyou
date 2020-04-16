@@ -13,26 +13,31 @@ import java.io.Serializable;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@TableName("ums_menu")
+@TableName("ums_permission")
 public class UmsPermission extends BasePojo implements Serializable {
-
-	private String code;
-
-	private String parentId;
-
-	private Integer orderNum;
-
-	private String path;
-
-	private String type;
-
-	private String href;
-
-	private String icon;
 
 	private String name;
 
+	private String parentId;
+
+	private String code;
+
+	private String type;
+
+	private String icon;
+
+	private String url;
+
+	private String urlMethod;
+
 	private String description;
 
-	private Boolean enabled;
+	private boolean enabled;
+
+	private Integer orderNum;
+
+	private boolean show;
+
+	private String path;
+
 }

@@ -49,7 +49,4 @@ public class UmsAdmin extends BasePojo implements Serializable {
 
 	private java.util.Date lastloginTime;
 
-	private java.util.Date accountStartTime;
-
-	private java.util.Date accountEndTime;
 }

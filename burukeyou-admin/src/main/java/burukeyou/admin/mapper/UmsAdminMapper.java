@@ -16,6 +16,8 @@ import java.util.List;
 public interface UmsAdminMapper extends BaseMapper<UmsAdmin> {
 
 
-    Page<UmsAdminVO> getListByCondition(@Param("page") Page page, @Param("dto") QueryUserConditionDto dto);
+    Page<UmsAdminVO> getListByCondition(@Param("page") Page<UmsAdminVO> page, @Param("dto") QueryUserConditionDto dto);
+
+    //UmsAdminVO getListByCondition( @Param("dto") QueryUserConditionDto dto);
 
 }

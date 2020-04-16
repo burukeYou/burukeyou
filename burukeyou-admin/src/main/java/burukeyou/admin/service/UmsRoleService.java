@@ -3,10 +3,11 @@ package burukeyou.admin.service;
 
 import burukeyou.admin.entity.pojo.UmsRole;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.util.List;
 
-public interface UmsRoleService {
+public interface UmsRoleService  extends IService<UmsRole> {
     /**
      *      查找用户的所有角色
      * @param userId 用户id

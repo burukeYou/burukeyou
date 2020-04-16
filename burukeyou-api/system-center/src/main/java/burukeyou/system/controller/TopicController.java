@@ -28,7 +28,7 @@ public class TopicController {
 
     @PostMapping
     @EnableParamValid
-    @ApiOperation(value = "创建修改话题")
+    @ApiOperation(value = "创建或者修改话题")
     public ResultVo add(TopicDto topicDto){
         MultipartFile avatar = topicDto.getTopicAvatar();
         SysTopic topic = topicDto.converTo();
@@ -36,7 +36,7 @@ public class TopicController {
             ResultVo<String> resultVo = fileServiceRPC.uploadOne(avatar);
             topic.setAvatar(resultVo.getData());
         }
-        return ResultVo.success(sysTopicService.publicTopic(topic));
+        return ResultVo.success(sysTopicService.saveOrUpdateTopic(topic));
     }
 
     @DeleteMapping("/{id}")

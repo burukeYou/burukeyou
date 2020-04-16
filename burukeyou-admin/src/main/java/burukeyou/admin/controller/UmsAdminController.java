@@ -102,7 +102,7 @@ public class UmsAdminController {
         return ResultVo.success(umsAdminService.getByUniqueId(uniqueId));
     }*/
 
-    @AuditLog(logInfo = "'新增用户:'+ #umsAdminDto.adminName")
+    //@AuditLog(logInfo = "'新增用户:'+ #umsAdminDto.adminName")
     @PostMapping
    // @EnableParamValid
     @ApiOperation("新增或者修改后台用户信息")
@@ -115,8 +115,7 @@ public class UmsAdminController {
             String data = fileServiceRPC.uploadOne(avatarFile).getData();
             umsAdminDto.setAvatar(data);
         }
-
-        return ResultVo.compute(umsAdminService.saveOrupdate(umsAdminDto.converTo()))  ;
+        return ResultVo.compute(umsAdminService.saveOrupdate(umsAdminDto));
     }
 
 
@@ -141,6 +140,12 @@ public class UmsAdminController {
         return ResultVo.compute(umsAdminService.setRoleOfUser(userId,roleIdList));
     }
 
+
+    @GetMapping("/{userId}")
+    @ApiOperation("根据ID获取管理员信息")
+    public ResultVo getOneById(@PathVariable("userId") String id){
+        return ResultVo.success(umsAdminService.getOneById(id));
+    }
 
     //todo 导入用户
 

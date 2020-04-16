@@ -1,13 +1,17 @@
 package burukeyou.admin.service.impl;
 
 import burukeyou.admin.entity.dto.QueryUserConditionDto;
+import burukeyou.admin.entity.dto.UmsAdminDto;
 import burukeyou.admin.entity.pojo.UmsAdmin;
 import burukeyou.admin.entity.pojo.UmsAdminRole;
 import burukeyou.admin.entity.vo.UmsAdminVO;
 import burukeyou.admin.mapper.UmsAdminMapper;
 import burukeyou.admin.service.UmsAdminRoleService;
 import burukeyou.admin.service.UmsAdminService;
+import burukeyou.admin.utils.CommonUtils;
 import burukeyou.auth.authClient.util.AuthUtils;
+import burukeyou.common.core.utils.IdWorker;
+import cn.hutool.core.util.IdUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.OrderItem;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -19,7 +23,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
+import org.springframework.util.CollectionUtils;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 
+import javax.servlet.http.HttpServletRequest;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -36,25 +45,32 @@ public class UmsAdminServiceImpl extends ServiceImpl<UmsAdminMapper,UmsAdmin> im
     private UmsAdminRoleService adminRoleRelationService;
 
     @Override
-    @Transactional(propagation = Propagation.REQUIRED)
-    public boolean saveOrupdate(UmsAdmin umsAdmin) {
+    @Transactional(propagation = Propagation.REQUIRED,rollbackFor = Exception.class)
+    public boolean saveOrupdate(UmsAdminDto umsAdminDto) {
+        UmsAdmin umsAdmin = umsAdminDto.converTo();
         Assert.notNull(umsAdmin,"umsAdmin to create or update must not be null");
 
         if (umsAdmin.getId() == null){
             // save
-            umsAdmin = UmsAdmin.builder().deleted(false).accountNonExpired(true)
-                    .credentialsNonExpired(true).accountNonLocked(true)
-                    .createHost("xx").adminName(umsAdmin.getAdminName())
-                    .password(passwordEncoder.encode(umsAdmin.getPassword()))
-                    .nickname(umsAdmin.getNickname()).mobile(umsAdmin.getMobile())
-                    .email(umsAdmin.getEmail()).avatar(umsAdmin.getAvatar()).description(umsAdmin.getDescription()).build();
+            String userId = Long.toString(new IdWorker().nextId());
+            umsAdmin.setId(userId);
+            umsAdmin.setAccountNonExpired(true);
+            umsAdmin.setDeleted(false);
+            umsAdmin.setEnabled(true);
+            umsAdmin.setCredentialsNonExpired(true);
+            umsAdmin.setAccountNonLocked(true);
+            HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+            umsAdmin.setCreateHost(CommonUtils.getRemoteIpAddress(request));
+            umsAdmin.setPassword(passwordEncoder.encode(umsAdmin.getPassword()));
+        }
 
-            // 分配角色
-
-
-        }else if (!umsAdmin.getId().equals(AuthUtils.ID()))
-            //update
-            return false;
+        // 重新设置角色
+        List<String> roleIdLits = umsAdminDto.getRoleIdLits();
+        if (!CollectionUtils.isEmpty(roleIdLits)){
+            adminRoleRelationService.deleteByUserIdRoleId(umsAdmin.getId(),null);
+            List<UmsAdminRole> list =roleIdLits.stream().map(e -> new UmsAdminRole(umsAdmin.getId(), e)).collect(Collectors.toList());
+            adminRoleRelationService.saveBatch(list);
+        }
 
         return super.saveOrUpdate(umsAdmin);
     }
@@ -71,14 +87,17 @@ public class UmsAdminServiceImpl extends ServiceImpl<UmsAdminMapper,UmsAdmin> im
     public Page<UmsAdminVO> getListByCondition(QueryUserConditionDto dto) {
         Assert.notNull(dto.getPage(),"query page of condition cant not be null");
 
-        Page<UmsAdmin> page = new Page<>(dto.getPage(),dto.getSize());
+        Page<UmsAdminVO> page = new Page<>(dto.getPage(),dto.getSize());
 
-        if ("asc".equals(dto.getOrder())){
-            page.addOrder(OrderItem.asc(dto.getOrderField()));
-        }else {
-            page.addOrder(OrderItem.desc(dto.getOrderField()));
-        }
-        return baseMapper.getListByCondition(page,dto);
+//        if ("asc".equals(dto.getOrder())){
+//            page.addOrder(OrderItem.asc(dto.getOrderField()));
+//        }else {
+//            page.addOrder(OrderItem.desc(dto.getOrderField()));
+//        }
+        Page<UmsAdminVO> list = baseMapper.getListByCondition(page, dto);
+
+        list.setTotal(super.count()); //  由于关联了role会有多个都是使用result聚合了，它仍然按聚合前算
+        return list;
     }
 
     @Override
@@ -90,7 +109,19 @@ public class UmsAdminServiceImpl extends ServiceImpl<UmsAdminMapper,UmsAdmin> im
 
         adminRoleRelationService.deleteByUserIdRoleId(userId,null);
 
-        List<UmsAdminRole> list = roleIdList.stream().map(e -> new UmsAdminRole(userId, e)).collect(Collectors.toList());
-        return adminRoleRelationService.saveBatch(list);
+        if (!CollectionUtils.isEmpty(roleIdList)){
+            List<UmsAdminRole> list = roleIdList.stream().map(e -> new UmsAdminRole(userId, e)).collect(Collectors.toList());
+            return adminRoleRelationService.saveBatch(list);
+        }
+
+        return false;
     }
+
+    @Override
+    public UmsAdminVO getOneById(String id) {
+       // return baseMapper.getListByCondition();
+        return null;
+    }
+
+
 }

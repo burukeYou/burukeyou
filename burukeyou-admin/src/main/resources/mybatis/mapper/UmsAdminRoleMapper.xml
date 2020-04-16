@@ -4,7 +4,7 @@
 
 
     <delete id="deleteByUserIdRoleId">
-            delete from ums_admin_role_relation
+            delete from ums_admin_role
             <where>
                 <if test="userId != null || userId != ''">
                         and user_id = #{userId}

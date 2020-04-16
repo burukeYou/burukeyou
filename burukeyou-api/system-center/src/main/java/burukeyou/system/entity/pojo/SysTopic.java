@@ -10,11 +10,13 @@ import java.io.Serializable;
 @TableName("sys_topic")
 public class SysTopic extends BasePojo implements Serializable {
 
+	private String name;
+
 	private String avatar;
 
-	private Long focusCount;
+	private Integer focusCount;
 
-	private Long boilingCount;
+	private Integer boilingCount;
 
 	private String description;
 
