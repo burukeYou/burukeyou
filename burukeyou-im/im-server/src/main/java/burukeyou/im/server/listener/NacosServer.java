@@ -19,8 +19,6 @@ public class NacosServer implements ApplicationListener<ApplicationStartedEvent>
         try {
 
             String addr = InetAddress.getLocalHost().getHostAddress();
-
-
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -6,6 +6,7 @@ import burukeyou.auth.authClient.handler.CustomAuthenticationEntryPoint;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -45,6 +46,7 @@ public class CustomResourceServerConfig extends ResourceServerConfigurerAdapter 
 
     // 注入密码加密 （供资源服务器调用）
     @Bean
+    @ConditionalOnMissingBean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
@@ -52,7 +54,7 @@ public class CustomResourceServerConfig extends ResourceServerConfigurerAdapter 
 
     @Override
     public void configure(HttpSecurity http) throws Exception {
-        // todo 被调用两次 -- 待解决
+
         http.csrf().disable();
         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 

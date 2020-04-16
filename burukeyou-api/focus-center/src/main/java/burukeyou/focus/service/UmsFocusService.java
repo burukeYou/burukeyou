@@ -1,7 +1,23 @@
 package burukeyou.focus.service;
 
 
-public interface UmsFocusService {
+import burukeyou.focus.entity.pojo.UmsFocus;
+import com.baomidou.mybatisplus.extension.service.IService;
 
-    void focus(String targetId, String targetType);
+public interface UmsFocusService extends IService<UmsFocus> {
+
+    /**
+     *  关注
+     * @param targetId
+     * @param targetType
+     * @return
+     */
+    boolean focus(String targetId, String targetType);
+
+    /**
+     *      取消关注
+     * @param targetId
+     * @return
+     */
+    boolean cancelFocus(String targetId,String targetType);
 }

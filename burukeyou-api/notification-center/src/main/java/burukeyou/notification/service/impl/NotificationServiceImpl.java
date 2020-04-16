@@ -66,7 +66,7 @@ public class NotificationServiceImpl extends ServiceImpl<NotificationMapper, Sys
     @Override
     public boolean readNotification(String id) {
         SysNotification notification = super.getById(id);
-        if (notification != null && !notification.getAcceptId().equals(AuthUtils.ID()))
+        if (notification == null || !notification.getAcceptId().equals(AuthUtils.ID()))
             return false;
 
         if(notification.getType().equals(NotificationTypeEnum.USER.VALUE())){

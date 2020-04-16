@@ -1,13 +1,14 @@
 package burukeyou.system.entity.pojo;
 
+import burukeyou.common.dao.pojo.BasePojo;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
 import java.io.Serializable;
 
 @Data
-public class SysTopic  implements Serializable {
-
-	private String id;
+@TableName("sys_topic")
+public class SysTopic extends BasePojo implements Serializable {
 
 	private String avatar;
 
@@ -17,12 +18,5 @@ public class SysTopic  implements Serializable {
 
 	private String description;
 
-	private java.util.Date createdTime;
-
-	private java.util.Date updatedTime;
-
-	private String createdBy;
-
-	private String updatedBy;
 
 }

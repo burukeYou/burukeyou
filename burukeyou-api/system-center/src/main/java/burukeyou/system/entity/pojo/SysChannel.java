@@ -1,22 +1,15 @@
 package burukeyou.system.entity.pojo;
 
+import burukeyou.common.dao.pojo.BasePojo;
+import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.Builder;
 import lombok.Data;
 
 import java.io.Serializable;
 
 @Data
-public class SysChannel  implements Serializable {
-
-	private String id;
-
+@Builder
+@TableName("sys_channel")
+public class SysChannel extends BasePojo implements Serializable {
 	private String name;
-
-	private java.util.Date createdTime;
-
-	private java.util.Date updatedTime;
-
-	private String createdBy;
-
-	private String updatedBy;
-
 }

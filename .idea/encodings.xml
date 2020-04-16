@@ -22,6 +22,8 @@
     <file url="file://$PROJECT_DIR$/burukeyou-common/common-core" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/burukeyou-common/common-dao" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/burukeyou-common/common-log" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/burukeyou-common/common-redis" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/burukeyou-common/common-sentinel" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/burukeyou-common/common-web" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/burukeyou-gateway" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/burukeyou-gateway/general-gateway" charset="UTF-8" />
@@ -30,6 +32,7 @@
     <file url="file://$PROJECT_DIR$/burukeyou-im/im-api" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/burukeyou-im/im-server" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/burukeyou-monitor" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/burukeyou-monitor/monitor-admin" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/burukeyou-monitor/monitor-log" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/burukeyou-search" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/burukeyou-search/search-adapter" charset="UTF-8" />

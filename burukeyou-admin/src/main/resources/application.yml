@@ -23,7 +23,7 @@ spring:
 
 
 server:
-  port: 9010
+  port: 9012
 
 # ================================================================================================
 
@@ -52,6 +52,9 @@ custom:
   audit-log:
     enabled: true
     logLocation: db
+
+  swagger2:
+    basePackage: burukeyou.admin.controller
 
 
 

@@ -40,6 +40,7 @@ custom:
     client:
       ignore-urls:
         - /user/login
+        - /**
       resource-id: burukeyou-user
       signing-key: 909090
 

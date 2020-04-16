@@ -6,33 +6,36 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="search-admin" />
-        <module name="zuul-gateway" />
-        <module name="burukeyou-user" />
-        <module name="common-log" />
-        <module name="comment-center" />
-        <module name="search-adapter" />
-        <module name="like-center" />
-        <module name="im-api" />
-        <module name="im-server" />
-        <module name="focus-center" />
-        <module name="authorization-server" />
         <module name="file-center" />
-        <module name="auth-client" />
+        <module name="im-api" />
+        <module name="burukeyou-admin" />
         <module name="user-center" />
-        <module name="common-core" />
+        <module name="search-admin" />
+        <module name="auth-client" />
+        <module name="search-adapter" />
+        <module name="common-sentinel" />
+        <module name="authorization-server" />
+        <module name="video-center" />
+        <module name="monitor-admin" />
+        <module name="search-server" />
+        <module name="like-center" />
+        <module name="boiling-center" />
+        <module name="common-log" />
+        <module name="burukeyou-user" />
         <module name="article-center" />
         <module name="authentication-server" />
-        <module name="video-center" />
-        <module name="system-center" />
-        <module name="search-server" />
-        <module name="boiling-center" />
-        <module name="notification-center" />
-        <module name="monitor-log" />
-        <module name="general-gateway" />
-        <module name="burukeyou-admin" />
         <module name="common-web" />
+        <module name="monitor-log" />
+        <module name="im-server" />
+        <module name="comment-center" />
         <module name="common-dao" />
+        <module name="common-redis" />
+        <module name="focus-center" />
+        <module name="general-gateway" />
+        <module name="zuul-gateway" />
+        <module name="notification-center" />
+        <module name="system-center" />
+        <module name="common-core" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -60,6 +63,8 @@
       <module name="common-core" options="-parameters" />
       <module name="common-dao" options="-parameters" />
       <module name="common-log" options="-parameters" />
+      <module name="common-redis" options="-parameters" />
+      <module name="common-sentinel" options="-parameters" />
       <module name="common-web" options="-parameters" />
       <module name="file-center" options="-parameters" />
       <module name="focus-center" options="-parameters" />
@@ -67,6 +72,7 @@
       <module name="im-api" options="-parameters" />
       <module name="im-server" options="-parameters" />
       <module name="like-center" options="-parameters" />
+      <module name="monitor-admin" options="-parameters" />
       <module name="monitor-log" options="-parameters" />
       <module name="notification-center" options="-parameters" />
       <module name="search-adapter" options="-parameters" />

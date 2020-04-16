@@ -3,8 +3,16 @@ package burukeyou.focus.entity.enums;
 public enum  FocusTargetEnums {
 
     USER("USER"),
+
     TOPIC("TOPIC"),
-    LABEL("LABEL");
+
+    LABEL("LABEL"),
+
+    ARTICLE("ARTICLE"),
+
+    BOILING("BOILING"),
+
+    VIDEO("VIDEO");
 
     private String type;
 

@@ -1,0 +1,51 @@
+spring:
+  application:
+    name: monitor-admin-center-server
+
+  # cloud
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+
+    # 开启负载均衡器的失败重试功能
+    loadbalancer:
+      retry:
+        enabled: true
+
+
+server:
+  port: 9065
+
+# admin
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+  endpoint:
+    health:
+      show-details: always
+
+# =======================================Custom=========================================================
+custom:
+  ouath2:
+    client:
+      ignore-urls:
+        - /**
+      resource-id: ${spring.application.name}
+      signing-key: 909090
+
+
+
+
+
+
+
+
+
+
+
+
+

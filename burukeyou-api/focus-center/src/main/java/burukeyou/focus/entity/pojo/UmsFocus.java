@@ -5,11 +5,13 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Builder;
 import lombok.Data;
+import lombok.ToString;
 
 import java.io.Serializable;
 
 @Data
 @Builder
+@ToString
 @TableName("ums_focus")
 public class UmsFocus implements Serializable {
 
@@ -18,9 +20,9 @@ public class UmsFocus implements Serializable {
 
 	private String userId;
 
-	private String userNickname;
+	//private String userNickname;
 
-	private String userAvatar;
+	//private String userAvatar;
 
 	private String targetId;
 

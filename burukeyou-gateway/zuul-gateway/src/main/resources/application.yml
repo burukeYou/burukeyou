@@ -1,5 +1,7 @@
 server:
   port: 9000
+  servlet:
+    context-path:
 
 spring:
   application:
@@ -25,9 +27,9 @@ zuul:
   prefix: /api
   routes:
     token:
-      url: authenticationServer-server
+      url: authentication-center-server
     search:
-      url: search-server
+      url: search-center-server
     admin:
       url: admin-server
     user:
@@ -50,6 +52,7 @@ custom:
       resource-id: ${spring.application.name}
       ignore-urls:
         - /token/**
+        - /**
 
 
 

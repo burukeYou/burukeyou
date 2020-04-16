@@ -16,6 +16,8 @@
         <module>common-core</module>
         <module>common-dao</module>
         <module>common-log</module>
+        <module>common-redis</module>
+        <module>common-sentinel</module>
     </modules>
 
 

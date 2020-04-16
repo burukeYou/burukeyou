@@ -17,6 +17,11 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-zuul</artifactId>
         </dependency>
+        <!-- 服务调用： 基于Ribbon和Hystrix的声明式服务调用 -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
         <!-- mysql -->
         <dependency>
             <groupId>mysql</groupId>
@@ -28,11 +33,7 @@
             <artifactId>auth-client</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
-        <!-- 服务调用： 基于Ribbon和Hystrix的声明式服务调用 -->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-openfeign</artifactId>
-        </dependency>
+
         <!-- 网关 swagger-ui  -->
         <dependency>
             <groupId>io.springfox</groupId>

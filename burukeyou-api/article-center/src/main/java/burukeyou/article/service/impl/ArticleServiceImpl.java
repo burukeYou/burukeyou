@@ -1,5 +1,7 @@
 package burukeyou.article.service.impl;
 
+import burukeyou.article.entity.dto.ArticleDto;
+import burukeyou.article.entity.dto.LabelDto;
 import burukeyou.article.entity.enums.StateEnum;
 import burukeyou.article.entity.pojo.AmsArticle;
 import burukeyou.article.entity.vo.ArticleDetailVo;
@@ -12,10 +14,32 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.util.List;
 
 @Service
 public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, AmsArticle> implements ArticleService {
 
+
+    // todo 分布式事务一致性
+    @Override
+    public boolean publishArticle(ArticleDto articleDto) {
+        // todo 异步化调用文件服务上传
+        MultipartFile backgroundFile = articleDto.getBackgroundFile();
+
+        // todo 异步化增加文章和标签的关系
+        List<LabelDto> labels = articleDto.getLabels();
+        if (labels != null && labels.size() > 0){
+
+        }
+
+        // todo 异步化用户经验值增加
+
+        //
+        AmsArticle amsArticle = articleDto.converTo();
+        return this.insertOrUpdate(amsArticle);
+    }
 
     @Override
     public boolean insertOrUpdate(AmsArticle amsArticle) {

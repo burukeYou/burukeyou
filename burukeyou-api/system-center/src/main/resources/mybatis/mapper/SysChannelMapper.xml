@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="burukeyou.system.mapper.SysChannelMapper" >
+    <select id="getPageByConfition" resultSetType="burukeyou.system.entity.vo.ChannelVo" parameterType="String">
+        SELECT cl.id,cl.created_by,cl.created_time,cl.updated_by,cl.updated_time,
+        (select count(*) from ams_article ar WHERE ar.channel_id = cl.id) as visitsCount
+        from sys_channel cl
+        <where>
+            <if test="name != null and name != ''">
+                and admin.admin_name like CONCAT('%',#{condition},'%')
+
+            </if>
+        </where>
+
+    </select>
+</mapper>

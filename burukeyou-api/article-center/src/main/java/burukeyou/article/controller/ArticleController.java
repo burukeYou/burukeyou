@@ -36,12 +36,7 @@ public class ArticleController {
     @EnableParamValid
     @ApiOperation(value = "保存或者修改文章")
     public ResultVo save(@RequestBody ArticleDto articleDto){
-
-        MultipartFile backgroundFile = articleDto.getBackgroundFile();
-
-        AmsArticle amsArticle = articleDto.converTo();
-
-        return ResultVo.compute(articleService.insertOrUpdate(amsArticle));
+        return ResultVo.compute(articleService.publishArticle(articleDto));
     }
 
     @DeleteMapping("/{id}")
@@ -56,7 +51,6 @@ public class ArticleController {
     @ApiImplicitParam(name = "id",value = "文章id",required = true,dataType = "String")
     public ResultVo getOne(@PathVariable("id") String id) {
        // ArticleDetailVo articleDetailVo = new ArticleDetailVo().convertFrom(articleService.getById(id));
-        // todo  mq异步化 增加文章访问量
         //mqSender.send(id,"1");
         mqSender.send(new CountIncrementMsg(id,"1"));
 

@@ -12,6 +12,7 @@ import io.netty.channel.group.ChannelGroup;
 import io.netty.channel.group.DefaultChannelGroup;
 import io.netty.handler.codec.http.websocketx.TextWebSocketFrame;
 import io.netty.util.concurrent.GlobalEventExecutor;
+import org.springframework.beans.factory.annotation.Value;
 
 /**
  *      这里对象无法被注入
@@ -46,6 +47,10 @@ import io.netty.util.concurrent.GlobalEventExecutor;
 public class CustomMessageHandler extends SimpleChannelInboundHandler<TextWebSocketFrame> {
 
     private ObjectMapper objectMapper = new ObjectMapper();
+
+
+    @Value("${custom.im.port}")
+    private int port;
 
 
     //保存所有当前连接到服务器的客户端通道（类似在线用户）
@@ -98,6 +103,8 @@ public class CustomMessageHandler extends SimpleChannelInboundHandler<TextWebSoc
         Channel currentChanle = ctx.channel();
         System.out.println("客户端连接:"+currentChanle.remoteAddress()+"----"
                 +currentChanle.id()+"-----"+currentChanle.localAddress());
+
+        System.out.println("当前端口为："+port);
         clientGroup.add(currentChanle);
 
         // 将当前用户绑定到该客户端通道
