@@ -38,6 +38,9 @@
                 <if test="dto.enabled  != null and dto.enabled != ''">
                     and admin.enabled = #{dto.enabled}
                 </if>
+                <if test="dto.userId  != null and dto.userId != ''">
+                    and admin.id = #{dto.userId}
+                </if>
             </where>
          <!--   <choose>
                 <when test="'nickname' == orderField">

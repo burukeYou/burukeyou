@@ -60,5 +60,5 @@ public class UmsAdminDto implements BaseInputConverter<UmsAdmin> {
     private Boolean enabled;
 
     @ApiModelProperty(value = "角色列表")
-    private List<String> roleIdLits;
+    private List<String> roleList;
 }

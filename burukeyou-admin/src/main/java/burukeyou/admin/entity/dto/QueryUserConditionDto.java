@@ -2,13 +2,17 @@ package burukeyou.admin.entity.dto;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotBlank;
 
 @Data
-//@Builder
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @ApiModel(value = "多条件查找用户条件")
 public class QueryUserConditionDto {
 
@@ -34,4 +38,6 @@ public class QueryUserConditionDto {
     @ApiModelProperty(value = "升序还是降序")
     private String order;
 
+    @ApiModelProperty(value = "用户id")
+    private String userId;
 }

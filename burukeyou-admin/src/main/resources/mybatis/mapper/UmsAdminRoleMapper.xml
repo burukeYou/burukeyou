@@ -6,10 +6,10 @@
     <delete id="deleteByUserIdRoleId">
             delete from ums_admin_role
             <where>
-                <if test="userId != null || userId != ''">
+                <if test="userId != null and userId != ''">
                         and user_id = #{userId}
                 </if>
-                <if test="roleId != null || roleId != ''">
+                <if test="roleId != null and roleId != ''">
                     and role_id = #{roleId}
                 </if>
             </where>

@@ -5,17 +5,21 @@ import burukeyou.admin.entity.dto.UmsAdminDto;
 import burukeyou.admin.entity.pojo.UmsAdmin;
 import burukeyou.admin.entity.pojo.UmsAdminRole;
 import burukeyou.admin.entity.vo.UmsAdminVO;
+import burukeyou.admin.entity.vo.UmsRoleVO;
 import burukeyou.admin.mapper.UmsAdminMapper;
 import burukeyou.admin.service.UmsAdminRoleService;
 import burukeyou.admin.service.UmsAdminService;
+import burukeyou.admin.service.UmsRoleService;
 import burukeyou.admin.utils.CommonUtils;
 import burukeyou.auth.authClient.util.AuthUtils;
+import burukeyou.common.core.utils.CustomBeanUtils;
 import burukeyou.common.core.utils.IdWorker;
 import cn.hutool.core.util.IdUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.OrderItem;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -24,10 +28,12 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 import org.springframework.util.CollectionUtils;
+import org.springframework.util.StringUtils;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
@@ -37,12 +43,17 @@ import java.util.stream.Collectors;
 @Service
 public class UmsAdminServiceImpl extends ServiceImpl<UmsAdminMapper,UmsAdmin> implements UmsAdminService {
 
-    @Autowired
     private  PasswordEncoder passwordEncoder;
 
-
-    @Autowired
     private UmsAdminRoleService adminRoleRelationService;
+
+    private UmsRoleService  umsRoleService;
+
+    public UmsAdminServiceImpl(PasswordEncoder passwordEncoder, UmsAdminRoleService adminRoleRelationService, UmsRoleService umsRoleService) {
+        this.passwordEncoder = passwordEncoder;
+        this.adminRoleRelationService = adminRoleRelationService;
+        this.umsRoleService = umsRoleService;
+    }
 
     @Override
     @Transactional(propagation = Propagation.REQUIRED,rollbackFor = Exception.class)
@@ -65,7 +76,7 @@ public class UmsAdminServiceImpl extends ServiceImpl<UmsAdminMapper,UmsAdmin> im
         }
 
         // 重新设置角色
-        List<String> roleIdLits = umsAdminDto.getRoleIdLits();
+        List<String> roleIdLits = umsAdminDto.getRoleList();
         if (!CollectionUtils.isEmpty(roleIdLits)){
             adminRoleRelationService.deleteByUserIdRoleId(umsAdmin.getId(),null);
             List<UmsAdminRole> list =roleIdLits.stream().map(e -> new UmsAdminRole(umsAdmin.getId(), e)).collect(Collectors.toList());
@@ -119,8 +130,8 @@ public class UmsAdminServiceImpl extends ServiceImpl<UmsAdminMapper,UmsAdmin> im
 
     @Override
     public UmsAdminVO getOneById(String id) {
-       // return baseMapper.getListByCondition();
-        return null;
+        // todo update no role will fill error roleVo bug
+       return baseMapper.getListByCondition(QueryUserConditionDto.builder().userId(id).build());
     }
 
 

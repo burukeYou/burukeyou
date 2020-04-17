@@ -32,7 +32,7 @@ public class UmsAdmin extends BasePojo implements Serializable {
 
 	private String description;
 
-	@TableLogic
+	//@TableLogic
 	private Boolean deleted; //逻辑删除
 
 	private Boolean enabled;
