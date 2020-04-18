@@ -2,18 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e3fd7ab4-4260-46e7-bd82-a8fd77d9f220" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/burukeyou-api/file-center/src/main/resources/application-dev.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/burukeyou-api/file-center/src/main/resources/application-github.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/entity/dto/QueryUserConditionDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/entity/dto/QueryUserConditionDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/entity/dto/UmsAdminDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/entity/dto/UmsAdminDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/entity/pojo/UmsAdmin.java" beforeDir="false" afterPath="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/entity/pojo/UmsAdmin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/mapper/UmsAdminMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/mapper/UmsAdminMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/mapper/UmsAdminRoleMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/mapper/UmsAdminRoleMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/service/impl/UmsAdminServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/service/impl/UmsAdminServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/burukeyou-admin/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/burukeyou-admin/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/burukeyou-admin/src/main/resources/mybatis/mapper/UmsAdminMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/burukeyou-admin/src/main/resources/mybatis/mapper/UmsAdminMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/burukeyou-admin/src/main/resources/mybatis/mapper/UmsAdminRoleMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/burukeyou-admin/src/main/resources/mybatis/mapper/UmsAdminRoleMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/burukeyou-admin/src/test/java/burukeyou/UserApplicationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/burukeyou-admin/src/test/java/burukeyou/UserApplicationTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/burukeyou.iml" beforeDir="false" afterPath="$PROJECT_DIR$/burukeyou.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/burukeyou-api/file-center/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/burukeyou-api/file-center/src/main/resources/application.yml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -118,7 +110,31 @@
     <option name="isMigrated" value="true" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/burukeyou-api/file-center/src/main/resources/application.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="2" column="15" lean-forward="true" selection-start-line="2" selection-start-column="15" selection-end-line="2" selection-end-column="15" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/burukeyou-api/file-center/src/main/resources/application-dev.yml">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/burukeyou-api/file-center/src/main/resources/application-github.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -183,12 +199,11 @@
         <entry key="$PROJECT_DIR$" value="local-dev" />
       </map>
     </option>
+    <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/burukeyou-gateway/zuul-gateway/pom.xml" />
-        <option value="$PROJECT_DIR$/burukeyou-gateway/zuul-gateway/src/main/java/burukeyou/gateway/zuul/config/oauth2/ZuulResourceServerConfig.java" />
         <option value="$PROJECT_DIR$/burukeyou-admin/pom.xml" />
         <option value="$PROJECT_DIR$/burukeyou-gateway/zuul-gateway/src/main/resources/application.yml" />
         <option value="$PROJECT_DIR$/burukeyou-gateway/zuul-gateway/src/main/java/burukeyou/gateway/zuul/ZuulGatewayApplication.java" />
@@ -238,6 +253,8 @@
         <option value="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/service/impl/UmsAdminRoleServiceImpl.java" />
         <option value="$PROJECT_DIR$/burukeyou-admin/src/main/resources/application.yml" />
         <option value="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/entity/pojo/UmsAdmin.java" />
+        <option value="$PROJECT_DIR$/burukeyou-api/file-center/src/main/resources/application.yml" />
+        <option value="$PROJECT_DIR$/burukeyou-api/file-center/src/main/resources/application-github.yml" />
       </list>
     </option>
   </component>
@@ -272,9 +289,9 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
     <option name="y" value="23" />
-    <option name="width" value="1360" />
+    <option name="width" value="1130" />
     <option name="height" value="877" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -292,6 +309,41 @@
             <path>
               <item name="burukeyou" type="b2602c69:ProjectViewProjectNode" />
               <item name="burukeyou" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="burukeyou" type="b2602c69:ProjectViewProjectNode" />
+              <item name="burukeyou" type="462c0819:PsiDirectoryNode" />
+              <item name="burukeyou-api" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="burukeyou" type="b2602c69:ProjectViewProjectNode" />
+              <item name="burukeyou" type="462c0819:PsiDirectoryNode" />
+              <item name="burukeyou-api" type="462c0819:PsiDirectoryNode" />
+              <item name="file-center" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="burukeyou" type="b2602c69:ProjectViewProjectNode" />
+              <item name="burukeyou" type="462c0819:PsiDirectoryNode" />
+              <item name="burukeyou-api" type="462c0819:PsiDirectoryNode" />
+              <item name="file-center" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="burukeyou" type="b2602c69:ProjectViewProjectNode" />
+              <item name="burukeyou" type="462c0819:PsiDirectoryNode" />
+              <item name="burukeyou-api" type="462c0819:PsiDirectoryNode" />
+              <item name="file-center" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="burukeyou" type="b2602c69:ProjectViewProjectNode" />
+              <item name="burukeyou" type="462c0819:PsiDirectoryNode" />
+              <item name="burukeyou-api" type="462c0819:PsiDirectoryNode" />
+              <item name="file-center" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -315,7 +367,7 @@
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="Arquillian JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.Arquillian JUnit4" value="" />
     <property name="database.console.LAST_STATE" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/burukeyou-common/common-core/src/main/java/burukeyou/common/core/utils" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/burukeyou-api/file-center/src/main/resources" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -341,11 +393,11 @@
       <recent name="$PROJECT_DIR$/burukeyou-common/common-redis/src/main/resources/META-INF" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/burukeyou-api/file-center/src/main/resources" />
       <recent name="$PROJECT_DIR$/burukeyou-common/common-core/src/main/java/burukeyou/common/core/utils" />
       <recent name="$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/config" />
       <recent name="$PROJECT_DIR$/burukeyou-monitor/monitor-admin/src/main/resources" />
       <recent name="$PROJECT_DIR$/burukeyou-api/like-center/src/main/resources" />
-      <recent name="$PROJECT_DIR$/burukeyou-common/common-redis/src/main/resources" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="burukeyou.system.rpc" />
@@ -378,7 +430,7 @@
         </RuleState>
       </list>
     </option>
-    <option name="contentProportion" value="0.095348835" />
+    <option name="contentProportion" value="0.14166667" />
   </component>
   <component name="RunManager" selected="JUnit.UserApplicationTest.contextLoads">
     <configuration name="UserApplicationTest.contextLoads" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
@@ -452,11 +504,11 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="JUnit.UserApplicationTest.contextLoads" />
       <item itemvalue="Spring Boot.UmsAdminApplication" />
       <item itemvalue="Spring Boot.UserCenterApplication" />
       <item itemvalue="Spring Boot.ImServerApplication" />
       <item itemvalue="Spring Boot.AuthenticationServerApplication" />
-      <item itemvalue="JUnit.UserApplicationTest.contextLoads" />
     </list>
     <recent_temporary>
       <list>
@@ -661,7 +713,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="622286000" />
+    <option name="totallyTimeSpent" value="622440000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -673,9 +725,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1390" height="877" extended-state="6" />
+    <frame x="0" y="23" width="1130" height="877" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.73884517" visible="true" weight="0.3694362" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.73884517" visible="true" weight="0.2959559" />
       <window_info id="Structure" order="1" sideWeight="0.26115486" side_tool="true" weight="0.38373983" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -696,12 +749,12 @@
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5015175" side_tool="true" weight="0.9605263" />
       <window_info anchor="bottom" id="Java Enterprise" order="11" />
       <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="13" sideWeight="0.49848256" weight="0.9605263" />
+      <window_info anchor="bottom" id="Version Control" order="13" sideWeight="0.49848256" weight="0.3131579" />
       <window_info anchor="bottom" id="Messages" order="14" weight="0.20657894" />
       <window_info anchor="bottom" id="Database Console" order="15" weight="0.32939634" />
       <window_info anchor="bottom" id="Statistic" order="16" weight="0.6486842" />
       <window_info anchor="bottom" id="Tail" order="17" />
-      <window_info anchor="bottom" id="Run Dashboard" order="18" sideWeight="0.3892261" visible="true" weight="0.40526316" />
+      <window_info anchor="bottom" id="Run Dashboard" order="18" sideWeight="0.3892261" weight="0.40526316" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -1191,27 +1244,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/burukeyou-api/article-center/src/main/java/burukeyou/article/config/mybatisPlus/MyMetaObjectHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/burukeyou-common/common-dao/src/main/java/burukeyou/common/dao/pojo/BasePojo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="22" column="64" lean-forward="true" selection-start-line="22" selection-start-column="3" selection-end-line="22" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/entity/pojo/UmsRole.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/burukeyou-admin/src/main/java/burukeyou/admin/controller/UmsRoleController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="368">
@@ -1582,6 +1614,23 @@
           <folding>
             <element signature="method#login#0;class#UmsAdminController#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/burukeyou-api/file-center/src/main/resources/application.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="15" lean-forward="true" selection-start-line="2" selection-start-column="15" selection-end-line="2" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/burukeyou-api/file-center/src/main/resources/application-dev.yml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/burukeyou-api/file-center/src/main/resources/application-github.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
         </state>
       </provider>
     </entry>

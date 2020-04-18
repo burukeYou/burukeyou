@@ -1,20 +1,3 @@
 spring:
-  application:
-    name: file-center-server
-
-
-
-server:
-  port: 9060
-
-
-
-
-custom:
-  file:
-    type: aliyun_oss
-    oss:
-      END_POINT: http://oss-cn-shenzhen.aliyuncs.com
-      ACCESS_KEY_ID: LTAIpb0tEf3Wyp0i
-      ACCESS_KEY_SECRET: 7G6n4PViD0F8tnjfnb0uJ04h1fHCY5
-      BUCKET_NAME: burukeyou
+  profiles:
+    active: dev
