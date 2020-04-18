@@ -1,11 +1,13 @@
 package burukeyou.admin.service.impl;
 
+import burukeyou.admin.entity.enums.PermissionTypeEnum;
 import burukeyou.admin.entity.pojo.UmsPermission;
 import burukeyou.admin.entity.pojo.UmsRolePermission;
 import burukeyou.admin.mapper.UmsAdminRoleMapper;
 import burukeyou.admin.mapper.UmsPermissionMapper;
 import burukeyou.admin.service.PermissionService;
 import burukeyou.admin.service.UmsRolePermissionService;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,8 +29,8 @@ public class PermissionServiceImpl extends ServiceImpl<UmsPermissionMapper, UmsP
     }
 
     @Override
-    public List<UmsPermission> getPermissionByRoleId(String roleId, String type) {
-        return baseMapper.getAllPermissionByRoleId(roleId,type);
+    public List<UmsPermission> getPermissionByRoleId(String roleId) {
+        return baseMapper.getAllPermissionByRoleId(roleId);
     }
 
     @Override
@@ -37,6 +39,11 @@ public class PermissionServiceImpl extends ServiceImpl<UmsPermissionMapper, UmsP
         umsRolePermissionService.deleteByRoleIdPermissionId(roleId,null);
         List<UmsRolePermission> relation = permissionIds.stream().map(e -> new UmsRolePermission(roleId, e)).collect(Collectors.toList());
         return umsRolePermissionService.saveBatch(relation);
+    }
+
+    @Override
+    public List<UmsPermission> getParentMenu() {
+        return super.list(new QueryWrapper<UmsPermission>().lambda().ne(UmsPermission::getType, PermissionTypeEnum.BUTTON));
     }
 
     @Override

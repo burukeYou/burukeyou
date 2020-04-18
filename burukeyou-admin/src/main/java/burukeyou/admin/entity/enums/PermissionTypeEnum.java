@@ -3,7 +3,9 @@ package burukeyou.admin.entity.enums;
 public enum PermissionTypeEnum {
     MENU("MENU"),
 
-    BUTTON("BUTTON");
+    BUTTON("BUTTON"),
+
+    Directory("Directory");
 
     private String type;
 

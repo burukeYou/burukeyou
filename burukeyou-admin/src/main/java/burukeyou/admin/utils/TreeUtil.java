@@ -34,11 +34,11 @@ public class TreeUtil {
                 }
             }
 
-            if (flag) Collections.sort(treeNode.getChildren(), (a, b) -> a.getOrderNum() - b.getOrderNum());
+            if (flag) Collections.sort(treeNode.getChildren(), Comparator.comparingInt(BaseMenu::getOrderNum));
 
         }
 
-        Collections.sort(trees, (a, b) -> a.getOrderNum() - b.getOrderNum());
+        Collections.sort(trees, Comparator.comparingInt(BaseMenu::getOrderNum));
         return trees;
     }
 

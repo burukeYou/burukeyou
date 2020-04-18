@@ -3,13 +3,13 @@
 <mapper namespace="burukeyou.admin.mapper.UmsRolePermissionMapper">
 
     <delete id="deleteByRoleIdResourceId">
-        delete from ums_role_resource_relation
+        delete from ums_role_permission
         <where>
-            <if test="roleId != null || roleId != ''">
+            <if test="roleId != null and roleId != ''">
                 and role_id = #{roleId}
             </if>
 
-            <if test="permission_id != null || permission_id != ''">
+            <if test="permissionId != null and permissionId != ''">
                 and permission_id = #{permissionId}
             </if>
         </where>

@@ -21,7 +21,6 @@ public class RoleDto implements BaseInputConverter<UmsRole> {
     @NotNull(message = "更新是id不能为空",groups = UPDATE.class)
     private String id;
 
-
     @ApiModelProperty("角色编码")
     @NotBlank(message = "角色编码不能为空",groups = INSERT.class)
     private String code;

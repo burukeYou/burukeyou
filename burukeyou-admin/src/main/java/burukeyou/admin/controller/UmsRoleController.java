@@ -53,7 +53,7 @@ public class UmsRoleController {
     }
 
 
-    @GetMapping("/list")
+    @GetMapping("/page")
     @ApiOperation(value = "分页获取角色列表")
     public ResultVo list(@RequestParam int page,@RequestParam int  size){
         Page<UmsRole> pageList  = umsRoleService.getPage(page,size);
@@ -74,7 +74,11 @@ public class UmsRoleController {
     }
 
 
-
+    @GetMapping("/{roleId}")
+    @ApiOperation("查看角色详情")
+    public ResultVo getOneById(@PathVariable String roleId){
+        return ResultVo.success(umsRoleService.getById(roleId));
+    }
 
 
 

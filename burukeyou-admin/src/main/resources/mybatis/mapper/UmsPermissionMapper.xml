@@ -19,12 +19,12 @@
 
 
 
-    <select id="getAllPermissionByRoleId" resultType="burukeyou.admin.entity.pojo.UmsPermission">
-        SELECT *
-        from ums_role_permission urp JOIN ums_permission per on urp.permission_id = per.id
-        <if test="type != null || type != ''">
-            and per.type = #{type}
-        </if>
-        WHERE urp.role_id = #{roleId}
-    </select>
+<!--    <select id="getAllPermissionByRoleId" resultType="burukeyou.admin.entity.pojo.UmsPermission">-->
+<!--        SELECT *-->
+<!--        from ums_role_permission urp JOIN ums_permission per on urp.permission_id = per.id-->
+<!--        <if test="type != null and type != ''">-->
+<!--            and per.type = #{type}-->
+<!--        </if>-->
+<!--        WHERE urp.role_id = #{roleId}-->
+<!--    </select>-->
 </mapper>

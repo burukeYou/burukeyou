@@ -17,10 +17,9 @@ public interface PermissionService extends IService<UmsPermission> {
     /**
      *
      * @param roleId
-     * @param type
      * @return
      */
-    List<UmsPermission> getPermissionByRoleId(String roleId,String type);
+    List<UmsPermission> getPermissionByRoleId(String roleId);
 
     /**
      *
@@ -36,4 +35,10 @@ public interface PermissionService extends IService<UmsPermission> {
      * @return
      */
     boolean setPermissionOfRole(String roleId, List<String>  permissionIds);
+
+    /**
+     *  获得所有可选菜单目录
+     * @return
+     */
+    List<UmsPermission> getParentMenu();
 }

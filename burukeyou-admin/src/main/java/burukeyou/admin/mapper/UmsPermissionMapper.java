@@ -4,6 +4,7 @@ import burukeyou.admin.entity.pojo.UmsPermission;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
 
@@ -21,8 +22,8 @@ public interface UmsPermissionMapper extends BaseMapper<UmsPermission> {
     /**
      *      动态根据角色id和权限类型获得权限列表
      * @param roleId 角色id
-     * @param type  权限类型
      * @return
      */
-    List<UmsPermission> getAllPermissionByRoleId(@Param("roleId") String roleId,@Param("type") String type);
+    @Select("SELECT per.* from ums_role_permission urp JOIN ums_permission per on urp.permission_id = per.id WHERE urp.role_id = #{roleId}")
+    List<UmsPermission> getAllPermissionByRoleId(@Param("roleId") String roleId);
 }

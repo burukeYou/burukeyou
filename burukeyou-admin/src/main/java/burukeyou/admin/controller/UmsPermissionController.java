@@ -18,6 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -37,18 +38,18 @@ public class UmsPermissionController {
     private PermissionService permissionService;
 
 
-    @GetMapping("/all/meun")
-    @ApiOperation(value = "获得所有菜单列表")
-    public ResultVo getALlPermission(){
-        List<UmsPermission> list = permissionService.getPermissionByRoleId(null, PermissionTypeEnum.MENU.Type());
-
-        Trie<MenuTreeVO> trie = new Trie<>();
-        for (UmsPermission e : list) { trie.addNode(e.getPath(),new MenuTreeVO().convertFrom(e)); }
-
-        List<MenuTreeVO> menuTreeVO = trie.converTo();
-
-        return ResultVo.success(menuTreeVO);
-    }
+//    @GetMapping("/all/meun")
+//    @ApiOperation(value = "获得所有菜单列表")
+//    public ResultVo getALlPermission(){
+//        List<UmsPermission> list = permissionService.getPermissionByRoleId(null);
+//
+//        Trie<MenuTreeVO> trie = new Trie<>();
+//        for (UmsPermission e : list) { trie.addNode(e.getPath(),new MenuTreeVO().convertFrom(e)); }
+//
+//        List<MenuTreeVO> menuTreeVO = trie.converTo();
+//
+//        return ResultVo.success(menuTreeVO);
+//    }
 
 
 
@@ -60,9 +61,31 @@ public class UmsPermissionController {
 
 
     @GetMapping("/{roleId}/tree")
-    @ApiOperation(value = "根据角色id获取权限树")
+    @ApiOperation(value = "根据角色id获取权限树和全部权限")
     public ResultVo getPermissionTreeByRoleId(@PathVariable String roleId){
-        List<UmsPermission> list = permissionService.getPermissionByRoleId(roleId, null);
+        List<UmsPermission> list = permissionService.getPermissionByRoleId(roleId);
+
+        //
+        List<String> defaultCheckedKeysList = list.stream().filter(e -> !e.getType().equals(PermissionTypeEnum.Directory.Type()))
+                                                           .map(UmsPermission::getId).collect(Collectors.toList());
+
+        List<UmsPermission> allMenu = permissionService.list();
+        List<MenuBaseVO> voList = allMenu.stream().map(e -> { MenuBaseVO vo = new MenuBaseVO().convertFrom(e);return vo;}).collect(Collectors.toList());
+
+        //
+        List<MenuBaseVO> tree = TreeUtil.bulid(voList, "-1");
+
+        Map<String,Object> map = new HashMap<>();
+        map.put("defaultCheckedKey",defaultCheckedKeysList);
+        map.put("tree",tree);
+        return ResultVo.success(map);
+    }
+
+
+   /* @GetMapping("/{roleId}/tree")
+    @ApiOperation(value = "根据用户的角色id获取其权限树")
+    public ResultVo getPermissionTreeByRoleId(@PathVariable String roleId){
+        List<UmsPermission> list = permissionService.getPermissionByRoleId(roleId);
         List<MenuBaseVO> voList = list.stream().map(e -> { MenuBaseVO vo = new MenuBaseVO().convertFrom(e);return vo;}).collect(Collectors.toList());
 
         //
@@ -80,7 +103,7 @@ public class UmsPermissionController {
         List<MenuBaseVO> tree = TreeUtil.bulid(voList, "-1");
         return ResultVo.success(tree);
     }
-
+*/
 
     @GetMapping("/tree")
     @ApiOperation("获取当前用户的菜单树")
@@ -139,11 +162,27 @@ public class UmsPermissionController {
     @ApiOperation("新增或者修改权限信息")
     @ApiImplicitParam(name = "umsPermissionDto",value = "权限",required = true,dataType = "umsPermissionDto")
     public ResultVo saveOrupdate(@RequestBody UmsPermissionDto umsPermissionDto){
-        return ResultVo.compute(permissionService.save(umsPermissionDto.converTo()));
+        return ResultVo.compute(permissionService.saveOrUpdate(umsPermissionDto.converTo()));
     }
 
     @DeleteMapping("/{id}")
     public ResultVo deleteById(@PathVariable("id") String id){
         return ResultVo.compute(permissionService.deleteById(id));
     }
+
+    @GetMapping("/all")
+    @ApiOperation("获取所有权限")
+    public ResultVo  getAllMenu(){
+        List<UmsPermission> allMenu = permissionService.list();
+        List<MenuBaseVO> allMenuList = allMenu.stream().map(e -> { MenuBaseVO vo = new MenuBaseVO().convertFrom(e);return vo;}).collect(Collectors.toList());
+        List<MenuBaseVO> tree = TreeUtil.bulid(allMenuList, "-1");
+        return ResultVo.success(tree);
+    }
+
+    @GetMapping("/parentMenu")
+    @ApiOperation("获得所有可选菜单目录")
+    public ResultVo getParentMenu(){
+        return ResultVo.success(permissionService.getParentMenu());
+    }
+
 }

@@ -32,11 +32,11 @@ public class UmsPermission extends BasePojo implements Serializable {
 
 	private String description;
 
-	private boolean enabled;
+	private boolean disabled;
 
 	private Integer orderNum;
 
-	private boolean show;
+	private boolean isshow; //  mysql 关键字 show
 
 	private String path;
 
