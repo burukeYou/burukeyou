@@ -1,9 +1,11 @@
 package burukeyou.system.service.impl;
 
+import burukeyou.system.entity.dto.QueryTopicConditionDto;
 import burukeyou.system.entity.pojo.SysTopic;
 import burukeyou.system.mapper.SysTopicMapper;
 import burukeyou.system.service.SysTopicService;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.OrderItem;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.apache.commons.lang3.StringUtils;
@@ -22,13 +24,20 @@ public class SysTopicServiceImpl extends ServiceImpl<SysTopicMapper, SysTopic> i
 
     @Override
     public boolean deleteTopic(String id) {
+        //  todo 决出沸点和话题的关系
         return super.removeById(id);
     }
 
     @Override
-    public Page<SysTopic> getTopicPage(String name, int page, int size) {
-        Page<SysTopic> of = new Page<>(page, size);
-        return StringUtils.isNotBlank(name) ? super.page(of, new QueryWrapper<SysTopic>()
-                .lambda().like(SysTopic::getName,name)) : super.page(of);
+    public Page<SysTopic> getTopicPage(QueryTopicConditionDto conditionDto) {
+        Page<SysTopic> of = new Page<>(conditionDto.getPage(), conditionDto.getSize());
+
+        if (StringUtils.isNotBlank(conditionDto.getOrderField())){
+            if ("Asc".equals(conditionDto.getOrder()))
+                of.addOrder(OrderItem.asc(conditionDto.getOrderField()));
+            else if ("Desc".equals(conditionDto.getOrder()))
+                of.addOrder(OrderItem.desc(conditionDto.getOrderField()));
+        }
+        return StringUtils.isNotBlank(conditionDto.getName()) ? super.page(of, new QueryWrapper<SysTopic>().lambda().like(SysTopic::getName,conditionDto.getName())) : super.page(of);
     }
 }

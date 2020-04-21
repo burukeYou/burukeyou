@@ -86,12 +86,12 @@ public class RedisAutoConfiguration {
     }
 
 
-
-    //
     @Bean
     @ConditionalOnMissingBean
-    StringRedisTemplate stringRedisTemplate(){
-        return new StringRedisTemplate();
+    StringRedisTemplate stringRedisTemplate(RedisConnectionFactory factory){
+        StringRedisTemplate template = new StringRedisTemplate();
+        template.setConnectionFactory(factory);
+        return template;
     }
 
 }

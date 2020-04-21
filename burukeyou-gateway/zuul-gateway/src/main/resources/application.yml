@@ -1,5 +1,5 @@
 server:
-  port: 9000
+  port: 8090
   servlet:
     context-path:
 
@@ -22,9 +22,16 @@ spring:
       discovery:
         server-addr: localhost:8848
 
+
+
+
 # ===================================配置zuul网关============================================================
 zuul:
-  prefix: /api
+  host:
+    connect-timeout-millis: 120000
+    socket-timeout-millis: 120000
+
+  prefix: /api/v1
   routes:
     token:
       url: authentication-center-server
@@ -34,14 +41,28 @@ zuul:
       url: admin-server
     user:
       url: user-server
-
-
+    system:
+      url: system-center-server
+    article:
+      url: article-center-server
 
   #  默认敏感请求头比如Authorthtion是不会下发的，这里设置为空，就是所有请求头都向下转发
   sensitive-headers:
 
 
+#=========================
+ribbon:
+  ReadTimeout: 120000  # 单位毫秒数
+  SocketTimeout: 120000
 
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeout-in-milliseconds: 120000
 
 
 # ===================================配置鉴权客户端============================================================

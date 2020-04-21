@@ -5,15 +5,13 @@
 
 <mapper namespace="burukeyou.system.mapper.SysChannelMapper" >
     <select id="getPageByConfition" resultType="burukeyou.system.entity.vo.ChannelVo" parameterType="String">
-        SELECT cl.id,cl.created_by,cl.created_time,cl.updated_by,cl.updated_time,
+        SELECT cl.id,cl.name,cl.created_by,cl.created_time,cl.updated_by,cl.updated_time,
         (select count(*) from ams_article ar WHERE ar.channel_id = cl.id) as visitsCount
         from sys_channel cl
         <where>
             <if test="name != null and name != ''">
-                and admin.admin_name like CONCAT('%',#{condition},'%')
-
+                and cl.name like CONCAT('%',#{name},'%')
             </if>
         </where>
-
     </select>
 </mapper>

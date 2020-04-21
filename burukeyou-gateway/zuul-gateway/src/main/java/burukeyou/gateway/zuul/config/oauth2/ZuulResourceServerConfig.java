@@ -29,13 +29,11 @@ public class ZuulResourceServerConfig extends CustomResourceServerConfig {
     public void configure(HttpSecurity http) throws Exception {
         super.configure(http);
 
-        http.headers().frameOptions().sameOrigin();
-
         http.authorizeRequests().anyRequest()
                 .access("#permissionService.hasPermission(request, authentication)")
-                .and()
-                .addFilterBefore(new ZuulRateLimitFilter(), SecurityContextPersistenceFilter.class)
-                .addFilterBefore(new ZuulAuditLogFilter(),ExceptionTranslationFilter.class);
+                .and();
+                //.addFilterBefore(new ZuulRateLimitFilter(), SecurityContextPersistenceFilter.class)
+                //.addFilterBefore(new ZuulAuditLogFilter(),ExceptionTranslationFilter.class);
 
     }
 

@@ -35,22 +35,23 @@ public class ResultVo<T> {
 
 
     public static  ResultVo success(){
-        return new ResultVo<Object>("200","",ZonedDateTime.now().toInstant(),null);
+        return new ResultVo<>("200","",ZonedDateTime.now().toInstant(),null);
     }
 
-    public static   ResultVo success(Object data){
-        return new ResultVo<Object>("200","",ZonedDateTime.now().toInstant(),data);
+    public static <T>  ResultVo<T> success(T data){
+        return new ResultVo<>("200","",ZonedDateTime.now().toInstant(),data);
     }
 
     public static ResultVo error(String msg){
-        return new ResultVo<Object>("400",msg,ZonedDateTime.now().toInstant(),null);
+        return new ResultVo<String>("400",msg,ZonedDateTime.now().toInstant(),null);
     }
 
     public static ResultVo error(){
-        return new ResultVo<Object>("400","",ZonedDateTime.now().toInstant(),null); }
+        return new ResultVo<String>("400","",ZonedDateTime.now().toInstant(),null);
+    }
 
     public static ResultVo compute(boolean result){
-        return result == true ?  ResultVo.success() : ResultVo.error();
+        return result ?  ResultVo.success() : ResultVo.error();
     }
 
 

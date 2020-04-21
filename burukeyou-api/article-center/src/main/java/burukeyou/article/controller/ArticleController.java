@@ -2,6 +2,7 @@ package burukeyou.article.controller;
 
 import burukeyou.article.entity.bo.CountIncrementMsg;
 import burukeyou.article.entity.dto.ArticleDto;
+import burukeyou.article.entity.dto.ArticleQueryConditionDto;
 import burukeyou.article.entity.pojo.AmsArticle;
 import burukeyou.article.entity.vo.ArticleListlVo;
 import burukeyou.article.mq.MqSender;
@@ -68,11 +69,9 @@ public class ArticleController {
             @ApiImplicitParam(name = "page",value = "当前页",required = true,dataType = "long"),
             @ApiImplicitParam(name = "size",value = "每页显示大小",required = true,dataType = "long"),
     })
-    public ResultVo getListByUserId(@PathVariable(value = "userId") String userId,
-                                    @RequestParam("page")int page,
-                                    @RequestParam("size")int size){
+    public ResultVo getListByUserId(ArticleQueryConditionDto conditionDto){
 
-        Page<AmsArticle> list = articleService.getListByUserId(userId, page, size);
+        Page<AmsArticle> list = articleService.getListByUserId(conditionDto);
 
         PageResultVo<Object> build = PageResultVo.builder().page(list.getCurrent()).totalPage(list.getPages()).count(list.getTotal())
                 .data(list.getRecords().stream().map(e -> new ArticleListlVo().convertFrom(e)).collect(Collectors.toList())).build();

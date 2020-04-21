@@ -1,19 +1,19 @@
 package burukeyou.user.service;
 
-import burukeyou.user.entity.pojo.UmsUsers;
+import burukeyou.user.entity.pojo.UmsUser;
 
 public interface UmsUserService {
     /**
      *      save or update user info
-     * @param umsUsers
+     * @param umsUser
      * @return success or fail
      */
-    Boolean saveOrupdate(UmsUsers umsUsers);
+    Boolean saveOrupdate(UmsUser umsUser);
 
     /**
      *
      * @param uniqueId 手机号或者电话或者邮箱
      * @return
      */
-    UmsUsers getByUniqueId(String uniqueId);
+    UmsUser getByUniqueId(String uniqueId);
 }

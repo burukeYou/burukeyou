@@ -30,24 +30,18 @@ public class CanalTask implements Runnable, ApplicationContextAware {
         long batchId = -1 ;
         try {
             int batchSize = 1000;
-
             // 获取指定数量的数据
             Message message = connector.getWithoutAck(batchSize);
-
             batchId = message.getId(); // 消息批次id
             int size = message.getEntries().size();
-
             if (batchId != -1 || size > 0) {
                 List<CanalEntry.Entry> entries = message.getEntries();
-
-
                 entries.forEach(e->{
                     if (e.getEntryType() == CanalEntry.EntryType.ROWDATA){
                             publicCanalEvent(e);
                     }
                 });
             }
-
             connector.ack(batchId);
         } catch (CanalClientException e) {
             e.printStackTrace();

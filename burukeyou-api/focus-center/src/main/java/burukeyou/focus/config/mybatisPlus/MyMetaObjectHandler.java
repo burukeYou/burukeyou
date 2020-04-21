@@ -1,4 +1,4 @@
-package burukeyou.system.config;
+package burukeyou.focus.config.mybatisPlus;
 
 import burukeyou.auth.authClient.util.AuthUtils;
 import burukeyou.common.dao.config.mybatisPlus.BsaePojoMetaObjectHandler;
@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 public class MyMetaObjectHandler extends BsaePojoMetaObjectHandler {
     @Override
     public String getCurrentUsername() {
-        return AuthUtils.getCurrentUser() != null ? AuthUtils.getCurrentUser().getNickname() : "sysytem";
+        return AuthUtils.getCurrentUser() != null ? AuthUtils.getCurrentUser().getNickname() : "sysytem"; // anonymous
     }
 }
 

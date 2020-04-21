@@ -35,6 +35,7 @@ public class ParamValidAOP {
 
             return result == null ? joinPoint.proceed() : ResultVo.error(JSONObject.toJSONString(result));
         }catch (Exception exception){
+            exception.printStackTrace();
             return ResultVo.error("校验参数异常");
         }
     }

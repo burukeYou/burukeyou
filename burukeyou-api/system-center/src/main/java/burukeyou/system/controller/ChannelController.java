@@ -28,7 +28,7 @@ public class ChannelController {
     @PostMapping
     @EnableParamValid
     @ApiOperation(value = "创建修改频道")
-    public ResultVo add(ChannelDto channelDto){
+    public ResultVo add(@RequestBody ChannelDto channelDto){
         return ResultVo.success(sysChannelService.saveOrUpdate(channelDto.converTo()));
     }
 
@@ -43,6 +43,10 @@ public class ChannelController {
         return ResultVo.success(sysChannelService.getChannelPage(name,page,size));
     }
 
+    @GetMapping
+    public ResultVo getALlChannel(){
+        return ResultVo.success(sysChannelService.list());
+    }
 
 
 

@@ -22,10 +22,11 @@ public class ZuulDocumentationConfig implements SwaggerResourcesProvider {
     @Override
     public List<SwaggerResource> get() {
         List resources = new ArrayList<>();
-        resources.add(swaggerResource("统一认证授权接口", zuulPrefix+"/token/v2/api-docs", "1.0"));
-        resources.add(swaggerResource("全局搜索接口", zuulPrefix+"/search/v2/api-docs", "1.0"));
-        resources.add(swaggerResource("后台系统接口", zuulPrefix+"/admin/v2/api-docs", "1.0"));
-        resources.add(swaggerResource("用户微服务接口", zuulPrefix+"/user/v2/api-docs", "1.0"));
+        //v2/api-docs
+        resources.add(swaggerResource("统一认证授权接口", zuulPrefix+"/token", "1.0"));
+        resources.add(swaggerResource("全局搜索接口", zuulPrefix+"/search", "1.0"));
+        resources.add(swaggerResource("后台系统接口", zuulPrefix+"/admin", "1.0"));
+        resources.add(swaggerResource("用户微服务接口", zuulPrefix+"/user", "1.0"));
         return resources;
     }
 

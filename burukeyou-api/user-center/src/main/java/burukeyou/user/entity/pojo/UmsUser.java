@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @TableName("ums_users")
 @NoArgsConstructor
 @AllArgsConstructor
-public class UmsUsers  extends BasePojo {
+public class UmsUser extends BasePojo {
 
 	private String username;
 

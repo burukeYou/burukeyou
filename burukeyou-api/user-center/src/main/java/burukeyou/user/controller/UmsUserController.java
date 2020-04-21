@@ -4,7 +4,7 @@ import burukeyou.common.core.entity.annotation.EnableParamValid;
 import burukeyou.common.core.entity.vo.ResultVo;
 import burukeyou.user.entity.dto.LoginDto;
 import burukeyou.user.entity.dto.UserDto;
-import burukeyou.user.entity.pojo.UmsUsers;
+import burukeyou.user.entity.pojo.UmsUser;
 import burukeyou.user.entity.vo.TokenInfo;
 import burukeyou.user.service.UmsUserService;
 import io.swagger.annotations.*;
@@ -69,12 +69,12 @@ public class UmsUserController {
         try {
             response = restTemplate.exchange(oauthServiceUrl, HttpMethod.POST, entity, TokenInfo.class);
         } catch (RestClientException e) {
-            log.info("{}  login fail",loginDto.getUsername());
+            log.error("{}  login fail",loginDto.getUsername());
             return ResultVo.error("账号或者密码错误");
         }
 
         TokenInfo body = response.getBody();
-        return ResultVo.success(body);
+        return ResultVo.success( body.init());
     }
 
 
@@ -90,7 +90,7 @@ public class UmsUserController {
     @GetMapping("/uniqueId")
     @ApiOperation(value = "根据用户账号或者手机号或者邮箱查找用户")
     @ApiImplicitParam(paramType = "query",name = "uniqueId",value = "用户账号或者手机号或者邮箱",required = true,dataType = "string")
-    public ResultVo<?> getUserByUniqueId(@RequestParam String uniqueId){
+    public ResultVo<UmsUser> getUserByUniqueId(@RequestParam String uniqueId){
         log.debug("query with username or mobile or email:{}", uniqueId);
         return ResultVo.success(umsUserService.getByUniqueId(uniqueId)) ;
     }

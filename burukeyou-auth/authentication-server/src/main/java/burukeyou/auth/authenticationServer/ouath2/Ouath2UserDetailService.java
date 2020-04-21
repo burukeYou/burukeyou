@@ -4,6 +4,7 @@ import burukeyou.auth.authenticationServer.entity.vo.UserTokenVo;
 import burukeyou.auth.authenticationServer.dao.UmsUserMapper;
 import burukeyou.auth.authenticationServer.entity.pojo.UmsUser;
 import burukeyou.auth.authenticationServer.service.local.UserService;
+import burukeyou.auth.authenticationServer.service.rpc.UserServiceRPC;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import lombok.extern.slf4j.Slf4j;
@@ -25,6 +26,9 @@ public class Ouath2UserDetailService extends ServiceImpl<UmsUserMapper, UmsUser>
 
     private final UserService userService;
 
+    @Autowired
+    private UserServiceRPC userServiceRPC;
+
     public Ouath2UserDetailService(UserService userService) {
         this.userService = userService;
     }
@@ -40,9 +44,7 @@ public class Ouath2UserDetailService extends ServiceImpl<UmsUserMapper, UmsUser>
         // 普通用户认证
         UserTokenVo user = new UserTokenVo();
         if ("user".equals(type)){
-            UmsUser umsUser = this.getOne(new QueryWrapper<UmsUser>()
-                    .eq("username", username)
-                    .or().eq("mobile", username).or().eq("email", username));
+            UmsUser umsUser = userServiceRPC.getUserByUniqueId(username).getData();
 
             if (umsUser == null)
                 return null;
@@ -67,8 +69,7 @@ public class Ouath2UserDetailService extends ServiceImpl<UmsUserMapper, UmsUser>
 
 
     protected List<SimpleGrantedAuthority> conveterUserAuthorities(List<String> roles) {
-        List<SimpleGrantedAuthority> list = roles.stream()
-                .map(role -> new SimpleGrantedAuthority(role)).collect(Collectors.toList());
+        List<SimpleGrantedAuthority> list = roles.stream().map(role -> new SimpleGrantedAuthority(role)).collect(Collectors.toList());
         return list;
     }
 }

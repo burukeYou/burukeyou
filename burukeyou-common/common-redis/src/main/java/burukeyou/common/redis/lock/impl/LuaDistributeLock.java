@@ -1,7 +1,10 @@
 package burukeyou.common.redis.lock.impl;
 
 import burukeyou.common.redis.lock.ILock;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.data.redis.core.StringRedisTemplate;
@@ -15,6 +18,9 @@ import java.util.List;
 import java.util.UUID;
 
 @Builder
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class LuaDistributeLock implements ILock {
 
     @Autowired

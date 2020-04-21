@@ -10,5 +10,5 @@ import org.apache.ibatis.annotations.Select;
 @Mapper
 public interface SysChannelMapper extends BaseMapper<SysChannel> {
 
-    Page<ChannelVo> getPageByConfition(Page<SysChannel> pg, String name);
+    Page<ChannelVo> getPageByConfition(Page<ChannelVo> pg, String name);
 }

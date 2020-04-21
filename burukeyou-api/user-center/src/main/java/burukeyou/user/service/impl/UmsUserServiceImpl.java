@@ -2,13 +2,13 @@ package burukeyou.user.service.impl;
 
 import burukeyou.auth.authClient.util.AuthUtils;
 import burukeyou.common.core.utils.RegexValidationUtils;
-import burukeyou.user.entity.pojo.UmsUsers;
+import burukeyou.user.entity.pojo.UmsUser;
 import burukeyou.user.mapper.UmsUserMapper;
 import burukeyou.user.service.UmsUserService;
+import burukeyou.user.utils.CommonUtils;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 
 @Slf4j
 @Service
-public class UmsUserServiceImpl extends ServiceImpl<UmsUserMapper, UmsUsers> implements UmsUserService {
+public class UmsUserServiceImpl extends ServiceImpl<UmsUserMapper, UmsUser> implements UmsUserService {
 
     private final PasswordEncoder passwordEncoder;
 
@@ -29,39 +29,39 @@ public class UmsUserServiceImpl extends ServiceImpl<UmsUserMapper, UmsUsers> imp
         this.passwordEncoder = passwordEncoder;
     }
 
-    public Boolean saveOrupdate(UmsUsers umsUsers){
-        Assert.notNull(umsUsers,"UmsUsers to create or update must not be null");
+    public Boolean saveOrupdate(UmsUser umsUser){
+        Assert.notNull(umsUser,"UmsUsers to create or update must not be null");
 
-        if (umsUsers.getId() == null){
+        if (umsUser.getId() == null){
             // save
-            String ip = request.getHeader("HTTP_X_FORWARDED_FOR");
-            if (StringUtils.isBlank(ip))
-                ip = request.getHeader("REMOTE_ADDR");
-
-            request.getRemoteHost();
-
-            umsUsers = UmsUsers.builder().password(passwordEncoder.encode(umsUsers.getPassword()))
-                    .avatar("/xxx/xx/xx").createHost(ip).exp(0).fansCount(0).followCount(0)
-                    .accountNonExpired(true).accountNonLocked(true).credentialsNonExpired(true).enabled(true)
-                    .deleted(false).build();
-        }else if (!umsUsers.getId().equals(AuthUtils.ID()))
+            umsUser.setCreateHost(CommonUtils.getRemoteIpAddress(request));
+            umsUser.setPassword(passwordEncoder.encode(umsUser.getPassword()));
+            umsUser.setAvatar("/xxx/xx/xx");
+            umsUser.setExp(0);
+            umsUser.setFansCount(0);
+            umsUser.setFollowCount(0);
+            umsUser.setAccountNonExpired(true);
+            umsUser.setAccountNonLocked(true);
+            umsUser.setCredentialsNonExpired(true);
+            umsUser.setEnabled(true);
+            umsUser.setDeleted(false);
+        }else if (!umsUser.getId().equals(AuthUtils.ID()))
             //update
             return false;
 
-        return super.saveOrUpdate(umsUsers);
+        return super.saveOrUpdate(umsUser);
     }
 
-    // todo 只有当前用户可查找自己完整信息，否则查找该用户部分信息
     @Override
-    public UmsUsers getByUniqueId(String uniqueId) {
+    public UmsUser getByUniqueId(String uniqueId) {
         Assert.notNull(uniqueId,"query param uniqueId must not be null");
         // judge uniqueId is mobile or email or username or id
         if (RegexValidationUtils.validateeUsername(uniqueId)){
-            return this.getOne(new QueryWrapper<UmsUsers>().eq("username",uniqueId));
+            return this.getOne(new QueryWrapper<UmsUser>().eq("username",uniqueId));
         }else if (RegexValidationUtils.validateMobile(uniqueId)){
-            return this.getOne(new QueryWrapper<UmsUsers>().eq("mobile",uniqueId));
+            return this.getOne(new QueryWrapper<UmsUser>().eq("mobile",uniqueId));
         }else if (RegexValidationUtils.validateMobile(uniqueId)){
-            return this.getOne(new QueryWrapper<UmsUsers>().eq("email",uniqueId));
+            return this.getOne(new QueryWrapper<UmsUser>().eq("email",uniqueId));
         }else if (false){
             // todo query by id
             return null;

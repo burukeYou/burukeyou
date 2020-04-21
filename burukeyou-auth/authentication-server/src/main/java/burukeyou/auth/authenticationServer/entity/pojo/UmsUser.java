@@ -7,14 +7,12 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.io.Serializable;
-
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@TableName("ums_users")
-public class UmsUser extends BasePojo implements Serializable {
+public class UmsUser extends BasePojo {
+
 	private String username;
 
 	private String password;
@@ -43,11 +41,9 @@ public class UmsUser extends BasePojo implements Serializable {
 
 	private String createHost;
 
-	private java.util.Date lastloginHost;
+	private String lastloginHost;
 
 	private java.util.Date lastloginTime;
-
-	private Integer online;
 
 	private Integer fansCount;
 
@@ -56,5 +52,4 @@ public class UmsUser extends BasePojo implements Serializable {
 	private String blogAddress;
 
 	private Integer exp;
-
 }

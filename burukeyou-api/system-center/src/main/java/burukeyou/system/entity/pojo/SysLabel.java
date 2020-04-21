@@ -12,8 +12,8 @@ public class SysLabel extends BasePojo implements Serializable {
 
 	private String avatar;
 
-	private Long focusCount;
+	private int focusCount;
 
-	private Long articleCount;
+	private int articleCount;
 
 }

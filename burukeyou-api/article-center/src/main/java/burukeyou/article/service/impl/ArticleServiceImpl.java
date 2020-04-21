@@ -1,6 +1,7 @@
 package burukeyou.article.service.impl;
 
 import burukeyou.article.entity.dto.ArticleDto;
+import burukeyou.article.entity.dto.ArticleQueryConditionDto;
 import burukeyou.article.entity.dto.LabelDto;
 import burukeyou.article.entity.enums.StateEnum;
 import burukeyou.article.entity.pojo.AmsArticle;
@@ -96,17 +97,17 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, AmsArticle> i
     }
 
     @Override
-    public Page<AmsArticle> getListByUserId(String userId,long currentPage,long size) {
+    public Page<AmsArticle> getListByUserId(ArticleQueryConditionDto conditionDto) {
         //      不返回总记录数 设置false
-        Page<AmsArticle> page = new Page<>(currentPage,size);
+        Page<AmsArticle> page = new Page<>(conditionDto.getPage(),conditionDto.getSize());
 
         Page<AmsArticle> amsArticlePage;
-        if (!userId.equals(AuthUtils.ID())){
-          amsArticlePage = this.page(page, new QueryWrapper<AmsArticle>().eq("user_id", userId)
+        if (!conditionDto.getUserId().equals(AuthUtils.ID())){
+          amsArticlePage = this.page(page, new QueryWrapper<AmsArticle>().eq("user_id", conditionDto.getUserId())
                     .eq("ispublic", true).eq("state", StateEnum.PASS.STATE()));
 
         }else {
-            amsArticlePage = this.page(page, new QueryWrapper<AmsArticle>().eq("user_id",userId)
+            amsArticlePage = this.page(page, new QueryWrapper<AmsArticle>().eq("user_id",conditionDto.getUserId())
                     .and(e->e.eq("state", StateEnum.PASS.STATE()).or().eq("state",StateEnum.NOTPASS.STATE())));
         }
 

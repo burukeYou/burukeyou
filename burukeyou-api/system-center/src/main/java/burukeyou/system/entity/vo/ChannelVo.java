@@ -8,6 +8,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Data
@@ -18,15 +19,17 @@ public class ChannelVo implements BaseOutputConverter<ChannelVo, SysChannel> {
 
     private String id;
 
+    private String name;
+
     private String createdBy;
 
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm",timezone = "GMT+8")
-    private Date createdTime;
+    private LocalDateTime createdTime;
 
     private String updatedBy;
 
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm",timezone = "GMT+8")
-    private Date updatedTime;
+    private LocalDateTime updatedTime;
 
     private Integer visitsCount;
 }

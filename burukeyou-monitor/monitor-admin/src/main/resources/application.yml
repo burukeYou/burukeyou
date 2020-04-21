@@ -15,7 +15,7 @@ spring:
 
 
 server:
-  port: 9065
+  port: 8095
 
 # admin
 management:

@@ -108,8 +108,6 @@ public class UmsAdminController {
     @ApiOperation("新增或者修改后台用户信息")
     @ApiImplicitParam(name = "userDto", value = "用户信息", required = true, dataType = "UserDto")
     public ResultVo addOrUpdate(@RequestBody UmsAdminDto umsAdminDto){
-
-        // todo 上传文件
         MultipartFile avatarFile = umsAdminDto.getAvatarFile();
         if (avatarFile != null){
             String data = fileServiceRPC.uploadOne(avatarFile).getData();

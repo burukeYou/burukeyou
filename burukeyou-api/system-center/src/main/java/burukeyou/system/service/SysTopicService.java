@@ -1,9 +1,11 @@
 package burukeyou.system.service;
 
+import burukeyou.system.entity.dto.QueryTopicConditionDto;
 import burukeyou.system.entity.pojo.SysTopic;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.baomidou.mybatisplus.extension.service.IService;
 
-public interface SysTopicService {
+public interface SysTopicService extends IService<SysTopic> {
     /**
      *  发布话题
      * @param converTo
@@ -18,5 +20,5 @@ public interface SysTopicService {
      */
     boolean deleteTopic(String id);
 
-    Page<SysTopic> getTopicPage(String name, int page, int size);
+    Page<SysTopic> getTopicPage(QueryTopicConditionDto conditionDto);
 }

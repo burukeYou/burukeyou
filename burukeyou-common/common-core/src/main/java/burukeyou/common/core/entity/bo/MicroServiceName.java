@@ -7,4 +7,8 @@ package burukeyou.common.core.entity.bo;
 public class MicroServiceName {
 
     public final static String FILE_SERVER = "file-center-server";
+
+    public final static String FOCUS_SERVER = "focus-center-server";
+
+    public final static String USER_SERVER = "user-server";
 }

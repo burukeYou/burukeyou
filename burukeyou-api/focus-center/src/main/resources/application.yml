@@ -22,8 +22,12 @@ spring:
         enabled: true
 
 
+feign:
+  hystrix:
+    enabled=true:  # 启动hystrix熔断机制
+
 server:
-  port: 9060
+  port: 9055
 
 # =======================================Custom=========================================================
 custom:

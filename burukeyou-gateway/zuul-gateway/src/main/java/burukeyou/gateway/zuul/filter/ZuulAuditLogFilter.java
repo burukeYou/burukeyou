@@ -1,5 +1,6 @@
 package burukeyou.gateway.zuul.filter;
 
+import burukeyou.auth.authClient.util.AuthUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.filter.OncePerRequestFilter;
@@ -16,8 +17,7 @@ import java.io.IOException;
 public class ZuulAuditLogFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
-        // 获得当前用户名
-        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        // 获得当前用户名 anonymousUser
         String username = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
         if ("anonymousUser".equals(username)){

@@ -11,5 +11,39 @@
 
     <artifactId>video-center</artifactId>
 
-
+    <dependencies>
+            <!--mysql-->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+            </dependency>
+            <!--burukeyou-common-->
+            <dependency>
+                <groupId>com.burukeyou</groupId>
+                <artifactId>common-core</artifactId>
+                <version>1.0-SNAPSHOT</version>
+                <scope>compile</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.burukeyou</groupId>
+                <artifactId>common-dao</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
+            <!--服务注册与服务发现，配置中心-->
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+            </dependency>
+            <!-- auth client -->
+            <dependency>
+                <groupId>com.burukeyou</groupId>
+                <artifactId>auth-client</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
+            <!-- 服务调用： 基于Ribbon和Hystrix的声明式服务调用 -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-openfeign</artifactId>
+            </dependency>
+    </dependencies>
 </project>

@@ -21,7 +21,7 @@ public class SysChannelServiceImpl extends ServiceImpl<SysChannelMapper, SysChan
 
     @Override
     public Page<ChannelVo> getChannelPage(String name, int page, int size) {
-        Page<SysChannel> pg = new Page<>(page,size);
+        Page<ChannelVo> pg = new Page<>(page,size);
         return baseMapper.getPageByConfition(pg,name);
     }
 }

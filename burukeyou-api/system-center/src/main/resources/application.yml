@@ -22,11 +22,32 @@ spring:
         enabled: true
 
 server:
-  port: 9030
+  port: 9075
+
+ribbon:
+  ReadTimeout: 120000  # 单位毫秒数
+  SocketTimeout: 120000
+
+
+feign:
+  hystrix:
+    enabled=true:  # 启动hystrix熔断机制
+
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          strategy: SEMAPHORE  #加上这个就可以获取到HttpServletRequest
+          thread:
+            timeoutInMilliseconds: 10000
 
 # =======================================Mybatis-plus=======================================================
 mybatis-plus:
   mapper-locations: classpath:/mybatis/mapper/*.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl    #打印sql语句
 
 
 # =======================================Custom=========================================================
@@ -39,7 +60,7 @@ custom:
       signing-key: 909090
 
   swagger2:
-    basePackage: burukeyou.article.controller
+    basePackage: burukeyou.system.controller
 
 
 

@@ -22,6 +22,17 @@ public class TokenInfo {
 
     private String scope;
 
+    //
+    private String blog_address;
+
+    private String nickname;
+
+    private String description;
+
+    private String id;
+
+    private String avatar;
+
 
     //
     private LocalDateTime expireTime;

@@ -10,7 +10,6 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 
 @SpringBootApplication
 @EnableDiscoveryClient
-//@ComponentScan({"burukeyou.auth.authClient","burukeyou.user","burukeyou.common.core.aspect"})
 @EnableAuthClient
 @EnableCustomValidation
 @EnableGlobalMethodSecurity(prePostEnabled = true)

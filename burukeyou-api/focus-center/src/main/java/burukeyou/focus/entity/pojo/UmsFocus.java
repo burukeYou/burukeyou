@@ -3,9 +3,7 @@ package burukeyou.focus.entity.pojo;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import lombok.Builder;
-import lombok.Data;
-import lombok.ToString;
+import lombok.*;
 
 import java.io.Serializable;
 
@@ -13,6 +11,8 @@ import java.io.Serializable;
 @Builder
 @ToString
 @TableName("ums_focus")
+@AllArgsConstructor
+@NoArgsConstructor
 public class UmsFocus implements Serializable {
 
 	@TableId(type = IdType.ASSIGN_ID)

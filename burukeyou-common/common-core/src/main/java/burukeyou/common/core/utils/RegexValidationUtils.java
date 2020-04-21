@@ -15,7 +15,7 @@ public class RegexValidationUtils {
     private final static String idCardRegex = "(^\\\\d{18}$)|(^\\\\d{15}$)";
 
     // username
-    private final static String usernameRegex = "[a-zA-Z]";
+    private final static String usernameRegex = "[a-zA-Z]*";
 
 
     private RegexValidationUtils(){};
