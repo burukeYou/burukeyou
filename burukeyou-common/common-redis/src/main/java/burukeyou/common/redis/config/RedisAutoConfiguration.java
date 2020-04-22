@@ -33,9 +33,9 @@ public class RedisAutoConfiguration {
      *      修改IOC内对象RedisTemplate的默认序列化器（改为json）
      */
     @Bean("redisTemplate")
-    public RedisTemplate<Object, Object> redisTemplate(RedisConnectionFactory factory){
+    public RedisTemplate<String, ?> redisTemplate(RedisConnectionFactory factory){
 
-        RedisTemplate<Object, Object> template = new RedisTemplate<>();
+        RedisTemplate<String, ?> template = new RedisTemplate<>();
         template.setConnectionFactory(factory);
         template.setKeySerializer(new StringRedisSerializer());
         //template.setDefaultSerializer(new Jackson2JsonRedisSerializer<Employee>(Employee.class));
@@ -86,12 +86,12 @@ public class RedisAutoConfiguration {
     }
 
 
-    @Bean
-    @ConditionalOnMissingBean
-    StringRedisTemplate stringRedisTemplate(RedisConnectionFactory factory){
-        StringRedisTemplate template = new StringRedisTemplate();
-        template.setConnectionFactory(factory);
-        return template;
-    }
+//    @Bean
+//    @ConditionalOnMissingBean
+//    StringRedisTemplate stringRedisTemplate(RedisConnectionFactory factory){
+//        StringRedisTemplate template = new StringRedisTemplate();
+//        template.setConnectionFactory(factory);
+//        return template;
+//    }
 
 }

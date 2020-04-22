@@ -11,7 +11,10 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 
 import java.util.HashMap;
@@ -30,13 +33,13 @@ public class UmsFocusServiceImpl extends ServiceImpl<UmsFocusMapper, UmsFocus> i
 
     // todo 保证一致性
     @Override
-    public boolean focus(String targetId, String targetType) {
+    public boolean focus(String targetType,String targetId) {
         redisFocusService.focus(AuthUtils.ID(),targetId,targetType);
         return true;
     }
 
     @Override
-    public boolean cancelFocus(String targetId,String targetType) {
+    public boolean cancelFocus(String targetType,String targetId) {
         redisFocusService.cancelFocus(AuthUtils.ID(),targetId,targetType);
         return true;
     }
@@ -69,13 +72,12 @@ public class UmsFocusServiceImpl extends ServiceImpl<UmsFocusMapper, UmsFocus> i
 
 
     // [秒] [分] [小时] [日] [月] [周] [年]
-   /* @Scheduled(cron = "30 * * * * ?" )
+    @Scheduled(cron = "30 * * * * ?" )
     @Transactional(propagation = Propagation.REQUIRED,rollbackFor = Exception.class)
     public void synFocusDataToDB(){
-        log.info("执行关注数据同步");
         redisFocusService.focusStatusDataSyncToDB();
         redisFocusService.focusCountDataSyncToDB();
-    }*/
+    }
 
 
 }

@@ -91,13 +91,19 @@ public class LabelController {
 
         if (StringUtils.isNotBlank(AuthUtils.ID())){
             ResultVo<Map<String, Boolean>> labelMap = focusServiceRPC.judgeIsFollwerList(FocusTargetEnums.LABEL.VALUE(), targetIdList);
-            voList.forEach(e->e.setFollow(labelMap.getData().get(e.getId())));
+            if (labelMap != null)
+                voList.forEach(e->e.setFollow(labelMap.getData().get(e.getId())));
         }
 
         Page<SysLabelVo> voPage = new Page<>(sysLabelPage.getCurrent(), sysLabelPage.getSize(), sysLabelPage.getTotal());
         voPage.setRecords(voList);
 
         return ResultVo.success(voPage);
+    }
+
+    @PutMapping("/{id}")
+    public ResultVo updateFoucusCount(@PathVariable("id")String id,@RequestParam("count") int count){
+        return ResultVo.success(sysLabelService.updateFoucusCount(id,count));
     }
 
 

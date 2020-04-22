@@ -17,7 +17,7 @@ server:
 
 feign:
   hystrix:
-    enabled=true:  # 启动hystrix熔断机制
+    enabled: true  # 启动hystrix熔断机制
 
 mybatis-plus:
   mapper-locations: classpath:/mybatis/mapper/*.xml

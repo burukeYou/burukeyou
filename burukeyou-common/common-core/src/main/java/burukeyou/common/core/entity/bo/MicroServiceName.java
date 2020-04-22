@@ -11,4 +11,9 @@ public class MicroServiceName {
     public final static String FOCUS_SERVER = "focus-center-server";
 
     public final static String USER_SERVER = "user-server";
+
+    public final static String ARTICLE_SERVER = "article-center-server";
+
+    public final static String SYSTEM_SERVER = "system-center-server";
+
 }

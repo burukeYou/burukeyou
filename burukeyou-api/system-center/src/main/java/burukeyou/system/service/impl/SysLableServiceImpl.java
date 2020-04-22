@@ -10,6 +10,7 @@ import burukeyou.system.mapper.SysLabelMapper;
 import burukeyou.system.rpc.FocusServiceRPC;
 import burukeyou.system.service.SysLabelService;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.metadata.OrderItem;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -40,7 +41,7 @@ public class SysLableServiceImpl extends ServiceImpl<SysLabelMapper, SysLabel> i
         Page<SysLabel> of = new Page<>();
         if (FocusStatusEnum.ALL.VALUE().equals(conditionDto.getFocusStatus()) || StringUtils.isBlank(conditionDto.getFocusStatus())){
             if (StringUtils.isNotBlank(conditionDto.getOrderField())){
-                of.addOrder("Asc".equals(conditionDto.getOrder()) ?OrderItem.asc(conditionDto.getOrderField()):OrderItem.desc(conditionDto.getOrderField()));
+                of.addOrder("Asc".equals(conditionDto.getOrder()) ? OrderItem.asc(conditionDto.getOrderField()):OrderItem.desc(conditionDto.getOrderField()));
             }
             of.setCurrent(conditionDto.getPage());
             of.setSize(conditionDto.getSize());
@@ -48,7 +49,7 @@ public class SysLableServiceImpl extends ServiceImpl<SysLabelMapper, SysLabel> i
         }
         else if (StringUtils.isNotBlank(AuthUtils.ID())){
             ResultVo<Page<String>> res = focusServiceRPC.getUserFocusTargetPage(AuthUtils.ID(), FocusTargetEnums.LABEL.VALUE(), conditionDto.getPage(), conditionDto.getSize());
-            if (res.getData() != null){
+            if (res!= null && res.getData() != null){
                 Page<String> data = res.getData();
                 if (!CollectionUtils.isEmpty(data.getRecords()))
                     of.setRecords(this.listByIds(data.getRecords()));
@@ -68,6 +69,11 @@ public class SysLableServiceImpl extends ServiceImpl<SysLabelMapper, SysLabel> i
             sysLabel.setArticleCount(0);
         }
         return super.saveOrUpdate(sysLabel);
+    }
+
+    @Override
+    public int updateFoucusCount(String id, int count) {
+        return baseMapper.updateFoucusCount(id,count);
     }
 
 

@@ -5,9 +5,9 @@ import burukeyou.focus.service.UmsFocusService;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.constraints.NotBlank;
 import java.util.List;
 import java.util.Map;
 
@@ -24,13 +24,13 @@ public class FocusController {
 
     @PostMapping
     @ApiOperation(value = "关注")
-    public ResultVo postFocus(@RequestParam("targetId") String targetId,@RequestParam("targetType") String targetType){
-        return ResultVo.compute(focusService.focus(targetId,targetType));
+    public ResultVo postFocus(@NotBlank String targetId,@NotBlank String targetType){
+        return ResultVo.compute(focusService.focus(targetType,targetId));
     }
 
     @DeleteMapping("/{type}/{id}")
     @ApiOperation("取消关注")
-    public ResultVo cancelFocus(@PathVariable("type") String type,@PathVariable String id){
+    public ResultVo cancelFocus(@PathVariable("type") String type,@PathVariable("id") String id){
         return ResultVo.compute(focusService.cancelFocus(type,id));
     }
 

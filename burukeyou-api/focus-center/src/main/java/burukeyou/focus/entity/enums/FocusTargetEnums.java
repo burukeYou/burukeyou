@@ -6,13 +6,7 @@ public enum  FocusTargetEnums {
 
     TOPIC("TOPIC"),
 
-    LABEL("LABEL"),
-
-    ARTICLE("ARTICLE"),
-
-    BOILING("BOILING"),
-
-    VIDEO("VIDEO");
+    LABEL("LABEL");
 
     private String type;
 

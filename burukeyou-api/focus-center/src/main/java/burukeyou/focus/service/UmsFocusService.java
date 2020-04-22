@@ -16,14 +16,14 @@ public interface UmsFocusService extends IService<UmsFocus> {
      * @param targetType
      * @return
      */
-    boolean focus(String targetId, String targetType);
+    boolean focus(String targetType, String targetId);
 
     /**
      *      取消关注
      * @param targetId
      * @return
      */
-    boolean cancelFocus(String targetId,String targetType);
+    boolean cancelFocus(String targetType,String targetId);
 
     /**
      *   批量判断是否关注

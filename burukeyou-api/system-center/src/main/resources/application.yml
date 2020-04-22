@@ -24,6 +24,7 @@ spring:
 server:
   port: 9075
 
+## =====================================Cloud=====================================================
 ribbon:
   ReadTimeout: 120000  # 单位毫秒数
   SocketTimeout: 120000
@@ -31,7 +32,7 @@ ribbon:
 
 feign:
   hystrix:
-    enabled=true:  # 启动hystrix熔断机制
+    enabled: true   # 启动hystrix熔断机制
 
 
 hystrix:
@@ -39,7 +40,7 @@ hystrix:
     default:
       execution:
         isolation:
-          strategy: SEMAPHORE  #加上这个就可以获取到HttpServletRequest
+          strategy: SEMAPHORE  #才能获取到HttpServletRequest
           thread:
             timeoutInMilliseconds: 10000
 

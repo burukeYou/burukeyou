@@ -6,9 +6,13 @@ import burukeyou.focus.entity.dto.LikeCount;
 import burukeyou.focus.entity.enums.FocusStatusEnum;
 import burukeyou.focus.entity.enums.FocusTargetEnums;
 import burukeyou.focus.entity.pojo.UmsFocus;
+import burukeyou.focus.rpc.SystemServerRPC;
 import burukeyou.focus.service.RedisFocusService;
 import burukeyou.focus.service.UmsFocusService;
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.Cursor;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ScanOptions;
@@ -27,16 +31,15 @@ import java.util.Map;
 @Service
 public class RedisFocusServiceImpl implements RedisFocusService {
 
-    private final RedisTemplate<String,String> redisTemplate;
+    @Autowired
+    private  RedisTemplate<String,Object> redisTemplate;
 
-    private final UmsFocusService umsFocusService;
+    @Autowired
+    private  UmsFocusService umsFocusService;
 
-    public RedisFocusServiceImpl(RedisTemplate<String, String> redisTemplate, UmsFocusService umsFocusService) {
-        this.redisTemplate = redisTemplate;
-        this.umsFocusService = umsFocusService;
-    }
+    @Autowired
+    private SystemServerRPC systemServerRPC;
 
-    // todo 保证原子性
     @Override
     public void focus(String userId,String targetId,String targetType){
         String focusStatusKey = FocusConstant.buildFocusStatusKey(AuthUtils.ID(), targetId, targetType);
@@ -66,12 +69,11 @@ public class RedisFocusServiceImpl implements RedisFocusService {
             String[] keys = key.split("::");
 
             Boolean value = (Boolean)current.getValue();
-            if (value && keys.length == 3){
-                umsFocusList.add(UmsFocus.builder().userId(keys[0]).targetId(keys[1]).targetType(keys[3]).build());
+            if (keys.length == 3){
+                umsFocusList.add(UmsFocus.builder().userId(keys[0]).targetId(keys[1]).targetType(keys[2]).focus(value).build());
+                // delete cache
+                redisTemplate.opsForHash().delete(FocusConstant.FOCUS_STATUS_KEY,key);
             }
-
-            // delete cache
-            redisTemplate.opsForHash().delete(FocusConstant.FOCUS_STATUS_KEY,key);
         }
 
 
@@ -89,10 +91,9 @@ public class RedisFocusServiceImpl implements RedisFocusService {
 
             if (keys.length > 0) {
                 likeCountsList.add(LikeCount.builder().targetId(keys[0]).targetType(keys[1]).count((Integer) current.getValue()).build());
+                // delete cache
+                redisTemplate.opsForHash().delete(FocusConstant.FOCUS_COUNT_KEY,key);
             }
-
-            // delete cache
-            redisTemplate.opsForHash().delete(FocusConstant.FOCUS_COUNT_KEY,key);
         }
         return likeCountsList;
     }
@@ -101,21 +102,18 @@ public class RedisFocusServiceImpl implements RedisFocusService {
     @Override
     public void focusStatusDataSyncToDB(){
         for (UmsFocus focus :getAllFocusData()) {
-            String targetType = focus.getTargetType();
-            // 下发消息
-            if (FocusTargetEnums.ARTICLE.VALUE().equals(targetType)){
-                // 判断是否关注过
-
-
-
-            }else if (FocusTargetEnums.BOILING.VALUE().equals(targetType)){
-
-            }else if (FocusTargetEnums.VIDEO.VALUE().equals(targetType)){
-
+            System.out.println("同步关注数据(关注/取消关注):"+focus);
+            LambdaQueryWrapper<UmsFocus> wrapper = new QueryWrapper<UmsFocus>().lambda().eq(UmsFocus::getUserId, focus.getUserId())
+                    .eq(UmsFocus::getTargetType, focus.getTargetType()).eq(UmsFocus::getTargetId, focus.getTargetId());
+            if (focus.isFocus()){
+                // 添加/更新关注
+               if (umsFocusService.count(wrapper) <= 0){
+                   umsFocusService.save(focus);
+               }
+            }else {
+                // 删除关注记录
+                umsFocusService.remove(wrapper);
             }
-
-            // 入库
-            log.info(focus.toString());
         }
     }
 
@@ -123,14 +121,14 @@ public class RedisFocusServiceImpl implements RedisFocusService {
     public void focusCountDataSyncToDB() {
         for (LikeCount likeCount : getAllFoucusCountData()) {
             String targetType = likeCount.getTargetType();
-            if (FocusTargetEnums.ARTICLE.VALUE().equals(targetType)){
-
-
-
-            }else if (FocusTargetEnums.BOILING.VALUE().equals(targetType)){
-
-            }else if (FocusTargetEnums.VIDEO.VALUE().equals(targetType)){
-
+            System.out.println("同步数量:"+likeCount);
+            if (FocusTargetEnums.TOPIC.VALUE().equals(targetType)){
+                    // 话题关注数减少
+            }else if (FocusTargetEnums.LABEL.VALUE().equals(targetType)){
+                    // 标签关注数减少
+                    systemServerRPC.updateFoucusCount(likeCount.getTargetId(),likeCount.getCount());
+            }else if (FocusTargetEnums.USER.VALUE().equals(targetType)){
+                    // 用户粉丝减少
             }
         }
     }

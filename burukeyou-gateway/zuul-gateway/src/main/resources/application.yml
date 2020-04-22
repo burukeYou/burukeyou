@@ -45,6 +45,8 @@ zuul:
       url: system-center-server
     article:
       url: article-center-server
+    focus:
+      url: focus-center-server
 
   #  默认敏感请求头比如Authorthtion是不会下发的，这里设置为空，就是所有请求头都向下转发
   sensitive-headers:
