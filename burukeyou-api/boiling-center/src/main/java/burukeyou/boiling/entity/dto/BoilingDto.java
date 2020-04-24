@@ -27,11 +27,11 @@ public class BoilingDto implements BaseInputConverter<AmsBoiling> {
 
     @ApiModelProperty(value = "沸点是否公开")
     @NotNull(message = "请设置是否公开")
-    private Integer ispublic;
+    private boolean ispublic;
 
     @ApiModelProperty(value = "沸点携带的文件")
     @Max(value = 9,message = "携带文件个数不能超过9个")
-    private List<MultipartFile> imgfiles;
+    private List<String> imgfiles;
 
 
 }

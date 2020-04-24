@@ -51,6 +51,7 @@ custom:
       ignore-urls:
         - /user/login
         - /article/**
+        - /**
       resource-id: ${spring.application.name}
       signing-key: 909090
 

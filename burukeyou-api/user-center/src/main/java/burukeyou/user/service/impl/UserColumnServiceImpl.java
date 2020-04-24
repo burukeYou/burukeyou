@@ -6,6 +6,7 @@ import burukeyou.user.entity.pojo.UmsColumn;
 import burukeyou.user.mapper.UmsColumnMapper;
 import burukeyou.user.service.UserColumnService;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
@@ -34,9 +35,6 @@ public class UserColumnServiceImpl extends ServiceImpl<UmsColumnMapper, UmsColum
             umsColumn.setState(StateEnum.PendingReview.getState());
             umsColumn.setUserId(AuthUtils.ID());
         }
-
-
-
         return this.saveOrUpdate(umsColumn);
     }
 
@@ -46,14 +44,14 @@ public class UserColumnServiceImpl extends ServiceImpl<UmsColumnMapper, UmsColum
         if (!IsEntityOwner(id))
             return false;
 
-        // todo rabbit异步化执行，把属于该专栏的文章的专类类型置为null
+        // todo rabbit异步化执行，把属于该专栏的文章的专类类型置为默认专栏
         return this.deleteById(id);
     }
 
     @Override
     public UmsColumn getById(String id) {
         return  (!IsEntityOwner(id)) ? this.getOne(new QueryWrapper<UmsColumn>().eq("id",id).eq("ispublic",true))
-                :this.getById(id);
+                :super.getById(id);
     }
 
     @Override
@@ -61,6 +59,16 @@ public class UserColumnServiceImpl extends ServiceImpl<UmsColumnMapper, UmsColum
         return (userId == null || !userId.equals(AuthUtils.ID()))?
                 this.list(new QueryWrapper<UmsColumn>().eq("user_id", userId).eq("ispublic", true))
                 : this.list(new QueryWrapper<UmsColumn>().eq("user_id", userId));
+    }
+
+    @Override
+    public Page<UmsColumn> getPageByUserId(String userId, int page, int size) {
+        Page<UmsColumn> of = new Page<>(page, size);
+        Page<UmsColumn> umsColumnPage = (userId == null || !userId.equals(AuthUtils.ID())) ?
+                this.page(of, new QueryWrapper<UmsColumn>().eq("user_id", userId).eq("ispublic", true))
+                : this.page(of, new QueryWrapper<UmsColumn>().eq("user_id", userId));
+
+        return umsColumnPage;
     }
 
     private boolean IsEntityOwner(String entityId){

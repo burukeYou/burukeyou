@@ -24,11 +24,11 @@ public class UmsColumn extends BasePojo implements Serializable {
 
 	private String username;
 
-	private Integer article_count;
+	private int count;
 
-	private Boolean ispublic; // false - 0 , true - 1
+	private boolean ispublic; // false - 0 , true - 1
 
-	private Boolean istop;
+	private boolean istop;
 
-	private Integer state;
+	private int state;
 }

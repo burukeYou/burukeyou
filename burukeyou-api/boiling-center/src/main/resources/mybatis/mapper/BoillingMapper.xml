@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="burukeyou.boiling.mapper.BoillingMapper" >
+    <select id="getPageCondition" resultType="burukeyou.boiling.entity.pojo.AmsBoiling" parameterType="burukeyou.boiling.entity.dto.QueryConditionDto">
+        select  *
+        from ams_boiling bo
+        <where>
+            <if test="dto.topicId != null and dto.topicId != ''">
+                and  bo.topic_id = #{dto.topicId}
+            </if>
+            <choose>
+                <when test="dto.userId != null and dto.userId != '' and dto.userId == dto.loginUserId">
+                    and  bo.user_id = #{dto.userId}
+                </when>
+                <otherwise>
+                    <if test="dto.userId != null and dto.userId != ''">
+                        and  bo.user_id = #{dto.userId} and bo.ispublic = 1
+                    </if>
+                </otherwise>
+            </choose>
+        </where>
+
+    </select>
+</mapper>

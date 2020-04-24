@@ -1,6 +1,7 @@
 package burukeyou.focus.service.impl;
 
 import burukeyou.auth.authClient.util.AuthUtils;
+import burukeyou.focus.entity.enums.FocusTargetEnums;
 import burukeyou.focus.entity.pojo.UmsFocus;
 import burukeyou.focus.mapper.UmsFocusMapper;
 import burukeyou.focus.service.RedisFocusService;
@@ -15,6 +16,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.CollectionUtils;
 
 
 import java.util.HashMap;
@@ -34,6 +36,9 @@ public class UmsFocusServiceImpl extends ServiceImpl<UmsFocusMapper, UmsFocus> i
     // todo 保证一致性
     @Override
     public boolean focus(String targetType,String targetId) {
+        if (FocusTargetEnums.USER.equals(targetType) && targetId.equals(AuthUtils.ID()))
+            return false;
+
         redisFocusService.focus(AuthUtils.ID(),targetId,targetType);
         return true;
     }
@@ -46,6 +51,9 @@ public class UmsFocusServiceImpl extends ServiceImpl<UmsFocusMapper, UmsFocus> i
 
     @Override
     public Map<String, Boolean> judgeIsFollwerList(String targetType, List<String> targetidList) {
+        if (CollectionUtils.isEmpty(targetidList))
+            return null;
+
         Map<String, Boolean> result = new HashMap<>();
         targetidList.forEach(e -> {
             int count = super.count(new QueryWrapper<UmsFocus>().lambda()

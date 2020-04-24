@@ -25,6 +25,38 @@ spring:
 server:
   port: 9040
 
+
+# ======================================= Spring cloud =======================================================
+feign:
+  hystrix:
+    enabled: true
+
+
+ribbon:
+  ReadTimeout: 120000  # 单位毫秒数
+  SocketTimeout: 120000
+
+
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          strategy: SEMAPHORE  #才能获取到HttpServletRequest
+          thread:
+            timeoutInMilliseconds: 10000
+
+
+
+# =======================================Mybatis-plus=======================================================
+mybatis-plus:
+  mapper-locations: classpath:/mybatis/mapper/*.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl    #打印sql语句
+
+
+
 # =======================================Custom=========================================================
 custom:
   ouath2:
@@ -36,8 +68,6 @@ custom:
 
   swagger2:
     basePackage: burukeyou.boiling.controller
-
-
 
 
 

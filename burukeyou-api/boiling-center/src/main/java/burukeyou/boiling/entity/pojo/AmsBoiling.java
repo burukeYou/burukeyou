@@ -1,12 +1,21 @@
 package burukeyou.boiling.entity.pojo;
 
-import burukeyou.common.dao.pojo.BasePojo;
+import com.baomidou.mybatisplus.annotation.*;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import java.io.Serializable;
+import java.util.Date;
 
 @Data
-public class AmsBoiling extends BasePojo implements Serializable {
+@TableName("ams_boiling")
+@AllArgsConstructor
+@NoArgsConstructor
+public class AmsBoiling  {
+
+	@TableId(type = IdType.ASSIGN_ID)
+	private String id;
 
 	private String content;
 
@@ -33,4 +42,8 @@ public class AmsBoiling extends BasePojo implements Serializable {
 	private Boolean ispublic;
 
 	private String url;
+
+	@TableField(fill = FieldFill.INSERT)
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm",timezone = "GMT+8")
+	private Date createdTime;
 }

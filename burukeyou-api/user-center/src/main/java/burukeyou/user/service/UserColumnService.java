@@ -1,6 +1,7 @@
 package burukeyou.user.service;
 
 import burukeyou.user.entity.pojo.UmsColumn;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 
 import java.util.List;
 
@@ -34,4 +35,6 @@ public interface UserColumnService {
      * @return
      */
     List<UmsColumn> getListByUserId(String userId);
+
+    Page<UmsColumn> getPageByUserId(String userIdd, int page, int size);
 }

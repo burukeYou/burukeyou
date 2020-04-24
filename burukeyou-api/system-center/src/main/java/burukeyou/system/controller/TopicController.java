@@ -5,6 +5,7 @@ import burukeyou.common.core.entity.annotation.EnableParamValid;
 import burukeyou.common.core.entity.vo.ResultVo;
 import burukeyou.system.entity.dto.QueryTopicConditionDto;
 import burukeyou.system.entity.dto.TopicDto;
+import burukeyou.system.entity.enums.FocusTargetEnums;
 import burukeyou.system.entity.pojo.SysTopic;
 import burukeyou.system.entity.vo.TopicVo;
 import burukeyou.system.rpc.FileServiceRPC;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -77,8 +79,10 @@ public class TopicController {
         }).collect(Collectors.toList());
 
         if (StringUtils.isNotBlank(AuthUtils.ID())){
-            ResultVo<Map<String, Boolean>> topicMap = focusServiceRPC.judgeIsFollwerList("TOPIC", targetIdList);
-            voList.forEach(e -> e.setFollow(topicMap.getData().get(e)));
+            ResultVo<Map<String, Boolean>> topicMap = focusServiceRPC.judgeIsFollwerList(FocusTargetEnums.TOPIC.VALUE(), targetIdList);
+
+            if (topicMap != null)
+                voList.forEach(e -> e.setFollow(topicMap.getData().get(e.getId())));
         }
 
         Page<TopicVo> result = new Page<>(topicPage.getCurrent(), topicPage.getSize(), topicPage.getTotal());
@@ -86,5 +90,16 @@ public class TopicController {
         return ResultVo.success(result);
     }
 
+
+    @GetMapping("{id}")
+    public ResultVo<TopicVo> getById(@PathVariable("id") String id){
+        TopicVo topicVo = new TopicVo().convertFrom(sysTopicService.getById(id));
+        if (StringUtils.isNotBlank(AuthUtils.ID())){
+            ResultVo<Map<String, Boolean>> map = focusServiceRPC.judgeIsFollwerList(FocusTargetEnums.TOPIC.VALUE(), Arrays.asList(topicVo.getId()));
+            if (map != null && map.getData() != null)
+            topicVo.setFollow(map.getData().get(topicVo.getId()));
+        }
+        return ResultVo.success(topicVo);
+    }
 
 }

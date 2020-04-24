@@ -19,6 +19,7 @@ public interface FocusServiceRPC {
     @GetMapping("/focus/{targetType}")
     ResultVo<Map<String,Boolean>> judgeIsFollwerList(@PathVariable("targetType") String targetType, @RequestParam("targetidList") List<String> targetidList);
 
+    //获取用户userId在targetType下关注的所有targetId
     @GetMapping(value = "/focus/{userId}/{targetType}/page")
     ResultVo<Page<String>> getUserFocusTargetPage(@PathVariable("userId") String userId,
                                                   @PathVariable("targetType") String targetType,

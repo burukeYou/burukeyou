@@ -42,7 +42,7 @@ public class FocusController {
     }
 
     @GetMapping(value = "/{userId}/{targetType}/page")
-    @ApiOperation("获取用户在targetType下关注的所有target")
+    @ApiOperation("获取用户在targetType下关注的所有targetId")
     public ResultVo<Page<String>> getUserFocusTargetPage(@PathVariable("userId") String userId,
                                                          @PathVariable("targetType") String targetType,
                                                          @RequestParam("page") int page,@RequestParam("size")  int size){

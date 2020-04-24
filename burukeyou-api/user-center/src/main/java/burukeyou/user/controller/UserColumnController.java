@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
+import javax.xml.transform.Result;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -43,7 +44,7 @@ import java.util.stream.Collectors;
 
 @Api("用户个人专栏")
 @RestController
-@RequestMapping("/user/column")
+@RequestMapping("/column")
 public class UserColumnController {
 
     private final UserColumnService userColumnService;
@@ -62,46 +63,27 @@ public class UserColumnController {
 
     @DeleteMapping("/{id}")
     //@PreAuthorize("principal.username.equals(#username)") 直接设计成删除当前用户的，因为这种接口只能自己调用
-    @ApiOperation(value = "根据专栏id删除专栏,用户只能删除属于自己专栏的id")
+    @ApiOperation(value = "根据专栏id删除专栏")
     @ApiImplicitParam(name = "id",value = "专栏id",required = true,dataType = "String")
     public ResultVo delete(@PathVariable("id")  String id){
         return ResultVo.compute(userColumnService.deleteById(id));
     }
 
 
-    @GetMapping("/{type}/{id}")
-    @ApiOperation(value = "根据id查找专栏详情",notes = "如果是查找别人专栏只能是公开的专栏")
-    @ApiImplicitParams({
-            @ApiImplicitParam(name = "type",value = "返回的专栏信息类型(前台，后台)",required = true,dataType = "String"),
-            @ApiImplicitParam(name = "id",value = "专栏id",required = true,dataType = "String")
-    })
-    public ResultVo getOne(@PathVariable(value = "username",required = false) String username,
-                           @PathVariable("type") String type,
-                           @PathVariable("id") String id){
-        if (QueryTypeEnum.FrontDesk.getType().equals(type)) {
-            return ResultVo.success(new UmsColumnVo().convertFrom(userColumnService.getById(id)));
-        }else if (QueryTypeEnum.Admin.getType().equals(type)){
+    @GetMapping("/{id}")
+    @ApiOperation(value = "根据id查找专栏详情")
+    public ResultVo getOne(@PathVariable("id") String id){
             return ResultVo.success(userColumnService.getById(id));
-        }else
-            return ResultVo.success();
     }
 
 
-    @GetMapping("/{type}/list/{userId}")
+    @GetMapping("/page/{userId}")
     @ApiOperation("查找某个用户的所有专栏列表")
     @ApiImplicitParams({
-            @ApiImplicitParam(name = "userId",value = "用户id",required = true,dataType = "String"),
-            @ApiImplicitParam(name = "type",value = "返回的专栏信息类型(前台，后台)",required = true,dataType = "String"),
+            @ApiImplicitParam(name = "userId",value = "用户id",required = true,dataType = "String")
     })
-    public ResultVo getList(@PathVariable(value = "userId") String userId,@PathVariable(value = "type") String type){
-        if (QueryTypeEnum.FrontDesk.getType().equals(type)){
-           return ResultVo.success(userColumnService.getListByUserId(userId).stream()
-                   .map(e -> new UmsColumnVo().convertFrom(e)).collect(Collectors.toList()));
-        }
-        else if (QueryTypeEnum.Admin.getType().equals(type)){
-            return ResultVo.success(userColumnService.getListByUserId(userId));
-        }else
-            return ResultVo.success();
+    public ResultVo getList(@PathVariable(value = "userId") String userId,@RequestParam("page") int page,@RequestParam("size")int size){
+       return ResultVo.success(userColumnService.getPageByUserId(userId,page,size));
     }
 
 

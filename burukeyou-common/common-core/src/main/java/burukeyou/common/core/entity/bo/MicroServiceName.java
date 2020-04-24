@@ -16,4 +16,6 @@ public class MicroServiceName {
 
     public final static String SYSTEM_SERVER = "system-center-server";
 
+    public final static String LIKE_SERVER = "like-center-server";
+
 }
