@@ -16,6 +16,7 @@
         <module name="common-sentinel" />
         <module name="authorization-server" />
         <module name="video-center" />
+        <module name="common-rabbitmq" />
         <module name="monitor-admin" />
         <module name="search-server" />
         <module name="like-center" />
@@ -63,6 +64,7 @@
       <module name="common-core" options="-parameters" />
       <module name="common-dao" options="-parameters" />
       <module name="common-log" options="-parameters" />
+      <module name="common-rabbitmq" options="-parameters" />
       <module name="common-redis" options="-parameters" />
       <module name="common-sentinel" options="-parameters" />
       <module name="common-web" options="-parameters" />

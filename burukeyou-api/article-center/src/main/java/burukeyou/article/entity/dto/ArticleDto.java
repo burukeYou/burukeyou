@@ -30,14 +30,14 @@ public class ArticleDto implements BaseInputConverter<AmsArticle> {
     @ApiModelProperty(value = "文章头像图")
     private String image;
 
-    @ApiModelProperty(value = "收藏夹封面图片文件")
+    @ApiModelProperty(value = "")
     private MultipartFile backgroundFile;
 
     @ApiModelProperty(value = "文章描述")
     private String description;
 
     @ApiModelProperty(value = "文章md5内容")
-    @NotBlank(message = "文章内容不能为空",groups = INSERT.class)
+    @NotBlank(message = "文章内容不能为空")
     private String content;
 
     @ApiModelProperty(value = "文章html内容")
@@ -61,7 +61,7 @@ public class ArticleDto implements BaseInputConverter<AmsArticle> {
 
     @ApiModelProperty(value = "是否公开")
     @NotNull(message = "是否公开不能为空",groups = INSERT.class)
-    private String ispublic;
+    private boolean ispublic;
 
     @ApiModelProperty(value = "文章标签列表")
     private List<LabelDto> labels;

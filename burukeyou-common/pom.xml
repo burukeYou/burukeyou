@@ -18,6 +18,7 @@
         <module>common-log</module>
         <module>common-redis</module>
         <module>common-sentinel</module>
+        <module>common-rabbitmq</module>
     </modules>
 
 

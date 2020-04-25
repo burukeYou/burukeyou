@@ -22,6 +22,7 @@
     <file url="file://$PROJECT_DIR$/burukeyou-common/common-core" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/burukeyou-common/common-dao" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/burukeyou-common/common-log" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/burukeyou-common/common-rabbitmq" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/burukeyou-common/common-redis" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/burukeyou-common/common-sentinel" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/burukeyou-common/common-web" charset="UTF-8" />

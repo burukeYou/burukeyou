@@ -25,7 +25,7 @@ public class LikeServiceImpl extends ServiceImpl<LikeMapper, AmsLike> implements
         parentIdList.forEach(e -> {
             int count = super.count(new QueryWrapper<AmsLike>().lambda()
                     .eq(AmsLike::getParentType, parentType)
-                    .eq(AmsLike::getUserId, AuthUtils.ID()).eq(AmsLike::getParentType, e));
+                    .eq(AmsLike::getUserId, AuthUtils.ID()).eq(AmsLike::getParentId, e));
             result.put(e, count > 0);
         });
         return result;

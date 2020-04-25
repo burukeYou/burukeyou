@@ -3,9 +3,11 @@ package burukeyou.article.controller;
 import burukeyou.article.entity.bo.CountIncrementMsg;
 import burukeyou.article.entity.dto.ArticleDto;
 import burukeyou.article.entity.dto.ArticleQueryConditionDto;
+import burukeyou.article.entity.enums.LikeParentTypeEnums;
 import burukeyou.article.entity.pojo.AmsArticle;
 import burukeyou.article.entity.vo.ArticleListlVo;
 import burukeyou.article.mq.MqSender;
+import burukeyou.article.rpc.LikeServiceRPC;
 import burukeyou.article.service.ArticleService;
 import burukeyou.common.core.entity.annotation.EnableParamValid;
 import burukeyou.common.core.entity.vo.PageResultVo;
@@ -18,19 +20,26 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/article")
 public class ArticleController {
 
-    private final ArticleService articleService;
+    private final ArticleService  articleService;
 
-    @Autowired
-    private MqSender mqSender;
+    private final LikeServiceRPC likeServiceRPC;
 
-    public ArticleController(ArticleService articleService) {
+    private final MqSender mqSender;
+
+    public ArticleController(ArticleService articleService, LikeServiceRPC likeServiceRPC, MqSender mqSender) {
         this.articleService = articleService;
+        this.likeServiceRPC = likeServiceRPC;
+        this.mqSender = mqSender;
     }
 
     @PostMapping
@@ -62,20 +71,26 @@ public class ArticleController {
     }
 
 
-    @GetMapping("/list/{userId}")
-    @ApiOperation(value = "分页根据用户id获取文章列表",notes = "非拥有者只能查找公开的")
-    @ApiImplicitParams({
-            @ApiImplicitParam(name = "userId",value = "用户id",required = true,dataType = "String"),
-            @ApiImplicitParam(name = "page",value = "当前页",required = true,dataType = "long"),
-            @ApiImplicitParam(name = "size",value = "每页显示大小",required = true,dataType = "long"),
-    })
+    @GetMapping("/page")
+    @ApiOperation(value = "分页多条件获取文章列表",notes = "非拥有者只能查找公开的")
     public ResultVo getListByUserId(ArticleQueryConditionDto conditionDto){
+        Page<AmsArticle> page = articleService.getListByUserId(conditionDto);
 
-        Page<AmsArticle> list = articleService.getListByUserId(conditionDto);
+        List<String> targteIds = new ArrayList<>();
+        List<ArticleListlVo> voList = page.getRecords().stream().map(e -> {
+            ArticleListlVo vo = new ArticleListlVo().convertFrom(e);
+            targteIds.add(e.getId());
 
-        PageResultVo<Object> build = PageResultVo.builder().page(list.getCurrent()).totalPage(list.getPages()).count(list.getTotal())
-                .data(list.getRecords().stream().map(e -> new ArticleListlVo().convertFrom(e)).collect(Collectors.toList())).build();
+            return vo;
+        }).collect(Collectors.toList());
 
-        return ResultVo.success(build);
+        ResultVo<Map<String, Boolean>> rv = likeServiceRPC.judgeIsLikeList(LikeParentTypeEnums.ARTICLE.VALUE(), targteIds);
+        if (rv != null && rv.getData() != null) {
+            voList.forEach(e -> e.setThumbup(rv.getData().get(e.getId())));
+        }
+
+        Page<ArticleListlVo> resultPage = new Page<>(page.getCurrent(), page.getSize(), page.getTotal());
+        resultPage.setRecords(voList);
+        return ResultVo.success(resultPage);
     }
 }

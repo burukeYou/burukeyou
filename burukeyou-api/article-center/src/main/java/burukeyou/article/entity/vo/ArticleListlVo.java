@@ -3,17 +3,23 @@ package burukeyou.article.entity.vo;
 import burukeyou.article.entity.pojo.AmsArticle;
 import burukeyou.common.core.entity.dto.BaseOutputConverter;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.Date;
 import java.util.List;
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class ArticleListlVo implements BaseOutputConverter<ArticleListlVo, AmsArticle> {
 
     private String id;
 
     private String title;
+
+    private String image;
 
     private String description;
 
@@ -23,13 +29,16 @@ public class ArticleListlVo implements BaseOutputConverter<ArticleListlVo, AmsAr
 
     private String userAvatar;
 
-    private Long visitsCount;
+    private String channelName;
 
-    private Long thumbupCount;
+    private int visitsCount;
 
-    private Long commentCount;
+    private int thumbupCount;
 
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
+    private int commentCount;
+
+   // @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
     private Date createdTime;
 
+    private boolean thumbup;
 }

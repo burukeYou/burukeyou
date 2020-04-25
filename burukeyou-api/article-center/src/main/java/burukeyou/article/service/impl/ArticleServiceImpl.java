@@ -23,22 +23,24 @@ import java.util.List;
 public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, AmsArticle> implements ArticleService {
 
 
-    // todo 分布式事务一致性
     @Override
     public boolean publishArticle(ArticleDto articleDto) {
-        // todo 异步化调用文件服务上传
-        MultipartFile backgroundFile = articleDto.getBackgroundFile();
+        AmsArticle amsArticle = articleDto.converTo();
 
-        // todo 异步化增加文章和标签的关系
-        List<LabelDto> labels = articleDto.getLabels();
-        if (labels != null && labels.size() > 0){
+        MultipartFile backgroundFile = articleDto.getBackgroundFile();
+        if (backgroundFile != null){
 
         }
 
-        // todo 异步化用户经验值增加
-
+        // todo 异步话增加文章和标签的关系
+        List<LabelDto> labels = articleDto.getLabels();
+        if (labels != null && labels.size() > 0){
+            StringBuilder sb = new StringBuilder();
+            labels.forEach(e -> sb.append(e.getName()).append("$$"));
+            amsArticle.setLabels(sb.toString());
+            // 该标签文章量加一
+        }
         //
-        AmsArticle amsArticle = articleDto.converTo();
         return this.insertOrUpdate(amsArticle);
     }
 
@@ -59,7 +61,7 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, AmsArticle> i
             amsArticle.setUserAvatar(AuthUtils.AVATAR());
             amsArticle.setVisitsCount(0);
             amsArticle.setCommentCount(0);
-            amsArticle.setCommentCount(0);
+            amsArticle.setThumbupCount(0);
             amsArticle.setState(StateEnum.PendingReview.STATE());
         }
 
@@ -81,37 +83,14 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, AmsArticle> i
     @Override
     public ArticleDetailVo getById(String id) {
         ArticleDetailVo oneDetailById = baseMapper.getOneDetailById(id);
-
-        //
-      /*  AmsArticle amsArticle;
-        if (!IsEntityOwner(id)){
-            amsArticle = this.getOne(new QueryWrapper<AmsArticle>().eq("id",id).eq("ispublic",true)
-                                                            .eq("state", StateEnum.PASS));
-        }else {
-            amsArticle = this.getOne(new QueryWrapper<AmsArticle>().eq("id",id).and(e->e.eq("state", StateEnum.PASS)
-                        .or().eq("state",StateEnum.NOTPASS)));
-        }
-*/
-        //
         return oneDetailById ;
     }
 
     @Override
     public Page<AmsArticle> getListByUserId(ArticleQueryConditionDto conditionDto) {
-        //      不返回总记录数 设置false
         Page<AmsArticle> page = new Page<>(conditionDto.getPage(),conditionDto.getSize());
-
-        Page<AmsArticle> amsArticlePage;
-        if (!conditionDto.getUserId().equals(AuthUtils.ID())){
-          amsArticlePage = this.page(page, new QueryWrapper<AmsArticle>().eq("user_id", conditionDto.getUserId())
-                    .eq("ispublic", true).eq("state", StateEnum.PASS.STATE()));
-
-        }else {
-            amsArticlePage = this.page(page, new QueryWrapper<AmsArticle>().eq("user_id",conditionDto.getUserId())
-                    .and(e->e.eq("state", StateEnum.PASS.STATE()).or().eq("state",StateEnum.NOTPASS.STATE())));
-        }
-
-        return amsArticlePage;
+        conditionDto.setLoginUserId(AuthUtils.ID());
+        return baseMapper.getPageCondition(page,conditionDto);
     }
 
     // todo 待重构

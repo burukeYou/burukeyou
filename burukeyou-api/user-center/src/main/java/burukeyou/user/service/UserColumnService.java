@@ -36,5 +36,19 @@ public interface UserColumnService {
      */
     List<UmsColumn> getListByUserId(String userId);
 
+    /**
+     *  分页查找
+     * @param userIdd
+     * @param page
+     * @param size
+     * @return
+     */
     Page<UmsColumn> getPageByUserId(String userIdd, int page, int size);
+
+    /**
+     *      查找所有
+     * @param userId
+     * @return
+     */
+    List<UmsColumn> getAllByUserId(String userId);
 }

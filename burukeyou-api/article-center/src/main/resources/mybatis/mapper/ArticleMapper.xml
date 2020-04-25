@@ -42,5 +42,37 @@
     </resultMap>
 
 
+    <select id="getPageCondition" resultType="burukeyou.article.entity.pojo.AmsArticle" parameterType="burukeyou.article.entity.dto.ArticleQueryConditionDto">
+        select a.*
+        from ams_article a
+        <where>
+            <if test="dto.title != null and dto.title != ''">
+                    a.title = #{dto.title}
+            </if>
+            <if test="dto.state != null and dto.state != ''">
+                a.state = #{dto.state}
+            </if>
+            <if test="dto.channelId != null and dto.channelId != ''">
+                a.channel_id = #{dto.channelId}
+            </if>
+            <if test="dto.columnId != null and dto.columnId != ''">
+                a.column_id = #{dto.columnId}
+            </if>
+            <choose>
+                <when test="dto.userId != null and dto.userId != '' and  dto.userId ==  dto.loginUserId">
+                    a.user_id = #{dto.user_id}
+                </when>
+                <otherwise>
+                     <if test="dto.userId != null and dto.userId != ''">
+                         a.user_id = #{dto.user_id} and a.ispublic = true
+                     </if>
+                </otherwise>
+            </choose>
+        </where>
+
+    </select>
+
+
+
 
 </mapper>

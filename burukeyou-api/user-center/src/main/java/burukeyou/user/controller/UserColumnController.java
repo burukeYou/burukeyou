@@ -82,9 +82,17 @@ public class UserColumnController {
     @ApiImplicitParams({
             @ApiImplicitParam(name = "userId",value = "用户id",required = true,dataType = "String")
     })
-    public ResultVo getList(@PathVariable(value = "userId") String userId,@RequestParam("page") int page,@RequestParam("size")int size){
+    public ResultVo getPage(@PathVariable(value = "userId") String userId,@RequestParam("page") int page,@RequestParam("size")int size){
        return ResultVo.success(userColumnService.getPageByUserId(userId,page,size));
     }
+
+
+    @GetMapping("/all/{userId}")
+    public ResultVo getList(@PathVariable(value = "userId") String userId){
+        return ResultVo.success(userColumnService.getAllByUserId(userId));
+    }
+
+
 
 
 }

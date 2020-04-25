@@ -13,7 +13,13 @@ public class ArticleQueryConditionDto {
 
     private String userId;
 
+    private String loginUserId;
+
     private String state;
+
+    private String channelId;
+
+    private String columnId;
 
     private int page;
 

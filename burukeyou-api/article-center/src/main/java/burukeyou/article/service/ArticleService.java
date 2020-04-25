@@ -28,6 +28,11 @@ public interface ArticleService extends IService<AmsArticle> {
     ArticleDetailVo getById(String id);
 
 
+    /**
+     *     多条件分页获取
+     * @param conditionDto
+     * @return
+     */
     Page<AmsArticle> getListByUserId(ArticleQueryConditionDto conditionDto);
 
 }

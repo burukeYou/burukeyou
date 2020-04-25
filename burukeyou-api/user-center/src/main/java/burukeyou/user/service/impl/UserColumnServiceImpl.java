@@ -71,6 +71,13 @@ public class UserColumnServiceImpl extends ServiceImpl<UmsColumnMapper, UmsColum
         return umsColumnPage;
     }
 
+    @Override
+    public List<UmsColumn> getAllByUserId(String userId) {
+        return (!userId.equals(AuthUtils.ID())) ? this.list(new QueryWrapper<UmsColumn>().lambda()
+                .eq(UmsColumn::getUserId, userId).eq(UmsColumn::isIspublic, true))
+                : this.list(new QueryWrapper<UmsColumn>().lambda().eq(UmsColumn::getUserId, userId));
+    }
+
     private boolean IsEntityOwner(String entityId){
         UmsColumn one = this.getOne(new QueryWrapper<UmsColumn>().select("user_id").eq("id", entityId));
         return (one.getUserId()!= null && !one.getUserId().equals(AuthUtils.ID())) ? false : true;

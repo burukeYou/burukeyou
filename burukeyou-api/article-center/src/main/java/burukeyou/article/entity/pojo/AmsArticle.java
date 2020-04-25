@@ -34,19 +34,21 @@ public class AmsArticle extends BasePojo implements Serializable {
 
 	private String columnName;
 
-	private String channel_id;
+	private String channelId;
 
-	private String channel_name;
+	private String channelName;
+
+	private String labels;
 
 	private Boolean ispublic;
 
 	private Boolean istop;
 
-	private Integer visitsCount;
+	private int visitsCount;
 
-	private Integer thumbupCount;
+	private int thumbupCount;
 
-	private Integer commentCount;
+	private int commentCount;
 
 	private Integer state;
 

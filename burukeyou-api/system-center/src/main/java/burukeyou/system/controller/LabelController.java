@@ -101,6 +101,10 @@ public class LabelController {
         return ResultVo.success(voPage);
     }
 
+
+
+
+
     @PutMapping("/{id}")
     public ResultVo updateFoucusCount(@PathVariable("id")String id,@RequestParam("count") int count){
         return ResultVo.success(sysLabelService.updateFoucusCount(id,count));
