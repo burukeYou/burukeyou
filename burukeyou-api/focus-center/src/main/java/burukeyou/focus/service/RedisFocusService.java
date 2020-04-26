@@ -44,4 +44,12 @@ public interface RedisFocusService {
      *      同步关注数量同步到DB
      */
     void focusCountDataSyncToDB();
+
+    /**
+     *  判断当前用户是否有对target的关注状态
+     * @param targetType
+     * @param targetId
+     * @return
+     */
+    boolean judgeIsHaveFocus(String targetType,String targetId);
 }

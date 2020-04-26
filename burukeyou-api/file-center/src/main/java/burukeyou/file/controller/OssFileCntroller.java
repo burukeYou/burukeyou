@@ -7,6 +7,7 @@ import burukeyou.file.service.FileService;
 import burukeyou.file.utils.Base64DecodeMultipartFile;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -40,7 +41,7 @@ public class OssFileCntroller {
         return null;
     }
 
-    @RequestMapping(value = "/base64/uploadList",method = RequestMethod.POST)
+    @RequestMapping(value = "/base64/uploadList",method = RequestMethod.POST,consumes = MediaType.APPLICATION_JSON_VALUE)
     @ApiOperation("批量上传多个上传个base64")
     public ResultVo<List<String>> uploadListBase64(@RequestBody FileParamDto fileParamDto){
             if (!FileDirTypeEnum.isExits(fileParamDto.getType()))

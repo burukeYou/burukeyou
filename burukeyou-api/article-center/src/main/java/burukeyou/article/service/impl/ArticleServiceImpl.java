@@ -23,6 +23,7 @@ import java.util.List;
 public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, AmsArticle> implements ArticleService {
 
 
+
     @Override
     public boolean publishArticle(ArticleDto articleDto) {
         AmsArticle amsArticle = articleDto.converTo();
@@ -81,10 +82,14 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, AmsArticle> i
     }
 
     @Override
-    public ArticleDetailVo getById(String id) {
-        ArticleDetailVo oneDetailById = baseMapper.getOneDetailById(id);
-        return oneDetailById ;
+    public AmsArticle getById(String id) {
+        return IsEntityOwner(id) ? super.getById(id) : super.getOne(new QueryWrapper<AmsArticle>().lambda().eq(AmsArticle::getId,id).eq(AmsArticle::getIspublic,true));
+        //ArticleDetailVo oneDetailById = baseMapper.getOneDetailById(id);
+        //return oneDetailById ;
     }
+
+
+
 
     @Override
     public Page<AmsArticle> getListByUserId(ArticleQueryConditionDto conditionDto) {

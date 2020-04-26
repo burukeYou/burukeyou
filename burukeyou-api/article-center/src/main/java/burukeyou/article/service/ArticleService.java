@@ -25,7 +25,7 @@ public interface ArticleService extends IService<AmsArticle> {
      * @param id
      * @return
      */
-    ArticleDetailVo getById(String id);
+    AmsArticle getById(String id);
 
 
     /**

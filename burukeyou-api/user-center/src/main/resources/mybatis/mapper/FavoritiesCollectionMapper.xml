@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="burukeyou.user.mapper.FavoritiesCollectionMapper" >
+
+
+    <select id="judgeIsFavorities" resultType="java.lang.String">
+         select fc.favorites_id
+         from ums_favorites_collection fc
+         INNER JOIN ums_favorites f on fc.favorites_id = f.id
+         WHERE fc.collection_type = #{collectionType} and fc.collection_id = #{collectionId}
+         and f.user_id = #{userId}
+
+    </select>
+</mapper>

@@ -26,13 +26,35 @@ server:
 
 
 
+#===============================================Cloud====================================================
+hystrix:
+  command:
+    default:
+      execution:
+        timeout:
+          enabled: true
+        isolation:
+          strategy: SEMAPHORE
+          thread:
+            timeoutInMilliseconds: 120000  # hystrix超时时间=ribbon重试此时 * (ReadTimeout + ConnectTimeout)
+
+ribbon:
+  ReadTimeout: 60000 # 调用数据过大可能导致超时
+  ConnectTimeout: 60000
+  MaxAutoRetries: 1 #同一台实例最大重试次数,不包括首次调用
+  MaxAutoRetriesNextServer: 1 #重试负载均衡其他的实例最大重试次数,不包括首次调用
+  OkToRetryOnAllOperations: false  #是否所有操作都重试,false-只对get
+
+
 feign:
   hystrix:
-    enabled=true:  # 启动hystrix熔断机制
+    enabled: true  # 启动hystrix熔断机制
+
 
 # ================================================================================================
 
 mybatis-plus:
+  mapper-locations: classpath:/mybatis/mapper/*.xml
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl    #打印sql语句
 

@@ -56,10 +56,15 @@ public class UmsFocusServiceImpl extends ServiceImpl<UmsFocusMapper, UmsFocus> i
 
         Map<String, Boolean> result = new HashMap<>();
         targetidList.forEach(e -> {
-            int count = super.count(new QueryWrapper<UmsFocus>().lambda()
-                    .eq(UmsFocus::getTargetType, targetType)
-                    .eq(UmsFocus::getUserId, AuthUtils.ID()).eq(UmsFocus::getTargetId, e));
-            result.put(e, count > 0);
+            boolean haveFocusState = redisFocusService.judgeIsHaveFocus(targetType, e);
+            if (haveFocusState){
+                result.put(e,haveFocusState);
+            }else {
+                int count = super.count(new QueryWrapper<UmsFocus>().lambda()
+                        .eq(UmsFocus::getTargetType, targetType)
+                        .eq(UmsFocus::getUserId, AuthUtils.ID()).eq(UmsFocus::getTargetId, e));
+                result.put(e, count > 0);
+            }
         });
         return result;
     }

@@ -2,14 +2,12 @@ package burukeyou.system.controller;
 
 import burukeyou.auth.authClient.util.AuthUtils;
 import burukeyou.common.core.entity.annotation.EnableParamValid;
+import burukeyou.common.core.entity.enums.FocusTargetEnums;
 import burukeyou.common.core.entity.vo.ResultVo;
 import burukeyou.system.entity.dto.LabelDto;
 import burukeyou.system.entity.dto.QueryLabelConditionDto;
-import burukeyou.system.entity.dto.QueryTopicConditionDto;
 import burukeyou.system.entity.enums.FocusStatusEnum;
-import burukeyou.system.entity.enums.FocusTargetEnums;
 import burukeyou.system.entity.pojo.SysLabel;
-import burukeyou.system.entity.pojo.SysTopic;
 import burukeyou.system.entity.vo.SysLabelVo;
 import burukeyou.system.rpc.FileServiceRPC;
 import burukeyou.system.rpc.FocusServiceRPC;
@@ -18,7 +16,6 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 

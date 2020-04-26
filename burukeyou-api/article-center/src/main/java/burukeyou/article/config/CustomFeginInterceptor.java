@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.Enumeration;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.Optional;
 
 /**
  *      解决服务调用token传递
@@ -28,15 +29,19 @@ public class CustomFeginInterceptor implements RequestInterceptor {
         }
     }
     private Map<String, String> getHeaders(){
-        HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+        ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         Map<String, String> map = new LinkedHashMap<>();
-        Enumeration<String> enumeration = request.getHeaderNames();
-        while (enumeration.hasMoreElements()) {
-            String key = enumeration.nextElement();
-            String value = request.getHeader(key);
-            map.put(key, value);
-        }
+        Optional.ofNullable(attributes).ifPresent(e -> {
+            HttpServletRequest request = e.getRequest();
+            Enumeration<String> enumeration = request.getHeaderNames();
+            while (enumeration.hasMoreElements()) {
+                String key = enumeration.nextElement();
+                String value = request.getHeader(key);
+                map.put(key, value);
+            }
+        });
         return map;
+
     }
 
 }

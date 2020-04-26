@@ -35,9 +35,23 @@ spring:
         max-concurrency: 10  # 并发消费者的最大值
         prefetch: 5 # 每个消费者每次监听时可拉取处理的消息数量。
 
-
 server:
   port: 9035
+
+
+#========================================= Cloud =========================================================
+feign:
+  hystrix:
+    enabled: true
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          strategy: SEMAPHORE  #修改断路器的隔离策略
+          thread:
+            timeoutInMilliseconds: 10000
 
 # =======================================Mybatis-plus=======================================================
 mybatis-plus:
@@ -57,8 +71,6 @@ custom:
 
   swagger2:
     basePackage: burukeyou.article.controller
-
-
 
 
 

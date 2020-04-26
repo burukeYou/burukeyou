@@ -1,29 +1,25 @@
 package burukeyou.article.controller;
 
-import burukeyou.article.entity.bo.CountIncrementMsg;
 import burukeyou.article.entity.dto.ArticleDto;
 import burukeyou.article.entity.dto.ArticleQueryConditionDto;
-import burukeyou.article.entity.enums.LikeParentTypeEnums;
 import burukeyou.article.entity.pojo.AmsArticle;
+import burukeyou.article.entity.vo.ArticleDetailVo;
 import burukeyou.article.entity.vo.ArticleListlVo;
 import burukeyou.article.mq.MqSender;
+import burukeyou.article.rpc.FocusServiceRPC;
 import burukeyou.article.rpc.LikeServiceRPC;
+import burukeyou.article.rpc.UserServiceRPC;
 import burukeyou.article.service.ArticleService;
 import burukeyou.common.core.entity.annotation.EnableParamValid;
-import burukeyou.common.core.entity.vo.PageResultVo;
+import burukeyou.common.core.entity.enums.CollectionsTypeEnum;
+import burukeyou.common.core.entity.enums.LikeParentTypeEnums;
 import burukeyou.common.core.entity.vo.ResultVo;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.swagger.annotations.ApiImplicitParam;
-import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @RestController
@@ -36,10 +32,16 @@ public class ArticleController {
 
     private final MqSender mqSender;
 
-    public ArticleController(ArticleService articleService, LikeServiceRPC likeServiceRPC, MqSender mqSender) {
+    private final FocusServiceRPC focusServiceRPC;
+
+    private final UserServiceRPC userServiceRPC;
+
+    public ArticleController(ArticleService articleService, LikeServiceRPC likeServiceRPC, MqSender mqSender, FocusServiceRPC focusServiceRPC, UserServiceRPC userServiceRPC) {
         this.articleService = articleService;
         this.likeServiceRPC = likeServiceRPC;
         this.mqSender = mqSender;
+        this.focusServiceRPC = focusServiceRPC;
+        this.userServiceRPC = userServiceRPC;
     }
 
     @PostMapping
@@ -62,12 +64,30 @@ public class ArticleController {
     public ResultVo getOne(@PathVariable("id") String id) {
        // ArticleDetailVo articleDetailVo = new ArticleDetailVo().convertFrom(articleService.getById(id));
         //mqSender.send(id,"1");
-        mqSender.send(new CountIncrementMsg(id,"1"));
+       // mqSender.send(new CountIncrementMsg(id,"1"));
 
-        return ResultVo.success(articleService.getById(id));
+        AmsArticle article = articleService.getById(id);
+        ArticleDetailVo vo = new ArticleDetailVo().convertFrom(articleService.getById(id));
+        vo.setLabels(Arrays.asList( article.getLabels().split("\\s*\\$\\$\\s*")));
+
+        //
+        ResultVo<Map<String, Boolean>> rv = likeServiceRPC.judgeIsLikeList(LikeParentTypeEnums.ARTICLE.VALUE(), Arrays.asList(vo.getId()));
+        if (rv != null && rv.getData() != null) {
+           vo.setLike(rv.getData().get(vo.getId()));
+        }
+        //
+        ResultVo<Map<String, Boolean>> focusVO = focusServiceRPC.judgeIsFollwerList("USER", Arrays.asList(vo.getUserId()));
+        if (focusVO != null && focusVO.getData() != null)
+            vo.setFocusUser(focusVO.getData().get(vo.getUserId()));
+        //
+        String favoritiesId = userServiceRPC.judgeIsFavorities(CollectionsTypeEnum.Article.getType(), vo.getId());
+        if (favoritiesId != null){
+            vo.setFavoritiesId(favoritiesId);
+            vo.setFavorities(true);
+        }
 
 
-       // return ResultVo.success(articleDetailVo);
+        return ResultVo.success(vo);
     }
 
 

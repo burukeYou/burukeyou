@@ -133,5 +133,10 @@ public class RedisFocusServiceImpl implements RedisFocusService {
         }
     }
 
+    @Override
+    public boolean judgeIsHaveFocus(String targetType, String targetId) {
+        return redisTemplate.opsForHash().get(FocusConstant.FOCUS_STATUS_KEY, FocusConstant.buildFocusStatusKey(AuthUtils.ID(), targetId, targetType)) != null;
+    }
+
 
 }

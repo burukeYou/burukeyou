@@ -12,7 +12,9 @@ public enum FileDirTypeEnum {
 
     UserAvatar("userAvatar/"),
 
-    Video("video/");
+    Video("video/"),
+
+    Favorities("favorities/");
 
     private String type;
 

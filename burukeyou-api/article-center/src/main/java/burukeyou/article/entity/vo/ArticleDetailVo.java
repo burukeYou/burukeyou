@@ -25,26 +25,34 @@ public class ArticleDetailVo implements BaseOutputConverter<ArticleDetailVo, Ams
 
     private String userNickname;
 
+    private boolean isFocusUser;
+
     private String userAvatar;
 
     private Boolean ispublic;
 
     private Boolean istop;
 
-    private Long visitsCount;
+    private int visitsCount;
 
-    private Long thumbupCount;
+    private int thumbupCount;
 
-    private Long commentCount;
+    private int commentCount;
 
-    private Short state;
+    private boolean isLike;
+
+    private boolean isFavorities;
+
+    private String favoritiesId;
+
+    private Integer state;
 
     private String url;
 
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
     private Date createdTime;
 
-    private List<LabelVo> labels;
+    private List<String> labels;
 
 
 

@@ -28,16 +28,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- *  思考：
  *       //@PreAuthorize("principal.username.equals(#username)")
- *
- *        // only user of umsColumn can delete umsColumn
- *         if (!this.getOne(new QueryWrapper<UmsColumn>().select("user_id").eq("id",id)).getUserId().equals(AuthUtils.ID()))
- *             return false;
- *
- *         根据id查找   --》  用户可以查找别人
- *         根据id删除   --》  用户不可以删除别人
- *
  *
  *
  */

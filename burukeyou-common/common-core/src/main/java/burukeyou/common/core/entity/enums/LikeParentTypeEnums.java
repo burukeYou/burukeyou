@@ -1,22 +1,18 @@
-package burukeyou.system.entity.enums;
+package burukeyou.common.core.entity.enums;
 
-public enum FocusTargetEnums {
+public enum LikeParentTypeEnums {
 
     USER("USER"),
 
-    TOPIC("TOPIC"),
-
-    LABEL("LABEL"),
+    BOILING("BOILING"),
 
     ARTICLE("ARTICLE"),
-
-    BOILING("BOILING"),
 
     VIDEO("VIDEO");
 
     private String type;
 
-    FocusTargetEnums(String type) {
+    LikeParentTypeEnums(String type) {
         this.type = type;
     }
 

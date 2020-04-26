@@ -23,6 +23,8 @@ public class UmsFavoritesServiceImpl extends ServiceImpl<UmsFavoritesMapper, Ums
             UmsFavorites one = this.getOne(new QueryWrapper<UmsFavorites>().select("user_id").eq("id", umsFavorites.getId()));
             if (!one.getUserId().equals(AuthUtils.ID()))
                 return false;
+
+            //todo 删除之前上传的图片
         }
 
         umsFavorites.setUserId(AuthUtils.ID());
@@ -56,6 +58,7 @@ public class UmsFavoritesServiceImpl extends ServiceImpl<UmsFavoritesMapper, Ums
                 this.list(new QueryWrapper<UmsFavorites>().eq("user_id", userId).eq("ispublic", true))
                 : this.list(new QueryWrapper<UmsFavorites>().eq("user_id", userId));
     }
+
 
 
     // todo 待重构
