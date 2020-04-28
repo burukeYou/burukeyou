@@ -1,4 +1,4 @@
-package burukeyou.comment.mapper;
+package burukeyou.comment.repository;
 
 import burukeyou.comment.entity.pojo.AmsComment;
 import org.springframework.data.domain.Page;
@@ -12,6 +12,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface CommentRepository extends MongoRepository<AmsComment,String> {
 
-    Page<AmsComment> findByParentTypeAndParentId(@Param("parentType") Integer parentType, @Param("parentId") String parentId, Pageable pageable);
+    Page<AmsComment> findByParentTypeAndParentId(@Param("parentType") String parentType, @Param("parentId") String parentId, Pageable pageable);
 
 }

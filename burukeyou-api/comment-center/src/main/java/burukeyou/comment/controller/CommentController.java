@@ -1,6 +1,7 @@
 package burukeyou.comment.controller;
 
-import burukeyou.comment.entity.dto.ComentDto;
+import burukeyou.comment.entity.dto.CommentDto;
+import burukeyou.comment.entity.pojo.AmsComment;
 import burukeyou.comment.service.CommentService;
 import burukeyou.common.core.entity.vo.ResultVo;
 import io.swagger.annotations.Api;
@@ -26,9 +27,9 @@ public class CommentController {
     @PostMapping("/publish")
     @ApiOperation(value = "发表评论")
     @ApiImplicitParam(name = "comentDto",value = "保存评论",required = true,dataType = "ComentDto")
-    public ResultVo publishComment(@RequestBody ComentDto comentDto){
+    public ResultVo publishComment(@RequestBody CommentDto commentDto){
         try {
-            commentService.save(comentDto.converTo());
+            commentService.save(commentDto.converTo());
 
             // todo 所属实体评论量加 1  (redis +  mq)
 
@@ -55,18 +56,21 @@ public class CommentController {
 
     @GetMapping("/{type}/{id}/ten")
     @ApiOperation(value = "获得某一个实体下点赞量最高的十个评论")
-    public ResultVo getEntityTop10CommentList(@PathVariable("type") Integer type,@PathVariable("id")String id){
+    public ResultVo getEntityTop10CommentList(@PathVariable("type") String type,@PathVariable("id")String id){
         return ResultVo.success(commentService.getTop10ThumbupList(type,id));
     }
 
     @GetMapping("/{type}/{id}")
     @ApiOperation(value = "分页获得某一个实体下所有最新评论")
-    public ResultVo getEntityCommentList(@PathVariable("type") Integer type,@PathVariable("id")String id,
+    public ResultVo getPageNewly(@PathVariable("type") String type,@PathVariable("id")String id,
                                          @RequestParam("page") Integer page,@RequestParam("size")Integer size){
         return ResultVo.success(commentService.getLatestList(type,id,page,size));
     }
 
-
+    @GetMapping("/{id}")
+    public ResultVo<AmsComment> getDetail(@PathVariable("id") String id){
+        return ResultVo.success(commentService.getById(id));
+    }
 
 
 

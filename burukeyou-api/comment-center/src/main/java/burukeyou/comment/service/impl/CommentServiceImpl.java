@@ -2,22 +2,18 @@ package burukeyou.comment.service.impl;
 
 import burukeyou.auth.authClient.util.AuthUtils;
 import burukeyou.comment.entity.pojo.AmsComment;
-import burukeyou.comment.mapper.CommentRepository;
+import burukeyou.comment.repository.CommentRepository;
 import burukeyou.comment.service.CommentService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.MongoTemplate;
-import org.springframework.data.mongodb.core.query.Criteria;
-import org.springframework.data.mongodb.core.query.Query;
-import org.springframework.data.repository.support.PageableExecutionUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.List;
-import java.util.UUID;
+import java.util.Optional;
 
 @Service
 public class CommentServiceImpl implements CommentService {
@@ -31,19 +27,15 @@ public class CommentServiceImpl implements CommentService {
         this.mongoTemplate = mongoTemplate;
     }
 
-
     @Override
     public void save(AmsComment amsComment) {
         Assert.notNull(amsComment,"amsComment can not be null");
-
-        //amsComment.set_id(UUID.randomUUID().toString().replace("-",""));
         amsComment.setUserId(AuthUtils.ID());
-        amsComment.setUserNickname(AuthUtils.USERNAME());
+        amsComment.setUserNickname(AuthUtils.NICKNAME());
         amsComment.setUserAvatar(AuthUtils.AVATAR());
-        amsComment.setCommentCount(0);
+        amsComment.setReplyCount(0);
         amsComment.setThumbupCount(0);
-        amsComment.setCreatedTime(new Date());
-
+        amsComment.setCreatedTime(LocalDateTime.now());
         commentRepository.save(amsComment);
     }
 
@@ -53,18 +45,23 @@ public class CommentServiceImpl implements CommentService {
     }
 
     @Override
-    public List<AmsComment> getTop10ThumbupList(Integer type, String id){
+    public List<AmsComment> getTop10ThumbupList(String type, String id){
         Page<AmsComment> pageList = getList(type,id,0, 10, Sort.Direction.DESC, "thumbupCount");
         return pageList.getContent();
     }
 
     @Override
-    public Page<AmsComment> getLatestList(Integer type, String id,Integer page, Integer size){
+    public Page<AmsComment> getLatestList(String type, String id,Integer page, Integer size){
         return getList(type,id,page,size,Sort.Direction.DESC,"createdTime");
     }
 
+    @Override
+    public AmsComment getById(String id) {
+        return commentRepository.findById(id).orElse(null);
+    }
 
-    private  Page<AmsComment> getList(Integer type, String id,Integer page, Integer size,Sort.Direction order,String field) {
+
+    private  Page<AmsComment> getList(String type, String id,Integer page, Integer size,Sort.Direction order,String field) {
         Sort sort = new Sort(order,field);
         PageRequest pageRequest = PageRequest.of(page, size, sort);
         return commentRepository.findByParentTypeAndParentId(type,id,pageRequest);

@@ -49,6 +49,8 @@ zuul:
       url: focus-center-server
     boiling:
       url: boilling-center-server
+    comment:
+      url: comment-center-server
 
   #  默认敏感请求头比如Authorthtion是不会下发的，这里设置为空，就是所有请求头都向下转发
   sensitive-headers:

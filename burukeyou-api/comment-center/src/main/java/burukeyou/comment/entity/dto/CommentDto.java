@@ -14,7 +14,7 @@ import javax.validation.constraints.Size;
 @Data
 @Builder
 @ApiModel("发表的评论")
-public class ComentDto implements BaseInputConverter<AmsComment> {
+public class CommentDto implements BaseInputConverter<AmsComment> {
 
 
     @ApiModelProperty(value = "评论所属实体id")
@@ -23,7 +23,8 @@ public class ComentDto implements BaseInputConverter<AmsComment> {
 
     @ApiModelProperty(value = "评论所属实体类型")
     @NotNull(message = "评论所属实体类型不能为空")
-    private int parentType;
+    private String parentType;
+
 
     @ApiModelProperty(value = "评论的内容")
     @NotBlank(message = "评论内容不能为空")

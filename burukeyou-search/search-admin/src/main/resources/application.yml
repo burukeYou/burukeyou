@@ -18,7 +18,7 @@ server:
 
 # =======================================Mybatis-plus=======================================================
 mybatis-plus:
-  mapper-locations: classpath:/mybatis/mapper/*.xml
+  mapper-locations: classpath:/mybatis/repository/*.xml
 
 
 # =======================================Custom=========================================================

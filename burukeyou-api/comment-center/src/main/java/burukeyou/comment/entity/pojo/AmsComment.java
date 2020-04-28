@@ -6,6 +6,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 
 @Data
 @Document(collection = "comment")
@@ -22,15 +23,15 @@ public class AmsComment  implements Serializable {
 
 	private String parentId;
 
-	private Integer parentType;
+	private String parentType;
 
 	private String content;
 
-	private Integer thumbupCount;
+	private int thumbupCount;
 
-	private Integer commentCount;
+	private int replyCount;
 
 	@JsonFormat(pattern = "yyyy-MM-dd:HH:mm:ss",timezone="GMT+8")
-	private java.util.Date createdTime;
+	private LocalDateTime createdTime;
 
 }
