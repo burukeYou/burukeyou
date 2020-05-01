@@ -28,17 +28,16 @@ public interface FriendRequestService {
 
     /**
      *
-     * @param requestId
+     * @param sendUserId
      * @param operationType
      */
-    boolean updateFriendRequetsState(String requestId, Integer operationType);
+    boolean updateFriendRequetsState(String sendUserId, Integer operationType);
 
     /**
      *
-     * @param requestId
      * @param sendUserId
      * @param operationType
      * @return
      */
-    boolean passFriendRequest(String requestId, String sendUserId, Integer operationType);
+    boolean passFriendRequest(String sendUserId, String sendUserNickname,String sendUserAvatar,Integer operationType);
 }

@@ -1,7 +1,6 @@
 package burukeyou.im.api.enity.bo;
 
-import burukeyou.common.core.entity.pojo.BasePojo;
-import com.baomidou.mybatisplus.annotation.TableName;
+import burukeyou.common.dao.pojo.BasePojo;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

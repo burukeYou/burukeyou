@@ -11,6 +11,7 @@ import burukeyou.im.api.mapper.FriendRequestMapper;
 import burukeyou.im.api.rpc.UserServiceRPC;
 import burukeyou.im.api.service.FriendRelationService;
 import burukeyou.im.api.service.FriendRequestService;
+import burukeyou.im.api.utils.PinYInUtils;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -19,6 +20,9 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
+import java.time.LocalDateTime;
+import java.time.ZonedDateTime;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -47,9 +51,9 @@ public class FriendRequestServiceImpl extends ServiceImpl<FriendRequestMapper,Im
         int count = friendRelationService.count(new QueryWrapper<ImsFriendRelation>().lambda()
                 .eq(ImsFriendRelation::getUserId, AuthUtils.ID()).eq(ImsFriendRelation::getFriendId, accept_user_id));
 
-        if (count <= 0) {
+        if (count > 0)
             return IsCanSendFriendRequestEnum.ALREADY_FRIENDS.STATE;
-        }
+
 
         return IsCanSendFriendRequestEnum.SUCCESS.STATE;
     }
@@ -62,7 +66,7 @@ public class FriendRequestServiceImpl extends ServiceImpl<FriendRequestMapper,Im
         imsFriendRequest.setSendUserNickname(AuthUtils.NICKNAME());
         imsFriendRequest.setSendUserAvatar(AuthUtils.AVATAR());
         imsFriendRequest.setStatus(FriendRequestStateEnum.PendingPass.State());
-
+        imsFriendRequest.setCreateTime(LocalDateTime.now());
         return this.save(imsFriendRequest);
     }
 
@@ -72,34 +76,35 @@ public class FriendRequestServiceImpl extends ServiceImpl<FriendRequestMapper,Im
     }
 
     @Override
-    public boolean updateFriendRequetsState(String requestId, Integer operationType) {
-       return this.update(null, new UpdateWrapper<ImsFriendRequest>().eq("id", requestId).set("status", operationType));
+    public boolean updateFriendRequetsState(String sendUserId, Integer operationType) {
+        return super.update(new UpdateWrapper<ImsFriendRequest>().lambda()
+                .set(ImsFriendRequest::getStatus,operationType)
+                .eq(ImsFriendRequest::getSendUserId,sendUserId)
+                .eq(ImsFriendRequest::getAcceptUserId,AuthUtils.ID()));
     }
 
-    @Transactional(propagation = Propagation.REQUIRED)
     @Override
-    public boolean passFriendRequest(String requestId, String sendUserId, Integer operationType) {
+    @Transactional(propagation = Propagation.REQUIRED,rollbackFor = Exception.class)
+    public boolean passFriendRequest(String sendUserId, String sendUserNickname,String sendUserAvatar,Integer operationType) {
 
-        updateFriendRequetsState(requestId,operationType);
+        updateFriendRequetsState(sendUserId,operationType);
 
-        saveFriends(sendUserId,AuthUtils.ID());
-        saveFriends(AuthUtils.ID(),sendUserId);
+        saveFriends(AuthUtils.ID(),sendUserId, sendUserNickname, sendUserAvatar);
+        saveFriends(sendUserId,AuthUtils.ID(),AuthUtils.NICKNAME(),AuthUtils.AVATAR());
 
         // todo 下推消息，通知请求发起者更新他的通讯录列表
         return false;
     }
 
-
-    // 如果当前已经存在事务，那么加入该事务，如果不存在事务，创建一个事务，这是默认的传播属性值。
     @Transactional(propagation = Propagation.REQUIRED)
-    private void saveFriends(String sendUserId, String acceptUserId) {
-        ResultVo<UmsUsers> user = userServiceRPC.getUserByUniqueId(acceptUserId);
-
-        ImsFriendRelation friendRelation = ImsFriendRelation.builder().userId(sendUserId).friendId(user.getData().getId())
-                .friendNickname(user.getData().getNickname())
-                .friendAvatar(user.getData().getAvatar()).firstLetter("x")
-                .status(0).build();
-
+    public void saveFriends(String userId, String friendId,String friendNickname,String friendAvatar) {
+        ImsFriendRelation friendRelation = ImsFriendRelation.builder()
+                .userId(userId)
+                .friendId(friendId)
+                .friendNickname(friendNickname)
+                .friendAvatar(friendAvatar).firstLetter(PinYInUtils.getFirstLetter(friendNickname))
+                .status(0).createTime(LocalDateTime.now()).build();
+        // todo 下发通知
         friendRelationService.save(friendRelation);
     }
 

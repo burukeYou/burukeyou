@@ -14,7 +14,7 @@ public class FriendRequestDto implements BaseInputConverter<ImsFriendRequest> {
 
     @ApiModelProperty(value = "好友请求发向的那个人id")
     @NotBlank(message = "好友谊请求消息接收者id不能为空")
-    private String accept_user_id;
+    private String acceptUserId;
 
     @ApiModelProperty(value = "好友请求备注消息")
     private String msg;

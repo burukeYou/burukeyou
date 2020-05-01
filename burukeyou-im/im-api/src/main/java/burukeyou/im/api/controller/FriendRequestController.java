@@ -4,6 +4,7 @@ import burukeyou.common.core.entity.vo.ResultVo;
 import burukeyou.im.api.enity.dto.FriendRequestDto;
 import burukeyou.im.api.enity.enums.FriendRequestStateEnum;
 import burukeyou.im.api.enity.enums.IsCanSendFriendRequestEnum;
+import burukeyou.im.api.enity.pojo.ImsFriendRequest;
 import burukeyou.im.api.service.FriendRequestService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
@@ -14,9 +15,10 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @RestController
-@RequestMapping("/friend/request")
+@RequestMapping("/request")
 @Api("朋友关系api")
 public class FriendRequestController {
 
@@ -31,19 +33,19 @@ public class FriendRequestController {
     @ApiOperation(value = "发送添加好友请求")
     public ResultVo addFriendRequest(@Valid @RequestBody FriendRequestDto friendRequestDto){
         //判断是否能发送好友请求
-        Integer result = friendRequestService.isCanSend(friendRequestDto.getAccept_user_id());
+        Integer result = friendRequestService.isCanSend(friendRequestDto.getAcceptUserId());
 
         // 发送好友请求
-        if (result == IsCanSendFriendRequestEnum.SUCCESS.STATE){
-            return friendRequestService.sendFriendRequest(friendRequestDto.converTo()) ? ResultVo.success():ResultVo.error("插入失败");
+        if (result.equals(IsCanSendFriendRequestEnum.SUCCESS.STATE)){
+            return friendRequestService.sendFriendRequest(friendRequestDto.converTo()) ? ResultVo.success():ResultVo.error("发送失败");
         }else {
-            return ResultVo.error("添加失败");
+            return ResultVo.error(IsCanSendFriendRequestEnum.Msg(result));
         }
     }
 
     @GetMapping("/{userId}")
     @ApiOperation(value = "查看好友请求列表")
-    public ResultVo getList(@PathVariable String userId){
+    public ResultVo<List<ImsFriendRequest>> getFriendRequestList(@PathVariable String userId){
         return ResultVo.success(friendRequestService.getList(userId));
     }
 
@@ -51,18 +53,19 @@ public class FriendRequestController {
     @PostMapping("/operation")
     @ApiOperation(value = "操作好友请求")
     @ApiImplicitParams({
-            @ApiImplicitParam(name = "requestId"),
             @ApiImplicitParam(name = "sendUserId"),
-            @ApiImplicitParam(name = "operationType")
+            @ApiImplicitParam(name = "operation")
     })
-    public ResultVo operationFriendRequest(@NotBlank String requestId,@NotBlank String sendUserId, @NotNull Integer operationType){
+    public ResultVo operationFriendRequest(String sendUserAvatar,String sendUserNickname,@NotBlank String sendUserId, @NotNull Integer operation){
+        if (!FriendRequestStateEnum.isExist(operation))
+            return  ResultVo.error("该操作类型不允许");
 
-        if (operationType == FriendRequestStateEnum.NOTPASS.State() || operationType == FriendRequestStateEnum.IGNORE.State()){
-           return  ResultVo.success(friendRequestService.updateFriendRequetsState(requestId,operationType));
-        }else if (operationType == FriendRequestStateEnum.PASS.State()){
-            return ResultVo.success(friendRequestService.passFriendRequest(requestId,sendUserId,operationType));
+        if (operation.equals(FriendRequestStateEnum.NOTPASS.State()) || operation.equals(FriendRequestStateEnum.IGNORE.State())){
+           return  ResultVo.success(friendRequestService.updateFriendRequetsState(sendUserId,operation));
+        }else if (operation.equals(FriendRequestStateEnum.PASS.State())){
+            return ResultVo.success(friendRequestService.passFriendRequest(sendUserId,sendUserNickname,sendUserAvatar,operation));
         }else
-            return ResultVo.error();
+            return ResultVo.error("操作失败");
 
     }
 

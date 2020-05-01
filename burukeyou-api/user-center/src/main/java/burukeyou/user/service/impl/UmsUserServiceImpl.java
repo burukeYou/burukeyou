@@ -60,12 +60,10 @@ public class UmsUserServiceImpl extends ServiceImpl<UmsUserMapper, UmsUser> impl
             return this.getOne(new QueryWrapper<UmsUser>().eq("username",uniqueId));
         }else if (RegexValidationUtils.validateMobile(uniqueId)){
             return this.getOne(new QueryWrapper<UmsUser>().eq("mobile",uniqueId));
-        }else if (RegexValidationUtils.validateMobile(uniqueId)){
+        }else if (RegexValidationUtils.validateEmail(uniqueId)){
             return this.getOne(new QueryWrapper<UmsUser>().eq("email",uniqueId));
-        }else if (false){
-            // todo query by id
-            return null;
-        }else
-            return null;
+        }else {
+            return  super.getById(uniqueId);
+        }
     }
 }

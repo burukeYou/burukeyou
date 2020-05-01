@@ -6,6 +6,7 @@ import burukeyou.user.entity.dto.LoginDto;
 import burukeyou.user.entity.dto.UserDto;
 import burukeyou.user.entity.pojo.UmsUser;
 import burukeyou.user.entity.vo.TokenInfo;
+import burukeyou.user.entity.vo.UserSearchVo;
 import burukeyou.user.service.UmsUserService;
 import io.swagger.annotations.*;
 import lombok.extern.slf4j.Slf4j;
@@ -17,6 +18,7 @@ import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
 import javax.validation.Valid;
+import java.util.List;
 
 /** 普通用户注册登陆管理
  *
@@ -86,12 +88,18 @@ public class UmsUserController {
         return ResultVo.compute(umsUserService.saveOrupdate(userDto.converTo()))  ;
     }
 
-
     @GetMapping("/uniqueId")
     @ApiOperation(value = "根据用户账号或者手机号或者邮箱查找用户")
     @ApiImplicitParam(paramType = "query",name = "uniqueId",value = "用户账号或者手机号或者邮箱",required = true,dataType = "string")
-    public ResultVo<UmsUser> getUserByUniqueId(@RequestParam String uniqueId){
-        log.debug("query with username or mobile or email:{}", uniqueId);
+    public ResultVo<UmsUser> getUserByUniqueId(@RequestParam("uniqueId") String uniqueId){
+       // log.debug("query with username or mobile or email:{}", uniqueId);
         return ResultVo.success(umsUserService.getByUniqueId(uniqueId)) ;
     }
+
+    @GetMapping("/app/{uniqueId}")
+    public ResultVo<UserSearchVo> searchFriend(@PathVariable("uniqueId") String uniqueId){
+        return ResultVo.success(new UserSearchVo().convertFrom(umsUserService.getByUniqueId(uniqueId))) ;
+    }
+
+
 }

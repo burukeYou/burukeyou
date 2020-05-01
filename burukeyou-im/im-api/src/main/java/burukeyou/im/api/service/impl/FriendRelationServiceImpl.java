@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 public class FriendRelationServiceImpl extends ServiceImpl<FriendRelationMapper, ImsFriendRelation> implements FriendRelationService {
 
@@ -17,10 +19,12 @@ public class FriendRelationServiceImpl extends ServiceImpl<FriendRelationMapper,
     @Override
     @Transactional(propagation = Propagation.REQUIRED)
     public boolean deleteFriendRelation(String friendId) {
-        if (this.deleteFriendRelation(AuthUtils.ID(),friendId) && this.deleteFriendRelation(friendId,AuthUtils.ID())){
-            return true;
-        }else
-            return false;
+        return this.deleteFriendRelation(AuthUtils.ID(),friendId) && this.deleteFriendRelation(friendId,AuthUtils.ID());
+    }
+
+    @Override
+    public List<ImsFriendRelation> getFriendListByUserId(String id) {
+        return super.list(new QueryWrapper<ImsFriendRelation>().eq("user_id", id));
     }
 
 

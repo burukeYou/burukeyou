@@ -24,6 +24,23 @@ spring:
 server:
   port: 9010
 
+#===============================================Cloud====================================================
+hystrix:
+  command:
+    default:
+      execution:
+        timeout:
+          enabled: true
+        isolation:
+          strategy: SEMAPHORE
+          thread:
+            timeoutInMilliseconds: 120000
+
+feign:
+  hystrix:
+    enabled: true  # 启动hystrix熔断机制
+
+
 # ================================================================================================
 
 

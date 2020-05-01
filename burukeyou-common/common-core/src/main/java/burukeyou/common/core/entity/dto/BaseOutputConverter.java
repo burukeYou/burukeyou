@@ -11,9 +11,13 @@ import org.springframework.lang.NonNull;
 public interface BaseOutputConverter<Vo extends BaseOutputConverter<Vo,Dto>,Dto> {
 
     @NonNull
-    default <T extends Vo> T convertFrom(@NonNull Dto dto){
-        CustomBeanUtils.copyProperties(dto,this);
-        return (T)this;
+    default <T extends Vo> T convertFrom(Dto dto){
+        if (dto != null){
+            CustomBeanUtils.copyProperties(dto,this);
+            return (T)this;
+        }else
+            return null;
+
     }
 
 }

@@ -22,7 +22,7 @@ public class ReplyServiceImpl implements ReplyService {
 
     @Override
     public boolean publicReply(AmsReply converTo) {
-        // 所属评论回复数加一
+        // todo 所属评论回复数加一
         converTo.setCreatedTime(LocalDateTime.now());
         converTo.setThumbupCount(0);
         converTo.setUserId(AuthUtils.ID());

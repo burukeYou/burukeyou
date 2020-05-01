@@ -22,7 +22,6 @@ public class ConnectionServer {
 
     @GetMapping
     public String getServerInstance() throws UnknownHostException {
-        // todo 集群化配置
         String addr = InetAddress.getLocalHost().getHostAddress();
         return addr;
 

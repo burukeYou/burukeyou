@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 
 @Data
 @NoArgsConstructor
@@ -24,11 +25,10 @@ public class ImsFriendRequest  implements Serializable {
 
 	private String acceptUserId;
 
-	private String note;
+	private String msg;
 
 	private Integer status;
 
-	@TableField(fill = FieldFill.INSERT_UPDATE)
-	private java.util.Date createTime;
+	private LocalDateTime createTime;
 
 }
