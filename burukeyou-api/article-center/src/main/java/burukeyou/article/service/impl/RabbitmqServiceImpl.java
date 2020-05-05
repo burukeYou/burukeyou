@@ -33,11 +33,15 @@ public class RabbitmqServiceImpl implements MqService {
 
     //todo 保证消息百分百投递成功
     @Override
-    public void buildArticleWithLabelRelations(String articleId, List<String> labelIds) {
-        ArticleLabel content = new ArticleLabel(articleId, labelIds);
+    public void buildArticleWithLabelRelations(ArticleLabel content) {
         RabbitmqMsg msg = new RabbitmqMsg(new IdWorker().nextId()+"",content,ExchangeConstant.ARTICLE_DIRECT,"artile.label");
         // 插入失败 =》 快速失败
-        rabbitmqMsgService.saveOrUpdate(msg);
+        try {
+            rabbitmqMsgService.saveOrUpdate(msg);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return;
+        }
 
         //(确认是否到达exchange)
         // 通过实现 ConfirmCallback 接口，消息发送到 Broker 后触发回调，确认消息是否到达 Broker 服务器，也就是只确认是否正确到达 Exchange 中

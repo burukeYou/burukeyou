@@ -1,5 +1,7 @@
 package burukeyou.article.service;
 
+import burukeyou.common.rabbitmq.entity.bo.ArticleLabel;
+
 import java.util.List;
 
 public interface MqService {
@@ -12,8 +14,6 @@ public interface MqService {
 
     /**
      *      建立标签和文章的关系
-     * @param articleId
-     * @param labelIds
      */
-    void buildArticleWithLabelRelations(String articleId, List<String> labelIds);
+    void buildArticleWithLabelRelations(ArticleLabel content);
 }

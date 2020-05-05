@@ -30,7 +30,7 @@ public class VisitCountTask {
     @Scheduled(cron = "30 * * * * ?" )
     @Transactional(propagation = Propagation.REQUIRED,rollbackFor = Exception.class)
     public void syncVisitCountToDB(){
-        log.info("同步数据到数据库");
+        log.info("同步redis数据到数据库");
         List<VisitCount> list = redisService.getAllFoucusCountData();
         articleService.updateVisitCountBatch(list);
     }

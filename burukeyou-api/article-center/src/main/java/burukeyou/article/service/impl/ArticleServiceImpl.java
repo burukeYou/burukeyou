@@ -10,6 +10,7 @@ import burukeyou.article.mapper.ArticleMapper;
 import burukeyou.article.service.ArticleService;
 import burukeyou.article.service.MqService;
 import burukeyou.auth.authClient.util.AuthUtils;
+import burukeyou.common.rabbitmq.entity.bo.ArticleLabel;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -56,7 +57,8 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, AmsArticle> i
             amsArticle.setLabels(sb.toString());
             // todo 该标签文章量加一
         }
-        mqService.buildArticleWithLabelRelations(amsArticle.getId(),labelIds);
+
+        mqService.buildArticleWithLabelRelations(new ArticleLabel(amsArticle.getId(), labelIds));
 
         //
         return this.insertOrUpdate(amsArticle,isEdit);
