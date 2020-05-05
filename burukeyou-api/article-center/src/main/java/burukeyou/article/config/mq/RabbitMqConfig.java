@@ -1,3 +1,4 @@
+/*
 package burukeyou.article.config.mq;
 
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
@@ -30,4 +31,4 @@ public class RabbitMqConfig {
 
 
 
-}
+}*/

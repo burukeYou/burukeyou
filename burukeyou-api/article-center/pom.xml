@@ -42,14 +42,22 @@
         </dependency>
         <!-- rabbitmq-->
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-amqp</artifactId>
+            <groupId>com.burukeyou</groupId>
+            <artifactId>common-rabbitmq</artifactId>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
         <!-- 服务调用： 基于Ribbon和Hystrix的声明式服务调用 -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>
+        <!--   redis     -->
+        <dependency>
+            <groupId>com.burukeyou</groupId>
+            <artifactId>common-redis</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
 
     </dependencies>
 

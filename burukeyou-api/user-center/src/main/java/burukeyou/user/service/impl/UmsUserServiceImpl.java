@@ -36,7 +36,7 @@ public class UmsUserServiceImpl extends ServiceImpl<UmsUserMapper, UmsUser> impl
             // save
             umsUser.setCreateHost(CommonUtils.getRemoteIpAddress(request));
             umsUser.setPassword(passwordEncoder.encode(umsUser.getPassword()));
-            umsUser.setAvatar("/xxx/xx/xx");
+            umsUser.setAvatar("http://burukeyou.oss-cn-shenzhen.aliyuncs.com/userAvatar/boilinged.png");
             umsUser.setExp(0);
             umsUser.setFansCount(0);
             umsUser.setFollowCount(0);

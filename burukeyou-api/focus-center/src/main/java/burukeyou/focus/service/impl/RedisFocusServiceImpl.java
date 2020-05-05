@@ -123,7 +123,7 @@ public class RedisFocusServiceImpl implements RedisFocusService {
             String targetType = likeCount.getTargetType();
             System.out.println("同步数量:"+likeCount);
             if (FocusTargetEnums.TOPIC.VALUE().equals(targetType)){
-                    // 话题关注数减少
+                    // 话题关注数减少 //todo mq异步 or 同步rpc
             }else if (FocusTargetEnums.LABEL.VALUE().equals(targetType)){
                     // 标签关注数减少
                     systemServerRPC.updateFoucusCount(likeCount.getTargetId(),likeCount.getCount());

@@ -11,7 +11,6 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @EnableSwagger2
 @SpringBootApplication
-//@ComponentScan({"burukeyou.gateway.zuul","burukeyou.auth.authClient"})
 @EnableAuthClient
 @EnableZuulProxy // 开启网关
 @EnableDiscoveryClient

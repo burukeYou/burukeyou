@@ -5,7 +5,7 @@ import burukeyou.article.entity.dto.ArticleQueryConditionDto;
 import burukeyou.article.entity.pojo.AmsArticle;
 import burukeyou.article.entity.vo.ArticleDetailVo;
 import burukeyou.article.entity.vo.ArticleListlVo;
-import burukeyou.article.mq.MqSender;
+import burukeyou.article.service.impl.RabbitmqServiceImpl;
 import burukeyou.article.rpc.FocusServiceRPC;
 import burukeyou.article.rpc.LikeServiceRPC;
 import burukeyou.article.rpc.UserServiceRPC;
@@ -30,13 +30,13 @@ public class ArticleController {
 
     private final LikeServiceRPC likeServiceRPC;
 
-    private final MqSender mqSender;
+    private final RabbitmqServiceImpl mqSender;
 
     private final FocusServiceRPC focusServiceRPC;
 
     private final UserServiceRPC userServiceRPC;
 
-    public ArticleController(ArticleService articleService, LikeServiceRPC likeServiceRPC, MqSender mqSender, FocusServiceRPC focusServiceRPC, UserServiceRPC userServiceRPC) {
+    public ArticleController(ArticleService articleService, LikeServiceRPC likeServiceRPC, RabbitmqServiceImpl mqSender, FocusServiceRPC focusServiceRPC, UserServiceRPC userServiceRPC) {
         this.articleService = articleService;
         this.likeServiceRPC = likeServiceRPC;
         this.mqSender = mqSender;
@@ -62,10 +62,6 @@ public class ArticleController {
     @ApiOperation(value = "根据id获得文章",notes = "如果是查找别人的只能是公开的文章")
     @ApiImplicitParam(name = "id",value = "文章id",required = true,dataType = "String")
     public ResultVo getOne(@PathVariable("id") String id) {
-       // ArticleDetailVo articleDetailVo = new ArticleDetailVo().convertFrom(articleService.getById(id));
-        //mqSender.send(id,"1");
-       // mqSender.send(new CountIncrementMsg(id,"1"));
-
         AmsArticle article = articleService.getById(id);
         ArticleDetailVo vo = new ArticleDetailVo().convertFrom(articleService.getById(id));
         vo.setLabels(Arrays.asList( article.getLabels().split("\\s*\\$\\$\\s*")));
@@ -86,14 +82,14 @@ public class ArticleController {
             vo.setFavorities(true);
         }
 
-
+        mqSender.incrVisitCount(id);
         return ResultVo.success(vo);
     }
 
 
     @GetMapping("/page")
     @ApiOperation(value = "分页多条件获取文章列表",notes = "非拥有者只能查找公开的")
-    public ResultVo getListByUserId(ArticleQueryConditionDto conditionDto){
+    public ResultVo<Page<ArticleListlVo> > getListByUserId(ArticleQueryConditionDto conditionDto){
         Page<AmsArticle> page = articleService.getListByUserId(conditionDto);
 
         List<String> targteIds = new ArrayList<>();

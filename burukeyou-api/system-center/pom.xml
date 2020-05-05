@@ -24,11 +24,11 @@
             <version>1.0-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>
-        <dependency>
+      <!--  <dependency>
             <groupId>com.burukeyou</groupId>
             <artifactId>common-dao</artifactId>
             <version>1.0-SNAPSHOT</version>
-        </dependency>
+        </dependency>-->
         <!--服务注册与服务发现，配置中心-->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
@@ -45,6 +45,13 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>
+        <!--   rabbitmq     -->
+        <dependency>
+            <groupId>com.burukeyou</groupId>
+            <artifactId>common-rabbitmq</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
 
 
     </dependencies>

@@ -29,11 +29,13 @@ spring:
     username: guest
     password: guest
 
-    listener:
-      simple:
-        concurrency: 5 # 并发消费者的初始化值
-        max-concurrency: 10  # 并发消费者的最大值
-        prefetch: 5 # 每个消费者每次监听时可拉取处理的消息数量。
+    #
+    publisher-confirms: true
+    publisher-returns: true
+    template:
+      mandatory: true   #  路由不到队列默认会删除该消息，设置为true触发retuen回调
+
+
 
 server:
   port: 9035
@@ -56,6 +58,8 @@ hystrix:
 # =======================================Mybatis-plus=======================================================
 mybatis-plus:
   mapper-locations: classpath:/mybatis/mapper/*.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl    #打印sql语句
 
 
 # =======================================Custom=========================================================

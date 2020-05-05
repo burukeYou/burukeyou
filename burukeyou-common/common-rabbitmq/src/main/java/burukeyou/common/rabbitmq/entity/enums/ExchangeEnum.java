@@ -12,7 +12,7 @@ public enum ExchangeEnum {
     /**
      *    处理访问量，点赞量，评论量的主题交换机
      */
-    AMOUNT_TOPIC("burukeyou.amount.topic", ExchangeTypes.TOPIC,"true");
+    AMOUNT_DIRECT("burukeyou.amount.direct", ExchangeTypes.DIRECT,true);
 
     /**
      *    交换机名称
@@ -33,5 +33,5 @@ public enum ExchangeEnum {
      *      true
      *      false
      */
-    private String durable ;
+    private boolean durable ;
 }

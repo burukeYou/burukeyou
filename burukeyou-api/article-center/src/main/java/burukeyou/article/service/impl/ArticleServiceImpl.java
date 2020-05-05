@@ -1,28 +1,34 @@
 package burukeyou.article.service.impl;
 
+import burukeyou.article.entity.bo.VisitCount;
 import burukeyou.article.entity.dto.ArticleDto;
 import burukeyou.article.entity.dto.ArticleQueryConditionDto;
 import burukeyou.article.entity.dto.LabelDto;
 import burukeyou.article.entity.enums.StateEnum;
 import burukeyou.article.entity.pojo.AmsArticle;
-import burukeyou.article.entity.vo.ArticleDetailVo;
 import burukeyou.article.mapper.ArticleMapper;
 import burukeyou.article.service.ArticleService;
+import burukeyou.article.service.MqService;
 import burukeyou.auth.authClient.util.AuthUtils;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
+import org.springframework.util.CollectionUtils;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, AmsArticle> implements ArticleService {
 
-
+    @Autowired
+    private MqService mqService;
 
     @Override
     public boolean publishArticle(ArticleDto articleDto) {
@@ -33,24 +39,35 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, AmsArticle> i
 
         }
 
-        // todo 异步话增加文章和标签的关系
+        boolean isEdit = true;
+        if (StringUtils.isBlank(articleDto.getId())){
+            amsArticle.setId(IdWorker.getIdStr());
+            isEdit = false;
+        }
+
+        List<String> labelIds = new ArrayList<>();
         List<LabelDto> labels = articleDto.getLabels();
         if (labels != null && labels.size() > 0){
             StringBuilder sb = new StringBuilder();
-            labels.forEach(e -> sb.append(e.getName()).append("$$"));
+            labels.forEach(e -> {
+                sb.append(e.getName()).append("$$");
+                labelIds.add(e.getId());
+            });
             amsArticle.setLabels(sb.toString());
-            // 该标签文章量加一
+            // todo 该标签文章量加一
         }
+        mqService.buildArticleWithLabelRelations(amsArticle.getId(),labelIds);
+
         //
-        return this.insertOrUpdate(amsArticle);
+        return this.insertOrUpdate(amsArticle,isEdit);
     }
 
     @Override
-    public boolean insertOrUpdate(AmsArticle amsArticle) {
+    public boolean insertOrUpdate(AmsArticle amsArticle,boolean isEdit) {
         Assert.notNull(amsArticle,"article to create or update cant not be null");
 
         // only the owner of umsColumn can update it
-        if (amsArticle.getId() != null){
+        if (isEdit){
             if (!IsEntityOwner(amsArticle.getId()))
                 return false;
         }else {
@@ -88,14 +105,18 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, AmsArticle> i
         //return oneDetailById ;
     }
 
-
-
-
     @Override
     public Page<AmsArticle> getListByUserId(ArticleQueryConditionDto conditionDto) {
         Page<AmsArticle> page = new Page<>(conditionDto.getPage(),conditionDto.getSize());
         conditionDto.setLoginUserId(AuthUtils.ID());
         return baseMapper.getPageCondition(page,conditionDto);
+    }
+
+    @Override
+    public void updateVisitCountBatch(List<VisitCount> list) {
+        if(CollectionUtils.isEmpty(list))
+            return;
+        list.forEach(e-> baseMapper.updateVisitCount(e));
     }
 
     // todo 待重构

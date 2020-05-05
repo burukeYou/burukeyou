@@ -1,4 +1,4 @@
-package burukeyou.article.config.mybatisPlus;
+package burukeyou.common.dao.config.mybatisPlus;
 
 import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.pagination.optimize.JsqlParserCountOptimize;

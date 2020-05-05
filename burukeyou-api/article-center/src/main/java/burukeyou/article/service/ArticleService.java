@@ -1,11 +1,14 @@
 package burukeyou.article.service;
 
+import burukeyou.article.entity.bo.VisitCount;
 import burukeyou.article.entity.dto.ArticleDto;
 import burukeyou.article.entity.dto.ArticleQueryConditionDto;
 import burukeyou.article.entity.pojo.AmsArticle;
 import burukeyou.article.entity.vo.ArticleDetailVo;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
+
+import java.util.List;
 
 
 public interface ArticleService extends IService<AmsArticle> {
@@ -16,7 +19,7 @@ public interface ArticleService extends IService<AmsArticle> {
      */
     boolean publishArticle( ArticleDto articleDto);
 
-    boolean insertOrUpdate(AmsArticle amsArticle);
+    boolean insertOrUpdate(AmsArticle amsArticle,boolean isEdit);
 
     boolean deleteById(String id);
 
@@ -35,4 +38,9 @@ public interface ArticleService extends IService<AmsArticle> {
      */
     Page<AmsArticle> getListByUserId(ArticleQueryConditionDto conditionDto);
 
+    /**
+     *  批量更新访问量
+     * @param list
+     */
+    void updateVisitCountBatch(List<VisitCount> list);
 }

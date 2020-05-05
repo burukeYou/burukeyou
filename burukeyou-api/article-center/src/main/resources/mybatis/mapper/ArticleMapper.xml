@@ -5,7 +5,17 @@
 
 <mapper namespace="burukeyou.article.mapper.ArticleMapper" >
 
+        <!--<update id="updateVisitCountBatch" parameterType="burukeyou.article.entity.bo.VisitCount">
+            <foreach collection="list" item="e" index="i" open="" close="" separator=";">
+                update ams_article
+                <set>
+                    visits_count = visits_count + #{e.growthCount},
+                </set>
+                where id = #{e.entityId}
+            </foreach>
 
+        </update>
+-->
 
     <select id="getOneDetailById" parameterType="string" resultMap="labelOfArticle">
        SELECT a.id,a.title,a.description,a.content,a.html_content,a.user_id,a.user_nickname,a.user_avatar,
@@ -47,24 +57,24 @@
         from ams_article a
         <where>
             <if test="dto.title != null and dto.title != ''">
-                    a.title = #{dto.title}
+                 and   a.title = #{dto.title}
             </if>
             <if test="dto.state != null and dto.state != ''">
-                a.state = #{dto.state}
+                and a.state = #{dto.state}
             </if>
             <if test="dto.channelId != null and dto.channelId != ''">
-                a.channel_id = #{dto.channelId}
+                and  a.channel_id = #{dto.channelId}
             </if>
             <if test="dto.columnId != null and dto.columnId != ''">
-                a.column_id = #{dto.columnId}
+                and a.column_id = #{dto.columnId}
             </if>
             <choose>
                 <when test="dto.userId != null and dto.userId != '' and  dto.userId ==  dto.loginUserId">
-                    a.user_id = #{dto.user_id}
+                    and a.user_id = #{dto.userId}
                 </when>
                 <otherwise>
                      <if test="dto.userId != null and dto.userId != ''">
-                         a.user_id = #{dto.user_id} and a.ispublic = true
+                         and a.user_id = #{dto.userId} and a.ispublic = true
                      </if>
                 </otherwise>
             </choose>
