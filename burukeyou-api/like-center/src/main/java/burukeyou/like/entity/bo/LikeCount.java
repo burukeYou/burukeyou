@@ -1,4 +1,4 @@
-package burukeyou.focus.entity.dto;
+package burukeyou.like.entity.bo;
 
 import lombok.*;
 
@@ -9,9 +9,9 @@ import lombok.*;
 @ToString
 public class LikeCount {
 
-    private String targetId;
+    private String parentId;
 
-    private String targetType;
+    private String parentType;
 
     private Integer count;
 }

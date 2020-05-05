@@ -2,9 +2,9 @@ package burukeyou.focus.entity.enums;
 
 public enum  FocusStatusEnum {
 
-    LIKE(true),
+    FOCUS(true),
 
-    UNLIKE(false);
+    UNFOCUS(false);
 
     private boolean status;
 

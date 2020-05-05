@@ -8,6 +8,8 @@ public class ExchangeConstant {
 
     public final static String ARTICLE_DIRECT = "burukeyou.article.direct";
 
+    public final static String LIKE = "burukeyou.like.direct";
+
 
 
 }

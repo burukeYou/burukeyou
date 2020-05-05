@@ -4,13 +4,13 @@ public class FocusConstant {
 
     /**
      *      保存 的 key
-     *      用户Id::被点赞targetId::被点赞targetType  -- true
+     *      用户Id::被关注targetId::被关注targetType  -- true
      */
     public final static String FOCUS_STATUS_KEY = "FOCUS_STATUS_KEY";
 
     /**
      *      保存 的 key
-     *      targetId - like count
+     *      targetId - foucus count
      */
     public final static String FOCUS_COUNT_KEY = "FOCUS_COUNT_KEY";
 

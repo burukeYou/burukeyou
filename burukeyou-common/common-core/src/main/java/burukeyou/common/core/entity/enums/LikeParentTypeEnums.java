@@ -8,7 +8,11 @@ public enum LikeParentTypeEnums {
 
     ARTICLE("ARTICLE"),
 
-    VIDEO("VIDEO");
+    VIDEO("VIDEO"),
+
+    COMMENT("COMMENT"),
+
+    REPLY("REPLY");
 
     private String type;
 

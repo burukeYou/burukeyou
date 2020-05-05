@@ -12,6 +12,9 @@ public class QueueConstant {
     public final static  String ARTICLE_LABEL = "burukeyou.article_label";
 
 
+    public final static String LIKE  = "burukeyou.like";
+
+    public final static String UNLIKE  = "burukeyou.unlike";
 
 
 }

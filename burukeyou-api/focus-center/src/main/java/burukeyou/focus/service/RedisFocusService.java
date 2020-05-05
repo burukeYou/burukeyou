@@ -1,6 +1,6 @@
 package burukeyou.focus.service;
 
-import burukeyou.focus.entity.dto.LikeCount;
+import burukeyou.focus.entity.dto.FocusCount;
 import burukeyou.focus.entity.pojo.UmsFocus;
 
 import java.util.List;
@@ -14,7 +14,6 @@ public interface RedisFocusService {
      * @param targetType
      */
     void focus(String userId,String targetId,String targetType);
-
 
     /**
      *  取消关注
@@ -32,7 +31,7 @@ public interface RedisFocusService {
     /**
      *   获得所有关注target的数量数据
      */
-    List<LikeCount>  getAllFoucusCountData();
+    List<FocusCount>  getAllFoucusCountData();
 
 
     /**

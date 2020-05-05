@@ -15,20 +15,30 @@ public class MessageConvert {
 
     private MessageConvert(){}
 
-    public static Message objToMsg(Object obj) throws JsonProcessingException {
+    public static Message objToMsg(Object obj)  {
         if (null == obj)
             return null;
 
-        Message message = MessageBuilder.withBody(jsonUtil.writeValueAsString(obj).getBytes()).build();
-        message.getMessageProperties().setDeliveryMode(MessageDeliveryMode.PERSISTENT);
+        Message message = null;
+        try {
+            message = MessageBuilder.withBody(jsonUtil.writeValueAsString(obj).getBytes()).build();
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+        //message.getMessageProperties().setDeliveryMode(MessageDeliveryMode.PERSISTENT);
         message.getMessageProperties().setContentType(MessageProperties.CONTENT_TYPE_JSON);
         return message;
     }
 
-    public static <T> T msgToObj(Message message, Class<T> clazz) throws IOException {
+    public static <T> T msgToObj(Message message, Class<T> clazz)  {
         if (null == message || null == clazz)
             return null;
-        T obj = jsonUtil.readValue(new String(message.getBody()),clazz);
+        T obj = null;
+        try {
+            obj = jsonUtil.readValue(new String(message.getBody()),clazz);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         return obj;
     }
 

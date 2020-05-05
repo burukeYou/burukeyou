@@ -16,4 +16,13 @@ public interface LikeService extends IService<AmsLike> {
      * @return
      */
     Map<String,Boolean> judgeIsLikeList(String parentType, List<String> parentIdList);
+
+    /**
+     *  点赞
+     * @param parentId
+     * @param parentType
+     * @return
+     */
+    void postLike(String parentId, String parentType,boolean isLike);
+
 }

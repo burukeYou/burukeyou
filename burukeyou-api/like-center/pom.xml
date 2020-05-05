@@ -36,24 +36,36 @@
             <version>1.0-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>
-        <dependency>
+       <!-- <dependency>
             <groupId>com.burukeyou</groupId>
             <artifactId>common-dao</artifactId>
             <version>1.0-SNAPSHOT</version>
-        </dependency>
+        </dependency>-->
         <!--  sentinel    -->
         <dependency>
             <groupId>com.burukeyou</groupId>
             <artifactId>common-sentinel</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
-        <!--  admin client
+        <!--  spring boot admin client
                 因为使用的为Spring Cloud环境，并不用通过 Spring Boot Admin Client 来向 Spring Boot Admin 注册，
                 而是让 Spring Boot Admin 通过注册中心（Eureka、Consul 等）来发现服务.
         -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        <!--   redis     -->
+        <dependency>
+            <groupId>com.burukeyou</groupId>
+            <artifactId>common-redis</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <!--   rabbitmq     -->
+        <dependency>
+            <groupId>com.burukeyou</groupId>
+            <artifactId>common-rabbitmq</artifactId>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
 
 

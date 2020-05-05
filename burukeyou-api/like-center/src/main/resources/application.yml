@@ -26,6 +26,23 @@ spring:
       transport:
         dashboard: localhost:6999
 
+  # 消息队列
+  rabbitmq:
+    host: 192.168.1.19
+    port: 5672
+    virtual-host: /burukeyou
+    username: guest
+    password: guest
+
+    listener:
+      simple:
+        concurrency: 1  # 需保证消息有序性，只能只有一个消费者消费
+        max-concurrency: 1
+        prefetch: 1
+        acknowledge-mode: manual
+
+
+
 
 server:
   port: 9060

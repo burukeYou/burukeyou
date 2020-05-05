@@ -2,7 +2,7 @@ package burukeyou.focus.service.impl;
 
 import burukeyou.auth.authClient.util.AuthUtils;
 import burukeyou.focus.entity.bo.FocusConstant;
-import burukeyou.focus.entity.dto.LikeCount;
+import burukeyou.focus.entity.dto.FocusCount;
 import burukeyou.focus.entity.enums.FocusStatusEnum;
 import burukeyou.focus.entity.enums.FocusTargetEnums;
 import burukeyou.focus.entity.pojo.UmsFocus;
@@ -42,20 +42,24 @@ public class RedisFocusServiceImpl implements RedisFocusService {
 
     @Override
     public void focus(String userId,String targetId,String targetType){
-        String focusStatusKey = FocusConstant.buildFocusStatusKey(AuthUtils.ID(), targetId, targetType);
-        redisTemplate.opsForHash().put(FocusConstant.FOCUS_STATUS_KEY,focusStatusKey, FocusStatusEnum.LIKE.VALUE());
+        String focusStatusKey = FocusConstant.buildFocusStatusKey(userId, targetId, targetType);
+        Boolean res = redisTemplate.opsForHash().putIfAbsent(FocusConstant.FOCUS_STATUS_KEY, focusStatusKey, FocusStatusEnum.FOCUS.VALUE());
 
-        String focusCountKey = FocusConstant.bulidFocusCountKey(targetId, targetType);
-        redisTemplate.opsForHash().increment(FocusConstant.FOCUS_COUNT_KEY,focusCountKey,1);
+        if (res){
+            String focusCountKey = FocusConstant.bulidFocusCountKey(targetId, targetType);
+            redisTemplate.opsForHash().increment(FocusConstant.FOCUS_COUNT_KEY,focusCountKey,1);
+        }
     }
 
     @Override
     public void cancelFocus(String userId,String targetId,String targetType){
-        String focusStatusKey = FocusConstant.buildFocusStatusKey(AuthUtils.ID(), targetId, targetType);
-        redisTemplate.opsForHash().put(FocusConstant.FOCUS_STATUS_KEY,focusStatusKey, FocusStatusEnum.UNLIKE.VALUE());
+        String focusStatusKey = FocusConstant.buildFocusStatusKey(userId, targetId, targetType);
+        Boolean res =  redisTemplate.opsForHash().putIfAbsent(FocusConstant.FOCUS_STATUS_KEY,focusStatusKey, FocusStatusEnum.UNFOCUS.VALUE());
 
-        String focusCountKey = FocusConstant.bulidFocusCountKey(targetId, targetType);
-        redisTemplate.opsForHash().increment(FocusConstant.FOCUS_COUNT_KEY,focusCountKey,-1);
+        if (res){
+            String focusCountKey = FocusConstant.bulidFocusCountKey(targetId, targetType);
+            redisTemplate.opsForHash().increment(FocusConstant.FOCUS_COUNT_KEY,focusCountKey,-1);
+        }
     }
 
     @Override
@@ -75,22 +79,20 @@ public class RedisFocusServiceImpl implements RedisFocusService {
                 redisTemplate.opsForHash().delete(FocusConstant.FOCUS_STATUS_KEY,key);
             }
         }
-
-
         return umsFocusList;
     }
 
-    public List<LikeCount>  getAllFoucusCountData(){
+    public List<FocusCount>  getAllFoucusCountData(){
         Cursor<Map.Entry<Object,Object>> cursor = redisTemplate.opsForHash().scan(FocusConstant.FOCUS_COUNT_KEY, ScanOptions.NONE);
 
-        List<LikeCount> likeCountsList = new ArrayList<>();
+        List<FocusCount> likeCountsList = new ArrayList<>();
         while (cursor.hasNext()) {
             Map.Entry<?, ?> current = cursor.next();
             String key = (String) current.getKey();
             String[] keys = key.split("::");
 
             if (keys.length > 0) {
-                likeCountsList.add(LikeCount.builder().targetId(keys[0]).targetType(keys[1]).count((Integer) current.getValue()).build());
+                likeCountsList.add(FocusCount.builder().targetId(keys[0]).targetType(keys[1]).count((Integer) current.getValue()).build());
                 // delete cache
                 redisTemplate.opsForHash().delete(FocusConstant.FOCUS_COUNT_KEY,key);
             }
@@ -119,7 +121,7 @@ public class RedisFocusServiceImpl implements RedisFocusService {
 
     @Override
     public void focusCountDataSyncToDB() {
-        for (LikeCount likeCount : getAllFoucusCountData()) {
+        for (FocusCount likeCount : getAllFoucusCountData()) {
             String targetType = likeCount.getTargetType();
             System.out.println("同步数量:"+likeCount);
             if (FocusTargetEnums.TOPIC.VALUE().equals(targetType)){
