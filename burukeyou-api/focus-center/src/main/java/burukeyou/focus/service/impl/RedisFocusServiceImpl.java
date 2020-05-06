@@ -43,23 +43,31 @@ public class RedisFocusServiceImpl implements RedisFocusService {
     @Override
     public void focus(String userId,String targetId,String targetType){
         String focusStatusKey = FocusConstant.buildFocusStatusKey(userId, targetId, targetType);
-        Boolean res = redisTemplate.opsForHash().putIfAbsent(FocusConstant.FOCUS_STATUS_KEY, focusStatusKey, FocusStatusEnum.FOCUS.VALUE());
 
-        if (res){
-            String focusCountKey = FocusConstant.bulidFocusCountKey(targetId, targetType);
-            redisTemplate.opsForHash().increment(FocusConstant.FOCUS_COUNT_KEY,focusCountKey,1);
-        }
+        if (redisTemplate.opsForHash().hasKey(FocusConstant.FOCUS_STATUS_KEY, focusStatusKey) &&
+                (boolean)redisTemplate.opsForHash().get(FocusConstant.FOCUS_STATUS_KEY, focusStatusKey))
+            return;
+
+        redisTemplate.opsForHash().put(FocusConstant.FOCUS_STATUS_KEY, focusStatusKey, FocusStatusEnum.FOCUS.VALUE());
+
+        String focusCountKey = FocusConstant.bulidFocusCountKey(targetId, targetType);
+        redisTemplate.opsForHash().increment(FocusConstant.FOCUS_COUNT_KEY,focusCountKey,1);
+
     }
 
     @Override
     public void cancelFocus(String userId,String targetId,String targetType){
         String focusStatusKey = FocusConstant.buildFocusStatusKey(userId, targetId, targetType);
-        Boolean res =  redisTemplate.opsForHash().putIfAbsent(FocusConstant.FOCUS_STATUS_KEY,focusStatusKey, FocusStatusEnum.UNFOCUS.VALUE());
 
-        if (res){
-            String focusCountKey = FocusConstant.bulidFocusCountKey(targetId, targetType);
-            redisTemplate.opsForHash().increment(FocusConstant.FOCUS_COUNT_KEY,focusCountKey,-1);
-        }
+        if (redisTemplate.opsForHash().hasKey(FocusConstant.FOCUS_STATUS_KEY, focusStatusKey) &&
+                !(boolean)redisTemplate.opsForHash().get(FocusConstant.FOCUS_STATUS_KEY, focusStatusKey))
+            return;
+
+        redisTemplate.opsForHash().put(FocusConstant.FOCUS_STATUS_KEY,focusStatusKey, FocusStatusEnum.UNFOCUS.VALUE());
+
+        String focusCountKey = FocusConstant.bulidFocusCountKey(targetId, targetType);
+        redisTemplate.opsForHash().increment(FocusConstant.FOCUS_COUNT_KEY,focusCountKey,-1);
+
     }
 
     @Override

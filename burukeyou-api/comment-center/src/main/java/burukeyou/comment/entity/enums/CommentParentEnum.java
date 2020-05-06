@@ -20,4 +20,14 @@ public enum CommentParentEnum {
     public String getType() {
         return type;
     }
+
+    public static String getTypeName(String type){
+        if (ARTICLE.type.equals(type))
+            return "文章";
+        else if (COMMENT.type.equals(type))
+            return "评论";
+        else if (BOILING.type.equals(type))
+            return "沸点";
+        return null;
+    }
 }

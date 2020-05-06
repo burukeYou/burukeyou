@@ -42,10 +42,6 @@ public class Consumer {
         Long ic = (Long)headers.get(AmqpHeaders.DELIVERY_TAG);
         String msgId = (String)headers.get("spring_returned_message_correlation");
 
-        // 确认消息是否到达消费者
-        rabbitmqMsgService.updateMsgStatus(String.valueOf(msgId),RabbitmqMsgStatusEnum.CONSUME_SUCCESS.getStatus());
-        channel.basicAck(ic,false);
-
         // 开始消费
         RabbitmqMsg msg = rabbitmqMsgService.getById(msgId);//spring_returned_message_correlation -> 1257270954080976896
         if (msg != null && msg.getStatus() == RabbitmqMsgStatusEnum.CONSUME_SUCCESS.getStatus()){
@@ -53,10 +49,12 @@ public class Consumer {
         }else {
             try {
                 articleLabel.getLabelIds().forEach(e -> labelArticleService.save(new SysLabelArticle(articleLabel.getArticleId(),e)));
+                rabbitmqMsgService.updateMsgStatus(String.valueOf(msgId),RabbitmqMsgStatusEnum.CONSUME_SUCCESS.getStatus());
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
+        channel.basicAck(ic,false);
     }
 
 }

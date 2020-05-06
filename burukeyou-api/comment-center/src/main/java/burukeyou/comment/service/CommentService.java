@@ -13,6 +13,10 @@ public interface CommentService {
      */
     void save(AmsComment amsComment);
 
+    /**
+     *  删除评论
+     * @param id
+     */
     void deleteByid(String id);
 
     /**
@@ -25,7 +29,7 @@ public interface CommentService {
 
 
     /**
-     *
+     *      分页获得最新评论
      * @param type  parent entity type
      * @param id parent entity id
      * @param page current page
@@ -34,5 +38,10 @@ public interface CommentService {
      */
     Page<AmsComment> getLatestList(String type, String id, Integer page, Integer size);
 
+    /**
+     *  根据id获取评论
+     * @param id
+     * @return
+     */
     AmsComment getById(String id);
 }

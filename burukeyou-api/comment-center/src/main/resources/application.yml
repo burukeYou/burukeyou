@@ -5,6 +5,15 @@ spring:
   application:
     name: comment-center-server
 
+
+  # 数据源
+  datasource:
+    url: jdbc:mysql://localhost:3306/burukeyou-user?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=Hongkong
+    ##url: jdbc:mysql://cdb-dceafysi.cd.tencentcdb.com:10058/sc_admin?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
   # spring Data
   data:
     mongodb:
@@ -17,6 +26,14 @@ spring:
     nacos:
       discovery:
         server-addr: localhost:8848
+
+  # 消息队列
+  rabbitmq:
+    host: 192.168.1.19
+    port: 5672
+    virtual-host: /burukeyou
+    username: guest
+    password: guest
 
 custom:
   ouath2:

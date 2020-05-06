@@ -1,17 +1,25 @@
 package burukeyou.comment.controller;
 
+import burukeyou.auth.authClient.util.AuthUtils;
 import burukeyou.comment.entity.dto.CommentDto;
+import burukeyou.comment.entity.enums.CommentParentEnum;
 import burukeyou.comment.entity.pojo.AmsComment;
 import burukeyou.comment.service.CommentService;
+import burukeyou.comment.service.MqService;
+import burukeyou.common.core.entity.enums.NotificationTypeEnum;
 import burukeyou.common.core.entity.vo.ResultVo;
+import burukeyou.common.rabbitmq.entity.bo.NotificationContent;
+import burukeyou.common.rabbitmq.entity.bo.NotificationDto;
+import com.alibaba.fastjson.JSON;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.web.bind.annotation.*;
 
 /**
- *
+ *         todo： （重构 => 与 mq的dao耦合
  */
 @Api("评论中心")
 @RestController
@@ -20,8 +28,11 @@ public class CommentController {
 
     private final CommentService commentService;
 
-    public CommentController(CommentService commentService) {
+    private final MqService mqService;
+
+    public CommentController(CommentService commentService, MqService mqService) {
         this.commentService = commentService;
+        this.mqService = mqService;
     }
 
     @PostMapping("/publish")
@@ -29,17 +40,26 @@ public class CommentController {
     @ApiImplicitParam(name = "comentDto",value = "保存评论",required = true,dataType = "ComentDto")
     public ResultVo publishComment(@RequestBody CommentDto commentDto){
         try {
-            commentService.save(commentDto.converTo());
+            //commentService.save(commentDto.converTo());
 
             // todo 所属实体评论量加 1  (redis +  mq)
 
-            // todo 消息通知
-
+            // 异步下发消息通知
+            buildNotiffication(commentDto);
 
             return ResultVo.success();
         } catch (Exception e) {
             return ResultVo.error();
         }
+    }
+
+    @Async
+    void buildNotiffication(CommentDto commentDto){
+        NotificationContent content = NotificationContent.builder()
+                .userId(AuthUtils.ID()).nickname(AuthUtils.NICKNAME()).avatar(AuthUtils.AVATAR())
+                .tt("评论了你的").pd(CommentParentEnum.getTypeName(commentDto.getParentType()))
+                .title(commentDto.getParentTitle()).build();
+        mqService.publishNotification(new NotificationDto(JSON.toJSONString(content),commentDto.getParentUserId(), NotificationTypeEnum.USER.VALUE()));
     }
 
     @DeleteMapping("/{id}")

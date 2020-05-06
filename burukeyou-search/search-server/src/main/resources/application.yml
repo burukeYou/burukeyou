@@ -2,6 +2,14 @@ spring:
   application:
     name: search-center-server
 
+  # 数据源
+  datasource:
+    url: jdbc:mysql://localhost:3306/burukeyou-user?useUnicode=true&characterEncoding=utf-8&useSSL=true
+    ##url: jdbc:mysql://cdb-dceafysi.cd.tencentcdb.com:10058/sc_admin?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
   # cloud
   cloud:
     nacos:
@@ -17,8 +25,7 @@ server:
   port: 9005
 
 # =======================================Mybatis-plus=======================================================
-mybatis-plus:
-  mapper-locations: classpath:/mybatis/mapper/*.xml
+
 
 
 # =======================================Custom=========================================================
@@ -32,6 +39,11 @@ custom:
 
   swagger2:
     basePackage: burukeyou.search.server.controller
+
+  es:
+    hostname: 192.168.1.19
+    port: 9200
+
 
 
 

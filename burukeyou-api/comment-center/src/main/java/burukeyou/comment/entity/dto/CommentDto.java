@@ -30,4 +30,10 @@ public class CommentDto implements BaseInputConverter<AmsComment> {
     @NotBlank(message = "评论内容不能为空")
     @Size(message = "评论内容长度超过限制",max = 255)
     private String content;
+
+    @ApiModelProperty(value = "评论所属实体的所属用户id")
+    private String parentUserId;
+
+    @ApiModelProperty(value = "评论所属实体的标题内容")
+    private String parentTitle;
 }

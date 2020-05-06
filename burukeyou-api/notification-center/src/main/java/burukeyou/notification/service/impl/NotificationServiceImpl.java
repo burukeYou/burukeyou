@@ -1,6 +1,7 @@
 package burukeyou.notification.service.impl;
 
 import burukeyou.auth.authClient.util.AuthUtils;
+import burukeyou.common.rabbitmq.entity.bo.NotificationContent;
 import burukeyou.notification.entity.enums.NotificationStatusEnum;
 import burukeyou.notification.entity.enums.NotificationTypeEnum;
 import burukeyou.notification.entity.pojo.SysNotification;
@@ -33,7 +34,7 @@ public class NotificationServiceImpl extends ServiceImpl<NotificationMapper, Sys
     @Override
     public boolean publishNotification(String acceptId, String content,String type) {
         SysNotification notification = SysNotification.builder().status(NotificationStatusEnum.UNREAD.VALUE())
-                .type(type).acceptId(acceptId).content(content).createdTime(LocalDateTime.now()).build();
+                .type(type).acceptId(acceptId).content(content).build();
         return super.save(notification);
     }
 
@@ -49,8 +50,7 @@ public class NotificationServiceImpl extends ServiceImpl<NotificationMapper, Sys
         List<NotificationVo> voList = notificationPage.getRecords().stream().map(e -> {
             NotificationVo vo = new NotificationVo();
             BeanUtils.copyProperties(e, vo);
-            Map map = JSONObject.parseObject(e.getContent(), Map.class);
-            vo.setContent(map);
+            vo.setContent(JSONObject.parseObject(e.getContent(), NotificationContent.class));
             return vo;
         }).collect(Collectors.toList());
 

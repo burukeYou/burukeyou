@@ -36,12 +36,11 @@ public class MsgReliableTask {
         this.objectMapper = objectMapper;
     }
 
-
     /**
      *  对增加文章和标签关系的消息补偿
      */
     // [秒] [分] [小时] [日] [月] [周] [年]
-    @Scheduled(cron = "30 * * * * ?" )
+   /* @Scheduled(cron = "30 * * * * ?" )
     public void syncVisitCountToDB() throws IOException {
         List<RabbitmqMsg> msgList = rabbitmqMsgService.getAllFailSendMsg();
         log.info("对失败的{}条消息补偿",msgList.size());
@@ -57,7 +56,7 @@ public class MsgReliableTask {
                 log.info("消息({})第{}次重新投递消息",e.getId(),e.getRetryCount()+1);
             }
         }
-    }
+    }*/
 
 }
 

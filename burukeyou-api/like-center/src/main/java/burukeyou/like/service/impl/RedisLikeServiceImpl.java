@@ -27,7 +27,7 @@ public class RedisLikeServiceImpl implements RedisLikeService {
 
         // 保证幂等性 todo update
         if (redisTemplate.opsForHash().hasKey(LikeConstant.LIKE_STATUS_KEY, likeStatusKey) &&
-                !((boolean)redisTemplate.opsForHash().get(LikeConstant.LIKE_STATUS_KEY, likeStatusKey)))
+                ((boolean)redisTemplate.opsForHash().get(LikeConstant.LIKE_STATUS_KEY, likeStatusKey)))
             return;
 
         String likeCountKey = LikeConstant.bulidLikeCountKey(targetId, targetType);

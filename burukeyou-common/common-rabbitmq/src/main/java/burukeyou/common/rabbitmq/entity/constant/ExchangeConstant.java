@@ -10,6 +10,5 @@ public class ExchangeConstant {
 
     public final static String LIKE = "burukeyou.like.direct";
 
-
-
+    public final static String NOTIFICATION = "burukeyou.notification";
 }

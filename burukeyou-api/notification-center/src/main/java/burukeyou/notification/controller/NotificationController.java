@@ -6,6 +6,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.web.bind.annotation.*;
 
 @Api("通知")

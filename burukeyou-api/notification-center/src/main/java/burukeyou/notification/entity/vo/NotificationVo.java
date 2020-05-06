@@ -1,6 +1,7 @@
 package burukeyou.notification.entity.vo;
 
 
+import burukeyou.common.rabbitmq.entity.bo.NotificationContent;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -18,7 +19,9 @@ public class NotificationVo implements Serializable {
 
 	private String id;
 
-	private Map<String,?> content;
+	//private Map<String,?> content;
+
+	private NotificationContent content;
 
 	private String acceptId;
 

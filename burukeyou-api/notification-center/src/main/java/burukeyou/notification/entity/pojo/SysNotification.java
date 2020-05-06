@@ -23,7 +23,7 @@ public class SysNotification  implements Serializable {
 
 	private String type;
 
-	private boolean status;
+	private boolean status; // this value no invalid when type equals system
 
 	private LocalDateTime createdTime;
 

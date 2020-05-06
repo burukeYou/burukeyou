@@ -14,7 +14,9 @@ public class QueueConstant {
 
     public final static String LIKE  = "burukeyou.like";
 
-    public final static String UNLIKE  = "burukeyou.unlike";
+    //public final static String UNLIKE  = "burukeyou.unlike";
+
+    public final static String NOTIFICATION_PUBLISH = "burukeyou.notification.publish";
 
 
 }
