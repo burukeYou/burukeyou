@@ -35,7 +35,6 @@ public class CanalClient implements DisposableBean {
         return connector;
     }
 
-
     // 断开连接
     @Override
     public void destroy() throws Exception {

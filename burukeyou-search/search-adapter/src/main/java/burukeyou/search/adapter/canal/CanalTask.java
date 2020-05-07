@@ -67,9 +67,7 @@ public class CanalTask implements Runnable, ApplicationContextAware {
                 Map<String, String> columnMap = buildColumnToMap(afterColumnsList);
 
                 indexToEs(columnMap,database,tableName);
-
             });
-
 
         } catch (InvalidProtocolBufferException e) {
             e.printStackTrace();
@@ -79,9 +77,7 @@ public class CanalTask implements Runnable, ApplicationContextAware {
 
     //
     private void indexToEs(Map<String, String> columnMap, String database, String tableName) {
-
-
-
+        // todo 同步到es
     }
 
     private Map<String,String> buildColumnToMap(List<CanalEntry.Column> columns){
@@ -94,8 +90,6 @@ public class CanalTask implements Runnable, ApplicationContextAware {
         });
         return columnMap;
     }
-
-
 
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
