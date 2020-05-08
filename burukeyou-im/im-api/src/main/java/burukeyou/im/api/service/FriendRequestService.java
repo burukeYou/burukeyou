@@ -1,10 +1,11 @@
 package burukeyou.im.api.service;
 
 import burukeyou.im.api.enity.pojo.ImsFriendRequest;
+import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.util.List;
 
-public interface FriendRequestService {
+public interface FriendRequestService extends IService<ImsFriendRequest> {
 
     /**
      *  判断是否能发送好友请求

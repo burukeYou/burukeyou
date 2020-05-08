@@ -12,6 +12,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Import;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @SpringBootApplication
 @EnableDiscoveryClient
@@ -19,6 +20,7 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 @EnableAuthClient
 @EnableFeignClients
 @EnableAuditLog
+@EnableSwagger2
 public class UmsAdminApplication {
     public static void main(String[] args) {
         SpringApplication.run(UmsAdminApplication.class,args);

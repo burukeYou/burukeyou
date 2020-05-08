@@ -20,4 +20,12 @@ public enum StateEnum {
     public int STATE() {
         return state;
     }
+
+    public static boolean isExits(Integer state){
+        for (StateEnum e : StateEnum.values()) {
+            if (e.state == state)
+                return true;
+        }
+        return false;
+    }
 }

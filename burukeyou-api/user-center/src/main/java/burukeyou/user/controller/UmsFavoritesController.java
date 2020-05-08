@@ -26,7 +26,7 @@ import java.util.stream.Collectors;
 @RequestMapping("/user/collection")
 @Api("用户收藏")
 @Slf4j
-public class UmsFavoritesController {
+public class    UmsFavoritesController {
 
     private final UmsFavoritesService umsFavoritesService;
 

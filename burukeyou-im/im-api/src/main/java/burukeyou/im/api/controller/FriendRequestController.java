@@ -6,6 +6,7 @@ import burukeyou.im.api.enity.enums.FriendRequestStateEnum;
 import burukeyou.im.api.enity.enums.IsCanSendFriendRequestEnum;
 import burukeyou.im.api.enity.pojo.ImsFriendRequest;
 import burukeyou.im.api.service.FriendRequestService;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -69,6 +70,11 @@ public class FriendRequestController {
 
     }
 
+    @GetMapping("/count")
+    public ResultVo getFrequestCount(){
+        int count = friendRequestService.count(new QueryWrapper<ImsFriendRequest>().lambda().eq(ImsFriendRequest::getStatus, FriendRequestStateEnum.PendingPass.State()));
+        return ResultVo.success(count);
+    }
 
 
 }

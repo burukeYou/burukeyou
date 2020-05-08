@@ -2,6 +2,7 @@ package burukeyou.article.controller;
 
 import burukeyou.article.entity.dto.ArticleDto;
 import burukeyou.article.entity.dto.ArticleQueryConditionDto;
+import burukeyou.article.entity.enums.StateEnum;
 import burukeyou.article.entity.pojo.AmsArticle;
 import burukeyou.article.entity.vo.ArticleDetailVo;
 import burukeyou.article.entity.vo.ArticleListlVo;
@@ -14,11 +15,13 @@ import burukeyou.common.core.entity.annotation.EnableParamValid;
 import burukeyou.common.core.entity.enums.CollectionsTypeEnum;
 import burukeyou.common.core.entity.enums.LikeParentTypeEnums;
 import burukeyou.common.core.entity.vo.ResultVo;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.constraints.NotBlank;
 import java.util.*;
 import java.util.stream.Collectors;
 

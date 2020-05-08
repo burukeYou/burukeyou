@@ -61,7 +61,7 @@ public class CustomResourceServerConfig extends ResourceServerConfigurerAdapter 
         // 放行 swagger ui
         http.authorizeRequests().antMatchers("/v2/api-docs", "/swagger-resources/configuration/ui",
                 "/swagger-resources","/swagger-resources/configuration/security",
-                "/swagger-ui.html","/course/coursebase/**","/webjars/**","/api/**/v2/api-docs").permitAll();
+                "/swagger-ui.html","/course/coursebase/**","/webjars/**","/api/v1/**/v2/api-docs").permitAll();
 
         if (authClientProperties.getIgnoreUrls() != null){
             for(String url: authClientProperties.getIgnoreUrls()){

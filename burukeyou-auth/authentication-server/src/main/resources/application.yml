@@ -23,3 +23,26 @@ mybatis-plus:
   mapper-locations: classpath:/mybatis/mapper/*.xml
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl    #打印sql语句
+
+custom:
+  ouath2:
+    client:
+      ignore-urls:
+        - /admin/login
+        - /actuator/**
+        - /**
+      resource-id: burukeyou-admin
+      signing-key: 909090
+
+  audit-log:
+    enabled: true
+    logLocation: db
+
+  swagger2:
+    basePackage: burukeyou.auth.authenticationServer.controller
+
+
+
+
+
+

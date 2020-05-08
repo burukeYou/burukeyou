@@ -57,7 +57,7 @@
         from ams_article a
         <where>
             <if test="dto.title != null and dto.title != ''">
-                 and   a.title = #{dto.title}
+                 and   a.title like CONCAT('%',#{dto.title},'%')
             </if>
             <if test="dto.state != null and dto.state != ''">
                 and a.state = #{dto.state}

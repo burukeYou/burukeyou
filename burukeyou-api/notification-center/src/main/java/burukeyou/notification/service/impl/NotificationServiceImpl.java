@@ -11,6 +11,7 @@ import burukeyou.notification.mapper.NotificationMapper;
 import burukeyou.notification.service.NotificationHistoryService;
 import burukeyou.notification.service.NotificationService;
 import com.alibaba.fastjson.JSONObject;
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -40,9 +41,14 @@ public class NotificationServiceImpl extends ServiceImpl<NotificationMapper, Sys
 
     @Override
     public Page<NotificationVo> getNotificationPage(String type,int page,int size) {
-        Page<SysNotification> notificationPage = super.page(new Page<>(page,size), new QueryWrapper<SysNotification>()
-                                                .lambda().eq(SysNotification::getAcceptId, AuthUtils.ID())
-                                                .eq(SysNotification::getType, type));
+        LambdaQueryWrapper<SysNotification> eq;
+        if (NotificationTypeEnum.SYSTEM.VALUE().equals(type)){
+             eq = new QueryWrapper<SysNotification>().lambda().eq(SysNotification::getType, type);
+        }else {
+            eq = new QueryWrapper<SysNotification>().lambda().eq(SysNotification::getAcceptId, AuthUtils.ID()).eq(SysNotification::getType, type);
+        }
+
+        Page<SysNotification> notificationPage = super.page(new Page<>(page,size),eq);
 
         List<NotificationVo> voList = notificationPage.getRecords().stream().map(e -> {
             NotificationVo vo = new NotificationVo();
@@ -59,6 +65,7 @@ public class NotificationServiceImpl extends ServiceImpl<NotificationMapper, Sys
         voPage.setPages(notificationPage.getPages());
         return voPage;
     }
+
 
     @Override
     public boolean readNotification(String id) {
