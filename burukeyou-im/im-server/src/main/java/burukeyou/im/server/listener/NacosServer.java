@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 
 import java.net.InetAddress;
 
+/*
 @Component
 public class NacosServer implements ApplicationListener<ApplicationStartedEvent> {
 
@@ -24,3 +25,4 @@ public class NacosServer implements ApplicationListener<ApplicationStartedEvent>
         }
     }
 }
+*/

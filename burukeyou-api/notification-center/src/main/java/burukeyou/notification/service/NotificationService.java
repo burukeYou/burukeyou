@@ -16,13 +16,12 @@ public interface NotificationService {
 
     /**
      *    分页获取用户通知
-     * @param acceptId
      * @param type
      * @param page
      * @param size
      * @return
      */
-    Page<NotificationVo> getNotificationPage(String acceptId, String type, int page, int size);
+    Page<NotificationVo> getNotificationPage( String type, int page, int size);
 
     /**
      *      阅读通知s

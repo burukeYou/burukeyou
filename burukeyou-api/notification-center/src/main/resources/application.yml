@@ -41,6 +41,14 @@ spring:
 
 server:
   port: 9065
+# ================================================================================================
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl    #打印sql语句
+
+  mapper-locations: classpath:/mybatis/mapper/*.xml
+
 
 # =======================================Custom=========================================================
 custom:

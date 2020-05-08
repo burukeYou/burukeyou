@@ -1,5 +1,6 @@
 package burukeyou.im.server;
 
+import burukeyou.auth.authClient.util.AuthUtils;
 import burukeyou.im.server.entity.bo.ChatDataContent;
 import burukeyou.im.server.entity.bo.ChatMessage;
 import burukeyou.im.server.entity.bo.UserChanelMap;
@@ -91,7 +92,10 @@ public class IMConnectServer {
                 ChatMessage chatMessage = new ChatMessage();
                 chatMessage.setMsg(message);
                 chatMessage.setAcceptId(receivedId);
-                chatMessage.setSendId("system");
+                chatMessage.setSendId(AuthUtils.ID());
+                chatMessage.setSendAvatar(AuthUtils.AVATAR());
+                chatMessage.setSendNickname(AuthUtils.NICKNAME());
+                chatMessage.setType("text");
                 receiverChannel.writeAndFlush(new TextWebSocketFrame(objectMapper.writeValueAsString(
                         ChatDataContent.builder().chatMessage(chatMessage).build())));
             }else {

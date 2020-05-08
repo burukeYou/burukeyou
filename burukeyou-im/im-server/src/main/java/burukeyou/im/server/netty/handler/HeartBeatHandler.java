@@ -30,7 +30,7 @@ public class HeartBeatHandler extends ChannelInboundHandlerAdapter {
                 System.out.println("write idle");
             }else if(event.state() == IdleState.ALL_IDLE){
                 Channel currentChannel = ctx.channel();
-                currentChannel.close();  //关闭无用channel
+               // currentChannel.close();  //关闭无用channel
                 System.out.println("read write idle.....");
 
             }

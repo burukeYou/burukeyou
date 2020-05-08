@@ -1519,128 +1519,125 @@ parent_type</ColNames>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="356" parent="262" name="id">
+    <column id="356" parent="262" name="user_id">
       <Position>1</Position>
-      <DataType>varchar(20)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="357" parent="262" name="user_id">
-      <Position>2</Position>
       <Comment>所属用户id</Comment>
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="358" parent="262" name="parent_id">
-      <Position>3</Position>
+    <column id="357" parent="262" name="parent_id">
+      <Position>2</Position>
       <Comment>点赞所属实体的id</Comment>
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="359" parent="262" name="parent_type">
-      <Position>4</Position>
+    <column id="358" parent="262" name="parent_type">
+      <Position>3</Position>
       <Comment>点赞所属实体的类型</Comment>
       <DataType>varchar(30)|0s</DataType>
+      <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="360" parent="262" name="PRIMARY">
+    <key id="359" parent="262" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
-      <ColNames>id</ColNames>
+      <ColNames>user_id
+parent_id
+parent_type</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="361" parent="263" name="id">
+    <column id="360" parent="263" name="id">
       <Position>1</Position>
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="362" parent="263" name="user_id">
+    <column id="361" parent="263" name="user_id">
       <Position>2</Position>
       <Comment>短视频所属的用户id</Comment>
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="363" parent="263" name="user_nickname">
+    <column id="362" parent="263" name="user_nickname">
       <Position>3</Position>
       <Comment>短视频所属的用户昵称</Comment>
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="364" parent="263" name="user_avatar">
+    <column id="363" parent="263" name="user_avatar">
       <Position>4</Position>
       <Comment>短视频所属的用户头像</Comment>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="365" parent="263" name="image">
+    <column id="364" parent="263" name="image">
       <Position>5</Position>
       <Comment>短视频封面</Comment>
       <DataType>varchar(100)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8_general_ci</Collation>
     </column>
-    <column id="366" parent="263" name="description">
+    <column id="365" parent="263" name="description">
       <Position>6</Position>
       <Comment>短视频描述</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="367" parent="263" name="url">
+    <column id="366" parent="263" name="url">
       <Position>7</Position>
       <Comment>短视频链接地址</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="368" parent="263" name="time_length">
+    <column id="367" parent="263" name="time_length">
       <Position>8</Position>
       <Comment>时长</Comment>
       <DataType>int(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="369" parent="263" name="visits_count">
+    <column id="368" parent="263" name="visits_count">
       <Position>9</Position>
       <Comment>浏览量</Comment>
       <DataType>int(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="370" parent="263" name="thumbup_count">
+    <column id="369" parent="263" name="thumbup_count">
       <Position>10</Position>
       <Comment>点赞数</Comment>
       <DataType>int(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="371" parent="263" name="comment_count">
+    <column id="370" parent="263" name="comment_count">
       <Position>11</Position>
       <Comment>评论数</Comment>
       <DataType>int(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="372" parent="263" name="category_id">
+    <column id="371" parent="263" name="category_id">
       <Position>12</Position>
       <Comment>视频分类id</Comment>
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="373" parent="263" name="category_name">
+    <column id="372" parent="263" name="category_name">
       <Position>13</Position>
       <Comment>视频分类name</Comment>
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="374" parent="263" name="state">
+    <column id="373" parent="263" name="state">
       <Position>14</Position>
       <Comment>审核状态(审核中,已发布,已禁止)</Comment>
       <DataType>tinyint(1)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="375" parent="263" name="created_time">
+    <column id="374" parent="263" name="created_time">
       <Position>15</Position>
       <Comment>创建时间</Comment>
       <DataType>datetime|0s</DataType>
@@ -1648,7 +1645,7 @@ parent_type</ColNames>
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="376" parent="263" name="updated_time">
+    <column id="375" parent="263" name="updated_time">
       <Position>16</Position>
       <Comment>更新时间</Comment>
       <DataType>datetime|0s</DataType>
@@ -1656,265 +1653,265 @@ parent_type</ColNames>
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="377" parent="263" name="created_by">
+    <column id="376" parent="263" name="created_by">
       <Position>17</Position>
       <Comment>创建人</Comment>
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="378" parent="263" name="updated_by">
+    <column id="377" parent="263" name="updated_by">
       <Position>18</Position>
       <Comment>更新人</Comment>
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="379" parent="263" name="PRIMARY">
+    <key id="378" parent="263" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="380" parent="264" name="id">
+    <column id="379" parent="264" name="id">
       <Position>1</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="381" parent="264" name="parent_id">
+    <column id="380" parent="264" name="parent_id">
       <Position>2</Position>
       <Comment>文件所属实体类型</Comment>
       <DataType>varchar(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="382" parent="264" name="path">
+    <column id="381" parent="264" name="path">
       <Position>3</Position>
       <Comment>文件所属实体id</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="383" parent="264" name="parent_type">
+    <column id="382" parent="264" name="parent_type">
       <Position>4</Position>
       <Comment>文件实际存放物理地址</Comment>
       <DataType>tinyint(1)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="384" parent="264" name="fk_file_blog">
+    <index id="383" parent="264" name="fk_file_blog">
       <ColNames>parent_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="385" parent="264" name="PRIMARY">
+    <key id="384" parent="264" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="386" parent="265" name="id">
+    <column id="385" parent="265" name="id">
       <Position>1</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="387" parent="265" name="type">
+    <column id="386" parent="265" name="type">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="388" parent="265" name="send_user_id">
+    <column id="387" parent="265" name="send_user_id">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="389" parent="265" name="send_user_nickname">
+    <column id="388" parent="265" name="send_user_nickname">
       <Position>4</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="390" parent="265" name="send_user_avatar">
+    <column id="389" parent="265" name="send_user_avatar">
       <Position>5</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="391" parent="265" name="accept_user_id">
+    <column id="390" parent="265" name="accept_user_id">
       <Position>6</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="392" parent="265" name="msg">
+    <column id="391" parent="265" name="msg">
       <Position>7</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="393" parent="265" name="msg_type">
+    <column id="392" parent="265" name="msg_type">
       <Position>8</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="394" parent="265" name="url">
+    <column id="393" parent="265" name="url">
       <Position>9</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="395" parent="265" name="sign_flag">
+    <column id="394" parent="265" name="sign_flag">
       <Position>10</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="396" parent="265" name="create_time">
+    <column id="395" parent="265" name="create_time">
       <Position>11</Position>
       <DataType>date|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="397" parent="265" name="PRIMARY">
+    <key id="396" parent="265" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="398" parent="266" name="id">
+    <column id="397" parent="266" name="id">
       <Position>1</Position>
       <DataType>varchar(64)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8_general_ci</Collation>
     </column>
-    <column id="399" parent="266" name="user_id">
+    <column id="398" parent="266" name="user_id">
       <Position>2</Position>
       <Comment>我的id</Comment>
       <DataType>varchar(64)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8_general_ci</Collation>
     </column>
-    <column id="400" parent="266" name="friend_id">
+    <column id="399" parent="266" name="friend_id">
       <Position>3</Position>
       <Comment>朋友id</Comment>
       <DataType>varchar(64)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8_general_ci</Collation>
     </column>
-    <column id="401" parent="266" name="friend_nickname">
+    <column id="400" parent="266" name="friend_nickname">
       <Position>4</Position>
       <Comment>朋友昵称</Comment>
       <DataType>varchar(64)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8_general_ci</Collation>
     </column>
-    <column id="402" parent="266" name="friend_avatar">
+    <column id="401" parent="266" name="friend_avatar">
       <Position>5</Position>
       <Comment>朋友头像</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8_general_ci</Collation>
     </column>
-    <column id="403" parent="266" name="first_letter">
+    <column id="402" parent="266" name="first_letter">
       <Position>6</Position>
       <Comment>朋友昵称首字母</Comment>
       <DataType>char(2)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="404" parent="266" name="status">
+    <column id="403" parent="266" name="status">
       <Position>7</Position>
       <Comment>好友状态</Comment>
       <DataType>tinyint(1)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="405" parent="266" name="create_time">
+    <column id="404" parent="266" name="create_time">
       <Position>8</Position>
       <Comment>好友关系确立时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="406" parent="266" name="PRIMARY">
+    <key id="405" parent="266" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="407" parent="267" name="id">
+    <column id="406" parent="267" name="id">
       <Position>1</Position>
       <DataType>varchar(64)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8_general_ci</Collation>
     </column>
-    <column id="408" parent="267" name="send_user_id">
+    <column id="407" parent="267" name="send_user_id">
       <Position>2</Position>
       <DataType>varchar(64)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8_general_ci</Collation>
     </column>
-    <column id="409" parent="267" name="send_user_nickname">
+    <column id="408" parent="267" name="send_user_nickname">
       <Position>3</Position>
       <DataType>varchar(64)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8_general_ci</Collation>
     </column>
-    <column id="410" parent="267" name="send_user_avatar">
+    <column id="409" parent="267" name="send_user_avatar">
       <Position>4</Position>
       <DataType>varchar(300)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8_general_ci</Collation>
     </column>
-    <column id="411" parent="267" name="accept_user_id">
+    <column id="410" parent="267" name="accept_user_id">
       <Position>5</Position>
       <DataType>varchar(64)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8_general_ci</Collation>
     </column>
-    <column id="412" parent="267" name="msg">
+    <column id="411" parent="267" name="msg">
       <Position>6</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8_general_ci</Collation>
     </column>
-    <column id="413" parent="267" name="status">
+    <column id="412" parent="267" name="status">
       <Position>7</Position>
       <Comment>好友请求状态</Comment>
       <DataType>tinyint(1)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="414" parent="267" name="create_time">
+    <column id="413" parent="267" name="create_time">
       <Position>8</Position>
       <Comment>请求创建时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="415" parent="267" name="PRIMARY">
+    <key id="414" parent="267" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="416" parent="268" name="id">
+    <column id="415" parent="268" name="id">
       <Position>1</Position>
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="417" parent="268" name="name">
+    <column id="416" parent="268" name="name">
       <Position>2</Position>
       <Comment>群聊名字</Comment>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="418" parent="268" name="image">
+    <column id="417" parent="268" name="image">
       <Position>3</Position>
       <Comment>群聊头像</Comment>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="419" parent="268" name="count">
+    <column id="418" parent="268" name="count">
       <Position>4</Position>
       <Comment>群聊人数</Comment>
       <DataType>int(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="420" parent="268" name="member">
+    <column id="419" parent="268" name="member">
       <Position>5</Position>
       <Comment>群聊成员</Comment>
       <DataType>varchar(1000)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="421" parent="268" name="created_time">
+    <column id="420" parent="268" name="created_time">
       <Position>6</Position>
       <Comment>创建时间</Comment>
       <DataType>datetime|0s</DataType>
@@ -1922,7 +1919,7 @@ parent_type</ColNames>
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="422" parent="268" name="updated_time">
+    <column id="421" parent="268" name="updated_time">
       <Position>7</Position>
       <Comment>更新时间</Comment>
       <DataType>datetime|0s</DataType>
@@ -1930,72 +1927,78 @@ parent_type</ColNames>
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="423" parent="268" name="created_by">
+    <column id="422" parent="268" name="created_by">
       <Position>8</Position>
       <Comment>创建人</Comment>
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="424" parent="268" name="updated_by">
+    <column id="423" parent="268" name="updated_by">
       <Position>9</Position>
       <Comment>更新人</Comment>
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="425" parent="268" name="PRIMARY">
+    <key id="424" parent="268" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="426" parent="269" name="id">
+    <column id="425" parent="269" name="id">
       <Position>1</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="427" parent="269" name="content">
+    <column id="426" parent="269" name="content">
       <Position>2</Position>
       <Comment>消息体, json格式化</Comment>
       <DataType>text|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="428" parent="269" name="exchange">
+    <column id="427" parent="269" name="exchange">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="429" parent="269" name="routekey">
+    <column id="428" parent="269" name="routekey">
       <Position>4</Position>
       <DataType>varchar(255)|0s</DataType>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="430" parent="269" name="status">
+    <column id="429" parent="269" name="status">
       <Position>5</Position>
       <Comment>状态: 0投递中 1投递成功 2投递失败 3已消费</Comment>
       <DataType>int(11)|0s</DataType>
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="431" parent="269" name="retry_count">
+    <column id="430" parent="269" name="retry_count">
       <Position>6</Position>
       <Comment>重试次数</Comment>
       <DataType>int(11)|0s</DataType>
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="432" parent="269" name="create_time">
+    <column id="431" parent="269" name="next_try_time">
       <Position>7</Position>
+      <Comment>下一次重试时间</Comment>
+      <DataType>datetime|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="432" parent="269" name="created_time">
+      <Position>8</Position>
       <Comment>创建时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="433" parent="269" name="update_time">
-      <Position>8</Position>
+    <column id="433" parent="269" name="updated_time">
+      <Position>9</Position>
       <Comment>更新时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
@@ -2388,14 +2391,14 @@ parent_type</ColNames>
     <column id="494" parent="277" name="article_id">
       <Position>1</Position>
       <Comment>文章id</Comment>
-      <DataType>varchar(20)|0s</DataType>
+      <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="495" parent="277" name="label_id">
       <Position>2</Position>
       <Comment>标签id</Comment>
-      <DataType>varchar(20)|0s</DataType>
+      <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
@@ -2468,7 +2471,6 @@ label_id</ColNames>
       <Position>3</Position>
       <Comment>消息接收者id--(#000,代表所有用户,否则代表具体用户)</Comment>
       <DataType>varchar(20)|0s</DataType>
-      <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="509" parent="279" name="created_time">
@@ -2484,7 +2486,7 @@ label_id</ColNames>
       <DataType>varchar(10)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="511" parent="279" name="satus">
+    <column id="511" parent="279" name="status">
       <Position>6</Position>
       <Comment>消息状态</Comment>
       <DataType>tinyint(1)|0s</DataType>

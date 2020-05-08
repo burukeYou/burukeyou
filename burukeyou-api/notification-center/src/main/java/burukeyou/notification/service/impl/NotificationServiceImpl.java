@@ -39,12 +39,9 @@ public class NotificationServiceImpl extends ServiceImpl<NotificationMapper, Sys
     }
 
     @Override
-    public Page<NotificationVo> getNotificationPage(String acceptId, String type,int page,int size) {
-        if (!acceptId.equals(AuthUtils.ID()))
-            return null;
-
+    public Page<NotificationVo> getNotificationPage(String type,int page,int size) {
         Page<SysNotification> notificationPage = super.page(new Page<>(page,size), new QueryWrapper<SysNotification>()
-                                                .lambda().eq(SysNotification::getAcceptId, acceptId)
+                                                .lambda().eq(SysNotification::getAcceptId, AuthUtils.ID())
                                                 .eq(SysNotification::getType, type));
 
         List<NotificationVo> voList = notificationPage.getRecords().stream().map(e -> {

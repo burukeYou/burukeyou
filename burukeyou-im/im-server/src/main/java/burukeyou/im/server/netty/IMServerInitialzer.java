@@ -44,8 +44,8 @@ public class IMServerInitialzer extends ChannelInitializer<SocketChannel> {
         pipeline.addLast(new CustomMessageHandler());
 
         //2-
-        pipeline.addLast(new IdleStateHandler(2,4,14));
-       // pipeline.addLast(new HeartBeatHandler());
+        pipeline.addLast(new IdleStateHandler(20,40,140));
+        pipeline.addLast(new HeartBeatHandler());
 
     }
 }

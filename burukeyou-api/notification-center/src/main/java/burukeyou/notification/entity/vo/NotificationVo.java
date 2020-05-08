@@ -2,6 +2,7 @@ package burukeyou.notification.entity.vo;
 
 
 import burukeyou.common.rabbitmq.entity.bo.NotificationContent;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -25,6 +26,7 @@ public class NotificationVo implements Serializable {
 
 	private String acceptId;
 
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm",timezone = "GMT+8")
 	private LocalDateTime createdTime;
 
 }

@@ -15,7 +15,6 @@ public class MessageControler {
     // 下推消息
     @PostMapping("/sendMsg")
     public String sendMessage(String receivedId,String message){
-
         try {
             imConnectServer.sendMsg(receivedId,message);
             return "推送成功";

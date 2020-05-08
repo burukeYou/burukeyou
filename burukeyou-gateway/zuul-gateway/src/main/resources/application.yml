@@ -53,6 +53,10 @@ zuul:
       url: comment-center-server
     friend:
       url: im-api-server
+    msgPush:
+      url: im-server
+    notification:
+      url: notification-center-server
 
   #  默认敏感请求头比如Authorthtion是不会下发的，这里设置为空，就是所有请求头都向下转发
   sensitive-headers:

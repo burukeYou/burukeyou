@@ -1,7 +1,9 @@
 package burukeyou.notification.controller;
 
 import burukeyou.common.core.entity.vo.ResultVo;
+import burukeyou.notification.entity.vo.NotificationVo;
 import burukeyou.notification.service.NotificationService;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -33,8 +35,8 @@ public class NotificationController {
 
     @GetMapping("/page")
     @ApiOperation("根据通知类型获取通知")
-    public ResultVo getNotificationPage(String acceptId,String type,int page,int size){
-        return ResultVo.success(notificationService.getNotificationPage(acceptId,type,page,size));
+    public ResultVo<Page<NotificationVo>> getNotificationPage(String type, int page, int size){
+        return ResultVo.success(notificationService.getNotificationPage(type,page,size));
     }
 
     @PostMapping("/read/{id}")

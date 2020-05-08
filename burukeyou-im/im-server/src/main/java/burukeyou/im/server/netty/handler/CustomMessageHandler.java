@@ -1,8 +1,10 @@
 package burukeyou.im.server.netty.handler;
 
+import burukeyou.auth.authClient.util.AuthUtils;
 import burukeyou.im.server.entity.bo.ChatDataContent;
 import burukeyou.im.server.entity.bo.ChatMessage;
 import burukeyou.im.server.entity.bo.UserChanelMap;
+import burukeyou.im.server.entity.enums.MsgActionEnum;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.Channel;
@@ -12,11 +14,15 @@ import io.netty.channel.group.ChannelGroup;
 import io.netty.channel.group.DefaultChannelGroup;
 import io.netty.handler.codec.http.websocketx.TextWebSocketFrame;
 import io.netty.util.concurrent.GlobalEventExecutor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 
-/**
- *      这里对象无法被注入
- *
+import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
+
+/***
  *
  *      一般设计是在责任链pipline中每一个handler节点通过判断此传递对象是否是自己需要处理的对象，是就处理否则继续往下传递
  *
@@ -44,14 +50,13 @@ import org.springframework.beans.factory.annotation.Value;
  *
  *
  */
+@Slf4j
 public class CustomMessageHandler extends SimpleChannelInboundHandler<TextWebSocketFrame> {
 
     private ObjectMapper objectMapper = new ObjectMapper();
 
-
     @Value("${custom.im.port}")
     private int port;
-
 
     //保存所有当前连接到服务器的客户端通道（类似在线用户）
     public static ChannelGroup clientGroup = new DefaultChannelGroup(GlobalEventExecutor.INSTANCE);
@@ -63,15 +68,19 @@ public class CustomMessageHandler extends SimpleChannelInboundHandler<TextWebSoc
         Channel currentChannel = ctx.channel();
         String text = twsf.text();
         ByteBuf content = twsf.content();
-        ChatDataContent chatDataContent = objectMapper.readValue(text, ChatDataContent.class);
+        ChatDataContent chatDataContent = null;
+        try {
+            chatDataContent = objectMapper.readValue(text, ChatDataContent.class);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
-
-        // 下发消息
-        if (chatDataContent.getAction() == 1){
+        // 下发消息 todo SOA
+        if (chatDataContent.getAction().equals(MsgActionEnum.CONNECT.getAction())){
             //2.1当 websocket第一次open的时候,初始化 channe,把用的 channe]和 userid关联起来
             String senderId = chatDataContent.getChatMessage().getSendId();
             UserChanelMap.put(senderId,currentChannel); //将消息发送者id和chanel绑定
-        }else if(chatDataContent.getAction() == 2){
+        }else if(chatDataContent.getAction().equals(MsgActionEnum.MSG.getAction())){
             ChatMessage chatMessage = chatDataContent.getChatMessage();
             Channel receiverChannel = UserChanelMap.getChanleById(chatMessage.getAcceptId());  //获得消息接受者的chanel
             if (receiverChannel == null){
@@ -85,9 +94,7 @@ public class CustomMessageHandler extends SimpleChannelInboundHandler<TextWebSoc
                     //  用户离线,推送消息
                 }
             }
-        }else if (chatDataContent.getAction() == 3){
-
-        }else if (chatDataContent.getAction() == 4){
+        }else if (chatDataContent.getAction().equals(MsgActionEnum.HEART.getAction())){
             System.out.println("收到来自channel为[" + currentChannel + "]的心跳包...");
         }
 
@@ -100,15 +107,22 @@ public class CustomMessageHandler extends SimpleChannelInboundHandler<TextWebSoc
     //客户端连接服务器时触发
     @Override
     public void handlerAdded(ChannelHandlerContext ctx) throws Exception {
+       /* HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+        String userId = request.getParameter("userId");
+        if (userId == null){
+            log.error("当前用户未登陆，拒绝连接!!");
+            return;
+        }*/
+
         Channel currentChanle = ctx.channel();
         System.out.println("客户端连接:"+currentChanle.remoteAddress()+"----"
                 +currentChanle.id()+"-----"+currentChanle.localAddress());
 
         System.out.println("当前端口为："+port);
-        clientGroup.add(currentChanle);
+        clientGroup.add( ctx.channel());
 
         // 将当前用户绑定到该客户端通道
-        UserChanelMap.put("102",currentChanle);
+       // UserChanelMap.put(AuthUtils.ID(),currentChanle);
 
     }
 

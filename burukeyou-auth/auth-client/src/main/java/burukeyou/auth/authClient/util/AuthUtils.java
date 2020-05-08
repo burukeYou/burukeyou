@@ -19,7 +19,7 @@ public class AuthUtils {
      */
     public static CurrentUserInfo getCurrentUser(){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        return  authentication instanceof AnonymousAuthenticationToken ? null: (CurrentUserInfo)authentication.getPrincipal();
+        return  (authentication instanceof AnonymousAuthenticationToken || authentication == null) ? null: (CurrentUserInfo)authentication.getPrincipal();
     }
 
     /**
