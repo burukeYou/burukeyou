@@ -41,4 +41,10 @@ public interface UmsFocusService extends IService<UmsFocus> {
      * @return
      */
     Page<String> getUserFocusTargetPage(String userId, String targetType, int page, int size);
+
+    /**
+     *  获得关注的用户id列表
+     * @return
+     */
+    List<String> getFocusUserId();
 }

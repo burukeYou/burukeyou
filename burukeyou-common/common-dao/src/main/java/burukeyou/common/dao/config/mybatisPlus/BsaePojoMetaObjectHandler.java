@@ -17,9 +17,6 @@ public abstract class BsaePojoMetaObjectHandler implements MetaObjectHandler {
     public void insertFill(MetaObject metaObject) {
         this.strictInsertFill(metaObject, "createdTime", Date.class, Date.from(ZonedDateTime.now().toInstant())); // 起始版本 3.3.0(推荐使用)
         this.strictInsertFill(metaObject, "createdBy",  String.class,  getCurrentUsername()); // 起始版本 3.3.0(推荐使用)
-
-
-        this.strictInsertFill(metaObject, "createdTime", LocalDateTime.class, LocalDateTime.from(ZonedDateTime.now().toInstant())); // 起始版本 3.3.0(推荐使用)
     }
 
     // call when update fill

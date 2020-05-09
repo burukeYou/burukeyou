@@ -1,8 +1,9 @@
 package burukeyou.user.service;
 
 import burukeyou.user.entity.pojo.UmsUser;
+import com.baomidou.mybatisplus.extension.service.IService;
 
-public interface UmsUserService {
+public interface UmsUserService extends IService<UmsUser> {
     /**
      *      save or update user info
      * @param umsUser

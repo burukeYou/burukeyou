@@ -29,7 +29,7 @@ public class LikeStatusTask {
     /**
      *   同步点赞数据到DB
      */
-    @Scheduled(cron = "30 * * * * ?" )
+    @Scheduled(cron = "10 * * * * ?" )
     @Transactional(propagation = Propagation.REQUIRED,rollbackFor = Exception.class)
     public void synLikeDataToDB(){
         //
@@ -38,10 +38,13 @@ public class LikeStatusTask {
                     .eq(AmsLike::getParentId, e.getParentId())
                     .eq(AmsLike::getParentType, e.getParentType());
             if (e.isLike()){
+                // 点赞
                 if (likeService.count(wrapper) <= 0){
                     likeService.save(e);
+                    log.info("从redis同步点赞数据到数据库: {}",e.toString());
                 }
             }else {
+                //取消点赞
                 likeService.remove(wrapper);
             }
         }

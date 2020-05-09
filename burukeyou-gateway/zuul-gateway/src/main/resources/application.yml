@@ -68,8 +68,8 @@ zuul:
 
 #=========================
 ribbon:
-  ReadTimeout: 120000  # 单位毫秒数
-  SocketTimeout: 120000
+  ReadTimeout: 420000  # 单位毫秒数
+  SocketTimeout: 420000
 
 
 hystrix:

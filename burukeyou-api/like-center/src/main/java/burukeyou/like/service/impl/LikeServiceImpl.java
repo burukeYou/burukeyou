@@ -44,11 +44,10 @@ public class LikeServiceImpl extends ServiceImpl<LikeMapper, AmsLike> implements
 
     @Override
     public void postLike(String parentId, String parentType,boolean isLike) {
-        //mqService.postLike(new AmsLike(AuthUtils.ID(),parentId,parentType));
         if (isLike)
-            mqService.postLike(new LikeMsg(atomicInteger.getAndIncrement()+"",parentId,parentType,true));
+            mqService.postLike(new LikeMsg(AuthUtils.ID(),parentId,parentType,true));
         else
-            mqService.postLike(new LikeMsg(atomicInteger.getAndIncrement()+"",parentId,parentType,false));
+            mqService.postLike(new LikeMsg(AuthUtils.ID(),parentId,parentType,false));
     }
 
 }

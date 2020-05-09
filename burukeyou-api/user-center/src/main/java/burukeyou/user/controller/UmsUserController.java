@@ -19,6 +19,7 @@ import org.springframework.web.client.RestTemplate;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /** 普通用户注册登陆管理
  *
@@ -101,5 +102,12 @@ public class UmsUserController {
         return ResultVo.success(new UserSearchVo().convertFrom(umsUserService.getByUniqueId(uniqueId))) ;
     }
 
-
+    @GetMapping("/idlist")
+    public ResultVo<List<UserSearchVo>> getMiniUserByIdList(@RequestParam("idList") List<String> idList){
+        List<UserSearchVo> userSearchVoList = umsUserService.listByIds(idList).stream().map(e -> {
+            UserSearchVo vo = new UserSearchVo().convertFrom(e);
+            return vo;
+        }).collect(Collectors.toList());
+        return ResultVo.success(userSearchVoList);
+    }
 }

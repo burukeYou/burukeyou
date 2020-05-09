@@ -83,9 +83,15 @@ public class UmsFocusServiceImpl extends ServiceImpl<UmsFocusMapper, UmsFocus> i
         return targetIdPage;
     }
 
+    @Override
+    public List<String> getFocusUserId() {
+        List<UmsFocus> list = super.list(new QueryWrapper<UmsFocus>().lambda().eq(UmsFocus::getUserId, AuthUtils.ID()).eq(UmsFocus::getTargetType, FocusTargetEnums.USER.VALUE()));
+        return list.stream().map(e->e.getTargetId()).collect(Collectors.toList());
+    }
+
 
     // [秒] [分] [小时] [日] [月] [周] [年]
-    @Scheduled(cron = "30 * * * * ?" )
+    @Scheduled(cron = "5 * * * * ?" )
     @Transactional(propagation = Propagation.REQUIRED,rollbackFor = Exception.class)
     public void synFocusDataToDB(){
         redisFocusService.focusStatusDataSyncToDB();
