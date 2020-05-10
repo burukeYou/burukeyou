@@ -55,6 +55,6 @@
 
 
 ## 业务对接的客户端UI地址
-*	[uniapp小程序](https://github.com/burukeYou/burukeyou-mobile/tree/de)
+*	[uniapp小程序](https://github.com/burukeYou/burukeyou-mobile/tree/dev)
 *	[PC端后台管理](https://github.com/burukeYou/burukeyou-admin/tree/master/burukeyou-admin)
 
