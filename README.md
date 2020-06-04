@@ -13,7 +13,7 @@
 |              **Netty** 4.1              |      网络通信框架      |           [跳转](https://netty.io/wiki/index.html)           |
 |                **Mysql**                |       sql数据库        | [跳转](https://docs.spring.io/spring-data/jpa/docs/2.2.4.RELEASE/reference/html/#preface) |
 |               **MongoDB**               |      NoSql数据库       | [跳转](https://docs.spring.io/spring-data/mongodb/docs/2.2.4.RELEASE/reference/html/#preface) |
-|              **Canal**               |      数据收集引擎      | [跳转](https://github.com/alibaba/canal/wiki) |
+|              **Canal**               |      增量同步      | [跳转](https://github.com/alibaba/canal/wiki) |
 |         **Springfox Swagger2**          |        API文档         | [跳转](https://springfox.github.io/springfox/docs/current/#springfox-swagger-ui) |
 |                 **OSS**                 |        对象存储        |  [跳转](https://help.aliyun.com/document_detail/31827.html)  |
 
