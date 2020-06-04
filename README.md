@@ -42,8 +42,8 @@
 * burukeyou-common 通用工具依赖
 * burukeyou-gateway 网关服务
 * burukeyou-im
-	*  好友服务
-	* 消息推送服务
+	* im-api   好友服务
+	* im-server  消息推送服务
 * burukeyou-monitor 监控服务
 * burukeyou-search
 	* 	 search-adapter 数据库同步ES服务(Canal)
