@@ -46,8 +46,8 @@
 	* im-server  消息推送服务
 * burukeyou-monitor 监控服务
 * burukeyou-search
-	* 	 search-adapter 数据库同步ES服务(Canal)
-	*   search-admin   ES管理服务
+	* 	 search-adapter 基于Canal实现数据库同步ES服务(开发中)
+	*   search-admin   ES管理服务(开发中)
 	*  search-server  搜索服务
 
 
