@@ -13,7 +13,7 @@
 |              **Netty** 4.1              |      网络通信框架      |           [跳转](https://netty.io/wiki/index.html)           |
 |                **Mysql**                |       sql数据库        | [跳转](https://docs.spring.io/spring-data/jpa/docs/2.2.4.RELEASE/reference/html/#preface) |
 |               **MongoDB**               |      NoSql数据库       | [跳转](https://docs.spring.io/spring-data/mongodb/docs/2.2.4.RELEASE/reference/html/#preface) |
-|              **Canal**               |      数据收集引擎      | [跳转](https://github.com/alibaba/canal/wiki) |
+|              **Canal**               |      增量同步      | [跳转](https://github.com/alibaba/canal/wiki) |
 |         **Springfox Swagger2**          |        API文档         | [跳转](https://springfox.github.io/springfox/docs/current/#springfox-swagger-ui) |
 |                 **OSS**                 |        对象存储        |  [跳转](https://help.aliyun.com/document_detail/31827.html)  |
 
@@ -42,12 +42,12 @@
 * burukeyou-common 通用工具依赖
 * burukeyou-gateway 网关服务
 * burukeyou-im
-	*  好友服务
-	* 消息推送服务
+	* im-api   好友服务
+	* im-server  消息推送服务
 * burukeyou-monitor 监控服务
 * burukeyou-search
-	* 	 search-adapter 数据库同步ES服务(Canal)
-	*   search-admin   ES管理服务
+	* 	 search-adapter 基于Canal实现数据库同步ES服务(开发中)
+	*   search-admin   ES管理服务(开发中)
 	*  search-server  搜索服务
 
 
@@ -55,6 +55,6 @@
 
 
 ## 业务对接的客户端UI地址
-*	[uniapp小程序](https://github.com/burukeYou/burukeyou-mobile/tree/de)
+*	[uniapp小程序](https://github.com/burukeYou/burukeyou-mobile/tree/dev)
 *	[PC端后台管理](https://github.com/burukeYou/burukeyou-admin/tree/master/burukeyou-admin)
 
