@@ -1,0 +1,136 @@
+//==================================文章索引相关DSL=============================================
+DELETE article
+GET /article/_mapping/_doc
+GET article
+PUT article/_mapping/_doc
+{
+  "properties": {
+    "id":{
+      "type":"string"
+    },
+
+    "title":{
+      "type": "text"
+    },
+
+    "description":{
+      "type": "text"
+    },
+
+    "content":{
+      "type": "text",
+      "fields": {
+        "keyword": {
+          "ignore_above": 256,
+          "type": "keyword"
+        }
+      }
+    },
+
+    "html_content":{
+      "type": "text",
+      "fields": {
+        "keyword": {
+          "ignore_above": 256,
+          "type": "keyword"
+        }
+      }
+    },
+
+    "visits_count":{
+      "type":"long"
+    },
+    "thumbup_count":{
+      "type":"long"
+    },
+
+    "comment_count":{
+      "type":"long"
+    },
+    "created_time":{
+      "type":"date",
+      "format":"yyyy-MM-dd HH:mm:ss"
+    }
+  }
+}
+
+//==================================用户索引相关DSL=============================================
+GET /user/_search
+{
+  "query": {
+    "match_all": {}
+  }
+}
+GET /user/_mapping/_doc
+DELETE user
+PUT user
+GET user
+PUT user/_mapping/_doc
+{
+  "properties": {
+    "id":{
+      "type":"string"
+    },
+    "nickname":{
+      "type":"text"
+    },
+    "description":{
+      "type":"text"
+    },
+     "fans_count":{
+      "type":"long"
+    },
+     "follow_count":{
+      "type":"long"
+    },
+    "avatar":{
+       "type":"keyword",
+       "index":"false",
+       "doc_values": false
+    }
+  }
+}
+//==================================标签索引相关DSL=============================================
+GET /label/_search
+{
+    "query": { "match_all": {} }
+}
+
+GET /label/_search
+{
+    "query": {
+      "match": {"name":"js"}
+
+    }
+}
+DELETE label
+GET /label/_mapping/_doc
+GET label
+PUT label
+PUT label/_mapping/_doc
+{
+  "properties": {
+    "id":{
+      "type":"string"
+    },
+    "name":{
+      "type":"text"
+    },
+     "focus_count":{
+      "type":"integer"
+    },
+     "article_count":{
+      "type":"integer"
+    },
+     "created_time":{
+          "type":"date",
+          "format":"yyyy-MM-dd HH:mm:ss"
+      },
+    "avatar":{
+       "type":"text",
+       "index":"false",
+       "doc_values": false
+    }
+  }
+}
+
