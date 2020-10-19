@@ -102,7 +102,7 @@ public class UmsAdminController {
         return ResultVo.success(umsAdminService.getByUniqueId(uniqueId));
     }*/
 
-    //@AuditLog(logInfo = "'新增用户:'+ #umsAdminDto.adminName")
+    @AuditLog(logInfo = "'新增用户:'+ #umsAdminDto.adminName")
     @PostMapping
    // @EnableParamValid
     @ApiOperation("新增或者修改后台用户信息")

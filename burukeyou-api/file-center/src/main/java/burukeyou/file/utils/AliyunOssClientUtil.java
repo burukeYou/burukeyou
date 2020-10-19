@@ -29,13 +29,16 @@ public class AliyunOssClientUtil {
     // private final static LogUtils logger = LogUtils.getLogger(AliyunOssClientUtil.class);
 
     //OSS 的地址
-    private final static String OSS_END_POINT = "http://oss-cn-shenzhen.aliyuncs.com";
+    @Value("custom.file.oss.END_POINT")
+    private static   String OSS_END_POINT = "";
 
     //OSS 的key值
-    private final static String OSS_ACCESS_KEY_ID = "LTAIpb0tEf3Wyp0i";
+    @Value("custom.file.oss.ACCESS_KEY_ID")
+    private  static String OSS_ACCESS_KEY_ID;
 
     //OSS 的secret值
-    private final static String OSS_ACCESS_KEY_SECRET = "7G6n4PViD0F8tnjfnb0uJ04h1fHCY5";
+    @Value("custom.file.oss.ACCESS_KEY_SECRET")
+    private  static String OSS_ACCESS_KEY_SECRET = "";
 
     //OSS 的bucket名字
     @Value("${custom.file.oss.OSS_BUCKET_NAME}")

@@ -40,12 +40,12 @@ public class CommentController {
     @ApiImplicitParam(name = "comentDto",value = "保存评论",required = true,dataType = "ComentDto")
     public ResultVo publishComment(@RequestBody CommentDto commentDto){
         try {
-            //commentService.save(commentDto.converTo());
+            commentService.save(commentDto.converTo());
 
             // todo 所属实体评论量加 1  (redis +  mq)
 
             // 异步下发消息通知
-            buildNotiffication(commentDto);
+            //buildNotiffication(commentDto);
 
             return ResultVo.success();
         } catch (Exception e) {

@@ -1,5 +1,6 @@
 package burukeyou.article;
 
+import burukeyou.article.entity.pojo.AmsArticle;
 import burukeyou.auth.authClient.annotation.EnableAuthClient;
 import burukeyou.common.core.entity.annotation.EnableCustomValidation;
 import org.mybatis.spring.annotation.MapperScan;
